@@ -119,7 +119,7 @@ class Slownie {
      * @param Float $v Input amount.
      * @return Bool
      */
-    private function parse(Float $v) : Bool {
+    private function parse(Float $v = null) : Bool {
         $v = str_replace(" ", "", $v);
         $v = doubleval($v);
         if(is_double($v)) {
@@ -355,8 +355,5 @@ class Slownie {
     }
 
 }
-
-$t = new Slownie(999999999.99, 'usd');
-print_r($t->output());
 
 ?>
