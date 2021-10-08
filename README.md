@@ -1,5 +1,5 @@
 # Slownie
-Class used to transcribe float values into words in Polish language, usefull when word transcription is necessary (amount verification). Supports amounts up to 999.999.999,99, in PLN, USD, EUR.
+Class used to transcribe float values into words in Polish language, usefull when word transcription is necessary (amount verification). Supports amounts up to 999.999.999.999,99, in PLN, USD, EUR.
 
 ## Example
 ```php

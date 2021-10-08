@@ -22,9 +22,9 @@ class Slownie {
                 ]
             ],
             'usd' => [
-                's1' => "dolar",
-                "s2" => "dolary",
-                "s3" => "dolarów",
+                's1' => "dolar amerykański",
+                "s2" => "dolary amerykańskie",
+                "s3" => "dolarów amerykańskich",
                 'rest' => [
                     's1' => "cent",
                     's2' => "centy",
@@ -97,6 +97,11 @@ class Slownie {
                 "s2" => "miliony",
                 "s3" => "milionów",
             ],
+            "b" => [
+                "s1" => "miliard",
+                "s2" => "miliardy",
+                "s3" => "miliardów",
+            ],
         ]
     ];
 
@@ -163,6 +168,13 @@ class Slownie {
     private function relayString() : String {
         $c = count($this->amountFull);
         $full = [];
+        if($c == 4) {
+            // billions
+            $full[] = $this->getBillions($this->amountFull[0]);
+            $full[] = $this->getMillions($this->amountFull[1]);
+            $full[] = $this->getThousands($this->amountFull[2]);
+            $full[] = $this->getHundreds($this->amountFull[3]);
+        }
         if($c == 3) {
             // millions
             $full[] = $this->getMillions($this->amountFull[0]);
@@ -195,6 +207,29 @@ class Slownie {
         ];
 
         return implode(", ", array_filter($whole));
+    }
+
+    /**
+     * Returns millions in words.
+     *
+     * @param String $v Input millions part.
+     * @return String|null
+     */
+    private function getBillions(String $v = null) : String {
+        if(intval($v) > 0) {
+            $w = $this->getHundreds($v);
+            $vmod = $v % 10;
+            if($v == 1) {
+                return $w . " " . $this->dictionary['suffix']['b']['s1'];
+            } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
+                return $w . " " . $this->dictionary['suffix']['b']['s2'];
+            } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
+                return $w . " " . $this->dictionary['suffix']['b']['s3'];
+            } elseif($v == 0) {
+                return "";
+            }
+        }
+        return "";
     }
 
     /**
