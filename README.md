@@ -9,37 +9,37 @@ Class used to transcribe float values into words in Polish language, usefull whe
 ```
 
 ## Supported currencies
-| Code | ISO<br>4217<br>No.  | Currency                                                  |
-|------|---------------------|-----------------------------------------------------------|
-| ALL  | 008                 | Albanian lek                                              |
-| AMD  | 051                 | Armenian dram                                             |
-| AZN  | 944                 | Azerbaijani manat                                         |
-| BAM  | 977                 | Bosnia and Herzegovina convertible mark                   |
-| BGN  | 975                 | Bulgarian lev                                             |
-| BYN  | 933                 | Belarusian ruble                                          |
-| CAD  | 124                 | Canadian dollar                                           |
-| CHF  | 756                 | Swiss franc                                               |
-| CZK  | 203                 | Czech koruna                                              |
-| DKK  | 208                 | Danish krone                                              |
-| EUR  | 978                 | Euro                                                      |
-| GBP  | 826                 | Pound sterling                                            |
-| GEL  | 981                 | Georgian lari                                             |
-| HRK  | 191                 | Croatian kuna                                             |
-| HUF  | 348                 | Hungarian forint                                          |
-| ISK  | 352                 | Icelandic króna                                           |
-| JPY  | 392                 | Yen                                                       |
-| MDL  | 498                 | Moldovan leu                                              |
-| MKD  | 807                 | Macedonian denar                                          |
-| NOK  | 578                 | Norwegian krone                                           |
-| PLN  | 985                 | Polish złoty                                              |
-| RON  | 946                 | Romanian leu                                              |
-| RSD  | 941                 | Serbian dinar                                             |
-| RUB  | 643                 | Russian ruble                                             |
-| SEK  | 752                 | Swedish krona                                             |
-| TRY  | 949                 | Turkish lira                                              |
-| UAH  | 980                 | Ukrainian hryvnia                                         |
-| USD  | 840                 | United States dollar                                      |
-| none | -                   | `(default)` no currency, *does not support decimal point* |
+| Code | ISO 4217 No. | Currency                                                  |
+|------|:------------:|-----------------------------------------------------------|
+| ALL  | 008          | Albanian lek                                              |
+| AMD  | 051          | Armenian dram                                             |
+| AZN  | 944          | Azerbaijani manat                                         |
+| BAM  | 977          | Bosnia and Herzegovina convertible mark                   |
+| BGN  | 975          | Bulgarian lev                                             |
+| BYN  | 933          | Belarusian ruble                                          |
+| CAD  | 124          | Canadian dollar                                           |
+| CHF  | 756          | Swiss franc                                               |
+| CZK  | 203          | Czech koruna                                              |
+| DKK  | 208          | Danish krone                                              |
+| EUR  | 978          | Euro                                                      |
+| GBP  | 826          | Pound sterling                                            |
+| GEL  | 981          | Georgian lari                                             |
+| HRK  | 191          | Croatian kuna                                             |
+| HUF  | 348          | Hungarian forint                                          |
+| ISK  | 352          | Icelandic króna                                           |
+| JPY  | 392          | Yen                                                       |
+| MDL  | 498          | Moldovan leu                                              |
+| MKD  | 807          | Macedonian denar                                          |
+| NOK  | 578          | Norwegian krone                                           |
+| PLN  | 985          | Polish złoty                                              |
+| RON  | 946          | Romanian leu                                              |
+| RSD  | 941          | Serbian dinar                                             |
+| RUB  | 643          | Russian ruble                                             |
+| SEK  | 752          | Swedish krona                                             |
+| TRY  | 949          | Turkish lira                                              |
+| UAH  | 980          | Ukrainian hryvnia                                         |
+| USD  | 840          | United States dollar                                      |
+| none | -            | `(default)` no currency, *does not support decimal point* |
 
 ## TODO
 - [x] fix some lingual issue
