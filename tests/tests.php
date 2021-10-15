@@ -117,12 +117,12 @@
     $pool = [
         [ 1234567.89, 'pln'],
         [ 999999999.99, 'usd'],
-        [ 1000.50, 'eur' ],
+        [ 12.50, 'uah' ],
         [ 5432, 'none' ],
         [ 1000000000, 'usd']
     ];
 
-    $tests = new Slownie();
+    $tests = new tei187\Slownie;
 
     echo "<h1>Slownie : class</h1>";
     echo "<table><thead><tr><th>Float</th><th>In words</th></tr></thead><tbody>";

@@ -1,47 +1,19 @@
 <?php
+namespace tei187;
+require_once("Slownie.currencies.php");
 
 /**
  * Class used to transcribe float value into words in Polish language. Support up to 999.999.999,99.
  * 
  * @author Piotr Bonk <bonk.piotr@gmail.com>
+ * @todo dwa / dwie, jeden / jedna
  */
 class Slownie {
     private $amountFull = [];
     private $amountPart = 0;
     private $currency = "none";
     protected $dictionary = [
-        'currencies' => [
-            'pln' => [
-                's1' => "złoty",
-                's2' => 'złote',
-                's3' => "złotych",
-                'rest' => [
-                    's1' => "grosz",
-                    's2' => "grosze",
-                    's3' => "groszy",
-                ]
-            ],
-            'usd' => [
-                's1' => "dolar amerykański",
-                "s2" => "dolary amerykańskie",
-                "s3" => "dolarów amerykańskich",
-                'rest' => [
-                    's1' => "cent",
-                    's2' => "centy",
-                    's3' => "centów"
-                ]
-            ],
-            'eur' => [
-                's1' => "euro",
-                "s2" => "euro",
-                "s3" => "euro",
-                'rest' => [
-                    's1' => "eurocent",
-                    's2' => "eurocenty",
-                    's3' => "eurocentów"
-                ]
-            ],
-        ],
+        'currencies' => \Slownie\Currencies,
         'numbers' => [
             'oox' => [
                 1 => "jeden",
@@ -84,7 +56,18 @@ class Slownie {
                 700 => 'siedemset',
                 800 => 'osiemset',
                 900 => 'dziewięćset',
-            ]
+            ],
+            'f-oox' => [
+                1 => "jedna",
+                2 => "dwie",
+                3 => "trzy",
+                4 => "cztery",
+                5 => "pięć",
+                6 => "sześć",
+                7 => "siedem",
+                8 => "osiem",
+                9 => "dziewięć",
+            ],
         ],
         'suffix' => [
             "k" => [
@@ -197,8 +180,8 @@ class Slownie {
 
         $rest = [];
         if($this->amountPart > 0) {
-            $rest[] = $this->getHundreds(str_pad($this->amountPart, 2, 0, STR_PAD_RIGHT));
-            $rest[] = $this->getCurrencyRest(str_pad($this->amountPart, 2, 0, STR_PAD_RIGHT));
+            $rest[] = $this->getHundreds(str_pad($this->amountPart, 2, 0, STR_PAD_RIGHT), true);
+            $rest[] = $this->getCurrencyRest(str_pad($this->amountPart, 2, 0, STR_PAD_RIGHT), true);
         }
 
         $whole = [
@@ -282,9 +265,10 @@ class Slownie {
      * Returns hundreds part in words.
      *
      * @param String $v Input hundreds part.
+     * @param Boolean $minor Switch if minor.
      * @return String|null
      */
-    private function getHundreds(String $v = null) : String {
+    private function getHundreds(String $v = null, Bool $minor = false) : String {
         if(intval($v) > 0) {
 
             $teens = false;
@@ -314,8 +298,30 @@ class Slownie {
                     $parts[] = $this->dictionary['numbers']['oxo'][$vp['tens'] * 10];
                 }
             }
+
             if($teens === false AND $vp['single'] > 0) {
-                $parts[] = $this->dictionary['numbers']['oox'][$vp['single']];
+                if($this->currency !== "none") {
+                    // check for 'gender'
+                    if($minor) {
+                        $switch = $this->dictionary['currencies'][$this->currency]['minor']['f'];
+                    } else {
+                        $switch = $this->dictionary['currencies'][$this->currency]['f'];
+                    }
+    
+                    if($switch) {
+                        if($vp['single'] == intval(implode("", $this->amountFull))) {
+                            $parts[] = $this->dictionary['numbers']['f-oox'][$vp['single']];
+                        } elseif($vp['single'] > 1) {
+                            $parts[] = $this->dictionary['numbers']['f-oox'][$vp['single']];
+                        } else {
+                            $parts[] = $this->dictionary['numbers']['oox'][$vp['single']];
+                        }
+                    } else {
+                        $parts[] = $this->dictionary['numbers']['oox'][$vp['single']];
+                    }
+                } else {
+                    $parts[] = $this->dictionary['numbers']['oox'][$vp['single']];
+                }
             }
     
             if(count($parts) > 1) {
@@ -361,11 +367,11 @@ class Slownie {
         if($this->currency != "none") {
             $vmod = $v % 10;
             if($v == 1) {
-                return $this->dictionary['currencies'][$this->currency]['rest']['s1'];
+                return $this->dictionary['currencies'][$this->currency]['minor']['s1'];
             } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
-                return $this->dictionary['currencies'][$this->currency]['rest']['s2'];
+                return $this->dictionary['currencies'][$this->currency]['minor']['s2'];
             } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
-                return $this->dictionary['currencies'][$this->currency]['rest']['s3'];
+                return $this->dictionary['currencies'][$this->currency]['minor']['s3'];
             } elseif($v == 0) {
                 return "";
             }
