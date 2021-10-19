@@ -1,19 +1,19 @@
 <?php
 namespace tei187;
-require_once("Slownie.currencies.php");
+include_once("Slownie.currencies.php");
 
 /**
  * Class used to transcribe float value into words in Polish language. Support up to 999.999.999,99.
  * 
  * @author Piotr Bonk <bonk.piotr@gmail.com>
- * @todo dwa / dwie, jeden / jedna
  */
 class Slownie {
     private $amountFull = [];
     private $amountPart = 0;
     private $currency = "none";
     protected $dictionary = [
-        'currencies' => \Slownie\Currencies,
+        'currencies' => \Slownie\Resources\Currencies,
+        'xref' => \Slownie\Resources\Xref,
         'numbers' => [
             'oox' => [
                 1 => "jeden",
@@ -129,16 +129,20 @@ class Slownie {
     /**
      * Assigns currency.
      *
-     * @param String $currency Currency shortcode. Has to exist in $this->dictionary->currencies as key or 'none' (default).
+     * @param String $currency Currency shortcode. Has to exist as index in \Slownie\Resources\Currencies, or as cross-referenced ISO 4217 number index of \Slownie\Resources\Xref, or 'none' (default).
      * @return boolean
      */
-    private function setCurrency(String $currency) : bool {
-        if(key_exists(strtolower($currency), $this->dictionary['currencies'])) {
-            $this->currency = strtolower($currency);
-            return true;
-        } elseif ($currency == "none") {
+    public function setCurrency(String $currency) : bool {
+        if(is_string($currency) and strlen($currency) == 3) {
+            if(ctype_digit($currency) and key_exists($currency, $this->dictionary['xref'])) {
+                $this->currency = $this->dictionary['xref'][$currency];
+                return true;
+            } elseif (key_exists(strtolower($currency), $this->dictionary['currencies'])) {
+                $this->currency = strtolower($currency);
+                return true;
+            }
+        } else {
             $this->currency = "none";
-            return true;
         }
         return false;
     }
@@ -181,7 +185,7 @@ class Slownie {
         $rest = [];
         if($this->amountPart > 0) {
             $rest[] = $this->getHundreds(str_pad($this->amountPart, 2, 0, STR_PAD_RIGHT), true);
-            $rest[] = $this->getCurrencyRest(str_pad($this->amountPart, 2, 0, STR_PAD_RIGHT), true);
+            $rest[] = $this->getCurrencyMinor(str_pad($this->amountPart, 2, 0, STR_PAD_RIGHT), true);
         }
 
         $whole = [
@@ -336,7 +340,7 @@ class Slownie {
     }
 
     /**
-     * Returns currency name.
+     * Returns currency suffix.
      *
      * @param String $v Input last part of amount.
      * @return String|null
@@ -358,12 +362,12 @@ class Slownie {
     }
 
     /**
-     * Returns currency rest.
+     * Returns currency minors' suffix.
      *
      * @param String $v Input rest.
      * @return String|null
      */
-    private function getCurrencyRest(String $v = null) : String {
+    private function getCurrencyMinor(String $v = null) : String {
         if($this->currency != "none") {
             $vmod = $v % 10;
             if($v == 1) {
@@ -377,6 +381,15 @@ class Slownie {
             }
         }
         return "";
+    }
+
+    /**
+     * Returns currently set currency :D
+     *
+     * @return String
+     */
+    public function getCurrency() : String {
+        return strtoupper($this->currency);
     }
 
     /**

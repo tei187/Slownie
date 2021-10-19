@@ -117,7 +117,7 @@
     $pool = [
         [ 1234567.89, 'pln'],
         [ 999999999.99, 'usd'],
-        [ 12.50, 'uah' ],
+        [ 12.50, '060' ],
         [ 5432, 'none' ],
         [ 1000000000, 'usd']
     ];
@@ -127,11 +127,11 @@
     echo "<h1>Slownie : class</h1>";
     echo "<table><thead><tr><th>Float</th><th>In words</th></tr></thead><tbody>";
     foreach($pool as $arguments) {
-        $currency = $arguments[1] != "none" ? " ".strtoupper($arguments[1]) : "";
+        $tests->setCurrency($arguments[1]);
+        $currency = $arguments[1] != "none" ? " ".$tests->getCurrency($arguments[1]) : "";
         echo "<tr><td>{$arguments[0]}{$currency}</td><td>".$tests->output($arguments[0], $arguments[1])."</td></tr>";
     }
-    echo "</tbody></table>"
-
+    echo "</tbody></table>";
 ?>
 </body>
 </html>
