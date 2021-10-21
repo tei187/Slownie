@@ -16,6 +16,7 @@ Class used to transcribe float values into words in Polish language, useful when
 | ALL  | 008          | Albanian lek                                              |
 | AMD  | 051          | Armenian dram                                             |
 | ANG  | 532          | Netherlands Antillean guilder                             |
+| AOA  | 973          | Angolan kwanza                                            |
 | ARS  | 032          | Argentine peso                                            |
 | AWG  | 533          | Aruban florin                                             |
 | AZN  | 944          | Azerbaijani manat                                         |
@@ -24,15 +25,18 @@ Class used to transcribe float values into words in Polish language, useful when
 | BDT  | 050          | Bangladeshi taka                                          |
 | BGN  | 975          | Bulgarian lev                                             |
 | BHD  | 048          | Bahraini dinar                                            |
+| BIF  | 108          | Burundian franc                                           |
 | BMD  | 060          | Bermudian dollar                                          |
 | BND  | 096          | Brunei dollar                                             |
 | BOB  | 068          | Boliviano                                                 |
 | BRL  | 986          | Brazilian real                                            |
 | BSD  | 044          | Bahamian dollar                                           |
 | BTN  | 064          | Bhutanese ngultrum                                        |
+| BWP  | 072          | Botswana pula                                             |
 | BYN  | 933          | Belarusian ruble                                          |
 | BZD  | 084          | Belize dollar                                             |
 | CAD  | 124          | Canadian dollar                                           |
+| CDF  | 976          | Congolese franc                                           |
 | CHF  | 756          | Swiss franc                                               |
 | CLP  | 152          | Chilean peso                                              |
 | CNY  | 156          | Chinese yuan                                              |
@@ -40,13 +44,22 @@ Class used to transcribe float values into words in Polish language, useful when
 | CRC  | 188          | Costa Rican colón                                         |
 | CUC  | 931          | Cuban convertible peso                                    |
 | CUP  | 192          | Cuban peso                                                |
+| CVE  | 132          | Cape Verdean escudo                                       |
 | CZK  | 203          | Czech koruna                                              |
+| DJF  | 262          | Djiboutian franc                                          |
 | DKK  | 208          | Danish krone                                              |
 | DOP  | 214          | Dominican peso                                            |
+| DZD  | 012          | Algerian dinar                                            |
+| EGP  | 818          | Egyptian pound                                            |
+| ERN  | 232          | Eritrean nakfa                                            |
+| ETB  | 230          | Ethiopian birr                                            |
 | EUR  | 978          | Euro                                                      |
 | FKP  | 238          | Falkland Islands pound                                    |
 | GBP  | 826          | Pound sterling                                            |
 | GEL  | 981          | Georgian lari                                             |
+| GHS  | 936          | Ghanaian cedi                                             |
+| GMD  | 270          | Gambian dalasi                                            |
+| GNF  | 324          | Guinean franc                                             |
 | GTQ  | 320          | Guatemalan quetzal                                        |
 | GYD  | 328          | Guyanese dollar                                           |
 | HKD  | 344          | Hong Kong dollar                                          |
@@ -63,8 +76,10 @@ Class used to transcribe float values into words in Polish language, useful when
 | JMD  | 388          | Jamaican dollar                                           |
 | JOD  | 400          | Jordanian dinar                                           |
 | JPY  | 392          | Yen                                                       |
+| KES  | 404          | Kenyan shilling                                           |
 | KGS  | 417          | Kyrgyzstani som                                           |
 | KHR  | 116          | Cambodian riel                                            |
+| KMF  | 174          | Comoro franc                                              |
 | KPW  | 408          | North Korean won                                          |
 | KRW  | 410          | South Korean won                                          |
 | KWD  | 414          | Kuwaiti dinar                                             |
@@ -73,14 +88,25 @@ Class used to transcribe float values into words in Polish language, useful when
 | LAK  | 418          | Lao kip                                                   |
 | LBP  | 422          | Lebanese pound                                            |
 | LKR  | 144          | Sri Lankan rupee                                          |
+| LRD  | 430          | Liberian dollar                                           |
+| LSL  | 426          | Lesotho loti                                              |
+| LYD  | 434          | Libyan dinar                                              |
+| MAD  | 504          | Moroccan dirham                                           |
 | MDL  | 498          | Moldovan leu                                              |
+| MGA  | 969          | Malagasz ariary                                           |
 | MKD  | 807          | Macedonian denar                                          |
 | MMK  | 104          | Myanmar kyat                                              |
 | MNT  | 496          | Mongolian tögrög                                          |
 | MOP  | 446          | Macanese pataca                                           |
+| MRU  | 929          | Mauritanian ouguiya                                       |
+| MUR  | 480          | Mauritian rupee                                           |
 | MVR  | 462          | Maldivian rufiyaa                                         |
+| MWK  | 454          | Malawian kwacha                                           |
 | MXN  | 484          | Mexican peso                                              |
 | MYR  | 458          | Malaysian ringgit                                         |
+| MZN  | 943          | Mozambican metical                                        |
+| NAD  | 516          | Namibian dollar                                           |
+| NGN  | 566          | Nigerian naira                                            |
 | NIO  | 558          | Nicaraguan córdoba                                        |
 | NOK  | 578          | Norwegian krone                                           |
 | NPR  | 524          | Nepalese rupee                                            |
@@ -95,25 +121,40 @@ Class used to transcribe float values into words in Polish language, useful when
 | RON  | 946          | Romanian leu                                              |
 | RSD  | 941          | Serbian dinar                                             |
 | RUB  | 643          | Russian ruble                                             |
+| RWF  | 646          | Rwandan franc                                             |
 | SAR  | 682          | Saudi riyal                                               |
+| SCR  | 690          | Seychellois rupee                                         |
+| SDG  | 938          | Sudanese pound                                            |
 | SGD  | 702          | Singapore dollar                                          |
 | SEK  | 752          | Swedish krona                                             |
+| SLL  | 694          | Sierra Leonean leone                                      |
+| SOS  | 706          | Somali shilling                                           |
 | SRD  | 968          | Surinamese dollar                                         |
+| SSP  | 728          | South Sudanese pound                                      |
+| STN  | 930          | São Tomé and Príncipe dobra                               |
 | SYP  | 760          | Syrian pound                                              |
+| SZL  | 748          | Swazi lilangeni                                           |
 | THB  | 764          | Thai baht                                                 |
 | TJS  | 972          | Tajikistani somoni                                        |
 | TMT  | 934          | Turkmenistan manat                                        |
 | TRY  | 949          | Turkish lira                                              |
 | TTD  | 780          | Trinidad and Tobago dollar                                |
 | TWD  | 901          | New Taiwan dollar                                         |
+| TZS  | 834          | Tanzanian shilling                                        |
 | UAH  | 980          | Ukrainian hryvnia                                         |
+| UGX  | 800          | Ugandan shilling                                          |
 | USD  | 840          | United States dollar                                      |
 | UYU  | 858          | Uruguayan peso                                            |
 | UZS  | 860          | Uzbekistan som                                            |
 | VES  | 928          | Venezuelan bolívar soberano                               |
 | VND  | 704          | Vietnamese đồng                                           |
+| XAF  | 950          | CFA franc BEAC                                            |
 | XCD  | 951          | East Caribbean dollar                                     |
+| XOF  | 952          | CFA franc BCEAO                                           |
 | YER  | 886          | Yemeni rial                                               |
+| ZAR  | 710          | South African rand                                        |
+| ZMW  | 967          | Zambian kwacha                                            |
+| ZWL  | 932          | Zimbabwean dollar (RTGS dollar)                           |
 | none | -            | `(default)` no currency, *does not support decimal point* |
 
 ## TODO
@@ -125,7 +166,7 @@ Class used to transcribe float values into words in Polish language, useful when
 - [x] incorporate European currencies.
 - [x] incorporate American currencies.
 - [x] incorporate Asian currencies.
-- [ ] incorporate African currencies.
+- [x] incorporate African currencies.
 - [ ] incorporate Oceanian currencies.
 - [ ] are there any more currencies? somewhere?
   - [ ] cryptocurrency

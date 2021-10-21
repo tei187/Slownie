@@ -1,15 +1,71 @@
 <?php
 namespace Slownie\Resources;
+
 /**
- *   's1' - 1 unit
- *   's2' - 2 units, 22 units
- *   's3' - 5 units, 55 units
- *   'f'  - false if m, true if f
- *   'u'  - in use for minor, false if not, otherwise doesn't matter
+ * Transcription parts in Polish for numbers.
+ * 
+ * @var array
  */
+const Numbers = [
+    'oox' => [
+        1 => "jeden",
+        2 => "dwa",
+        3 => "trzy",
+        4 => "cztery",
+        5 => "pięć",
+        6 => "sześć",
+        7 => "siedem",
+        8 => "osiem",
+        9 => "dziewięć",
+    ],
+    'oxo' => [
+        10 => "dziesięć", 
+        11 => "jedenaście", 
+        12 => "dwanaście", 
+        13 => "trzynaście", 
+        14 => "czternaście", 
+        15 => "piętnaście", 
+        16 => "szesnaście", 
+        17 => "siedemnaście", 
+        18 => "osiemnaście", 
+        19 => "dziewiętnaście", 
+        20 => "dwadzieścia",
+        30 => "trzydzieści",
+        40 => "czterdzieści", 
+        50 => "pięćdziesiąt", 
+        60 => "sześćdziesiąt", 
+        70 => "siedemdziesiąt", 
+        80 => "osiemdziesiąt", 
+        90 => "dziewięćdziesiąt",
+    ],
+    'xoo' => [
+        100 => "sto",
+        200 => "dwieście",
+        300 => "trzysta",
+        400 => "czterysta",
+        500 => "pięćset",
+        600 => "sześćset",
+        700 => "siedemset",
+        800 => "osiemset",
+        900 => "dziewięćset",
+    ],
+    'f-oox' => [
+        1 => "jedna",
+        2 => "dwie",
+        3 => "trzy",
+        4 => "cztery",
+        5 => "pięć",
+        6 => "sześć",
+        7 => "siedem",
+        8 => "osiem",
+        9 => "dziewięć",
+    ],
+];
 
  /**
   * Regular extension - cents.
+  * 
+  * @var array
   */
 const Cents = [
     's1' => "cent",
@@ -19,7 +75,22 @@ const Cents = [
 ];
 
  /**
+  * Regular extension - cents (not used).
+  * 
+  * @var array
+  */
+  const Cents_NotUsed = [
+    's1' => "cent",
+    's2' => "centy",
+    's3' => "centów",
+    'f' => false,
+    'u' => false
+];
+
+ /**
   * Regular extension - centavo.
+  *
+  * @var array
   */
 const Centavo = [
     's1' => "centavo",
@@ -30,6 +101,8 @@ const Centavo = [
 
  /**
   * Regular extension - centesimo.
+  *
+  * @var array
   */
 const Centesimo = [
     's1' => "centesimo",
@@ -40,6 +113,8 @@ const Centesimo = [
 
  /**
   * Regular extension - centims.
+  *
+  * @var array
   */
 const Centims = [
     's1' => "centym",
@@ -49,7 +124,22 @@ const Centims = [
 ];
 
  /**
+  * Regular extension - centims (not used).
+  *
+  * @var array
+  */
+  const Centims_NotUsed = [
+    's1' => "centym",
+    's2' => "centymy",
+    's3' => "centymów",
+    'f' => false,
+    'u' => false,
+];
+
+ /**
   * Regular extension - fils.
+  *
+  * @var array
   */
 const Fils = [
     's1' => "fils",
@@ -61,6 +151,8 @@ const Fils = [
 
  /**
   * Regular extension - piastres.
+  *
+  * @var array
   */
 const Piastres = [
     's1' => "piastr",
@@ -72,6 +164,8 @@ const Piastres = [
 
  /**
   * Regular extension - sen.
+  *
+  * @var array
   */
 const Sen = [
     's1' => "sen",
@@ -82,6 +176,8 @@ const Sen = [
 
  /**
   * Regular extension - pais.
+  *
+  * @var array
   */
 const Pais = [
     's1' => "pajsa",
@@ -92,6 +188,8 @@ const Pais = [
 
  /**
   * Regular extension - tiyin.
+  *
+  * @var array
   */
 const Tiyin = [
     's1' => "tyin",
@@ -101,8 +199,17 @@ const Tiyin = [
 ];
 
 
-/**
+ /**
   * Supported currencies by ISO 4217.
+  *
+  * 's1' - 1 unit
+  * 's2' - 2 units, 22 units
+  * 's3' - 5 units, 55 units
+  * 'f'  - false if m, true if f
+  * 'u'  - in use for minor, false if not, otherwise doesn't matter
+  * 'd'  - in minor units, describes how many decimal points are in use, if none set defaults to 2
+  *
+  * @var array
   */
 const Currencies = [
     'aed' => [
@@ -154,6 +261,13 @@ const Currencies = [
         "s3" => "guldenów Antyli Holenderskich",
         'f' => false,
         'minor' => Cents
+    ],
+    'aoa' => [
+        's1' => "kwanza angolska",
+        "s2" => "kwanzy angolskie",
+        "s3" => "kwanz angolskich",
+        'f' => true,
+        'minor' => Centims
     ],
     'ars' => [
         's1' => "peso argentyńskie",
@@ -231,6 +345,13 @@ const Currencies = [
         'f' => false,
         'minor' => Fils
     ],
+    'bif' => [
+        's1' => "frank burundyjski",
+        "s2" => "franki burundyjskie",
+        "s3" => "franków burundyjskich",
+        'f' => false,
+        'minor' => Centims
+    ],
     'bmd' => [
         's1' => "dolar bermudzki",
         "s2" => "dolary bermudzkie",
@@ -278,6 +399,18 @@ const Currencies = [
             'f' => false,
         ]
     ],
+    'bwp' => [
+        's1' => "pula botswańska",
+        "s2" => "pula botswańskie",
+        "s3" => "pula botswańskich",
+        'f' => true,
+        'minor' => [
+            's1' => "tebe",
+            's2' => "tebe",
+            's3' => "tebe",
+            'f' => false,
+        ]
+    ],
     'byn' => [
         's1' => "rubel białoruski",
         "s2" => "ruble białoruskie",
@@ -303,6 +436,13 @@ const Currencies = [
         "s3" => "dolarów kanadyjskich",
         'f' => false,
         'minor' => Cents
+    ],
+    'cdf' => [
+        's1' => "frank kongijski",
+        "s2" => "franki kongijskie",
+        "s3" => "franków kongijskich",
+        'f' => false,
+        'minor' => Centims
     ],
     'chf' => [
         's1' => "frank szwajcarski",
@@ -366,6 +506,13 @@ const Currencies = [
         'f' => false,
         'minor' => Centavo
     ],
+    'cve' => [
+        's1' => "escudo Zielonego Przylądka",
+        "s2" => "escudo Zielonego Przylądka",
+        "s3" => "escudo Zielonego Przylądka",
+        'f' => false,
+        'minor' => Centavo
+    ],
     'czk' => [
         's1' => "korona czeska",
         "s2" => "korony czeskie",
@@ -377,6 +524,13 @@ const Currencies = [
             's3' => "halerzy",
             'f' => false,
         ]
+    ],
+    'djf' => [
+        's1' => "frank dżibutyjski",
+        "s2" => "franki dżibutyjskie",
+        "s3" => "franków dżibutyjskich",
+        'f' => false,
+        'minor' => Centims_NotUsed
     ],
     'dkk' => [
         's1' => "korona duńska",
@@ -390,6 +544,13 @@ const Currencies = [
             'f' => false,
         ]
     ],
+    'dzd' => [
+        's1' => "dinar algierski",
+        "s2" => "dinary algierskie",
+        "s3" => "dinarów algierskich",
+        'f' => true,
+        'minor' => Centims
+    ],
     'dop' => [
         's1' => "peso dominikańskie",
         "s2" => "peso dominikańskie",
@@ -397,12 +558,33 @@ const Currencies = [
         'f' => false,
         'minor' => Centavo
     ],
+    'egp' => [
+        's1' => "funt egipski",
+        "s2" => "funty egipskie",
+        "s3" => "funtów egipskich",
+        'f' => false,
+        'minor' => Piastres
+    ],
     'eur' => [
         's1' => "euro",
         "s2" => "euro",
         "s3" => "euro",
         'f' => false,
         'minor' => Cents
+    ],
+    'ern' => [
+        's1' => "nakfa erytrejska",
+        "s2" => "nakfy erytrejskie",
+        "s3" => "nakf erytrejskich",
+        'f' => true,
+        'minor' => Cents
+    ],
+    'etb' => [
+        's1' => "birr etiopski",
+        "s2" => "birry etiopskie",
+        "s3" => "birrów etiopskich",
+        'f' => false,
+        'minor' => Centims
     ],
     'fkp' => [
         's1' => "funt falklandzki",
@@ -439,6 +621,37 @@ const Currencies = [
             's3' => "tetri",
             'f' => false,
         ]
+    ],
+    'ghs' => [
+        's1' => "cedi ghańskie",
+        "s2" => "cedi ghańskie",
+        "s3" => "cedi ghańskich",
+        'f' => false,
+        'minor' => [
+            's1' => "pesewa",
+            's2' => "pesewa",
+            's3' => "pesewa",
+            'f' => false,
+        ]
+    ],
+    'gmd' => [
+        's1' => "dalasi gambijski",
+        "s2" => "dalasi gambijskie",
+        "s3" => "dalasi gambijskich",
+        'f' => false,
+        'minor' => [
+            's1' => "butut",
+            's2' => "bututy",
+            's3' => "bututów",
+            'f' => false,
+        ]
+    ],
+    'gnf' => [
+        's1' => "frank gwinejski",
+        "s2" => "franki gwinejskie",
+        "s3" => "franków gwinejskich",
+        'f' => false,
+        'minor' => Centims_NotUsed
     ],
     'gtq' => [
         's1' => "quetzal",
@@ -584,6 +797,13 @@ const Currencies = [
             'u' => false,
         ]
     ],
+    'kes' => [
+        's1' => "szyling kenijski",
+        "s2" => "szylingi kenijskie",
+        "s3" => "szylingów kenijskch",
+        'f' => false,
+        'minor' => Cents
+    ],
     'kgs' => [
         's1' => "som kirgiski",
         "s2" => "somy kirgiskie",
@@ -597,6 +817,13 @@ const Currencies = [
         "s3" => "riel kambodżańskich",
         'f' => false,
         'minor' => Sen
+    ],
+    'kmf' => [
+        's1' => "frank komoryjski",
+        "s2" => "franki komoryjskie",
+        "s3" => "franków komoryjskich",
+        'f' => false,
+        'minor' => Centims_NotUsed
     ],
     'kpw' => [
         's1' => "won północnokoreański",
@@ -626,7 +853,7 @@ const Currencies = [
     ],
     'kyd' => [
         's1' => "dolar kajmański",
-        's2' => 'dolary kajmańskie',
+        's2' => "dolary kajmańskie",
         's3' => "dolarów kajmańskich",
         'f' => false,
         'minor' => Cents
@@ -640,7 +867,7 @@ const Currencies = [
     ],
     'kzt' => [
         's1' => "tenge kazachski",
-        's2' => 'tenge kazachskie',
+        's2' => "tenge kazachskie",
         's3' => "tenge kazachskich",
         'f' => false,
         'minor' => [
@@ -652,7 +879,7 @@ const Currencies = [
     ],
     'lak' => [
         's1' => "kip laotański",
-        's2' => 'kipy laotańskie',
+        's2' => "kipy laotańskie",
         's3' => "kipów laotańskich",
         'f' => false,
         'minor' => [
@@ -676,9 +903,48 @@ const Currencies = [
         'f' => true,
         'minor' => Cents
     ],
+    'lrd' => [
+        's1' => "dolar liberyjski",
+        's2' => "dolary liberyjskie",
+        's3' => "dolarw liberyjskich",
+        'f' => false,
+        'minor' => Cents
+    ],
+    'lsl' => [
+        's1' => "loti sotyjskie",
+        's2' => "maloti sotyjskie",
+        's3' => "maloti sotyjskich",
+        'f' => false,
+        'minor' => [
+            's1' => "sente",
+            's2' => "lisente",
+            's3' => "lisente",
+            'f' => false,
+        ]
+    ],
+    'lyd' => [
+        's1' => "dinar libijski",
+        's2' => "dinary libijskie",
+        's3' => "dinarów libijskich",
+        'f' => false,
+        'minor' => [
+            's1' => "dirham",
+            's2' => "dirhamy",
+            's3' => "dirhamów",
+            'f' => false,
+            'd' => 3
+        ]
+    ],
+    'mad' => [
+        's1' => "dirham marokański",
+        's2' => "dirhamy marokańskie",
+        's3' => "dirhamów marokańskich",
+        'f' => false,
+        'minor' => Centims
+    ],
     'mdl' => [
         's1' => "lej mołdawski",
-        's2' => 'leje mołdawskie',
+        's2' => "leje mołdawskie",
         's3' => "lejów mołdawskich",
         'f' => false,
         'minor' => [
@@ -688,9 +954,21 @@ const Currencies = [
             'f' => false,
         ]
     ],
+    'mga' => [
+        's1' => "ariary malgaski",
+        's2' => "ariary malgaskie",
+        's3' => "ariary malgaskich",
+        'f' => false,
+        'minor' => [
+            's1' => "iraimbilanja",
+            's2' => "iraimbilanja",
+            's3' => "iraimbilanja",
+            'f' => false,
+        ]
+    ],
     'mkd' => [
         's1' => "denar macedoński",
-        's2' => 'denary macedońskie',
+        's2' => "denary macedońskie",
         's3' => "denarów macedońskich",
         'f' => false,
         'minor' => [
@@ -727,7 +1005,7 @@ const Currencies = [
     ],
     'mop' => [
         's1' => "pataca Macau",
-        's2' => 'pataca Macau',
+        's2' => "pataca Macau",
         's3' => "pataca Macau",
         'f' => false,
         'minor' => [
@@ -736,6 +1014,25 @@ const Currencies = [
             's3' => "avos",
             'f' => false,
         ]
+    ],
+    'mru' => [
+        's1' => "ugija mauretańska",
+        's2' => "ugija mauretańskie",
+        's3' => "ugija mauretańskich",
+        'f' => true,
+        'minor' => [
+            's1' => "chum",
+            's2' => "chum",
+            's3' => "chum",
+            'f' => false,
+        ]
+    ],
+    'mur' => [
+        's1' => "rupia maurytyjska",
+        's2' => "rupie maurytyjskie",
+        's3' => "rupii maurytyjskich",
+        'f' => true,
+        'minor' => Cents
     ],
     'mvr' => [
         's1' => "rupia malediwska",
@@ -758,10 +1055,36 @@ const Currencies = [
     ],
     'myr' => [
         's1' => "ringgit malezyjski",
-        's2' => 'ringgity malezyjskie',
+        's2' => "ringgity malezyjskie",
         's3' => "ringgitów malezyjskich",
         'f' => false,
         'minor' => Sen
+    ],
+    'mwk' => [
+        's1' => "kwacha malawijska",
+        's2' => "kwacha malawijskie",
+        's3' => "kwacha malawijskich",
+        'f' => true,
+        'minor' => [
+            's1' => "tambala",
+            's2' => "tambala",
+            's3' => "tambala",
+            'f' => true,
+        ]
+    ],
+    'mzn' => [
+        's1' => "nowy metical mozambijski",
+        's2' => "nowe meticale mozambijskie",
+        's3' => "nowych meticali mozambijskich",
+        'f' => true,
+        'minor' => Centavo
+    ],
+    'nad' => [
+        's1' => "dolar namibijski",
+        "s2" => "dolary namibijskie",
+        "s3" => "dolarów namibijskich",
+        'f' => false,
+        'minor' => Cents
     ],
     'nio' => [
         's1' => "cordoba oro",
@@ -770,16 +1093,28 @@ const Currencies = [
         'f' => false,
         'minor' => Centavo
     ],
+    'ngn' => [
+        's1' => "naira nigeryjska",
+        "s2" => "nairy nigeryjskie",
+        "s3" => "nair nigeryjskich",
+        'f' => true,
+        'minor' => [
+            's1' => "kobe",
+            's2' => "kobo",
+            's3' => "kobo",
+            'f' => false,
+        ]
+    ],
     'npr' => [
         's1' => "rupia nepalska",
-        's2' => 'rupie nepalskie',
+        's2' => "rupie nepalskie",
         's3' => "rupii nepalskich",
         'f' => true,
         'minor' => Pais,
     ],
     'nok' => [
         's1' => "korona norweska",
-        's2' => 'korony norweskie',
+        's2' => "korony norweskie",
         's3' => "koron norweskich",
         'f' => true,
         'minor' => [
@@ -791,7 +1126,7 @@ const Currencies = [
     ],
     'omr' => [
         's1' => "rial omański",
-        's2' => 'riale omańskie',
+        's2' => "riale omańskie",
         's3' => "riali omańskich",
         'f' => true,
         'minor' => [
@@ -804,35 +1139,35 @@ const Currencies = [
     ],
     'pab' => [
         's1' => "balboa panamski",
-        's2' => 'balboa panamskie',
+        's2' => "balboa panamskie",
         's3' => "balboa panamskich",
         'f' => false,
         'minor' => Centesimo
     ],
     'pen' => [
         's1' => "sol peruwiański",
-        's2' => 'sole peruwiańskie',
+        's2' => "sole peruwiańskie",
         's3' => "soli peruwiańskich",
         'f' => false,
         'minor' => Centims
     ],
     'php' => [
         's1' => "peso filipiński",
-        's2' => 'peso filipińskie',
+        's2' => "peso filipińskie",
         's3' => "peso filipińskich",
         'f' => false,
         'minor' => Centavo
     ],
     'pkr' => [
         's1' => "rupia pakistańska",
-        's2' => 'rupie pakistańskie',
+        's2' => "rupie pakistańskie",
         's3' => "rupii pakistańskich",
         'f' => false,
         'minor' => Pais
     ],
     'pln' => [
         's1' => "złoty",
-        's2' => 'złote',
+        's2' => "złote",
         's3' => "złotych",
         'f' => false,
         'minor' => [
@@ -844,14 +1179,14 @@ const Currencies = [
     ],
     'pyg' => [
         's1' => "guaraní paragwajski",
-        's2' => 'guaraní paragwajskie',
+        's2' => "guaraní paragwajskie",
         's3' => "guaraní paragwajskich",
         'f' => false,
         'minor' => Centims
     ],
     'qar' => [
         's1' => "rial katarski",
-        's2' => 'riale katarskie',
+        's2' => "riale katarskie",
         's3' => "riali katarskich",
         'f' => false,
         'minor' => [
@@ -863,7 +1198,7 @@ const Currencies = [
     ],
     'ron' => [
         's1' => "lej rumuński",
-        's2' => 'leje rumuńskie',
+        's2' => "leje rumuńskie",
         's3' => "lejów rumuńskich",
         'f' => false,
         'minor' => [
@@ -875,7 +1210,7 @@ const Currencies = [
     ],
     'rsd' => [
         's1' => "dinar serbski",
-        's2' => 'dinary serbskie',
+        's2' => "dinary serbskie",
         's3' => "dinarów serbskich",
         'f' => false,
         'minor' => [
@@ -887,7 +1222,7 @@ const Currencies = [
     ],
     'rub' => [
         's1' => "rubel rosyjski",
-        's2' => 'ruble rosyjskie',
+        's2' => "ruble rosyjskie",
         's3' => "rubli rosyjskich",
         'f' => false,
         'minor' => [
@@ -897,9 +1232,16 @@ const Currencies = [
             'f' => true
         ]
     ],
+    'rwf' => [
+        's1' => "frank rwandyjski",
+        's2' => "franki rwandyjskie",
+        's3' => "franków rwandyjskich",
+        'f' => false,
+        'minor' => Centims_NotUsed
+    ],
     'sar' => [
         's1' => "rial saudyjski",
-        's2' => 'riale saudyjskie',
+        's2' => "riale saudyjskie",
         's3' => "riali saudyjskich",
         'f' => false,
         'minor' => [
@@ -909,9 +1251,23 @@ const Currencies = [
             'f' => false,
         ]
     ],
+    'scr' => [
+        's1' => "rupia seszelska",
+        's2' => "rupie seszelskie",
+        's3' => "rupii seszelskich",
+        'f' => true,
+        'minor' => Cents
+    ],
+    'sdg' => [
+        's1' => "funt sudański",
+        "s2" => "funty sudańskie",
+        "s3" => "funtów sudańskich",
+        'f' => false,
+        'minor' => Piastres
+    ],
     'sek' => [
         's1' => "korona szwedzka",
-        's2' => 'korony szwedzkie',
+        's2' => "korony szwedzkie",
         's3' => "koron szwedzkich",
         'f' => true,
         'minor' => [
@@ -928,6 +1284,20 @@ const Currencies = [
         'f' => false,
         'minor' => Cents
     ],
+    'sll' => [
+        's1' => "leone sierraleoński",
+        's2' => "leone sierraleońskie",
+        's3' => "leone sierraleońskich",
+        'f' => false,
+        'minor' => Cents
+    ],
+    'sos' => [
+        's1' => "szyling somalijski",
+        's2' => "szylingi somalijskie",
+        's3' => "szylingów somalijskich",
+        'f' => false,
+        'minor' => Cents
+    ],
     'srd' => [
         's1' => "dolar surinamski",
         "s2" => "dolary surinamskie",
@@ -935,12 +1305,33 @@ const Currencies = [
         'f' => false,
         'minor' => Cents
     ],
+    'ssp' => [
+        's1' => "funt południowosudański",
+        "s2" => "funty południowosudańskie",
+        "s3" => "funtów południowosudańskich",
+        'f' => false,
+        'minor' => Piastres
+    ],
+    'stn' => [
+        's1' => "dobra Tomasza/Książęca",
+        "s2" => "dobry Tomasza/Książęce",
+        "s3" => "dóbr Tomasza/Książęcych",
+        'f' => false,
+        'minor' => Centims
+    ],
     'syp' => [
         's1' => "funt syryjski",
         "s2" => "funty syryjskie",
         "s3" => "funtów syryjskich",
         'f' => false,
         'minor' => Piastres
+    ],
+    'szl' => [
+        's1' => "lilangeni suazyjski",
+        "s2" => "lilangeni suazyjskie",
+        "s3" => "lilangeni suazyjskich",
+        'f' => false,
+        'minor' => Cents
     ],
     'thb' => [
         's1' => "baht tajski",
@@ -978,6 +1369,19 @@ const Currencies = [
             'f' => false,
         ]
     ],
+    'tnd' => [
+        's1' => "dinar tunezyjski",
+        "s2" => "dinary tunezyjskie",
+        "s3" => "dinarów tunezyjskich",
+        'f' => false,
+        'minor' => [
+            's1' => "milim",
+            's2' => "milimy",
+            's3' => "milimów",
+            'f' => false,
+            'd' => 3,
+        ]
+    ],
     'try' => [
         's1' => "lira turecka",
         "s2" => "liry tureckie",
@@ -1004,6 +1408,13 @@ const Currencies = [
         'f' => false,
         'minor' => Cents
     ],
+    'tzs' => [
+        's1' => "szyling tanzański",
+        "s2" => "szylingi tanzańskie",
+        "s3" => "szylingów tanzańskich",
+        'f' => false,
+        'minor' => Cents
+    ],
     'uah' => [
         's1' => "hrywna",
         "s2" => "hrywny",
@@ -1015,6 +1426,13 @@ const Currencies = [
             's3' => "kopiejek",
             'f' => true,
         ]
+    ],
+    'ugx' => [
+        's1' => "szyling ugandyjski",
+        "s2" => "szylingi ugandyjskie",
+        "s3" => "szylingów ugandyjskich",
+        'f' => false,
+        'minor' => Cents
     ],
     'usd' => [
         's1' => "dolar amerykański",
@@ -1050,12 +1468,26 @@ const Currencies = [
             'u' => false,
         ]
     ],
+    'xaf' => [
+        's1' => "środkowoafrykański frank CFA",
+        "s2" => "środkowoafrykańskie franki CFA",
+        "s3" => "środkowoafrykańskich franków CFA",
+        'f' => false,
+        'minor' => Centims
+    ],
     'xcd' => [
         's1' => "dolar wschodniokaraibski",
         "s2" => "dolary wschodniokaraibskie",
         "s3" => "dolarów wschodniokaraibskich",
         'f' => false,
         'minor' => Cents
+    ],
+    'xof' => [
+        's1' => "zachodnioafrykański frank CFA",
+        "s2" => "zachodnioafrykańskie franki CFA",
+        "s3" => "zachodnioafrykańskich franków CFA",
+        'f' => false,
+        'minor' => Centims
     ],
     'yer' => [
         's1' => "rial jemeński",
@@ -1064,115 +1496,184 @@ const Currencies = [
         'f' => false,
         'minor' => Fils
     ],
+    'zar' => [
+        's1' => "rand południowoafrykański",
+        "s2" => "randy południowoafrykańskie",
+        "s3" => "randów południowoafrykańskich",
+        'f' => false,
+        'minor' => Cents
+    ],
+    'zmw' => [
+        's1' => "kwacha zambijska",
+        's2' => "kwacha zambijskie",
+        's3' => "kwacha zambijskich",
+        'f' => true,
+        'minor' => [
+            's1' => "ngwee",
+            's2' => "ngwee",
+            's3' => "ngwee",
+            'f' => true,
+        ]
+    ],
+    'zwl' => [
+        's1' => "dolar Zimbabwe",
+        "s2" => "dolary Zimbabwe",
+        "s3" => "dolarów Zimbabwe",
+        'f' => false,
+        'minor' => Cents
+    ],
 ];
 
 /**
  * Cross-reference table between ISO 4217 Numbers and currency pickers.
+ * 
+ * @var array
  */
 const Xref = [
-    '008' => 'all',
-    '032' => 'ars',
-    '044' => 'bsd',
-    '048' => 'bhd',
-    '050' => 'bdt',
-    '051' => 'amd',
-    '052' => 'bbd',
-    '060' => 'bmd',
-    '064' => 'btn',
-    '068' => 'bob',
-    '084' => 'bzd',
-    '096' => 'bnd',
-    '104' => 'mmk',
-    '116' => 'khr',
-    '124' => 'cad',
-    '136' => 'kyd',
-    '144' => 'lkr',
-    '152' => 'clp',
-    '156' => 'cny',
-    '170' => 'cop',
-    '188' => 'crc',
-    '191' => 'hrk',
-    '192' => 'cup',
-    '203' => 'czk',
-    '208' => 'dkk',
-    '214' => 'dop',
-    '238' => 'fkp',
-    '320' => 'gtq',
-    '328' => 'gyd',
-    '332' => 'htg',
-    '340' => 'hnl',
-    '344' => 'hkd',
-    '348' => 'huf',
-    '352' => 'isk',
-    '356' => 'inr',
-    '360' => 'idr',
-    '364' => 'irr',
-    '368' => 'iqd',
-    '376' => 'ils',
-    '388' => 'jmd',
-    '392' => 'jpy',
-    '398' => 'kzt',
-    '400' => 'jod',
-    '408' => 'kpw',
-    '410' => 'krw',
-    '414' => 'kwd',
-    '417' => 'kgs',
-    '418' => 'lak',
-    '422' => 'lbp',
-    '446' => 'mop',
-    '458' => 'myr',
-    '496' => 'mnt',
-    '462' => 'mvr',
-    '484' => 'mxn',
-    '498' => 'mdl',
-    '512' => 'omr',
-    '524' => 'npr',
-    '532' => 'ang',
-    '533' => 'awg',
-    '558' => 'nio',
-    '578' => 'nok',
-    '586' => 'pkr',
-    '590' => 'pab',
-    '600' => 'pyg',
-    '604' => 'pen',
-    '608' => 'php',
-    '634' => 'qar',
-    '643' => 'rub',
-    '682' => 'sar',
-    '702' => 'sgd',
-    '704' => 'vnd',
-    '752' => 'sek',
-    '756' => 'chf',
-    '760' => 'syp',
-    '764' => 'thb',
-    '780' => 'ttd',
-    '784' => 'aed',
-    '807' => 'mkd',
-    '826' => 'gbp',
-    '840' => 'usd',
-    '858' => 'uyu',
-    '860' => 'uzs',
-    '886' => 'yer',
-    '901' => 'twd',
-    '928' => 'ves',
-    '931' => 'cuc',
-    '933' => 'byn',
-    '934' => 'tmt',
-    '941' => 'rsd',
-    '944' => 'azm',
-    '946' => 'ron',
-    '949' => 'try',
-    '951' => 'xcd',
-    '968' => 'srd',
-    '971' => 'afn',
-    '972' => 'tjs',
-    '975' => 'bgn',
-    '977' => 'bam',
-    '978' => 'eur',
-    '980' => 'uah',
-    '981' => 'gel',
-    '985' => 'pln',
-    '986' => 'brl',
+    '008' => "all",
+    '012' => 'dzd',
+    '032' => "ars",
+    '044' => "bsd",
+    '048' => "bhd",
+    '050' => "bdt",
+    '051' => "amd",
+    '052' => "bbd",
+    '060' => "bmd",
+    '064' => "btn",
+    '068' => "bob",
+    '072' => "bwp",
+    '084' => "bzd",
+    '096' => "bnd",
+    '104' => "mmk",
+    '108' => "bif",
+    '116' => "khr",
+    '124' => "cad",
+    '136' => "kyd",
+    '144' => "lkr",
+    '152' => "clp",
+    '156' => "cny",
+    '170' => "cop",
+    '174' => "kmf",
+    '188' => "crc",
+    '191' => "hrk",
+    '192' => "cup",
+    '203' => "czk",
+    '208' => "dkk",
+    '214' => "dop",
+    '230' => "etb",
+    '232' => "ern",
+    '238' => "fkp",
+    '262' => "djf",
+    '270' => "gmd",
+    '320' => "gtq",
+    '324' => "gnf",
+    '328' => "gyd",
+    '332' => "htg",
+    '340' => "hnl",
+    '344' => "hkd",
+    '348' => "huf",
+    '352' => "isk",
+    '356' => "inr",
+    '360' => "idr",
+    '364' => "irr",
+    '368' => "iqd",
+    '376' => "ils",
+    '388' => "jmd",
+    '392' => "jpy",
+    '398' => "kzt",
+    '400' => "jod",
+    '404' => "kes",
+    '408' => "kpw",
+    '410' => "krw",
+    '414' => "kwd",
+    '417' => "kgs",
+    '418' => "lak",
+    '422' => "lbp",
+    '426' => "lsl",
+    '430' => "lrd",
+    '434' => "lyd",
+    '446' => "mop",
+    '454' => "mwk",
+    '458' => "myr",
+    '496' => "mnt",
+    '462' => "mvr",
+    '480' => "mur",
+    '484' => "mxn",
+    '498' => "mdl",
+    '504' => "mad",
+    '512' => "omr",
+    '516' => "nad",
+    '524' => "npr",
+    '532' => "ang",
+    '533' => "awg",
+    '558' => "nio",
+    '566' => "ngn",
+    '578' => "nok",
+    '586' => "pkr",
+    '590' => "pab",
+    '600' => "pyg",
+    '604' => "pen",
+    '608' => "php",
+    '634' => "qar",
+    '643' => "rub",
+    '646' => "rwf",
+    '682' => "sar",
+    '690' => "scr",
+    '694' => "sll",
+    '702' => "sgd",
+    '704' => "vnd",
+    '706' => "sos",
+    '710' => "zar",
+    '728' => "ssp",
+    '748' => "szl",
+    '752' => "sek",
+    '756' => "chf",
+    '760' => "syp",
+    '764' => "thb",
+    '780' => "ttd",
+    '784' => "aed",
+    '788' => "tnd",
+    '800' => "ugx",
+    '807' => "mkd",
+    '818' => "egp",
+    '826' => "gbp",
+    '834' => "tzs",
+    '840' => "usd",
+    '858' => "uyu",
+    '860' => "uzs",
+    '886' => "yer",
+    '901' => "twd",
+    '928' => "ves",
+    '929' => "mru",
+    '930' => "stn",
+    '931' => "cuc",
+    '932' => "zwl",
+    '933' => "byn",
+    '934' => "tmt",
+    '936' => "ghs",
+    '938' => "sdg",
+    '941' => "rsd",
+    '943' => "mzn",
+    '944' => "azm",
+    '946' => "ron",
+    '949' => "try",
+    '950' => "xaf",
+    '951' => "xcd",
+    '952' => "xof",
+    '967' => "zmw",
+    '968' => "srd",
+    '969' => "mga",
+    '971' => "afn",
+    '972' => "tjs",
+    '973' => "aoa",
+    '975' => "bgn",
+    '976' => "cdf",
+    '977' => "bam",
+    '978' => "eur",
+    '980' => "uah",
+    '981' => "gel",
+    '985' => "pln",
+    '986' => "brl",
 ];
 
 ?>

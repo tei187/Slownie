@@ -1,6 +1,6 @@
 <?php
 namespace tei187;
-include_once("Slownie.currencies.php");
+include_once("Slownie.resources.php");
 
 /**
  * Class used to transcribe float value into words in Polish language. Support up to 999.999.999,99.
@@ -8,67 +8,17 @@ include_once("Slownie.currencies.php");
  * @author Piotr Bonk <bonk.piotr@gmail.com>
  */
 class Slownie {
+    /** @var array $amountFull Hold parts of amount (without minor parts), divided by hundreds mark. */
     private $amountFull = [];
+    /** @var integer $amountPart Holds decimal parts of amount, only minors. */
     private $amountPart = 0;
+    /** @var string $currency Chosen currency, "none" by default. */
     private $currency = "none";
+    /** @var array $dictionary Dictionary for translation purposes and cross-reference tables. */
     protected $dictionary = [
         'currencies' => \Slownie\Resources\Currencies,
         'xref' => \Slownie\Resources\Xref,
-        'numbers' => [
-            'oox' => [
-                1 => "jeden",
-                2 => "dwa",
-                3 => "trzy",
-                4 => "cztery",
-                5 => "pięć",
-                6 => "sześć",
-                7 => "siedem",
-                8 => "osiem",
-                9 => "dziewięć",
-            ],
-            'oxo' => [
-                10 => "dziesięć", 
-                11 => "jedenaście", 
-                12 => "dwanaście", 
-                13 => "trzynaście", 
-                14 => "czternaście", 
-                15 => "piętnaście", 
-                16 => "szesnaście", 
-                17 => "siedemnaście", 
-                18 => "osiemnaście", 
-                19 => "dziewiętnaście", 
-                20 => "dwadzieścia",
-                30 => "trzydzieści",
-                40 => "czterdzieści", 
-                50 => "pięćdziesiąt", 
-                60 => "sześćdziesiąt", 
-                70 => "siedemdziesiąt", 
-                80 => "osiemdziesiąt", 
-                90 => "dziewięćdziesiąt",
-            ],
-            'xoo' => [
-                100 => 'sto',
-                200 => 'dwieście',
-                300 => 'trzysta',
-                400 => 'czterysta',
-                500 => 'pięćset',
-                600 => 'sześćset',
-                700 => 'siedemset',
-                800 => 'osiemset',
-                900 => 'dziewięćset',
-            ],
-            'f-oox' => [
-                1 => "jedna",
-                2 => "dwie",
-                3 => "trzy",
-                4 => "cztery",
-                5 => "pięć",
-                6 => "sześć",
-                7 => "siedem",
-                8 => "osiem",
-                9 => "dziewięć",
-            ],
-        ],
+        'numbers' => \Slownie\Resources\Numbers,
         'suffix' => [
             "k" => [
                 "s1" => "tysiąc",
@@ -91,8 +41,8 @@ class Slownie {
     /**
      * Class constructor.
      *
-     * @param Float|String|null $amount Amount to process. Has to be well formed float or float-formed string.
-     * @param String $currency Currency shortcode. Has to exist in $this->dictionary->currencies as key or 'none' (default).
+     * @param float|string|null $amount Amount to process. Has to be well formed float or float-formed string.
+     * @param string $currency Currency shortcode. Has to exist in $this->dictionary->currencies as key or 'none' (default).
      */
     function __construct($amount = null, String $currency = null) {
         if(is_string($currency)) {
@@ -104,8 +54,8 @@ class Slownie {
     /**
      * Parses input amount.
      *
-     * @param Float $v Input amount.
-     * @return Bool
+     * @param float $v Input amount.
+     * @return boolean
      */
     private function parse(Float $v = null) : Bool {
         $v = str_replace(" ", "", $v);
@@ -129,7 +79,7 @@ class Slownie {
     /**
      * Assigns currency.
      *
-     * @param String $currency Currency shortcode. Has to exist as index in \Slownie\Resources\Currencies, or as cross-referenced ISO 4217 number index of \Slownie\Resources\Xref, or 'none' (default).
+     * @param string $currency Currency shortcode. Has to exist as index in \Slownie\Resources\Currencies, or as cross-referenced ISO 4217 number index of \Slownie\Resources\Xref, or 'none' (default).
      * @return boolean
      */
     public function setCurrency(String $currency) : bool {
@@ -150,7 +100,7 @@ class Slownie {
     /**
      * Sets full in-words transcription of the amount. Handles $this->amountFull;
      *
-     * @return String
+     * @return string
      */
     private function relayString() : String {
         $c = count($this->amountFull);
@@ -199,8 +149,8 @@ class Slownie {
     /**
      * Returns millions in words.
      *
-     * @param String $v Input millions part.
-     * @return String|null
+     * @param string $v Input millions part.
+     * @return string|null
      */
     private function getBillions(String $v = null) : String {
         if(intval($v) > 0) {
@@ -222,8 +172,8 @@ class Slownie {
     /**
      * Returns millions in words.
      *
-     * @param String $v Input millions part.
-     * @return String|null
+     * @param string $v Input millions part.
+     * @return string|null
      */
     private function getMillions(String $v = null) : String {
         if(intval($v) > 0) {
@@ -245,8 +195,8 @@ class Slownie {
     /**
      * Returns thousands in words.
      *
-     * @param String $v Input thousands part.
-     * @return String|null
+     * @param string $v Input thousands part.
+     * @return string|null
      */
     private function getThousands(String $v = null) : String {
         if(intval($v) > 0) {
@@ -268,13 +218,12 @@ class Slownie {
     /**
      * Returns hundreds part in words.
      *
-     * @param String $v Input hundreds part.
-     * @param Boolean $minor Switch if minor.
-     * @return String|null
+     * @param string $v Input hundreds part.
+     * @param boolean $minor Switch if minor.
+     * @return string|null
      */
     private function getHundreds(String $v = null, Bool $minor = false) : String {
         if(intval($v) > 0) {
-
             $teens = false;
             $vp = [
                 'hundreds' => floor($v / 100),
@@ -342,12 +291,12 @@ class Slownie {
     /**
      * Returns currency suffix.
      *
-     * @param String $v Input last part of amount.
-     * @return String|null
+     * @param string $v Input last part of amount.
+     * @return string|null
      */
     private function getCurrencyFull(String $v = null) : String {
         if($this->currency != "none") {
-            $vmod = $v % 10;
+            $vmod = $v % 10; // rename?
             if($v == 1) {
                 return $this->dictionary['currencies'][$this->currency]['s1'];
             } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
@@ -364,12 +313,12 @@ class Slownie {
     /**
      * Returns currency minors' suffix.
      *
-     * @param String $v Input rest.
-     * @return String|null
+     * @param string $v Input rest.
+     * @return string|null
      */
     private function getCurrencyMinor(String $v = null) : String {
         if($this->currency != "none") {
-            $vmod = $v % 10;
+            $vmod = $v % 10; // rename? has to be dependable on decimal points of minor unit ['minor']['d'], default 2 points so % 10
             if($v == 1) {
                 return $this->dictionary['currencies'][$this->currency]['minor']['s1'];
             } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
@@ -385,8 +334,9 @@ class Slownie {
 
     /**
      * Returns currently set currency :D
+     * ...in uppercase. What else did you think it will do?
      *
-     * @return String
+     * @return string
      */
     public function getCurrency() : String {
         return strtoupper($this->currency);
@@ -395,8 +345,8 @@ class Slownie {
     /**
      * Returns amount in words.
      *
-     * @param Float|String|null $v Input value. Has to be well formed float or float formed string.
-     * @return String Output in words.
+     * @param float|string|null $v Input value. Has to be well formed float or float formed string.
+     * @return string Output in words.
      */
     public function output($v = null, $currency = null) : String {
         if($v != null) {
