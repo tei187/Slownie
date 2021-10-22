@@ -167,9 +167,9 @@ Class used to transcribe float values into words in Polish language, useful when
 - [x] incorporate American currencies.
 - [x] incorporate Asian currencies.
 - [x] incorporate African currencies.
-- [ ] incorporate Oceanian currencies.
+- [x] incorporate Oceanian currencies.
 - [ ] are there any more currencies? somewhere?
-  - [ ] cryptocurrency
+  - [x] ~~cryptocurrency~~ *(what for? not worth it)*
   - [ ] minerals by troy ounce (XAG, XAU, XPD, XPT)
 
 ## Requirements
