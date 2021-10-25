@@ -1,39 +1,71 @@
 <?php
-namespace tei187;
-include_once("Slownie.resources.php");
+namespace tei187\Slownie;
+
+//use tei187;
+use tei187\Resources\PL\ISO4217 as Words;
+use tei187\Resources\ISO4217 as Table;
 
 /**
  * Class used to transcribe float value into words in Polish language. Support up to 999.999.999,99.
  * 
  * @author Piotr Bonk <bonk.piotr@gmail.com>
  */
-class Slownie {
+class Polish {
     /** @var array $amountFull Hold parts of amount (without minor parts), divided by hundreds mark. */
     private $amountFull = [];
     /** @var integer $amountPart Holds decimal parts of amount, only minors. */
     private $amountPart = 0;
     /** @var string $currency Chosen currency, "none" by default. */
     private $currency = "none";
+    /** @var integer $decimals Chosen currencies decimal points, 2 by default. */
+    private $decimals = 2;
+    /** @var boolean $full Translate fully (with minors) or partially (with fractional notation). */
+    private $full = true;
     /** @var array $dictionary Dictionary for translation purposes and cross-reference tables. */
     protected $dictionary = [
-        'currencies' => \Slownie\Resources\Currencies,
-        'xref' => \Slownie\Resources\Xref,
-        'numbers' => \Slownie\Resources\Numbers,
+        'currencies' => Words\Currencies,
+           'numbers' => Words\Numbers,
+              'xref' => Table\Xref,
         'suffix' => [
-            "k" => [
+            3 => [
                 "s1" => "tysiąc",
                 "s2" => "tysiące",
                 "s3" => "tysięcy",
             ],
-            "m" => [
+            6 => [
                 "s1" => "milion",
                 "s2" => "miliony",
                 "s3" => "milionów",
             ],
-            "b" => [
+            9 => [
                 "s1" => "miliard",
                 "s2" => "miliardy",
                 "s3" => "miliardów",
+            ],
+            12 => [
+                "s1" => "bilion",
+                "s2" => "biliony",
+                "s3" => "bilionów",
+            ],
+            15 => [
+                "s1" => "biliard",
+                "s2" => "biliardy",
+                "s3" => "biliardów",
+            ],
+            18 => [
+                "s1" => "trylion",
+                "s2" => "tryliony",
+                "s3" => "trylionów",
+            ],
+            21 => [
+                "s1" => "tryliard",
+                "s2" => "tryliardy",
+                "s3" => "tryliardów",
+            ],
+            24 => [
+                "s1" => "kwadrylion",
+                "s2" => "kwadryliony",
+                "s3" => "kwadrylionów",
             ],
         ]
     ];
@@ -61,7 +93,8 @@ class Slownie {
         $v = str_replace(" ", "", $v);
         $v = doubleval($v);
         if(is_double($v)) {
-            $v = number_format($v, 2, ",", ".");
+
+            $v = number_format($v, $this->decimals, ",", ".");
             $v_explode = explode(",", $v);
             $this->amountPart = $v_explode[1];
             $this->amountFull = array_map(
@@ -83,13 +116,21 @@ class Slownie {
      * @return boolean
      */
     public function setCurrency(String $currency) : bool {
+        $check = false;
         if(is_string($currency) and strlen($currency) == 3) {
             if(ctype_digit($currency) and key_exists($currency, $this->dictionary['xref'])) {
                 $this->currency = $this->dictionary['xref'][$currency];
-                return true;
+                $check = true;
             } elseif (key_exists(strtolower($currency), $this->dictionary['currencies'])) {
                 $this->currency = strtolower($currency);
+                $check = true;
+            }
+            if($check === true) {
+                $this->decimals = isset($this->dictionary['currencies'][$this->currency]['minor']['d']) ? $this->dictionary['currencies'][$this->currency]['minor']['d'] : 2;
                 return true;
+            } else {
+                $this->decimals = 2;
+                $this->currency = "none";
             }
         } else {
             $this->currency = "none";
@@ -100,11 +141,40 @@ class Slownie {
     /**
      * Sets full in-words transcription of the amount. Handles $this->amountFull;
      *
+     * @todo could use a rewrite, it's unnecessarily long this way...
+     * 
      * @return string
      */
     private function relayString() : String {
         $c = count($this->amountFull);
         $full = [];
+        if($c == 7) {
+            // quintillion
+            $full[] = $this->getQuintillions($this->amountFull[0]);
+            $full[] = $this->getQuadrillions($this->amountFull[1]);
+            $full[] = $this->getTrillions($this->amountFull[2]);
+            $full[] = $this->getBillions($this->amountFull[3]);
+            $full[] = $this->getMillions($this->amountFull[4]);
+            $full[] = $this->getThousands($this->amountFull[5]);
+            $full[] = $this->getHundreds($this->amountFull[6]);
+        }
+        if($c == 6) {
+            // quadrillion
+            $full[] = $this->getQuadrillions($this->amountFull[0]);
+            $full[] = $this->getTrillions($this->amountFull[1]);
+            $full[] = $this->getBillions($this->amountFull[2]);
+            $full[] = $this->getMillions($this->amountFull[3]);
+            $full[] = $this->getThousands($this->amountFull[4]);
+            $full[] = $this->getHundreds($this->amountFull[5]);
+        }
+        if($c == 5) {
+            // trillions
+            $full[] = $this->getTrillions($this->amountFull[0]);
+            $full[] = $this->getBillions($this->amountFull[1]);
+            $full[] = $this->getMillions($this->amountFull[2]);
+            $full[] = $this->getThousands($this->amountFull[3]);
+            $full[] = $this->getHundreds($this->amountFull[4]);
+        }
         if($c == 4) {
             // billions
             $full[] = $this->getBillions($this->amountFull[0]);
@@ -134,8 +204,8 @@ class Slownie {
 
         $rest = [];
         if($this->amountPart > 0) {
-            $rest[] = $this->getHundreds(str_pad($this->amountPart, 2, 0, STR_PAD_RIGHT), true);
-            $rest[] = $this->getCurrencyMinor(str_pad($this->amountPart, 2, 0, STR_PAD_RIGHT), true);
+            $rest[] = $this->getHundreds(str_pad($this->amountPart, $this->decimals, 0, STR_PAD_RIGHT), true);
+            $rest[] = $this->getCurrencyMinor(str_pad($this->amountPart, $this->decimals, 0, STR_PAD_RIGHT), true);
         }
 
         $whole = [
@@ -147,9 +217,78 @@ class Slownie {
     }
 
     /**
-     * Returns millions in words.
+     * Returns Quadrillions in words.
      *
-     * @param string $v Input millions part.
+     * @param string $v Input quadrillions part.
+     * @return string|null
+     */
+    private function getQuintillions(String $v = null) : String {
+        if(intval($v) > 0) {
+            $w = $this->getHundreds($v);
+            $vmod = $v % 10;
+            if($v == 1) {
+                return $w . " " . $this->dictionary['suffix'][18]['s1'];
+            } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
+                return $w . " " . $this->dictionary['suffix'][18]['s2'];
+            } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
+                return $w . " " . $this->dictionary['suffix'][18]['s3'];
+            } elseif($v == 0) {
+                return "";
+            }
+        }
+        return "";
+    }
+
+    /**
+     * Returns Quadrillions in words.
+     *
+     * @param string $v Input quadrillions part.
+     * @return string|null
+     */
+    private function getQuadrillions(String $v = null) : String {
+        if(intval($v) > 0) {
+            $w = $this->getHundreds($v);
+            $vmod = $v % 10;
+            if($v == 1) {
+                return $w . " " . $this->dictionary['suffix'][15]['s1'];
+            } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
+                return $w . " " . $this->dictionary['suffix'][15]['s2'];
+            } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
+                return $w . " " . $this->dictionary['suffix'][15]['s3'];
+            } elseif($v == 0) {
+                return "";
+            }
+        }
+        return "";
+    }
+
+    /**
+     * Returns trillions in words.
+     *
+     * @param string $v Input trillions part.
+     * @return string|null
+     */
+    private function getTrillions(String $v = null) : String {
+        if(intval($v) > 0) {
+            $w = $this->getHundreds($v);
+            $vmod = $v % 10;
+            if($v == 1) {
+                return $w . " " . $this->dictionary['suffix'][12]['s1'];
+            } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
+                return $w . " " . $this->dictionary['suffix'][12]['s2'];
+            } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
+                return $w . " " . $this->dictionary['suffix'][12]['s3'];
+            } elseif($v == 0) {
+                return "";
+            }
+        }
+        return "";
+    }
+
+    /**
+     * Returns billions in words.
+     *
+     * @param string $v Input billions part.
      * @return string|null
      */
     private function getBillions(String $v = null) : String {
@@ -157,11 +296,11 @@ class Slownie {
             $w = $this->getHundreds($v);
             $vmod = $v % 10;
             if($v == 1) {
-                return $w . " " . $this->dictionary['suffix']['b']['s1'];
+                return $w . " " . $this->dictionary['suffix'][9]['s1'];
             } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
-                return $w . " " . $this->dictionary['suffix']['b']['s2'];
+                return $w . " " . $this->dictionary['suffix'][9]['s2'];
             } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
-                return $w . " " . $this->dictionary['suffix']['b']['s3'];
+                return $w . " " . $this->dictionary['suffix'][9]['s3'];
             } elseif($v == 0) {
                 return "";
             }
@@ -180,11 +319,11 @@ class Slownie {
             $w = $this->getHundreds($v);
             $vmod = $v % 10;
             if($v == 1) {
-                return $w . " " . $this->dictionary['suffix']['m']['s1'];
+                return $w . " " . $this->dictionary['suffix'][6]['s1'];
             } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
-                return $w . " " . $this->dictionary['suffix']['m']['s2'];
+                return $w . " " . $this->dictionary['suffix'][6]['s2'];
             } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
-                return $w . " " . $this->dictionary['suffix']['m']['s3'];
+                return $w . " " . $this->dictionary['suffix'][6]['s3'];
             } elseif($v == 0) {
                 return "";
             }
@@ -203,11 +342,11 @@ class Slownie {
             $w = $this->getHundreds($v);
             $vmod = $v % 10;
             if($v == 1) {
-                return $w . " " . $this->dictionary['suffix']['k']['s1'];
+                return $w . " " . $this->dictionary['suffix'][3]['s1'];
             } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
-                return $w . " " . $this->dictionary['suffix']['k']['s2'];
+                return $w . " " . $this->dictionary['suffix'][3]['s2'];
             } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
-                return $w . " " . $this->dictionary['suffix']['k']['s3'];
+                return $w . " " . $this->dictionary['suffix'][3]['s3'];
             } elseif($v == 0) {
                 return "";
             }
@@ -318,7 +457,7 @@ class Slownie {
      */
     private function getCurrencyMinor(String $v = null) : String {
         if($this->currency != "none") {
-            $vmod = $v % 10; // rename? has to be dependable on decimal points of minor unit ['minor']['d'], default 2 points so % 10
+            $vmod = $v % 10;
             if($v == 1) {
                 return $this->dictionary['currencies'][$this->currency]['minor']['s1'];
             } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {

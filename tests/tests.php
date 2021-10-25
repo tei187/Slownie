@@ -112,17 +112,17 @@
 <body>
 <?php
 
-    require_once("../Slownie.class.php");
+    require_once("../Slownie.php");
 
     $pool = [
-        [ 1234567.89, 'pln'],
+        [ 1234567.891, 'lyd'],
         [ 999999999.99, 'usd'],
         [ 12.50, '060' ],
         [ 5432, 'none' ],
         [ 1000000000, 'usd']
     ];
 
-    $tests = new tei187\Slownie;
+    $tests = new tei187\Slownie\Polish;
 
     echo "<h1>Slownie : class</h1>";
     echo "<table><thead><tr><th>Float</th><th>In words</th></tr></thead><tbody>";

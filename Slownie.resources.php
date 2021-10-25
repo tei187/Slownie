@@ -1,5 +1,5 @@
 <?php
-namespace Slownie\Resources;
+namespace tei187\Resources\PL\ISO4217;
 
 // round half even
 
@@ -254,8 +254,8 @@ const Pens = [
   * Supported currencies by ISO 4217.
   *
   * 's1' - 1 unit
-  * 's2' - 2 units, 22 units
-  * 's3' - 5 units, 55 units
+  * 's2' - 2-4 units, x2-x4 units
+  * 's3' - 5-21 units, x5-y1 units
   * 'f'  - false if m, true if f
   * 'u'  - in use for minor, false if not, otherwise doesn't matter
   * 'd'  - in minor units, describes how many decimal points are in use, if none set defaults to 2
@@ -265,15 +265,15 @@ const Pens = [
 const Currencies = [
     'aed' => [
         's1' => "dirham Zjednoczonych Emiratów Arabskich",
-        "s2" => "dirhamy Zjednoczonych Emiratów Arabskich",
-        "s3" => "dirhamów Zjednoczonych Emiratów Arabskich",
+        's2' => "dirhamy Zjednoczonych Emiratów Arabskich",
+        's3' => "dirhamów Zjednoczonych Emiratów Arabskich",
         'f' => false,
         'minor' => Fils
     ],
     'afn' => [
         's1' => "afgani",
-        "s2" => "afgani",
-        "s3" => "afgani",
+        's2' => "afgani",
+        's3' => "afgani",
         'f' => false,
         'minor' => [
             's1' => "pul",
@@ -281,10 +281,11 @@ const Currencies = [
             's3' => "pul",
             'f' => false,
         ]
-    ],'all' => [
+    ],
+    'all' => [
         's1' => "lek",
-        "s2" => "leki",
-        "s3" => "leków",
+        's2' => "leki",
+        's3' => "leków",
         'f' => false,
         'minor' => [
             's1' => "qindarka",
@@ -295,8 +296,8 @@ const Currencies = [
     ],
     'amd' => [
         's1' => "dram armeński",
-        "s2" => "dramy armeńskie",
-        "s3" => "dramów armeńskich",
+        's2' => "dramy armeńskie",
+        's3' => "dramów armeńskich",
         'f' => false,
         'minor' => [
             's1' => "lum",
@@ -307,43 +308,43 @@ const Currencies = [
     ],
     'ang' => [
         's1' => "gulden Antyli Holenderskich",
-        "s2" => "guldeny Antyli Holenderskich",
-        "s3" => "guldenów Antyli Holenderskich",
+        's2' => "guldeny Antyli Holenderskich",
+        's3' => "guldenów Antyli Holenderskich",
         'f' => false,
         'minor' => Cents
     ],
     'aoa' => [
         's1' => "kwanza angolska",
-        "s2" => "kwanzy angolskie",
-        "s3" => "kwanz angolskich",
+        's2' => "kwanzy angolskie",
+        's3' => "kwanz angolskich",
         'f' => true,
         'minor' => Centims
     ],
     'ars' => [
         's1' => "peso argentyńskie",
-        "s2" => "peso argentyńskie",
-        "s3" => "peso argentyńskich",
+        's2' => "peso argentyńskie",
+        's3' => "peso argentyńskich",
         'f' => false,
         'minor' => Centavo
     ],
     'aud' => [
         's1' => "dolar australijski",
-        "s2" => "dolary australijskie",
-        "s3" => "dolarów australijskich",
+        's2' => "dolary australijskie",
+        's3' => "dolarów australijskich",
         'f' => false,
         'minor' => Cents
     ],
     'awg' => [
         's1' => "florin arubański",
-        "s2" => "floriny arubańskie",
-        "s3" => "florinów arubańskich",
+        's2' => "floriny arubańskie",
+        's3' => "florinów arubańskich",
         'f' => false,
         'minor' => Cents
     ],
     'azm' => [
         's1' => "manat azerbejdżański",
-        "s2" => "manaty azerbejdżańskie",
-        "s3" => "manatów azerbejdżańskich",
+        's2' => "manaty azerbejdżańskie",
+        's3' => "manatów azerbejdżańskich",
         'f' => false,
         'minor' => [
             's1' => "gapik",
@@ -354,8 +355,8 @@ const Currencies = [
     ],
     'bam' => [
         's1' => "marka zamienna",
-        "s2" => "marki zamienne",
-        "s3" => "marek zamiennych",
+        's2' => "marki zamienne",
+        's3' => "marek zamiennych",
         'f' => true,
         'minor' => [
             's1' => "fenig",
@@ -366,15 +367,15 @@ const Currencies = [
     ],
     'bbd' => [
         's1' => "dolar barbardoski",
-        "s2" => "dolary barbardoskie",
-        "s3" => "dolarów barbardoskich",
+        's2' => "dolary barbardoskie",
+        's3' => "dolarów barbardoskich",
         'f' => false,
         'minor' => Cents
     ],
     'bdt' => [
         's1' => "taka",
-        "s2" => "taka",
-        "s3" => "taka",
+        's2' => "taka",
+        's3' => "taka",
         'f' => false,
         'minor' => [
             's1' => "paisa",
@@ -385,8 +386,8 @@ const Currencies = [
     ],
     'bgn' => [
         's1' => "lew",
-        "s2" => "lewy",
-        "s3" => "lewów",
+        's2' => "lewy",
+        's3' => "lewów",
         'f' => false,
         'minor' => [
             's1' => "stotinka",
@@ -397,57 +398,57 @@ const Currencies = [
     ],
     'bhd' => [
         's1' => "dinar bahrajski",
-        "s2" => "dinary bahrajskie",
-        "s3" => "dinarów bahrajskich",
+        's2' => "dinary bahrajskie",
+        's3' => "dinarów bahrajskich",
         'f' => false,
         'minor' => Fils_3dec
     ],
     'bif' => [
         's1' => "frank burundyjski",
-        "s2" => "franki burundyjskie",
-        "s3" => "franków burundyjskich",
+        's2' => "franki burundyjskie",
+        's3' => "franków burundyjskich",
         'f' => false,
         'minor' => Centims_NotUsed
     ],
     'bmd' => [
         's1' => "dolar bermudzki",
-        "s2" => "dolary bermudzkie",
-        "s3" => "dolarów bermudzkich",
+        's2' => "dolary bermudzkie",
+        's3' => "dolarów bermudzkich",
         'f' => false,
         'minor' => Cents
     ],
     'bnd' => [
         's1' => "dolar brunejski",
-        "s2" => "dolary brunejskie",
-        "s3" => "dolarów brunejskich",
+        's2' => "dolary brunejskie",
+        's3' => "dolarów brunejskich",
         'f' => false,
         'minor' => Cents
     ],
     'bob' => [
         's1' => "boliviano",
-        "s2" => "boliviano",
-        "s3" => "boliviano",
+        's2' => "boliviano",
+        's3' => "boliviano",
         'f' => false,
         'minor' => Centavo
     ],
     'brl' => [
         's1' => "real brazylijski",
-        "s2" => "reale brazylijskie",
-        "s3" => "reali brazylijskich",
+        's2' => "reale brazylijskie",
+        's3' => "reali brazylijskich",
         'f' => false,
         'minor' => Centavo
     ],
     'bsd' => [
         's1' => "dolar bahamski",
-        "s2" => "dolary bahamskie",
-        "s3" => "dolarów bahamskich",
+        's2' => "dolary bahamskie",
+        's3' => "dolarów bahamskich",
         'f' => false,
         'minor' => Cents
     ],
     'btn' => [
         's1' => "ngultrum butański",
-        "s2" => "ngultrum butańskie",
-        "s3" => "ngultrum butańskich",
+        's2' => "ngultrum butańskie",
+        's3' => "ngultrum butańskich",
         'f' => false,
         'minor' => [
             's1' => "czetrum",
@@ -458,8 +459,8 @@ const Currencies = [
     ],
     'bwp' => [
         's1' => "pula botswańska",
-        "s2" => "pula botswańskie",
-        "s3" => "pula botswańskich",
+        's2' => "pula botswańskie",
+        's3' => "pula botswańskich",
         'f' => true,
         'minor' => [
             's1' => "tebe",
@@ -470,8 +471,8 @@ const Currencies = [
     ],
     'byn' => [
         's1' => "rubel białoruski",
-        "s2" => "ruble białoruskie",
-        "s3" => "rubli białoruskich",
+        's2' => "ruble białoruskie",
+        's3' => "rubli białoruskich",
         'f' => false,
         'minor' => [
             's1' => "kopiejka",
@@ -482,43 +483,43 @@ const Currencies = [
     ],
     'bzd' => [
         's1' => "dolar belizeński",
-        "s2" => "dolary belizeńskie",
-        "s3" => "dolarów belizeńskich",
+        's2' => "dolary belizeńskie",
+        's3' => "dolarów belizeńskich",
         'f' => false,
         'minor' => Cents
     ],
     'cad' => [
         's1' => "dolar kanadyjski",
-        "s2" => "dolary kanadyjskie",
-        "s3" => "dolarów kanadyjskich",
+        's2' => "dolary kanadyjskie",
+        's3' => "dolarów kanadyjskich",
         'f' => false,
         'minor' => Cents
     ],
     'cdf' => [
         's1' => "frank kongijski",
-        "s2" => "franki kongijskie",
-        "s3" => "franków kongijskich",
+        's2' => "franki kongijskie",
+        's3' => "franków kongijskich",
         'f' => false,
         'minor' => Centims
     ],
     'chf' => [
         's1' => "frank szwajcarski",
-        "s2" => "franki szwajcarske",
-        "s3" => "franków szwajcarskich",
+        's2' => "franki szwajcarske",
+        's3' => "franków szwajcarskich",
         'f' => false,
         'minor' => Centims
     ],
     'clp' => [
         's1' => "peso chillijski",
-        "s2" => "peso chillijskie",
-        "s3" => "peso chillijskich",
+        's2' => "peso chillijskie",
+        's3' => "peso chillijskich",
         'f' => false,
         'minor' => Centavo_NotUsed
     ],
     'cny' => [
         's1' => "yuan",
-        "s2" => "yuany",
-        "s3" => "yuanów",
+        's2' => "yuany",
+        's3' => "yuanów",
         'f' => false,
         'minor' => [
             's1' => "jiao",
@@ -537,43 +538,43 @@ const Currencies = [
     ],
     'cop' => [
         's1' => "peso kolumbijskie",
-        "s2" => "peso kolumbijskie",
-        "s3" => "peso kolumbijskich",
+        's2' => "peso kolumbijskie",
+        's3' => "peso kolumbijskich",
         'f' => false,
         'minor' => Centavo
     ],
     'crc' => [
         's1' => "colon kostarykański",
-        "s2" => "colon kostarykańskie",
-        "s3" => "colon kostarykańskich",
+        's2' => "colon kostarykańskie",
+        's3' => "colon kostarykańskich",
         'f' => false,
         'minor' => Centims
     ],
     'cuc' => [
         's1' => "peso kubańskie wymienialne",
-        "s2" => "peso kubańskie wymienialne",
-        "s3" => "peso kubańskich wymienialnych",
+        's2' => "peso kubańskie wymienialne",
+        's3' => "peso kubańskich wymienialnych",
         'f' => false,
         'minor' => Centavo
     ],
     'cup' => [
         's1' => "peso kubańskie",
-        "s2" => "peso kubańskie",
-        "s3" => "peso kubańskich",
+        's2' => "peso kubańskie",
+        's3' => "peso kubańskich",
         'f' => false,
         'minor' => Centavo
     ],
     'cve' => [
         's1' => "escudo Zielonego Przylądka",
-        "s2" => "escudo Zielonego Przylądka",
-        "s3" => "escudo Zielonego Przylądka",
+        's2' => "escudo Zielonego Przylądka",
+        's3' => "escudo Zielonego Przylądka",
         'f' => false,
         'minor' => Centavo
     ],
     'czk' => [
         's1' => "korona czeska",
-        "s2" => "korony czeskie",
-        "s3" => "koron czeskich",
+        's2' => "korony czeskie",
+        's3' => "koron czeskich",
         'f' => true,
         'minor' => [
             's1' => "halerz",
@@ -584,15 +585,15 @@ const Currencies = [
     ],
     'djf' => [
         's1' => "frank dżibutyjski",
-        "s2" => "franki dżibutyjskie",
-        "s3" => "franków dżibutyjskich",
+        's2' => "franki dżibutyjskie",
+        's3' => "franków dżibutyjskich",
         'f' => false,
         'minor' => Centims_NotUsed
     ],
     'dkk' => [
         's1' => "korona duńska",
-        "s2" => "korony duńskie",
-        "s3" => "koron duńskich",
+        's2' => "korony duńskie",
+        's3' => "koron duńskich",
         'f' => true,
         'minor' => [
             's1' => "øre",
@@ -603,71 +604,71 @@ const Currencies = [
     ],
     'dzd' => [
         's1' => "dinar algierski",
-        "s2" => "dinary algierskie",
-        "s3" => "dinarów algierskich",
+        's2' => "dinary algierskie",
+        's3' => "dinarów algierskich",
         'f' => true,
         'minor' => Centims
     ],
     'dop' => [
         's1' => "peso dominikańskie",
-        "s2" => "peso dominikańskie",
-        "s3" => "peso dominikańskich",
+        's2' => "peso dominikańskie",
+        's3' => "peso dominikańskich",
         'f' => false,
         'minor' => Centavo
     ],
     'egp' => [
         's1' => "funt egipski",
-        "s2" => "funty egipskie",
-        "s3" => "funtów egipskich",
+        's2' => "funty egipskie",
+        's3' => "funtów egipskich",
         'f' => false,
         'minor' => Piastres
     ],
     'eur' => [
         's1' => "euro",
-        "s2" => "euro",
-        "s3" => "euro",
+        's2' => "euro",
+        's3' => "euro",
         'f' => false,
         'minor' => Cents
     ],
     'ern' => [
         's1' => "nakfa erytrejska",
-        "s2" => "nakfy erytrejskie",
-        "s3" => "nakf erytrejskich",
+        's2' => "nakfy erytrejskie",
+        's3' => "nakf erytrejskich",
         'f' => true,
         'minor' => Cents
     ],
     'etb' => [
         's1' => "birr etiopski",
-        "s2" => "birry etiopskie",
-        "s3" => "birrów etiopskich",
+        's2' => "birry etiopskie",
+        's3' => "birrów etiopskich",
         'f' => false,
         'minor' => Centims
     ],
     'fjd' => [
         's1' => "dolar fidżi",
-        "s2" => "dolary fidżi",
-        "s3" => "dolarów fidżi",
+        's2' => "dolary fidżi",
+        's3' => "dolarów fidżi",
         'f' => false,
         'minor' => Cents
     ],
     'fkp' => [
         's1' => "funt falklandzki",
-        "s2" => "funty falklandzkie",
-        "s3" => "funtów falklandzkich",
+        's2' => "funty falklandzkie",
+        's3' => "funtów falklandzkich",
         'f' => false,
         'minor' => Pens
     ],
     'gbp' => [
         's1' => "funt brytyjski",
-        "s2" => "funty brytyjskie",
-        "s3" => "funtów brytyjskich",
+        's2' => "funty brytyjskie",
+        's3' => "funtów brytyjskich",
         'f' => false,
         'minor' => Pens
     ],
     'gel' => [
         's1' => "lari",
-        "s2" => "lari",
-        "s3" => "lari",
+        's2' => "lari",
+        's3' => "lari",
         'f' => false,
         'minor' => [
             's1' => "tetri",
@@ -678,8 +679,8 @@ const Currencies = [
     ],
     'ghs' => [
         's1' => "cedi ghańskie",
-        "s2" => "cedi ghańskie",
-        "s3" => "cedi ghańskich",
+        's2' => "cedi ghańskie",
+        's3' => "cedi ghańskich",
         'f' => false,
         'minor' => [
             's1' => "pesewa",
@@ -690,15 +691,15 @@ const Currencies = [
     ],
     'gip' => [
         's1' => "funt gibraltarski",
-        "s2" => "funty gibraltarskie",
-        "s3" => "funtów gibraltarskich",
+        's2' => "funty gibraltarskie",
+        's3' => "funtów gibraltarskich",
         'f' => false,
         'minor' => Pens
     ],
     'gmd' => [
         's1' => "dalasi gambijski",
-        "s2" => "dalasi gambijskie",
-        "s3" => "dalasi gambijskich",
+        's2' => "dalasi gambijskie",
+        's3' => "dalasi gambijskich",
         'f' => false,
         'minor' => [
             's1' => "butut",
@@ -709,43 +710,43 @@ const Currencies = [
     ],
     'gnf' => [
         's1' => "frank gwinejski",
-        "s2" => "franki gwinejskie",
-        "s3" => "franków gwinejskich",
+        's2' => "franki gwinejskie",
+        's3' => "franków gwinejskich",
         'f' => false,
         'minor' => Centims_NotUsed
     ],
     'gtq' => [
         's1' => "quetzal",
-        "s2" => "quetzal",
-        "s3" => "quetzal",
+        's2' => "quetzal",
+        's3' => "quetzal",
         'f' => false,
         'minor' => Centavo
     ],
     'gyd' => [
         's1' => "dolar gujański",
-        "s2" => "dolary gujańskie",
-        "s3" => "dolarów gujańskich",
+        's2' => "dolary gujańskie",
+        's3' => "dolarów gujańskich",
         'f' => false,
         'minor' => Cents
     ],
     'hnl' => [
         's1' => "lempira honduraska",
-        "s2" => "lempiry honduraskie",
-        "s3" => "lempir honduraskich",
+        's2' => "lempiry honduraskie",
+        's3' => "lempir honduraskich",
         'f' => false,
         'minor' => Centavo
     ],
     'hkd' => [
         's1' => "dolar hongkoński",
-        "s2" => "dolary hongkońskie",
-        "s3" => "dolarów hongkońskich",
+        's2' => "dolary hongkońskie",
+        's3' => "dolarów hongkońskich",
         'f' => false,
         'minor' => Cents
     ],
     'hrk' => [
         's1' => "kuna",
-        "s2" => "kuny",
-        "s3" => "kun",
+        's2' => "kuny",
+        's3' => "kun",
         'f' => true,
         'minor' => [
             's1' => "lipa",
@@ -756,15 +757,15 @@ const Currencies = [
     ],
     'htg' => [
         's1' => "gourde",
-        "s2" => "gourde",
-        "s3" => "gourde",
+        's2' => "gourde",
+        's3' => "gourde",
         'f' => false,
         'minor' => Centims
     ],
     'huf' => [
         's1' => "forint",
-        "s2" => "forinty",
-        "s3" => "forintów",
+        's2' => "forinty",
+        's3' => "forintów",
         'f' => false,
         'minor' => [
             's1' => "filler",
@@ -775,15 +776,15 @@ const Currencies = [
     ],
     'idr' => [
         's1' => "rupia indonezyjska",
-        "s2" => "rupie indonezyjskie",
-        "s3" => "rupii indonezyjskich",
+        's2' => "rupie indonezyjskie",
+        's3' => "rupii indonezyjskich",
         'f' => true,
         'minor' => Sen
     ],
     'ils' => [
         's1' => "nowy izraelski szekel",
-        "s2" => "nowe izraelskie szekle",
-        "s3" => "nowych izraelskich szekli",
+        's2' => "nowe izraelskie szekle",
+        's3' => "nowych izraelskich szekli",
         'f' => false,
         'minor' => [
             's1' => "agora",
@@ -794,22 +795,22 @@ const Currencies = [
     ],
     'inr' => [
         's1' => "rupia indyjska",
-        "s2" => "rupie indyjskie",
-        "s3" => "rupii indyjskich",
+        's2' => "rupie indyjskie",
+        's3' => "rupii indyjskich",
         'f' => true,
         'minor' => Pais
     ],
     'iqd' => [
         's1' => "dinar irakijski",
-        "s2" => "dinary irakijskie",
-        "s3" => "dinarów irakijskich",
+        's2' => "dinary irakijskie",
+        's3' => "dinarów irakijskich",
         'f' => false,
         'minor' => Fils_3dec
     ],
     'irr' => [
         's1' => "rial irański",
-        "s2" => "riale irańskie",
-        "s3" => "riali irańskich",
+        's2' => "riale irańskie",
+        's3' => "riali irańskich",
         'f' => false,
         'minor' => [
             's1' => "dinar",
@@ -820,8 +821,8 @@ const Currencies = [
     ],
     'isk' => [
         's1' => "korona islandzka",
-        "s2" => "korony islandzkie",
-        "s3" => "koron islandzkich",
+        's2' => "korony islandzkie",
+        's3' => "koron islandzkich",
         'f' => true,
         'minor' => [
             's1' => "eyrir",
@@ -833,22 +834,22 @@ const Currencies = [
     ],
     'jmd' => [
         's1' => "dolar jamajski",
-        "s2" => "dolary jamajskie",
-        "s3" => "dolarów jamajskich",
+        's2' => "dolary jamajskie",
+        's3' => "dolarów jamajskich",
         'f' => false,
         'minor' => Cents
     ],
     'jod' => [
         's1' => "dinar jordański",
-        "s2" => "dinary jordańskie",
-        "s3" => "dinarów jordańskich",
+        's2' => "dinary jordańskie",
+        's3' => "dinarów jordańskich",
         'f' => false,
         'minor' => Piastres_3dec
     ],
     'jpy' => [
         's1' => "jen",
-        "s2" => "jeny",
-        "s3" => "jenów",
+        's2' => "jeny",
+        's3' => "jenów",
         'f' => false,
         'minor' => [
             's1' => "sen",
@@ -860,36 +861,36 @@ const Currencies = [
     ],
     'kes' => [
         's1' => "szyling kenijski",
-        "s2" => "szylingi kenijskie",
-        "s3" => "szylingów kenijskch",
+        's2' => "szylingi kenijskie",
+        's3' => "szylingów kenijskch",
         'f' => false,
         'minor' => Cents
     ],
     'kgs' => [
         's1' => "som kirgiski",
-        "s2" => "somy kirgiskie",
-        "s3" => "somów kirgiskich",
+        's2' => "somy kirgiskie",
+        's3' => "somów kirgiskich",
         'f' => false,
         'minor' => Tiyin
     ],
     'khr' => [
         's1' => "riel kambodżański",
-        "s2" => "riel kambodżańskie",
-        "s3" => "riel kambodżańskich",
+        's2' => "riel kambodżańskie",
+        's3' => "riel kambodżańskich",
         'f' => false,
         'minor' => Sen
     ],
     'kmf' => [
         's1' => "frank komoryjski",
-        "s2" => "franki komoryjskie",
-        "s3" => "franków komoryjskich",
+        's2' => "franki komoryjskie",
+        's3' => "franków komoryjskich",
         'f' => false,
         'minor' => Centims_NotUsed
     ],
     'kpw' => [
         's1' => "won północnokoreański",
-        "s2" => "wony północnokoreańskie",
-        "s3" => "wonów północnokoreańskich",
+        's2' => "wony północnokoreańskie",
+        's3' => "wonów północnokoreańskich",
         'f' => false,
         'minor' => [
             's1' => "czon",
@@ -900,8 +901,8 @@ const Currencies = [
     ],
     'krw' => [
         's1' => "won południowokoreański",
-        "s2" => "wony południowokoreańskie",
-        "s3" => "wonów południowokoreańskich",
+        's2' => "wony południowokoreańskie",
+        's3' => "wonów południowokoreańskich",
         'f' => false,
         'minor' => [
             's1' => "czon",
@@ -913,8 +914,8 @@ const Currencies = [
     ],
     'kwd' => [
         's1' => "dinar kuwejcki",
-        "s2" => "dinary kuwejckie",
-        "s3" => "dinarów kuwejckich",
+        's2' => "dinary kuwejckie",
+        's3' => "dinarów kuwejckich",
         'f' => false,
         'minor' => Fils_3dec
     ],
@@ -951,8 +952,8 @@ const Currencies = [
     ],
     'lbp' => [
         's1' => "funt libański",
-        "s2" => "funty libańskie",
-        "s3" => "funtów libańskich",
+        's2' => "funty libańskie",
+        's3' => "funtów libańskich",
         'f' => false,
         'minor' => Piastres
     ],
@@ -1108,8 +1109,8 @@ const Currencies = [
     ],
     'mxn' => [
         's1' => "peso meksykańskie",
-        "s2" => "peso meksykańskie",
-        "s3" => "peso meksykańskich",
+        's2' => "peso meksykańskie",
+        's3' => "peso meksykańskich",
         'f' => false,
         'minor' => Centavo
     ],
@@ -1141,22 +1142,22 @@ const Currencies = [
     ],
     'nad' => [
         's1' => "dolar namibijski",
-        "s2" => "dolary namibijskie",
-        "s3" => "dolarów namibijskich",
+        's2' => "dolary namibijskie",
+        's3' => "dolarów namibijskich",
         'f' => false,
         'minor' => Cents
     ],
     'nio' => [
         's1' => "cordoba oro",
-        "s2" => "cordoby oro",
-        "s3" => "cordób oro",
+        's2' => "cordoby oro",
+        's3' => "cordób oro",
         'f' => false,
         'minor' => Centavo
     ],
     'ngn' => [
         's1' => "naira nigeryjska",
-        "s2" => "nairy nigeryjskie",
-        "s3" => "nair nigeryjskich",
+        's2' => "nairy nigeryjskie",
+        's3' => "nair nigeryjskich",
         'f' => true,
         'minor' => [
             's1' => "kobe",
@@ -1186,8 +1187,8 @@ const Currencies = [
     ],
     'nzd' => [
         's1' => "dolar nowozelandzki",
-        "s2" => "dolary nowozelandzkie",
-        "s3" => "dolarów nowozelandzkich",
+        's2' => "dolary nowozelandzkie",
+        's3' => "dolarów nowozelandzkich",
         'f' => false,
         'minor' => Cents
     ],
@@ -1346,8 +1347,8 @@ const Currencies = [
     ],
     'sdg' => [
         's1' => "funt sudański",
-        "s2" => "funty sudańskie",
-        "s3" => "funtów sudańskich",
+        's2' => "funty sudańskie",
+        's3' => "funtów sudańskich",
         'f' => false,
         'minor' => Piastres
     ],
@@ -1365,15 +1366,15 @@ const Currencies = [
     ],
     'sgd' => [
         's1' => "dolar singapurski",
-        "s2" => "dolary singapurskie",
-        "s3" => "dolarów singapurskich",
+        's2' => "dolary singapurskie",
+        's3' => "dolarów singapurskich",
         'f' => false,
         'minor' => Cents
     ],
     'shp' => [
         's1' => "funt Świętej Heleny",
-        "s2" => "funty Świętej Heleny",
-        "s3" => "funtów Świętej Heleny",
+        's2' => "funty Świętej Heleny",
+        's3' => "funtów Świętej Heleny",
         'f' => false,
         'minor' => Pens
     ],
@@ -1393,50 +1394,50 @@ const Currencies = [
     ],
     'srd' => [
         's1' => "dolar surinamski",
-        "s2" => "dolary surinamskie",
-        "s3" => "dolarów surinamskich",
+        's2' => "dolary surinamskie",
+        's3' => "dolarów surinamskich",
         'f' => false,
         'minor' => Cents
     ],
     'ssp' => [
         's1' => "funt południowosudański",
-        "s2" => "funty południowosudańskie",
-        "s3" => "funtów południowosudańskich",
+        's2' => "funty południowosudańskie",
+        's3' => "funtów południowosudańskich",
         'f' => false,
         'minor' => Piastres
     ],
     'stn' => [
         's1' => "dobra Tomasza/Książęca",
-        "s2" => "dobry Tomasza/Książęce",
-        "s3" => "dóbr Tomasza/Książęcych",
+        's2' => "dobry Tomasza/Książęce",
+        's3' => "dóbr Tomasza/Książęcych",
         'f' => false,
         'minor' => Centims
     ],
     'svc' => [
         's1' => "colón salwadorski",
-        "s2" => "colón salwadorskie",
-        "s3" => "colón salwadorskich",
+        's2' => "colón salwadorskie",
+        's3' => "colón salwadorskich",
         'f' => false,
         'minor' => Centavo
     ],
     'syp' => [
         's1' => "funt syryjski",
-        "s2" => "funty syryjskie",
-        "s3" => "funtów syryjskich",
+        's2' => "funty syryjskie",
+        's3' => "funtów syryjskich",
         'f' => false,
         'minor' => Piastres
     ],
     'szl' => [
         's1' => "lilangeni suazyjski",
-        "s2" => "lilangeni suazyjskie",
-        "s3" => "lilangeni suazyjskich",
+        's2' => "lilangeni suazyjskie",
+        's3' => "lilangeni suazyjskich",
         'f' => false,
         'minor' => Cents
     ],
     'thb' => [
         's1' => "baht tajski",
-        "s2" => "bahty tajskie",
-        "s3" => "bahtów tajskich",
+        's2' => "bahty tajskie",
+        's3' => "bahtów tajskich",
         'f' => true,
         'minor' => [
             's1' => "satang",
@@ -1447,8 +1448,8 @@ const Currencies = [
     ],
     'tjs' => [
         's1' => "somoni tadżykistański",
-        "s2" => "somoni tadżykistańskie",
-        "s3" => "somoni tadżykistańskich",
+        's2' => "somoni tadżykistańskie",
+        's3' => "somoni tadżykistańskich",
         'f' => true,
         'minor' => [
             's1' => "diram",
@@ -1459,8 +1460,8 @@ const Currencies = [
     ],
     'tmt' => [
         's1' => "manat turkmeński",
-        "s2" => "manaty turkmeńskie",
-        "s3" => "manatów turkmeńskich",
+        's2' => "manaty turkmeńskie",
+        's3' => "manatów turkmeńskich",
         'f' => false,
         'minor' => [
             's1' => "tenge",
@@ -1471,8 +1472,8 @@ const Currencies = [
     ],
     'tnd' => [
         's1' => "dinar tunezyjski",
-        "s2" => "dinary tunezyjskie",
-        "s3" => "dinarów tunezyjskich",
+        's2' => "dinary tunezyjskie",
+        's3' => "dinarów tunezyjskich",
         'f' => false,
         'minor' => [
             's1' => "milim",
@@ -1484,8 +1485,8 @@ const Currencies = [
     ],
     'top' => [
         's1' => "pa'anga tongijska",
-        "s2" => "pa'angi tongijskie",
-        "s3" => "pa'ang tongijskich",
+        's2' => "pa'angi tongijskie",
+        's3' => "pa'ang tongijskich",
         'f' => true,
         'minor' => [
             's1' => "seniti",
@@ -1496,8 +1497,8 @@ const Currencies = [
     ],
     'try' => [
         's1' => "lira turecka",
-        "s2" => "liry tureckie",
-        "s3" => "lir tureckich",
+        's2' => "liry tureckie",
+        's3' => "lir tureckich",
         'f' => true,
         'minor' => [
             's1' => "kurusz",
@@ -1508,29 +1509,29 @@ const Currencies = [
     ],
     'ttd' => [
         's1' => "dolar Trynidadu i Tobago",
-        "s2" => "dolary Trynidadu i Tobago",
-        "s3" => "dolarów Trynidadu i Tobago",
+        's2' => "dolary Trynidadu i Tobago",
+        's3' => "dolarów Trynidadu i Tobago",
         'f' => false,
         'minor' => Cents
     ],
     'twd' => [
         's1' => "dolar tajwański",
-        "s2" => "dolary tajwańskie",
-        "s3" => "dolarów tajwańskich",
+        's2' => "dolary tajwańskie",
+        's3' => "dolarów tajwańskich",
         'f' => false,
         'minor' => Cents
     ],
     'tzs' => [
         's1' => "szyling tanzański",
-        "s2" => "szylingi tanzańskie",
-        "s3" => "szylingów tanzańskich",
+        's2' => "szylingi tanzańskie",
+        's3' => "szylingów tanzańskich",
         'f' => false,
         'minor' => Cents
     ],
     'uah' => [
         's1' => "hrywna",
-        "s2" => "hrywny",
-        "s3" => "hrywien",
+        's2' => "hrywny",
+        's3' => "hrywien",
         'f' => true,
         'minor' => [
             's1' => "kopiejka",
@@ -1541,109 +1542,109 @@ const Currencies = [
     ],
     'ugx' => [
         's1' => "szyling ugandyjski",
-        "s2" => "szylingi ugandyjskie",
-        "s3" => "szylingów ugandyjskich",
+        's2' => "szylingi ugandyjskie",
+        's3' => "szylingów ugandyjskich",
         'f' => false,
         'minor' => Cents_NotUsed
     ],
     'usd' => [
         's1' => "dolar amerykański",
-        "s2" => "dolary amerykańskie",
-        "s3" => "dolarów amerykańskich",
+        's2' => "dolary amerykańskie",
+        's3' => "dolarów amerykańskich",
         'f' => false,
         'minor' => Cents
     ],
     'uzs' => [
         's1' => "sum uzbecki",
-        "s2" => "sumy uzbecki",
-        "s3" => "sumów uzbecki",
+        's2' => "sumy uzbecki",
+        's3' => "sumów uzbecki",
         'f' => false,
         'minor' => Tiyin
     ],
     'ves' => [
         's1' => "boliwar wenezuelski soberano",
-        "s2" => "boliwary wenezuelskie soberano",
-        "s3" => "boliwarów wenezuelskich soberano",
+        's2' => "boliwary wenezuelskie soberano",
+        's3' => "boliwarów wenezuelskich soberano",
         'f' => false,
         'minor' => Centims
     ],
     'vnd' => [
         's1' => "dong wietnamski",
-        "s2" => "dongi wietnamskie",
-        "s3" => "dongów wietnamskich",
+        's2' => "dongi wietnamskie",
+        's3' => "dongów wietnamskich",
         'f' => false,
         'minor' => [
             's1' => "xu",
-            "s2" => "xu",
-            "s3" => "xu",
+            's2' => "xu",
+            's3' => "xu",
             'f' => false,
             'u' => false,
         ]
     ],
     'vuv' => [
         's1' => "vatu vanuatuańskie",
-        "s2" => "vatu vanuatuańskie",
-        "s3" => "vatu vanuatuańskich",
+        's2' => "vatu vanuatuańskie",
+        's3' => "vatu vanuatuańskich",
         'f' => false,
         'minor' => [
             's1' => "",
-            "s2" => "",
-            "s3" => "",
+            's2' => "",
+            's3' => "",
             'f' => false,
             'u' => false,
         ]
     ],
     'wst' => [
         's1' => "tala samoańska",
-        "s2" => "tala samoańskie",
-        "s3" => "tala samoańskich",
+        's2' => "tala samoańskie",
+        's3' => "tala samoańskich",
         'f' => true,
         'minor' => [
             's1' => "sene",
-            "s2" => "sene",
-            "s3" => "sene",
+            's2' => "sene",
+            's3' => "sene",
             'f' => false,
         ]
     ],
     'xaf' => [
         's1' => "środkowoafrykański frank CFA",
-        "s2" => "środkowoafrykańskie franki CFA",
-        "s3" => "środkowoafrykańskich franków CFA",
+        's2' => "środkowoafrykańskie franki CFA",
+        's3' => "środkowoafrykańskich franków CFA",
         'f' => false,
         'minor' => Cents_NotUsed
     ],
     'xcd' => [
         's1' => "dolar wschodniokaraibski",
-        "s2" => "dolary wschodniokaraibskie",
-        "s3" => "dolarów wschodniokaraibskich",
+        's2' => "dolary wschodniokaraibskie",
+        's3' => "dolarów wschodniokaraibskich",
         'f' => false,
         'minor' => Cents
     ],
     'xof' => [
         's1' => "zachodnioafrykański frank CFA",
-        "s2" => "zachodnioafrykańskie franki CFA",
-        "s3" => "zachodnioafrykańskich franków CFA",
+        's2' => "zachodnioafrykańskie franki CFA",
+        's3' => "zachodnioafrykańskich franków CFA",
         'f' => false,
         'minor' => Centims_NotUsed
     ],
     'xpf' => [
         's1' => "frank CFP",
-        "s2" => "franki CFP",
-        "s3" => "franków CFP",
+        's2' => "franki CFP",
+        's3' => "franków CFP",
         'f' => false,
         'minor' => Centims_NotUsed
     ],
     'yer' => [
         's1' => "rial jemeński",
-        "s2" => "riale jemeńskie",
-        "s3" => "riali jemeńskich",
+        's2' => "riale jemeńskie",
+        's3' => "riali jemeńskich",
         'f' => false,
         'minor' => Fils
     ],
     'zar' => [
         's1' => "rand południowoafrykański",
-        "s2" => "randy południowoafrykańskie",
-        "s3" => "randów południowoafrykańskich",
+        's2' => "randy południowoafrykańskie",
+        's3' => "randów południowoafrykańskich",
         'f' => false,
         'minor' => Cents
     ],
@@ -1661,12 +1662,14 @@ const Currencies = [
     ],
     'zwl' => [
         's1' => "dolar Zimbabwe",
-        "s2" => "dolary Zimbabwe",
-        "s3" => "dolarów Zimbabwe",
+        's2' => "dolary Zimbabwe",
+        's3' => "dolarów Zimbabwe",
         'f' => false,
         'minor' => Cents
     ],
 ];
+
+namespace tei187\Resources\ISO4217;
 
 /**
  * Cross-reference table between ISO 4217 Numbers and currency pickers.

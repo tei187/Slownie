@@ -1,9 +1,10 @@
 # Slownie
-Class used to transcribe float values into words in Polish language, useful when word transcription is necessary (amount verification, genitive case use). Supports amounts up to 999.999.999.999,99 in many currencies (current list below). 
+Class used to transcribe float values into words in Polish language, useful when word transcription is necessary (amount verification, genitive case use). Supports amounts up to 999.999.999.999,99 in many currencies (current list below).
+**(Work in progress... more of a proof of concept)**
 
 ## Example
 ```php
-    $t = new tei187\Slownie(12345.31, 'pln');
+    $t = new tei187\Slownie\Polish(12345.31, 'pln');
     echo $t->output();                    // dwanaście tysięcy trzysta czterdzieści pięć złotych, trzydzieści jeden groszy
     echo $t->output(999999999.99, 'usd'); // dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć dolarów, dziewięćdziesiąt dziewięć centów
 ```
