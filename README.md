@@ -2,11 +2,47 @@
 Class used to transcribe float values into words in Polish language, useful when word transcription is necessary (amount verification, genitive case use). Supports amounts up to 999.999.999.999,99 in many currencies (current list below).
 **(Work in progress... more of a proof of concept)**
 
-## Example
+## Examples
+### Basic
 ```php
-    $t = new tei187\Slownie\Polish(12345.31, 'pln');
-    echo $t->output();                    // dwanaście tysięcy trzysta czterdzieści pięć złotych, trzydzieści jeden groszy
-    echo $t->output(999999999.99, 'usd'); // dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć dolarów, dziewięćdziesiąt dziewięć centów
+$t = new tei187\Slownie\Polish(12345.31, 'pln');
+echo $t->output();                            // outputs: dwanaście tysięcy trzysta czterdzieści pięć złotych, trzydzieści jeden groszy
+echo $t->output(999999999.99, 'usd');         // outputs: dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć dolarów amerykańskich, dziewięćdziesiąt dziewięć centów
+```
+
+### Expanded
+#### Fractional notation
+Depending on use, sometimes it is not necessary to use a full-word notation of fractional currency but its' actual fractional transcription. In this case you could use `setFractions(true)`.
+```php
+$t = new tei187\Slownie\Polish(123.45, 'usd'); // meaning the amount of 123.45 USD
+echo $t->output();                             // outputs: sto dwadzieścia trzy dolary amerykańskie, czterdzieści pięć centów
+echo $t->setFractions(true)->output();         // outputs: sto dwadzieścia trzy dolary amerykańskie 45/100
+```
+
+#### Rounding
+It is possible to assign a specific type of rounding with `setRounding()` method, which can assign one of three rounding methods: 
+- `"none"` (no rounding, does not check if exponent is used),
+- `"normal"` (halves up),
+- `"bankers"` (so-called *"banker's rounding"* or halves-up-to-even).
+```php
+$t = new tei187\Slownie\Polish(0.5, 'jpy'); // meaning the amount of 0.5 JPY
+
+$t->setRounding("none");    // set rounding method to none (disables rounding of exponent)
+echo $t->output();          // outputs: "pięćdziesiąt senów"
+
+$t->setRounding("normal");  // set rounding method to normal
+echo $t->output();          // outputs: "jeden jen", because JPY currency uses no exponent
+
+$t->setRounding("bankers"); // set rounding method to banker's rounding
+echo $t->output();          // outputs an empty string, because: 1) JPY currency uses no exponent, 2) banker's method rounds halves to even numbers, hence rounding outcome is 0.
+```
+
+#### Use of ISO 4217 numbers
+Currencies can be passed as both IS0 4217 currency codes and ISO 4217 currency numbers.
+```php
+$t = new tei187\Slownie\Polish(5.51);
+echo $t->setCurrency("bob")->output(); // outputs: pięć boliviano, pięćdziesiąt jeden centavo
+echo $t->setCurrency("068")->output(); // outputs: pięć boliviano, pięćdziesiąt jeden centavo
 ```
 
 ## Supported currencies
@@ -156,13 +192,13 @@ Class used to transcribe float values into words in Polish language, useful when
 | ZAR  | 710          | South African rand                                        |
 | ZMW  | 967          | Zambian kwacha                                            |
 | ZWL  | 932          | Zimbabwean dollar (RTGS dollar)                           |
-| none | -            | `(default)` no currency, *does not support decimal point* |
+| none | -            | `(default)` no currency, *currently does not support decimal point* |
 
 ## TODO
 - [x] fix some lingual issues.
-- [ ] check for exponents.
-  - [ ] check rounding.
-  - [ ] make as optional flag.
+- [x] check for exponents.
+  - [x] check rounding.
+  - [x] make as optional flag.
 - [x] option to use ISO 4217 number instead of code.
 - [x] incorporate European currencies.
 - [x] incorporate American currencies.

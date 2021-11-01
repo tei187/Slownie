@@ -114,12 +114,13 @@
 
     require_once("../Slownie.php");
 
+    // [ amount, currency, fractional notation ]
     $pool = [
-        [ 1234567.891, 'lyd'],
-        [ 999999999.99, 'usd'],
-        [ 12.50, '060' ],
-        [ 5432, 'none' ],
-        [ 1000000000, 'usd']
+        [ 1234567.89133, 'lyd', true],
+        [ 999999999.99, 'usd', false],
+        [ 12.50, '060', false ],
+        [ 5432, 'none', false ],
+        [ 1000000000, 'usd', true]
     ];
 
     $tests = new tei187\Slownie\Polish;
@@ -129,9 +130,14 @@
     foreach($pool as $arguments) {
         $tests->setCurrency($arguments[1]);
         $currency = $arguments[1] != "none" ? " ".$tests->getCurrency($arguments[1]) : "";
-        echo "<tr><td>{$arguments[0]}{$currency}</td><td>".$tests->output($arguments[0], $arguments[1])."</td></tr>";
+        echo "<tr><td>{$arguments[0]}{$currency}</td><td>".$tests->setFractions($arguments[2])->output($arguments[0], $arguments[1])."</td></tr>";
     }
     echo "</tbody></table>";
+
+    $t = new tei187\Slownie\Polish(5.51);
+echo $t->setCurrency("bob")->output();
+echo "<br>";
+echo $t->setCurrency("068")->output();
 ?>
 </body>
 </html>

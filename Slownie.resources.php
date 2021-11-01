@@ -1,5 +1,5 @@
 <?php
-namespace tei187\Resources\PL\ISO4217;
+namespace tei187\Resources\PL;
 
 // round half even
 
@@ -63,6 +63,8 @@ const Numbers = [
         9 => "dziewięć",
     ],
 ];
+
+namespace tei187\Resources\ISO4217\PL;
 
  /**
   * Regular extension - cents.
@@ -1669,14 +1671,14 @@ const Currencies = [
     ],
 ];
 
-namespace tei187\Resources\ISO4217;
+namespace tei187\Resources\ISO4217\Xref;
 
 /**
  * Cross-reference table between ISO 4217 Numbers and currency pickers.
  * 
  * @var array
  */
-const Xref = [
+const NumberToCode = [
     '008' => "all",
     '012' => 'dzd',
     '032' => "ars",
