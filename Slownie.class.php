@@ -241,52 +241,49 @@ class Polish {
     private function relayString() : string {
         $c = count($this->amountFull);
         $full = [];
-        if($c == 7) {
-            // quintillion
-            $full[] = $this->getQuintillions($this->amountFull[0]);
-            $full[] = $this->getQuadrillions($this->amountFull[1]);
-            $full[] = $this->getTrillions($this->amountFull[2]);
-            $full[] = $this->getBillions($this->amountFull[3]);
-            $full[] = $this->getMillions($this->amountFull[4]);
-            $full[] = $this->getThousands($this->amountFull[5]);
-            $full[] = $this->getHundreds($this->amountFull[6]);
-        }
-        if($c == 6) {
-            // quadrillion
-            $full[] = $this->getQuadrillions($this->amountFull[0]);
-            $full[] = $this->getTrillions($this->amountFull[1]);
-            $full[] = $this->getBillions($this->amountFull[2]);
-            $full[] = $this->getMillions($this->amountFull[3]);
-            $full[] = $this->getThousands($this->amountFull[4]);
-            $full[] = $this->getHundreds($this->amountFull[5]);
-        }
-        if($c == 5) {
-            // trillions
-            $full[] = $this->getTrillions($this->amountFull[0]);
-            $full[] = $this->getBillions($this->amountFull[1]);
-            $full[] = $this->getMillions($this->amountFull[2]);
-            $full[] = $this->getThousands($this->amountFull[3]);
-            $full[] = $this->getHundreds($this->amountFull[4]);
-        }
-        if($c == 4) {
-            // billions
-            $full[] = $this->getBillions($this->amountFull[0]);
-            $full[] = $this->getMillions($this->amountFull[1]);
-            $full[] = $this->getThousands($this->amountFull[2]);
-            $full[] = $this->getHundreds($this->amountFull[3]);
-        }
-        if($c == 3) {
-            // millions
-            $full[] = $this->getMillions($this->amountFull[0]);
-            $full[] = $this->getThousands($this->amountFull[1]);
-            $full[] = $this->getHundreds($this->amountFull[2]);
-        } elseif ($c == 2) {
-            // thousands
-            $full[] = $this->getThousands($this->amountFull[0]);
-            $full[] = $this->getHundreds($this->amountFull[1]);
-        } elseif ($c == 1) {
-            // hundreds
-            $full[] = $this->getHundreds($this->amountFull[0]);
+        switch($c) {
+            case 7: // quintillions
+                $full[] = $this->getQuintillions($this->amountFull[0]);
+                $full[] = $this->getQuadrillions($this->amountFull[1]);
+                $full[] = $this->getTrillions($this->amountFull[2]);
+                $full[] = $this->getBillions($this->amountFull[3]);
+                $full[] = $this->getMillions($this->amountFull[4]);
+                $full[] = $this->getThousands($this->amountFull[5]);
+                $full[] = $this->getHundreds($this->amountFull[6]);
+                break;
+            case 6: // quadrillions
+                $full[] = $this->getQuadrillions($this->amountFull[0]);
+                $full[] = $this->getTrillions($this->amountFull[1]);
+                $full[] = $this->getBillions($this->amountFull[2]);
+                $full[] = $this->getMillions($this->amountFull[3]);
+                $full[] = $this->getThousands($this->amountFull[4]);
+                $full[] = $this->getHundreds($this->amountFull[5]);
+                break;
+            case 5: // trillions
+                $full[] = $this->getTrillions($this->amountFull[0]);
+                $full[] = $this->getBillions($this->amountFull[1]);
+                $full[] = $this->getMillions($this->amountFull[2]);
+                $full[] = $this->getThousands($this->amountFull[3]);
+                $full[] = $this->getHundreds($this->amountFull[4]);
+                break;
+            case 4: // billions
+                $full[] = $this->getBillions($this->amountFull[0]);
+                $full[] = $this->getMillions($this->amountFull[1]);
+                $full[] = $this->getThousands($this->amountFull[2]);
+                $full[] = $this->getHundreds($this->amountFull[3]);
+                break;
+            case 3: // millions
+                $full[] = $this->getMillions($this->amountFull[0]);
+                $full[] = $this->getThousands($this->amountFull[1]);
+                $full[] = $this->getHundreds($this->amountFull[2]);
+                break;
+            case 2: // thousands
+                $full[] = $this->getThousands($this->amountFull[0]);
+                $full[] = $this->getHundreds($this->amountFull[1]);
+                break;
+            case 1: // hundreds
+                $full[] = $this->getHundreds($this->amountFull[0]);
+                break;
         }
 
         if($c > 0 and intval(implode("", $this->amountFull)) > 0) {
@@ -598,9 +595,8 @@ class Polish {
     public function getRounded(bool $padded = false) {
         if(!$padded) {
             return $this->rounded;
-        } else {
-            return number_format($this->rounded, $this->getExponent());
         }
+        return number_format($this->rounded, $this->getExponent());
     }
 
     /**
