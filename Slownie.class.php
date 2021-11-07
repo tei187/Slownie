@@ -8,83 +8,33 @@ use tei187\Resources as Resources;
  * 
  * @author Piotr Bonk <bonk.piotr@gmail.com>
  */
-class Polish {
+class SlownieBase {
     /** @var float|string $input Whatever was passed as amount. */
-    private $input = 0;
+    protected $input = 0;
     /** @var float $rounded Rounded input by set rounding method. */
-    private $rounded = 0;
+    protected $rounded = 0;
     /** @var array $amountFull Hold parts of amount (without minor parts), divided by hundreds mark. */
-    private $amountFull = [];
+    protected $amountFull = [];
     /** @var integer $amountPart Holds decimal parts of amount, only minors. */
-    private $amountPart = 0;
+    protected $amountPart = 0;
     /** @var string $currency Chosen currency, "none" by default. */
-    private $currency = "none";
-    /** @var integer $decimals Chosen currencies decimal points, 2 by default. */
-    private $decimals = 2;
+    protected $currency = "none";
+    /** @var integer $exponent Chosen currencies decimal points, 2 by default. */
+    protected $exponent = 2;
+    /** @var bool $exponent Chosen currencies decimal points, 2 by default. */
+    protected $exponentUse = true;
     /** @var boolean $fractions Translate fully (with minors) or partially (with fractional notation). FALSE by default. */
-    private $fractions = false;
+    protected $fractions = false;
     /** @var string $rounding Rounding method for exponents. "Bankers", "normal", or "none". */
-    private $rounding = "none";
-    /** @var array $dictionary Dictionary for translation purposes and cross-reference tables. */
-    protected $dictionary = [
-        'currencies' => Resources\ISO4217\PL\Currencies, 
-           'numbers' => Resources\PL\Numbers,
-              'xref' => Resources\ISO4217\Xref\NumberToCode,
-        'suffix' => [
-            3 => [
-                "s1" => "tysiąc",
-                "s2" => "tysiące",
-                "s3" => "tysięcy",
-            ],
-            6 => [
-                "s1" => "milion",
-                "s2" => "miliony",
-                "s3" => "milionów",
-            ],
-            9 => [
-                "s1" => "miliard",
-                "s2" => "miliardy",
-                "s3" => "miliardów",
-            ],
-            12 => [
-                "s1" => "bilion",
-                "s2" => "biliony",
-                "s3" => "bilionów",
-            ],
-            15 => [
-                "s1" => "biliard",
-                "s2" => "biliardy",
-                "s3" => "biliardów",
-            ],
-            18 => [
-                "s1" => "trylion",
-                "s2" => "tryliony",
-                "s3" => "trylionów",
-            ],
-            21 => [
-                "s1" => "tryliard",
-                "s2" => "tryliardy",
-                "s3" => "tryliardów",
-            ],
-            24 => [
-                "s1" => "kwadrylion",
-                "s2" => "kwadryliony",
-                "s3" => "kwadrylionów",
-            ],
-        ]
-    ];
+    protected $rounding = "none";
+    /** @var bool $needsParsing Flag to accertain if amount needs reparsing due to changes. */
+    protected $needsParsing = true;
 
     /**
      * Class constructor.
      *
-     * @param float|string|null $amount 
-     * @param string 
-     */
-    /**
-     * Undocumented function
-     *
      * @param float|string|null $amount Amount to process. Has to be well formed float or float-formed string.
-     * @param string|null $currency ISO 4217 currency code or number (refer to tei187\Resources\ISO4217\PL\Currencies or tei187\Resources\ISO4217\Xref\NumberToCode). By default "none".
+     * @param string|null $currency ISO 4217 currency code or number (refer to tei187\Resources\ISO4217\PL\Currencies or tei187\Resources\ISO4217\NumberToCode). By default "none".
      * @param boolean $fractions If FALSE translates fully, if TRUE uses fractional notation for minor rest.
      * @param string $rounding Defines type of rounding: "bankers", "normal", "none". By default "none".
      */
@@ -94,7 +44,6 @@ class Polish {
         }
         $this->input = $amount;
         $this->setRounding($rounding);
-        $this->roundByMethod();
         $this->setFractions($fractions);
         $this->parse($this->rounded);
     }
@@ -104,7 +53,7 @@ class Polish {
      *
      * @return integer
      */
-    private function getExponent() : int {
+    protected function findExponent() : int {
         if(isset($this->dictionary['currencies'][$this->currency]['minor']['d'])) {
             return $this->dictionary['currencies'][$this->currency]['minor']['d'];
         }
@@ -116,7 +65,7 @@ class Polish {
      *
      * @return boolean
      */
-    private function getExponentUse() : bool {
+    protected function findExponentUse() : bool {
         if(isset($this->dictionary['currencies'][$this->currency]['minor']['u'])) {
             return $this->dictionary['currencies'][$this->currency]['minor']['u'];
         }
@@ -127,14 +76,16 @@ class Polish {
      * Sets rounding method.
      *
      * @param string|null $rounding Accepts "bankers", "normal". Defaults to null which sets rounding method to "none";
-     * @return \tei187\Slownie\Polish
+     * @return self
      */
-    public function setRounding(string $rounding = null) : \tei187\Slownie\Polish {
+    public function setRounding(string $rounding = null) : self {
         switch($rounding) {
             case "bankers": $this->rounding = "bankers"; break;
             case "normal":  $this->rounding = "normal"; break;
             default:        $this->rounding = "none"; break;
         }
+        $this->roundByMethod();
+        $this->needsParsing = true;
         return $this;
     }
 
@@ -143,14 +94,12 @@ class Polish {
      *
      * @return void
      */
-    private function roundByMethod() : void {
+    protected function roundByMethod() : void {
         $temp = doubleval($this->input);
-        $exponentDigits = $this->getExponent();
-        $exponentUse = $this->getExponentUse();
-        if($exponentDigits == 0 OR !$exponentUse) {
+        if($this->exponent == 0 OR $this->exponentUse !== true) {
             $exponent = 0;
         } else {
-            $exponent = $exponentDigits;
+            $exponent = $this->exponent;
         }
         switch(strtolower($this->rounding)) {
             case "bankers": 
@@ -159,7 +108,7 @@ class Polish {
             case "normal":
                 $this->rounded = round($temp, $exponent, PHP_ROUND_HALF_UP);
                 break;
-            default: 
+            default:
                 $this->rounding = "none";
                 $this->rounded = $temp;
                 break;
@@ -172,28 +121,27 @@ class Polish {
      *
      * @return string
      */
-    private function relayFractionMinors() : string {
-        return str_pad($this->amountPart, $this->decimals, "0", STR_PAD_RIGHT) . "/" . (10 ** $this->decimals);
+    protected function relayFractionMinors() : string {
+        return str_pad($this->amountPart, $this->exponent, "0", STR_PAD_RIGHT) . "/" . (10 ** $this->exponent);
     }
 
     /**
      * Parses input amount.
      *
      * @param float $v Input amount.
-     * @return boolean
+     * @return boolean Returns TRUE is value is proper, FALSE if otherwise.
      */
-    private function parse(float $v = null) : bool {
-        $v = str_replace(" ", "", $v);
-        $v = doubleval($v);
+    protected function parse(float $v = null) : bool {
+        $v = str_replace(" ", "", $v); // clear spaces
+        $v = doubleval($v); // convert to double
         if(is_double($v)) {
-
-            $v = number_format($v, $this->decimals, ",", ".");
+            $v = number_format($v, $this->exponent, ",", "."); // reformat to 123.456,78
             $v_explode = explode(",", $v);
-            $this->amountPart = $v_explode[1];
+            $this->amountPart = $v_explode[1]; // get minor
             $this->amountFull = array_map(
                 fn($val): string => intval($val), 
                 explode(".", $v_explode[0])
-            ); // explode by separators and remap as integers
+            ); // explode by separators and remap as integers to avoid leading zeroes for each thousandth part
         } else {
             $this->amountFull = [];
             $this->amountPart = 0;
@@ -205,12 +153,15 @@ class Polish {
     /**
      * Assigns currency.
      *
-     * @param string $currency Currency shortcode. Has to exist as index in tei187\Resources\ISO4217\PL\Currencies, or as cross-referenced ISO 4217 _STRING_ index of tei187\Resources\ISO4217\Xref\NumberToCode (with leading zeroes), or 'none' (default).
-     * @return \tei187\Slownie\Polish
+     * @param string $currency Currency shortcode. Has to exist as index in tei187\Resources\ISO4217\{lang}\Currencies, or as cross-referenced ISO 4217 _STRING_ index of tei187\Resources\ISO4217\NumberToCode (with leading zeroes), or 'none' (default).
+     * @return self
      */
-    public function setCurrency(string $currency) : \tei187\Slownie\Polish {
+    public function setCurrency(string $currency) : self {
         if(is_string($currency) and strlen($currency) == 3) {
-            $check = false; // verifier
+            $check = false; // verifier, used to signify if currency has been found in any correlated array
+
+            // 1st condition: if currency key is numeric and exists in cross-reference array (so passed as numeric code)
+            // 2nd condition: if currency key isn't necessarily numeric and exists in short code array (passed as short code)
             if(ctype_digit($currency) and key_exists($currency, $this->dictionary['xref'])) {
                 $this->currency = $this->dictionary['xref'][$currency];
                 $check = true;
@@ -219,13 +170,19 @@ class Polish {
                 $check = true;
             }
 
+            // if checks out, assigns exponent and exponent's use
+            // if doesnt check out, assigns no currency and default exponent
             if($check === true) {
-                $this->decimals = isset($this->dictionary['currencies'][$this->currency]['minor']['d']) ? $this->dictionary['currencies'][$this->currency]['minor']['d'] : 2;
+                $this->exponent = $this->findExponent();
+                $this->exponentUse = $this->findExponentUse();
             } else {
-                $this->decimals = 2;
+                $this->exponent = 2;
+                $this->exponentUse = true;
                 $this->currency = "none";
             }
         } else {
+            $this->exponent = 2;
+            $this->exponentUse = true;
             $this->currency = "none";
         }
         return $this;
@@ -238,7 +195,7 @@ class Polish {
      * 
      * @return string
      */
-    private function relayString() : string {
+    protected function relayString() : string {
         $c = count($this->amountFull);
         $full = [];
         switch($c) {
@@ -297,8 +254,8 @@ class Polish {
             if($this->fractions) {
                 $rest[] = $this->relayFractionMinors();
             } else {
-                $rest[] = $this->getHundreds(str_pad($this->amountPart, $this->decimals, 0, STR_PAD_RIGHT), true);
-                $rest[] = $this->getCurrencyMinor(str_pad($this->amountPart, $this->decimals, 0, STR_PAD_RIGHT), true);
+                $rest[] = $this->getHundreds(str_pad($this->amountPart, $this->exponent, 0, STR_PAD_RIGHT), true);
+                $rest[] = $this->getCurrencyMinor(str_pad($this->amountPart, $this->exponent, 0, STR_PAD_RIGHT), true);
             }
         }
 
@@ -318,12 +275,76 @@ class Polish {
      * Sets fractional notation true/false for minor rest.
      *
      * @param boolean $v
-     * @return \tei187\Slownie\Polish
+     * @return self
      */
-    public function setFractions(bool $v = true) : \tei187\Slownie\Polish {
+
+    public function setFractions(bool $v = true) : self {
         $this->fractions = $v;
         return $this;
     }
+
+    /**
+     * Returns currently set currency... in uppercase. That's pretty much it...
+     *
+     * @return string
+     */
+    public function getCurrency() : string {
+        return strtoupper($this->currency);
+    }
+
+    /**
+     * Returns input amount rounded by set rounding method.
+     *
+     * @return float|int|string
+     */
+    public function getRounded(bool $padded = false) {
+        if(!$padded) {
+            return $this->rounded;
+        }
+        return number_format($this->rounded, $this->exponent);
+    }
+
+    /**
+     * Returns amount in words.
+     *
+     * @param float|string|null $v Input value. Has to be well formed float or float formed string.
+     * @param string $currency ISO 4217 currency code or number.
+     * @param boolean|null $fractions If FALSE translates fully, if TRUE uses fractional notation for minor rest.
+     * @param string|null $rounding Defines type of rounding: "bankers", "normal", "none". By default "none".
+     * @return string Output in words.
+     */
+    public function output($v = null, string $currency = null, bool $fractions = null, string $rounding = null) : string {
+        if($v !== null)          { $this->input = $v; }
+        if($currency !== null)   { $this->setCurrency($currency); }
+        if($fractions !== null)  { $this->setFractions($fractions); }
+        if($rounding !== null)   { $this->setRounding($rounding); }
+        if($v !== null and $rounding === null) {
+            $this->roundByMethod();
+        }
+        if($this->needsParsing)  { $this->parse($this->rounded); }
+        return $this->relayString();
+    }
+
+    // empty holders
+    protected function getCurrencyMinor() {}
+    protected function getQuintillions() {}
+    protected function getQuadrillions() {}
+    protected function getTrillions() {}
+    protected function getBillions() {}
+    protected function getMillions() {}
+    protected function getThousands() {}
+    protected function getHundreds() {}
+    protected function getCurrencyFull() {}
+}
+
+class PL extends SlownieBase {
+    /** @var array $dictionary Dictionary for translation purposes and cross-reference tables. */
+    protected $dictionary = [
+        'currencies' => Resources\ISO4217\PL\Currencies, 
+           'numbers' => Resources\PL\Numbers,
+              'xref' => Resources\ISO4217\NumberToCode,
+            'suffix' => Resources\PL\LargeNumbers
+    ];
 
     /**
      * Returns quintillions in words.
@@ -331,7 +352,7 @@ class Polish {
      * @param string $v Input quintillions part.
      * @return string|null
      */
-    private function getQuintillions(string $v = null) : string {
+    protected function getQuintillions(string $v = null) : string {
         if(intval($v) > 0) {
             $w = $this->getHundreds($v);
             $vmod = $v % 10;
@@ -354,7 +375,7 @@ class Polish {
      * @param string $v Input quadrillions part.
      * @return string|null
      */
-    private function getQuadrillions(string $v = null) : string {
+    protected function getQuadrillions(string $v = null) : string {
         if(intval($v) > 0) {
             $w = $this->getHundreds($v);
             $vmod = $v % 10;
@@ -377,7 +398,7 @@ class Polish {
      * @param string $v Input trillions part.
      * @return string|null
      */
-    private function getTrillions(string $v = null) : string {
+    protected function getTrillions(string $v = null) : string {
         if(intval($v) > 0) {
             $w = $this->getHundreds($v);
             $vmod = $v % 10;
@@ -400,7 +421,7 @@ class Polish {
      * @param string $v Input billions part.
      * @return string|null
      */
-    private function getBillions(string $v = null) : string {
+    protected function getBillions(string $v = null) : string {
         if(intval($v) > 0) {
             $w = $this->getHundreds($v);
             $vmod = $v % 10;
@@ -423,7 +444,7 @@ class Polish {
      * @param string $v Input millions part.
      * @return string|null
      */
-    private function getMillions(string $v = null) : string {
+    protected function getMillions(string $v = null) : string {
         if(intval($v) > 0) {
             $w = $this->getHundreds($v);
             $vmod = $v % 10;
@@ -446,7 +467,7 @@ class Polish {
      * @param string $v Input thousands part.
      * @return string|null
      */
-    private function getThousands(string $v = null) : string {
+    protected function getThousands(string $v = null) : string {
         if(intval($v) > 0) {
             $w = $this->getHundreds($v);
             $vmod = $v % 10;
@@ -470,7 +491,7 @@ class Polish {
      * @param boolean $minor Switch if minor.
      * @return string|null
      */
-    private function getHundreds(string $v = null, bool $minor = false) : string {
+    protected function getHundreds(string $v = null, bool $minor = false) : string {
         if(intval($v) > 0) {
             $teens = false;
             $vp = [
@@ -540,7 +561,7 @@ class Polish {
      * @param string $v Input last part of amount.
      * @return string|null
      */
-    private function getCurrencyFull(string $v = null) : string {
+    protected function getCurrencyFull(string $v = null) : string {
         if($this->currency != "none") {
             $vmod = $v % 10; // rename?
             if($v == 1) {
@@ -562,7 +583,7 @@ class Polish {
      * @param string $v Input rest.
      * @return string|null
      */
-    private function getCurrencyMinor(string $v = null) : string {
+    protected function getCurrencyMinor(string $v = null) : string {
         if($this->currency != "none") {
             $vmod = $v % 10;
             if($v == 1) {
@@ -577,48 +598,248 @@ class Polish {
         }
         return "";
     }
+}
+
+class EN extends SlownieBase {
+    /** @var array $dictionary Dictionary for translation purposes and cross-reference tables. */
+    protected $dictionary = [
+        'currencies' => Resources\ISO4217\EN\Currencies, 
+           'numbers' => Resources\EN\Numbers,
+              'xref' => Resources\ISO4217\NumberToCode,
+            'suffix' => Resources\EN\LargeNumbers
+    ];
 
     /**
-     * Returns currently set currency... in uppercase. That's pretty much it, eh...
+     * Returns quintillions in words.
      *
-     * @return string
+     * @param string $v Input quintillions part.
+     * @return string|null
      */
-    public function getCurrency() : string {
-        return strtoupper($this->currency);
+    protected function getQuintillions(string $v = null) : string {
+        if(intval($v) > 0) {
+            $w = $this->getHundreds($v);
+            if($v == 1) {
+                return $w . " " . $this->dictionary['suffix'][18]['s'];
+            } elseif ($v > 1) {
+                if($this->currency == "none") {
+                    return $w . " " . $this->dictionary['suffix'][18]['p'];
+                } else {
+                    return $w . " " . $this->dictionary['suffix'][18]['s'];
+                }
+            } elseif($v == 0) {
+                return "";
+            }
+        }
+        return "";
     }
 
     /**
-     * Returns input amount rounded by set rounding method.
+     * Returns quadrillions in words.
      *
-     * @return float|int|string
+     * @param string $v Input quadrillions part.
+     * @return string|null
      */
-    public function getRounded(bool $padded = false) {
-        if(!$padded) {
-            return $this->rounded;
+    protected function getQuadrillions(string $v = null) : string {
+        if(intval($v) > 0) {
+            $w = $this->getHundreds($v);
+            if($v == 1) {
+                return $w . " " . $this->dictionary['suffix'][15]['s'];
+            } elseif ($v > 1) {
+                if($this->currency == "none") {
+                    return $w . " " . $this->dictionary['suffix'][15]['p'];
+                } else {
+                    return $w . " " . $this->dictionary['suffix'][15]['s'];
+                }
+            } elseif($v == 0) {
+                return "";
+            }
         }
-        return number_format($this->rounded, $this->getExponent());
+        return "";
     }
 
     /**
-     * Returns amount in words.
+     * Returns trillions in words.
      *
-     * @param float|string|null $v Input value. Has to be well formed float or float formed string.
-     * @param string $currency ISO 4217 currency code or number.
-     * @param boolean|null $fractions If FALSE translates fully, if TRUE uses fractional notation for minor rest.
-     * @param string|null $rounding Defines type of rounding: "bankers", "normal", "none". By default "none".
-     * @return string Output in words.
+     * @param string $v Input trillions part.
+     * @return string|null
      */
-    public function output($v = null, string $currency = null, bool $fractions = null, string $rounding = null) : string {
-        if($v !== null)          { $this->input = $v; }
-        if($currency !== null)   { $this->setCurrency($currency); }
-        if($fractions !== null)  { $this->setFractions($fractions); }
-        if($rounding !== null)   { $this->setRounding($rounding); $this->roundByMethod(); }
-        if($v !== null and $rounding === null) {
-            $this->roundByMethod();
+    protected function getTrillions(string $v = null) : string {
+        if(intval($v) > 0) {
+            $w = $this->getHundreds($v);
+            if($v == 1) {
+                return $w . " " . $this->dictionary['suffix'][12]['s'];
+            } elseif ($v > 1) {
+                if($this->currency == "none") {
+                    return $w . " " . $this->dictionary['suffix'][12]['p'];
+                } else {
+                    return $w . " " . $this->dictionary['suffix'][12]['s'];
+                }
+            } elseif($v == 0) {
+                return "";
+            }
         }
-        if($v !== null)          { $this->parse($this->rounded); }
+        return "";
+    }
 
-        return $this->relayString();
+    /**
+     * Returns billions in words.
+     *
+     * @param string $v Input billions part.
+     * @return string|null
+     */
+    protected function getBillions(string $v = null) : string {
+        if(intval($v) > 0) {
+            $w = $this->getHundreds($v);
+            if($v == 1) {
+                return $w . " " . $this->dictionary['suffix'][9]['s'];
+            } elseif ($v > 1) {
+                if($this->currency == "none") {
+                    return $w . " " . $this->dictionary['suffix'][9]['p'];
+                } else {
+                    return $w . " " . $this->dictionary['suffix'][9]['s'];
+                }
+            } elseif($v == 0) {
+                return "";
+            }
+        }
+        return "";
+    }
+
+    /**
+     * Returns millions in words.
+     *
+     * @param string $v Input millions part.
+     * @return string|null
+     */
+    protected function getMillions(string $v = null) : string {
+        if(intval($v) > 0) {
+            $w = $this->getHundreds($v);
+            if($v == 1) {
+                return $w . " " . $this->dictionary['suffix'][6]['s'];
+            } elseif ($v > 1) {
+                if($this->currency == "none") {
+                    return $w . " " . $this->dictionary['suffix'][6]['p'];
+                } else {
+                    return $w . " " . $this->dictionary['suffix'][6]['s'];
+                }
+            } elseif($v == 0) {
+                return "";
+            }
+        }
+        return "";
+    }
+
+    /**
+     * Returns thousands in words.
+     *
+     * @param string $v Input thousands part.
+     * @return string|null
+     */
+    protected function getThousands(string $v = null) : string {
+        if(intval($v) > 0) {
+            $w = $this->getHundreds($v);
+            if($v == 1) {
+                return $w . " " . $this->dictionary['suffix'][3]['s'];
+            } elseif ($v > 1) {
+                if($this->currency == "none") {
+                    return $w . " " . $this->dictionary['suffix'][3]['p'];
+                } else {
+                    return $w . " " . $this->dictionary['suffix'][3]['s'];
+                }
+            } elseif($v == 0) {
+                return "";
+            }
+        }
+        return "";
+    }
+
+    /**
+     * Returns hundreds part in words.
+     *
+     * @param string $v Input hundreds part.
+     * @param boolean $minor Switch if minor.
+     * @return string|null
+     */
+    protected function getHundreds(string $v = null, bool $minor = false) : string {
+        if(intval($v) > 0) {
+            $teens = false;
+            $vp = [
+                'hundreds' => floor($v / 100),
+                'tens'     => floor(($v % 100) / 10),
+                'single'   => $v % 10,
+            ];
+                
+            $parts = [];
+            if($vp['hundreds'] > 0) {
+                // hundreds
+                $parts[] = $this->dictionary['numbers']['xoo'][$vp['hundreds'] * 100];
+            }
+            if($vp['tens'] > 0) {
+                // tens
+                if($vp['tens'] == 1) {
+                    if($vp['single'] > 0) {
+                        // teens
+                        $teens = true;
+                        $key = $vp['tens'].$vp['single'];
+                        $parts[] = $this->dictionary['numbers']['oxo'][$key];
+                    } else {
+                        $parts[] = $this->dictionary['numbers']['oxo'][$vp['tens'] * 10];
+                    }
+                } elseif($vp['tens'] >= 2) {
+                    $parts[] = $this->dictionary['numbers']['oxo'][$vp['tens'] * 10];
+                }
+            }
+
+            if($teens === false AND $vp['single'] > 0) {
+                $parts[] = $this->dictionary['numbers']['oox'][$vp['single']];
+            }
+    
+            if(count($parts) > 1) {
+                return implode(" ", $parts);
+            } elseif (count($parts) == 1) {
+                return $parts[0];
+            }
+        }
+        return "";
+    }
+
+    /**
+     * Returns currency suffix.
+     *
+     * @param string $v Input last part of amount.
+     * @return string|null
+     */
+    protected function getCurrencyFull() : string {
+        if($this->currency != "none") {
+            $imploded = intval(implode("", $this->amountFull));
+            if($imploded == 1) {
+                return $this->dictionary['currencies'][$this->currency]['s'];
+            } elseif ($imploded >= 2) {
+                return $this->dictionary['currencies'][$this->currency]['p'];
+            } elseif($imploded == 0) {
+                return "";
+            }
+        }
+        return "";
+    }
+
+    /**
+     * Returns currency minors' suffix.
+     *
+     * @param string $v Input rest.
+     * @return string|null
+     */
+    protected function getCurrencyMinor(string $v = null) : string {
+        if($this->currency != "none") {
+            if($v == 1) {
+                return $this->dictionary['currencies'][$this->currency]['minor']['s'];
+            } elseif ($v >= 2) {
+                return $this->dictionary['currencies'][$this->currency]['minor']['p'];
+            } elseif($v == 0) {
+                return "";
+            }
+        }
+        return "";
     }
 }
 

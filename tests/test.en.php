@@ -123,9 +123,9 @@
         [ 1000000000, 'usd', true]
     ];
 
-    $tests = new tei187\Slownie\Polish;
+    $tests = new tei187\Slownie\EN;
 
-    echo "<h1>Slownie : class</h1>";
+    echo "<h1>Slownie : class (EN)</h1>";
     echo "<table><thead><tr><th>Float</th><th>In words</th></tr></thead><tbody>";
     foreach($pool as $arguments) {
         $tests->setCurrency($arguments[1]);
@@ -134,10 +134,9 @@
     }
     echo "</tbody></table>";
 
-    $t = new tei187\Slownie\Polish(5.51);
-echo $t->setCurrency("bob")->output();
-echo "<br>";
-echo $t->setCurrency("068")->output();
+                                 $en = new tei187\Slownie\EN(5.51);
+echo $en->setCurrency("bob")->output(); // outputs: pięć boliviano, pięćdziesiąt jeden centavo
+echo $en->setCurrency("068")->output(); // outputs: pięć boliviano, pięćdziesiąt jeden centavo
 ?>
 </body>
 </html>
