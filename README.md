@@ -24,7 +24,8 @@ Depending on use, sometimes it is not necessary to use a full-word notation of f
 $en = new tei187\Slownie\EN(123.45, 'usd'); // meaning the amount of 123.45 USD (EN)
 echo $en->output();                         // outputs: one hundred twenty three United States dollars, forty five cents
 echo $en->setFractions(true)->output();     // outputs: one hundred twenty three United States dollars 45/100
-
+```
+```php
 // PL Extension
 $pl = new tei187\Slownie\PL(123.45, 'usd'); // meaning the amount of 123.45 USD (PL)
 echo $pl->output();                         // outputs: sto dwadzieścia trzy dolary amerykańskie, czterdzieści pięć centów
@@ -50,7 +51,8 @@ $en->setRounding("bankers"); // set rounding method to banker's rounding
 echo $en->output();          // outputs an empty string, because: 
                              // 1) JPY currency uses no exponent, 
                              // 2) banker's method rounds halves to even numbers, hence rounding outcome is 0.
-
+```
+```php
 // PL EXTENSION
 $pl = new tei187\Slownie\PL(0.5, 'jpy'); // meaning the amount of 0.5 JPY (PL)
 
@@ -73,7 +75,8 @@ Currencies can be passed as both IS0 4217 currency codes and ISO 4217 currency n
 $en = new tei187\Slownie\EN(5.51);      // (EN)
 echo $en->setCurrency("bob")->output(); // outputs: five bolivianos, fifty one centavos
 echo $en->setCurrency("068")->output(); // outputs: five bolivianos, fifty one centavos
-
+```
+```php
 // PL EXTENSION
 $pl = new tei187\Slownie\PL(5.51);      // (PL)
 echo $pl->setCurrency("bob")->output(); // outputs: pięć boliviano, pięćdziesiąt jeden centavo
