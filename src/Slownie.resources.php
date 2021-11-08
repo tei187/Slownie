@@ -1,13 +1,7 @@
 <?php
 namespace tei187\Resources\PL;
 
-// round half even
-
-/**
- * Transcription parts in Polish for numbers.
- * 
- * @var array
- */
+/** @var array[] Transcription parts in Polish for numbers. */
 const Numbers = [
     'oox' => [
         1 => "jeden",
@@ -64,6 +58,7 @@ const Numbers = [
     ],
 ];
 
+/** @var array[] Transcription parts in Polish for large numbers. */
 const LargeNumbers = [
     3 => [
         "s1" => "tysiąc",
@@ -114,11 +109,7 @@ const LargeNumbers = [
 
 namespace tei187\Resources\ISO4217\PL;
 
-/**
-  * Regular extension - cents.
-  * 
-  * @var array
-  */
+/** @var array[] Regular extension - cents. (PL) */
 const Cents = [
     's1' => "cent",
     's2' => "centy",
@@ -126,11 +117,7 @@ const Cents = [
     'f' => false,
 ];
 
- /**
-  * Regular extension - cents (not used).
-  * 
-  * @var array
-  */
+ /** @var array[] Regular extension - cents (not used). (PL) */
   const Cents_NotUsed = [
     's1' => "cent",
     's2' => "centy",
@@ -139,11 +126,7 @@ const Cents = [
     'u' => false
 ];
 
- /**
-  * Regular extension - centavo.
-  *
-  * @var array
-  */
+ /** @var array[] Regular extension - centavo. (PL) */
 const Centavo = [
     's1' => "centavo",
     's2' => "centavo",
@@ -151,11 +134,7 @@ const Centavo = [
     'f' => false,
 ];
 
- /**
-  * Regular extension - centavo (not used).
-  *
-  * @var array
-  */
+ /** @var array[] Regular extension - centavo (not used). (PL) */
   const Centavo_NotUsed = [
     's1' => "centavo",
     's2' => "centavo",
@@ -164,11 +143,7 @@ const Centavo = [
     'u' => false
 ];
 
- /**
-  * Regular extension - centesimo.
-  *
-  * @var array
-  */
+ /** @var array[] Regular extension - centesimo. (PL) */
 const Centesimo = [
     's1' => "centesimo",
     's2' => "centesimo",
@@ -176,11 +151,7 @@ const Centesimo = [
     'f' => false,
 ];
 
- /**
-  * Regular extension - centims.
-  *
-  * @var array
-  */
+ /** @var array[] Regular extension - centims. (PL) */
 const Centims = [
     's1' => "centym",
     's2' => "centymy",
@@ -188,11 +159,7 @@ const Centims = [
     'f' => false,
 ];
 
- /**
-  * Regular extension - centims (not used).
-  *
-  * @var array
-  */
+ /** @var array[] Regular extension - centims (not used). (PL) */
   const Centims_NotUsed = [
     's1' => "centym",
     's2' => "centymy",
@@ -201,11 +168,7 @@ const Centims = [
     'u' => false,
 ];
 
- /**
-  * Regular extension - fils, 3 decimal points.
-  *
-  * @var array
-  */
+ /** @var array[] Regular extension - fils, 3 decimal points. (PL) */
 const Fils_3dec = [
     's1' => "fils",
     's2' => "filsy",
@@ -214,11 +177,7 @@ const Fils_3dec = [
     'd' => 3,
 ];
 
- /**
-  * Regular extension - fils.
-  *
-  * @var array
-  */
+ /** @var array[] Regular extension - fils. (PL) */
 const Fils = [
     's1' => "fils",
     's2' => "filsy",
@@ -226,11 +185,7 @@ const Fils = [
     'f' => false,
 ];
 
- /**
-  * Regular extension - piastres.
-  *
-  * @var array
-  */
+ /** @var array[] Regular extension - piastres. (PL) */
 const Piastres = [
     's1' => "piastr",
     's2' => "piastry",
@@ -239,11 +194,7 @@ const Piastres = [
     'd' => 2,
 ];
 
- /**
-  * Regular extension - piastres, 3 decimal points.
-  *
-  * @var array
-  */
+ /** @var array[] Regular extension - piastres, 3 decimal points. (PL) */
   const Piastres_3dec = [
     's1' => "piastr",
     's2' => "piastry",
@@ -252,11 +203,7 @@ const Piastres = [
     'd' => 2,
 ];
 
- /**
-  * Regular extension - sen.
-  *
-  * @var array
-  */
+ /** @var array[] Regular extension - sen. (PL) */
 const Sen = [
     's1' => "sen",
     's2' => "seny",
@@ -264,11 +211,7 @@ const Sen = [
     'f' => false,
 ];
 
- /**
-  * Regular extension - pais.
-  *
-  * @var array
-  */
+ /** @var array[] Regular extension - pais. (PL) */
 const Pais = [
     's1' => "pajsa",
     's2' => "pajsy",
@@ -276,11 +219,7 @@ const Pais = [
     'f' => true,
 ];
 
- /**
-  * Regular extension - tiyin.
-  *
-  * @var array
-  */
+ /** @var array[] Regular extension - tiyin. (PL) */
 const Tiyin = [
     's1' => "tyin",
     's2' => "tyiny",
@@ -288,11 +227,7 @@ const Tiyin = [
     'f' => false,
 ];
 
- /**
-  * Regular extension - pens.
-  *
-  * @var array
-  */
+ /** @var array[] Regular extension - pens. (PL) */
 const Pens = [
     's1' => "pens",
     's2' => "pensy",
@@ -301,7 +236,7 @@ const Pens = [
 ];
 
  /**
-  * Supported currencies by ISO 4217.
+  * Supported currencies by ISO 4217. (PL)
   *
   * 's1' - 1 unit
   * 's2' - 2-4 units, x2-x4 units
@@ -310,7 +245,7 @@ const Pens = [
   * 'u'  - in use for minor, false if not, otherwise doesn't matter
   * 'd'  - in minor units, describes how many decimal points are in use, if none set defaults to 2
   *
-  * @var array
+  * @var array[]
   */
 const Currencies = [
     'aed' => [
@@ -1728,6 +1663,7 @@ const Currencies = [
 
 namespace tei187\Resources\EN;
 
+/** @var array[] Transcription parts in English for numbers. */
 const Numbers = [
     'oox' => [
         1 => "one",
@@ -1773,6 +1709,7 @@ const Numbers = [
     ],
 ];
 
+/** @var array[] Transcription parts in English for large numbers. */
 const LargeNumbers = [
      3 => [
          's' => "thousand",
@@ -1814,91 +1751,117 @@ const LargeNumbers = [
 
 namespace tei187\Resources\ISO4217\EN;
 
+ /** @var array[] Regular extension - cents. (EN) */
 const Cents = [
     's' => "cent",
     'p' => "cents",
 ];
 
+/** @var array[] Regular extension - cents (not used). (EN) */
 const Cents_NotUsed = [
     's' => "cent",
     'p' => "cents",
     'u' => false,
 ];
 
+/** @var array[] Regular extension - centimos. (EN) */
 const Centimos = [
     's' => "cêntimo",
     'p' => "cêntimos",
 ];
 
+/** @var array[] Regular extension - centesimos. (EN) */
 const Centesimos = [
     's' => "centésimo",
     'p' => "centésimos",
 ];
 
+/** @var array[] Regular extension - centimes. (EN) */
 const Centimes = [
     's' => "centime",
     'p' => "centimes",
 ];
 
+/** @var array[] Regular extension - centimes (not used). (EN) */
 const Centimes_NotUsed = [
     's' => "centime",
     'p' => "centimes",
     'u' => false,
 ];
 
+/** @var array[] Regular extension - centavos. (EN) */
 const Centavos = [
     's' => "centavo",
     'p' => "centavos",
 ];
 
+/** @var array[] Regular extension - centavos (not used). (EN) */
 const Centavos_NotUsed = [
     's' => "centavo",
     'p' => "centavos",
     'u' => false,
 ];
 
+/** @var array[] Regular extension - fils. (EN) */
 const Fils = [
     's' => "fils",
     'p' => "fils",
 ];
 
+/** @var array[] Regular extension - fils, 3 decimal points. (EN) */
 const Fils_3dec = [
     's' => "fils",
     'p' => "fils",
     'd' => 3,
 ];
 
+/** @var array[] Regular extension - pence. (EN) */
 const Pence = [
     's' => "penny",
     'p' => "pence",
 ];
 
+/** @var array[] Regular extension - piastres. (EN) */
 const Piastres = [
     's' => "piastre",
     'p' => "piastres",
 ];
 
+/** @var array[] Regular extension - piastres, 3 decimal points. (EN) */
 const Piastres_3dec = [
     's' => "piastre",
     'p' => "piastres",
     'd' => 3,
 ];
 
+/** @var array[] Regular extension - paisa. (EN) */
 const Paisa = [
     's' => "paisa",
     'p' => "paisa",
 ];
 
+/** @var array[] Regular extension - sen. (EN) */
 const Sen = [
     's' => "sen",
     'p' => "sen",
 ];
 
+/** @var array[] Regular extension - tyiyn. (EN) */
 const Tyiyn = [
     's' => "tyiyn",
     'p' => "tyiyn",
 ];
 
+ /**
+  * Supported currencies by ISO 4217. (EN)
+  *
+  * 's' - 1 unit
+  * 'p' - more than 1 unit (plural)
+  * 'u' - in use for minor, false if not, otherwise doesn't matter
+  * 'd' - in minor units, describes how many decimal points are in use, if none set defaults to 2
+  *
+  * @var array[]
+  */
 const Currencies = [
     'aed' => [
         's' => "United Arab Emirates dirham",
@@ -2886,9 +2849,7 @@ const Currencies = [
 namespace tei187\Resources\ISO4217;
 
 /**
- * Cross-reference table between ISO 4217 Numbers and currency pickers.
- * 
- * @var array
+ * @var array[] Cross-reference table between ISO 4217 Numbers and currency pickers.
  */
 const NumberToCode = [
     '008' => "all",

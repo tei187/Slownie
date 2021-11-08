@@ -4,16 +4,17 @@ namespace tei187\Slownie;
 use tei187\Resources as Resources;
 
 /**
- * Class used to transcribe float value into words in Polish language. Support up to 999.999.999,99.
+ * Class used to transcribe float value into words. Base for PL and EN class extensions.
  * 
  * @author Piotr Bonk <bonk.piotr@gmail.com>
+ * @version 1.0.0
  */
 class SlownieBase {
     /** @var float|string $input Whatever was passed as amount. */
     protected $input = 0;
     /** @var float $rounded Rounded input by set rounding method. */
     protected $rounded = 0;
-    /** @var array $amountFull Hold parts of amount (without minor parts), divided by hundreds mark. */
+    /** @var string[] $amountFull Hold parts of amount (without minor parts), divided by hundreds mark. */
     protected $amountFull = [];
     /** @var integer $amountPart Holds decimal parts of amount, only minors. */
     protected $amountPart = 0;
@@ -34,9 +35,10 @@ class SlownieBase {
      * Class constructor.
      *
      * @param float|string|null $amount Amount to process. Has to be well formed float or float-formed string.
-     * @param string|null $currency ISO 4217 currency code or number (refer to tei187\Resources\ISO4217\PL\Currencies or tei187\Resources\ISO4217\NumberToCode). By default "none".
+     * @param string|null $currency ISO 4217 currency code or number (refer to tei187\Resources\ISO4217\{lang}\Currencies or tei187\Resources\ISO4217\NumberToCode). By default "none".
      * @param boolean $fractions If FALSE translates fully, if TRUE uses fractional notation for minor rest.
      * @param string $rounding Defines type of rounding: "bankers", "normal", "none". By default "none".
+     * @return void
      */
     function __construct($amount = null, string $currency = null, bool $fractions = false, string $rounding = "none") {
         if(is_string($currency)) {
@@ -51,7 +53,7 @@ class SlownieBase {
     /**
      * Returns exponent for set currency.
      *
-     * @return integer
+     * @return integer Exponent assigned to current currency, otherwise default 2.
      */
     protected function findExponent() : int {
         if(isset($this->dictionary['currencies'][$this->currency]['minor']['d'])) {
@@ -63,7 +65,7 @@ class SlownieBase {
     /**
      * Returns exponent use for set currency.
      *
-     * @return boolean
+     * @return boolean Use of exponent for current currency, otherwise FALSE.
      */
     protected function findExponentUse() : bool {
         if(isset($this->dictionary['currencies'][$this->currency]['minor']['u'])) {
@@ -126,7 +128,7 @@ class SlownieBase {
     }
 
     /**
-     * Parses input amount.
+     * Parses input amount. Assigns values to $this->amountPart and $this->amountFull.
      *
      * @param float $v Input amount.
      * @return boolean Returns TRUE is value is proper, FALSE if otherwise.
@@ -337,6 +339,11 @@ class SlownieBase {
     protected function getCurrencyFull() {}
 }
 
+/**
+ * Class used to transcribe float value into words in Polish language.
+ * 
+ * @author Piotr Bonk <bonk.piotr@gmail.com>
+ */
 class PL extends SlownieBase {
     /** @var array $dictionary Dictionary for translation purposes and cross-reference tables. */
     protected $dictionary = [
@@ -350,7 +357,7 @@ class PL extends SlownieBase {
      * Returns quintillions in words.
      *
      * @param string $v Input quintillions part.
-     * @return string|null
+     * @return string Quintillions as string or empty.
      */
     protected function getQuintillions(string $v = null) : string {
         if(intval($v) > 0) {
@@ -373,7 +380,7 @@ class PL extends SlownieBase {
      * Returns quadrillions in words.
      *
      * @param string $v Input quadrillions part.
-     * @return string|null
+     * @return string Quadrillions as string or empty.
      */
     protected function getQuadrillions(string $v = null) : string {
         if(intval($v) > 0) {
@@ -396,7 +403,7 @@ class PL extends SlownieBase {
      * Returns trillions in words.
      *
      * @param string $v Input trillions part.
-     * @return string|null
+     * @return string Trillions as string or empty.
      */
     protected function getTrillions(string $v = null) : string {
         if(intval($v) > 0) {
@@ -419,7 +426,7 @@ class PL extends SlownieBase {
      * Returns billions in words.
      *
      * @param string $v Input billions part.
-     * @return string|null
+     * @return string Billions as string or empty.
      */
     protected function getBillions(string $v = null) : string {
         if(intval($v) > 0) {
@@ -442,7 +449,7 @@ class PL extends SlownieBase {
      * Returns millions in words.
      *
      * @param string $v Input millions part.
-     * @return string|null
+     * @return string Millions as string or empty.
      */
     protected function getMillions(string $v = null) : string {
         if(intval($v) > 0) {
@@ -465,7 +472,7 @@ class PL extends SlownieBase {
      * Returns thousands in words.
      *
      * @param string $v Input thousands part.
-     * @return string|null
+     * @return string Thousands as string or empty.
      */
     protected function getThousands(string $v = null) : string {
         if(intval($v) > 0) {
@@ -489,7 +496,7 @@ class PL extends SlownieBase {
      *
      * @param string $v Input hundreds part.
      * @param boolean $minor Switch if minor.
-     * @return string|null
+     * @return string Hundreds as string or empty.
      */
     protected function getHundreds(string $v = null, bool $minor = false) : string {
         if(intval($v) > 0) {
@@ -559,7 +566,7 @@ class PL extends SlownieBase {
      * Returns currency suffix.
      *
      * @param string $v Input last part of amount.
-     * @return string|null
+     * @return string Currency suffix or empty string if not found.
      */
     protected function getCurrencyFull(string $v = null) : string {
         if($this->currency != "none") {
@@ -581,7 +588,7 @@ class PL extends SlownieBase {
      * Returns currency minors' suffix.
      *
      * @param string $v Input rest.
-     * @return string|null
+     * @return string Currency minor suffix or empty string if not found.
      */
     protected function getCurrencyMinor(string $v = null) : string {
         if($this->currency != "none") {
@@ -600,8 +607,13 @@ class PL extends SlownieBase {
     }
 }
 
+/**
+ * Class used to transcribe float value into words in English language.
+ * 
+ * @author Piotr Bonk <bonk.piotr@gmail.com>
+ */
 class EN extends SlownieBase {
-    /** @var array $dictionary Dictionary for translation purposes and cross-reference tables. */
+    /** @var array[] $dictionary Dictionary for translation purposes and cross-reference tables. */
     protected $dictionary = [
         'currencies' => Resources\ISO4217\EN\Currencies, 
            'numbers' => Resources\EN\Numbers,
@@ -613,7 +625,7 @@ class EN extends SlownieBase {
      * Returns quintillions in words.
      *
      * @param string $v Input quintillions part.
-     * @return string|null
+     * @return string Quintillions as string or empty.
      */
     protected function getQuintillions(string $v = null) : string {
         if(intval($v) > 0) {
@@ -637,7 +649,7 @@ class EN extends SlownieBase {
      * Returns quadrillions in words.
      *
      * @param string $v Input quadrillions part.
-     * @return string|null
+     * @return string Quadrillions as string or empty.
      */
     protected function getQuadrillions(string $v = null) : string {
         if(intval($v) > 0) {
@@ -661,7 +673,7 @@ class EN extends SlownieBase {
      * Returns trillions in words.
      *
      * @param string $v Input trillions part.
-     * @return string|null
+     * @return string Trillions as string or empty.
      */
     protected function getTrillions(string $v = null) : string {
         if(intval($v) > 0) {
@@ -685,7 +697,7 @@ class EN extends SlownieBase {
      * Returns billions in words.
      *
      * @param string $v Input billions part.
-     * @return string|null
+     * @return string Billions as string or empty.
      */
     protected function getBillions(string $v = null) : string {
         if(intval($v) > 0) {
@@ -709,7 +721,7 @@ class EN extends SlownieBase {
      * Returns millions in words.
      *
      * @param string $v Input millions part.
-     * @return string|null
+     * @return string Millions as string or empty.
      */
     protected function getMillions(string $v = null) : string {
         if(intval($v) > 0) {
@@ -733,7 +745,7 @@ class EN extends SlownieBase {
      * Returns thousands in words.
      *
      * @param string $v Input thousands part.
-     * @return string|null
+     * @return string Thousands as string or empty.
      */
     protected function getThousands(string $v = null) : string {
         if(intval($v) > 0) {
@@ -758,7 +770,7 @@ class EN extends SlownieBase {
      *
      * @param string $v Input hundreds part.
      * @param boolean $minor Switch if minor.
-     * @return string|null
+     * @return string Hundreds as string or empty.
      */
     protected function getHundreds(string $v = null, bool $minor = false) : string {
         if(intval($v) > 0) {
@@ -807,7 +819,7 @@ class EN extends SlownieBase {
      * Returns currency suffix.
      *
      * @param string $v Input last part of amount.
-     * @return string|null
+     * @return string Currency suffix or empty string if not found.
      */
     protected function getCurrencyFull() : string {
         if($this->currency != "none") {
@@ -827,7 +839,7 @@ class EN extends SlownieBase {
      * Returns currency minors' suffix.
      *
      * @param string $v Input rest.
-     * @return string|null
+     * @return string Currency minor suffix or empty string if not found.
      */
     protected function getCurrencyMinor(string $v = null) : string {
         if($this->currency != "none") {

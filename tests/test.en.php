@@ -112,7 +112,7 @@
 <body>
 <?php
 
-    require_once("../Slownie.php");
+    require_once("../src/Slownie.php");
 
     // [ amount, currency, fractional notation ]
     $pool = [
@@ -133,10 +133,6 @@
         echo "<tr><td>{$arguments[0]}{$currency}</td><td>".$tests->setFractions($arguments[2])->output($arguments[0], $arguments[1])."</td></tr>";
     }
     echo "</tbody></table>";
-
-                                 $en = new tei187\Slownie\EN(5.51);
-echo $en->setCurrency("bob")->output(); // outputs: pięć boliviano, pięćdziesiąt jeden centavo
-echo $en->setCurrency("068")->output(); // outputs: pięć boliviano, pięćdziesiąt jeden centavo
 ?>
 </body>
 </html>
