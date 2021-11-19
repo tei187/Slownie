@@ -51,10 +51,20 @@ Search.appendIndex(
             "summary": "Sets\u0020full\u0020in\u002Dwords\u0020transcription\u0020of\u0020the\u0020amount.\u0020Handles\u0020\u0024this\u002D\u003EamountFull\u003B",
             "url": "classes/tei187-Slownie-SlownieBase.html#method_relayString"
         },                {
+            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AtranslateNumber\u0028\u0029",
+            "name": "translateNumber",
+            "summary": "Switches\u0020between\u0020translations\u0020for\u0020given\u0020value\u0020multiplied\u0020by\u0020N\u002Dpower\u0020of\u0020ten.",
+            "url": "classes/tei187-Slownie-SlownieBase.html#method_translateNumber"
+        },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AsetFractions\u0028\u0029",
             "name": "setFractions",
-            "summary": "Sets\u0020fractional\u0020notation\u0020true\/false\u0020for\u0020minor\u0020rest.",
+            "summary": "Sets\u0020flag\u0020for\u0020fractional\u0020notation\u0020true\/false\u0020for\u0020minor\u0020rest.",
             "url": "classes/tei187-Slownie-SlownieBase.html#method_setFractions"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AsetPickerUse\u0028\u0029",
+            "name": "setPickerUse",
+            "summary": "Sets\u0020flag\u0020to\u0020switch\u0020between\u0020translated\u0020currency\u0020name\u0020or\u0020currency\u0020picker\u0020use.",
+            "url": "classes/tei187-Slownie-SlownieBase.html#method_setPickerUse"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AgetCurrency\u0028\u0029",
             "name": "getCurrency",
@@ -71,60 +81,55 @@ Search.appendIndex(
             "summary": "Returns\u0020amount\u0020in\u0020words.",
             "url": "classes/tei187-Slownie-SlownieBase.html#method_output"
         },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AgetCurrencyMinor\u0028\u0029",
-            "name": "getCurrencyMinor",
-            "summary": "",
-            "url": "classes/tei187-Slownie-SlownieBase.html#method_getCurrencyMinor"
-        },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AgetQuintillions\u0028\u0029",
             "name": "getQuintillions",
-            "summary": "",
+            "summary": "Returns\u0020quintillions\u0020in\u0020words.",
             "url": "classes/tei187-Slownie-SlownieBase.html#method_getQuintillions"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AgetQuadrillions\u0028\u0029",
             "name": "getQuadrillions",
-            "summary": "",
+            "summary": "Returns\u0020quadrillions\u0020in\u0020words.",
             "url": "classes/tei187-Slownie-SlownieBase.html#method_getQuadrillions"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AgetTrillions\u0028\u0029",
             "name": "getTrillions",
-            "summary": "",
+            "summary": "Returns\u0020trillions\u0020in\u0020words.",
             "url": "classes/tei187-Slownie-SlownieBase.html#method_getTrillions"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AgetBillions\u0028\u0029",
             "name": "getBillions",
-            "summary": "",
+            "summary": "Returns\u0020billions\u0020in\u0020words.",
             "url": "classes/tei187-Slownie-SlownieBase.html#method_getBillions"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AgetMillions\u0028\u0029",
             "name": "getMillions",
-            "summary": "",
+            "summary": "Returns\u0020millions\u0020in\u0020words.",
             "url": "classes/tei187-Slownie-SlownieBase.html#method_getMillions"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AgetThousands\u0028\u0029",
             "name": "getThousands",
-            "summary": "",
+            "summary": "Returns\u0020thousands\u0020in\u0020words.",
             "url": "classes/tei187-Slownie-SlownieBase.html#method_getThousands"
         },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AgetHundreds\u0028\u0029",
-            "name": "getHundreds",
+            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AgetCurrencyMinor\u0028\u0029",
+            "name": "getCurrencyMinor",
             "summary": "",
-            "url": "classes/tei187-Slownie-SlownieBase.html#method_getHundreds"
+            "url": "classes/tei187-Slownie-SlownieBase.html#method_getCurrencyMinor"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AgetCurrencyFull\u0028\u0029",
             "name": "getCurrencyFull",
             "summary": "",
             "url": "classes/tei187-Slownie-SlownieBase.html#method_getCurrencyFull"
         },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024input",
-            "name": "input",
+            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AgetHundreds\u0028\u0029",
+            "name": "getHundreds",
             "summary": "",
-            "url": "classes/tei187-Slownie-SlownieBase.html#property_input"
+            "url": "classes/tei187-Slownie-SlownieBase.html#method_getHundreds"
         },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024rounded",
-            "name": "rounded",
+            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AgetLargeNumbers\u0028\u0029",
+            "name": "getLargeNumbers",
             "summary": "",
-            "url": "classes/tei187-Slownie-SlownieBase.html#property_rounded"
+            "url": "classes/tei187-Slownie-SlownieBase.html#method_getLargeNumbers"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024amountFull",
             "name": "amountFull",
@@ -136,30 +141,45 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/tei187-Slownie-SlownieBase.html#property_amountPart"
         },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024currency",
-            "name": "currency",
+            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024input",
+            "name": "input",
             "summary": "",
-            "url": "classes/tei187-Slownie-SlownieBase.html#property_currency"
+            "url": "classes/tei187-Slownie-SlownieBase.html#property_input"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024rounded",
+            "name": "rounded",
+            "summary": "",
+            "url": "classes/tei187-Slownie-SlownieBase.html#property_rounded"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024exponent",
             "name": "exponent",
             "summary": "",
             "url": "classes/tei187-Slownie-SlownieBase.html#property_exponent"
         },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024exponentUse",
-            "name": "exponentUse",
+            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024currency",
+            "name": "currency",
             "summary": "",
-            "url": "classes/tei187-Slownie-SlownieBase.html#property_exponentUse"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024fractions",
-            "name": "fractions",
-            "summary": "",
-            "url": "classes/tei187-Slownie-SlownieBase.html#property_fractions"
+            "url": "classes/tei187-Slownie-SlownieBase.html#property_currency"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024rounding",
             "name": "rounding",
             "summary": "",
             "url": "classes/tei187-Slownie-SlownieBase.html#property_rounding"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024exponentUse",
+            "name": "exponentUse",
+            "summary": "",
+            "url": "classes/tei187-Slownie-SlownieBase.html#property_exponentUse"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024pickerUse",
+            "name": "pickerUse",
+            "summary": "",
+            "url": "classes/tei187-Slownie-SlownieBase.html#property_pickerUse"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024fractions",
+            "name": "fractions",
+            "summary": "",
+            "url": "classes/tei187-Slownie-SlownieBase.html#property_fractions"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024needsParsing",
             "name": "needsParsing",
@@ -171,35 +191,10 @@ Search.appendIndex(
             "summary": "Class\u0020used\u0020to\u0020transcribe\u0020float\u0020value\u0020into\u0020words\u0020in\u0020Polish\u0020language.",
             "url": "classes/tei187-Slownie-PL.html"
         },                {
-            "fqsen": "\\tei187\\Slownie\\PL\u003A\u003AgetQuintillions\u0028\u0029",
-            "name": "getQuintillions",
-            "summary": "Returns\u0020quintillions\u0020in\u0020words.",
-            "url": "classes/tei187-Slownie-PL.html#method_getQuintillions"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\PL\u003A\u003AgetQuadrillions\u0028\u0029",
-            "name": "getQuadrillions",
-            "summary": "Returns\u0020quadrillions\u0020in\u0020words.",
-            "url": "classes/tei187-Slownie-PL.html#method_getQuadrillions"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\PL\u003A\u003AgetTrillions\u0028\u0029",
-            "name": "getTrillions",
-            "summary": "Returns\u0020trillions\u0020in\u0020words.",
-            "url": "classes/tei187-Slownie-PL.html#method_getTrillions"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\PL\u003A\u003AgetBillions\u0028\u0029",
-            "name": "getBillions",
-            "summary": "Returns\u0020billions\u0020in\u0020words.",
-            "url": "classes/tei187-Slownie-PL.html#method_getBillions"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\PL\u003A\u003AgetMillions\u0028\u0029",
-            "name": "getMillions",
-            "summary": "Returns\u0020millions\u0020in\u0020words.",
-            "url": "classes/tei187-Slownie-PL.html#method_getMillions"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\PL\u003A\u003AgetThousands\u0028\u0029",
-            "name": "getThousands",
-            "summary": "Returns\u0020thousands\u0020in\u0020words.",
-            "url": "classes/tei187-Slownie-PL.html#method_getThousands"
+            "fqsen": "\\tei187\\Slownie\\PL\u003A\u003AgetLargeNumbers\u0028\u0029",
+            "name": "getLargeNumbers",
+            "summary": "Template\u0020method\u0020to\u0020get\u0020correct\u0020suffix\u0020per\u0020nth\u0020power\u0020of\u002010\u0020and\u0020given\u0020value\u0020part.",
+            "url": "classes/tei187-Slownie-PL.html#method_getLargeNumbers"
         },                {
             "fqsen": "\\tei187\\Slownie\\PL\u003A\u003AgetHundreds\u0028\u0029",
             "name": "getHundreds",
@@ -226,35 +221,10 @@ Search.appendIndex(
             "summary": "Class\u0020used\u0020to\u0020transcribe\u0020float\u0020value\u0020into\u0020words\u0020in\u0020English\u0020language.",
             "url": "classes/tei187-Slownie-EN.html"
         },                {
-            "fqsen": "\\tei187\\Slownie\\EN\u003A\u003AgetQuintillions\u0028\u0029",
-            "name": "getQuintillions",
-            "summary": "Returns\u0020quintillions\u0020in\u0020words.",
-            "url": "classes/tei187-Slownie-EN.html#method_getQuintillions"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\EN\u003A\u003AgetQuadrillions\u0028\u0029",
-            "name": "getQuadrillions",
-            "summary": "Returns\u0020quadrillions\u0020in\u0020words.",
-            "url": "classes/tei187-Slownie-EN.html#method_getQuadrillions"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\EN\u003A\u003AgetTrillions\u0028\u0029",
-            "name": "getTrillions",
-            "summary": "Returns\u0020trillions\u0020in\u0020words.",
-            "url": "classes/tei187-Slownie-EN.html#method_getTrillions"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\EN\u003A\u003AgetBillions\u0028\u0029",
-            "name": "getBillions",
-            "summary": "Returns\u0020billions\u0020in\u0020words.",
-            "url": "classes/tei187-Slownie-EN.html#method_getBillions"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\EN\u003A\u003AgetMillions\u0028\u0029",
-            "name": "getMillions",
-            "summary": "Returns\u0020millions\u0020in\u0020words.",
-            "url": "classes/tei187-Slownie-EN.html#method_getMillions"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\EN\u003A\u003AgetThousands\u0028\u0029",
-            "name": "getThousands",
-            "summary": "Returns\u0020thousands\u0020in\u0020words.",
-            "url": "classes/tei187-Slownie-EN.html#method_getThousands"
+            "fqsen": "\\tei187\\Slownie\\EN\u003A\u003AgetLargeNumbers\u0028\u0029",
+            "name": "getLargeNumbers",
+            "summary": "Template\u0020method\u0020to\u0020get\u0020correct\u0020suffix\u0020per\u0020nth\u0020power\u0020of\u002010\u0020and\u0020given\u0020value\u0020part.",
+            "url": "classes/tei187-Slownie-EN.html#method_getLargeNumbers"
         },                {
             "fqsen": "\\tei187\\Slownie\\EN\u003A\u003AgetHundreds\u0028\u0029",
             "name": "getHundreds",

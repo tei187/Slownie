@@ -2,7 +2,10 @@
 Class used to transcribe float values into words in English or Polish language, useful when word transcription is necessary (amount verification, genitive case use). Supports amounts up to 999.999.999.999,99 in many currencies (current list below).
 **(Work in progress... more of a proof of concept)**
 
+
+
 ## Examples
+
 ### Basic
 ```php
 // EN EXTENSION
@@ -16,7 +19,10 @@ echo $pl->output();                            // outputs: dwanaście tysięcy t
 echo $pl->output(999999999.99, 'usd');         // outputs: dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć dolarów amerykańskich, dziewięćdziesiąt dziewięć centów
 ```
 
+
+
 ### Expanded
+
 #### Fractional notation
 Depending on use, sometimes it is not necessary to use a full-word notation of fractional currency but its' actual fractional transcription. In this case you could use `setFractions(true)`.
 ```php
@@ -31,6 +37,8 @@ $pl = new tei187\Slownie\PL(123.45, 'usd'); // meaning the amount of 123.45 USD 
 echo $pl->output();                         // outputs: sto dwadzieścia trzy dolary amerykańskie, czterdzieści pięć centów
 echo $pl->setFractions(true)->output();     // outputs: sto dwadzieścia trzy dolary amerykańskie 45/100
 ```
+
+
 
 #### Rounding
 It is possible to assign a specific type of rounding with `setRounding()` method, which can assign one of three rounding methods: 
@@ -68,6 +76,8 @@ echo $pl->output();          // outputs an empty string, because:
                              // 2) banker's method rounds halves to even numbers, hence rounding outcome is 0.
 ```
 
+
+
 #### Use of ISO 4217 numbers
 Currencies can be passed as both IS0 4217 currency codes and ISO 4217 currency numbers.
 ```php
@@ -82,6 +92,8 @@ $pl = new tei187\Slownie\PL(5.51);      // (PL)
 echo $pl->setCurrency("bob")->output(); // outputs: pięć boliviano, pięćdziesiąt jeden centavo
 echo $pl->setCurrency("068")->output(); // outputs: pięć boliviano, pięćdziesiąt jeden centavo
 ```
+
+
 
 ## Supported currencies
 | Code | ISO 4217 No. | Currency                                                  |
@@ -232,9 +244,11 @@ echo $pl->setCurrency("068")->output(); // outputs: pięć boliviano, pięćdzie
 | ZWL  | 932          | Zimbabwean dollar (RTGS dollar)                           |
 | none | -            | `(default)` no currency, *currently does not support decimal point* |
 
+
+
 ## TODO
-- [ ] base class:
-  - [ ] rewrite `relayString` method
+- [x] base class:
+  - [x] rewrite `relayString` method
 - [x] Polish extension:
   - [x] fix some lingual issues.
 - [x] English extension.
@@ -251,8 +265,12 @@ echo $pl->setCurrency("068")->output(); // outputs: pięć boliviano, pięćdzie
   - [x] ~~cryptocurrency~~ *(what for? not worth it)*
   - [ ] minerals by troy ounce (XAG, XAU, XPD, XPT)
 
+
+
 ## Requirements
 - PHP >= 7.3
+
+
 
 ## Author
 - [tei187](mailto:bonk.piotr@gmail.com)

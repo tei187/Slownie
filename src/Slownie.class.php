@@ -1,4 +1,7 @@
 <?php
+/**
+ * File holding main classes for Slownie.
+ */
 namespace tei187\Slownie;
 
 use tei187\Resources as Resources;
@@ -10,24 +13,29 @@ use tei187\Resources as Resources;
  * @version 1.0.0
  */
 class SlownieBase {
-    /** @var float|string $input Whatever was passed as amount. */
-    protected $input = 0;
-    /** @var float $rounded Rounded input by set rounding method. */
-    protected $rounded = 0;
+// holding
     /** @var string[] $amountFull Hold parts of amount (without minor parts), divided by hundreds mark. */
     protected $amountFull = [];
     /** @var integer $amountPart Holds decimal parts of amount, only minors. */
     protected $amountPart = 0;
-    /** @var string $currency Chosen currency, "none" by default. */
-    protected $currency = "none";
+    /** @var float|string $input Whatever was passed as amount. */
+    protected $input = 0;
+// config
+    /** @var float $rounded Rounded input by set rounding method. */
+    protected $rounded = 0;
     /** @var integer $exponent Chosen currencies decimal points, 2 by default. */
     protected $exponent = 2;
-    /** @var bool $exponent Chosen currencies decimal points, 2 by default. */
-    protected $exponentUse = true;
-    /** @var boolean $fractions Translate fully (with minors) or partially (with fractional notation). FALSE by default. */
-    protected $fractions = false;
+    /** @var string $currency Chosen currency, "none" by default. */
+    protected $currency = "none";
     /** @var string $rounding Rounding method for exponents. "Bankers", "normal", or "none". */
     protected $rounding = "none";
+// flags
+    /** @var bool $exponent Chosen currencies decimal points, 2 by default. */
+    protected $exponentUse = true;
+    /** @var bool $pickerUse Flag to switch between translated currency name or currency picker. */
+    protected $pickerUse = false;
+    /** @var boolean $fractions Translate fully (with minors) or partially (with fractional notation). FALSE by default. */
+    protected $fractions = false;
     /** @var bool $needsParsing Flag to accertain if amount needs reparsing due to changes. */
     protected $needsParsing = true;
 
@@ -38,11 +46,15 @@ class SlownieBase {
      * @param string|null $currency ISO 4217 currency code or number (refer to tei187\Resources\ISO4217\{lang}\Currencies or tei187\Resources\ISO4217\NumberToCode). By default "none".
      * @param boolean $fractions If FALSE translates fully, if TRUE uses fractional notation for minor rest.
      * @param string $rounding Defines type of rounding: "bankers", "normal", "none". By default "none".
+     * @param boolean|null $picker Sets flag to use or not use picker rather than full translation of currency.
      * @return void
      */
-    function __construct($amount = null, string $currency = null, bool $fractions = false, string $rounding = "none") {
+    function __construct($amount = null, string $currency = null, bool $fractions = false, string $rounding = "none", bool $picker = null) {
         if(is_string($currency)) {
             $this->setCurrency($currency);
+        }
+        if($picker !== null) { 
+            $this->setPickerUse($picker);
         }
         $this->input = $amount;
         $this->setRounding($rounding);
@@ -192,65 +204,31 @@ class SlownieBase {
 
     /**
      * Sets full in-words transcription of the amount. Handles $this->amountFull;
-     *
-     * @todo could use a rewrite, it's unnecessarily long this way...
      * 
-     * @return string
+     * @return string Translated from numeric.
      */
     protected function relayString() : string {
         $c = count($this->amountFull);
-        $full = [];
-        switch($c) {
-            case 7: // quintillions
-                $full[] = $this->getQuintillions($this->amountFull[0]);
-                $full[] = $this->getQuadrillions($this->amountFull[1]);
-                $full[] = $this->getTrillions($this->amountFull[2]);
-                $full[] = $this->getBillions($this->amountFull[3]);
-                $full[] = $this->getMillions($this->amountFull[4]);
-                $full[] = $this->getThousands($this->amountFull[5]);
-                $full[] = $this->getHundreds($this->amountFull[6]);
-                break;
-            case 6: // quadrillions
-                $full[] = $this->getQuadrillions($this->amountFull[0]);
-                $full[] = $this->getTrillions($this->amountFull[1]);
-                $full[] = $this->getBillions($this->amountFull[2]);
-                $full[] = $this->getMillions($this->amountFull[3]);
-                $full[] = $this->getThousands($this->amountFull[4]);
-                $full[] = $this->getHundreds($this->amountFull[5]);
-                break;
-            case 5: // trillions
-                $full[] = $this->getTrillions($this->amountFull[0]);
-                $full[] = $this->getBillions($this->amountFull[1]);
-                $full[] = $this->getMillions($this->amountFull[2]);
-                $full[] = $this->getThousands($this->amountFull[3]);
-                $full[] = $this->getHundreds($this->amountFull[4]);
-                break;
-            case 4: // billions
-                $full[] = $this->getBillions($this->amountFull[0]);
-                $full[] = $this->getMillions($this->amountFull[1]);
-                $full[] = $this->getThousands($this->amountFull[2]);
-                $full[] = $this->getHundreds($this->amountFull[3]);
-                break;
-            case 3: // millions
-                $full[] = $this->getMillions($this->amountFull[0]);
-                $full[] = $this->getThousands($this->amountFull[1]);
-                $full[] = $this->getHundreds($this->amountFull[2]);
-                break;
-            case 2: // thousands
-                $full[] = $this->getThousands($this->amountFull[0]);
-                $full[] = $this->getHundreds($this->amountFull[1]);
-                break;
-            case 1: // hundreds
-                $full[] = $this->getHundreds($this->amountFull[0]);
-                break;
-        }
+        $full = []; // will keep translated parts' strings
+        $arrayByPower10 = []; // will be same as $this->amountFull, but have keys corresponding to N power of ten of the range they represent
 
+        // revert and assign keys corresponding to power of ten
+        foreach(array_reverse($this->amountFull) as $k => $v) { $arrayByPower10[$k * 3] = $v; }
+        $arrayByPower10 = array_reverse($arrayByPower10, true);
+
+        // deal with translation of full parts
+        foreach($arrayByPower10 as $k => $v) { $full[] = $this->translateNumber($k, $v); }
         if($c > 0 and intval(implode("", $this->amountFull)) > 0) {
-            $full[] = $this->getCurrencyFull($this->amountFull[$c-1]);
+            if($this->pickerUse) {
+                $full[] = $this->getCurrency();
+            } else {
+                $full[] = $this->getCurrencyFull($this->amountFull[$c-1]);
+            }
         } else {
             $full = [];
         }
 
+        // deal with translation of rest
         $rest = [];
         if($this->amountPart > 0) {
             if($this->fractions) {
@@ -261,11 +239,8 @@ class SlownieBase {
             }
         }
 
-        $whole = [
-            implode(" ", $full),
-            implode(" ", $rest),
-        ];
-
+        // implode full and rest translations into one and return
+        $whole = [ implode(" ", $full), implode(" ", $rest) ];
         if($this->fractions) {
             return implode(" ", array_filter($whole));
         } else {
@@ -274,7 +249,28 @@ class SlownieBase {
     }
 
     /**
-     * Sets fractional notation true/false for minor rest.
+     * Switches between translations for given value multiplied by N-power of ten.
+     *
+     * @param integer|null $power N-th power of 10, corresponding with key in array.
+     * @param integer|null $digits Full amount part (000-999) to translate.
+     * @return string
+     */
+    protected function translateNumber(int $power = null, int $digits = null) : string {
+        switch($power) {
+            case 0:  $output = $this->getHundreds($digits);     break;
+            case 3:  $output = $this->getThousands($digits);    break;
+            case 6:  $output = $this->getMillions($digits);     break;
+            case 9:  $output = $this->getBillions($digits);     break;
+            case 12: $output = $this->getTrillions($digits);    break;
+            case 15: $output = $this->getQuadrillions($digits); break;
+            case 18: $output = $this->getQuintillions($digits); break;
+            default: $output = "";
+        }
+        return $output;
+    }
+
+    /**
+     * Sets flag for fractional notation true/false for minor rest.
      *
      * @param boolean $v
      * @return self
@@ -282,6 +278,17 @@ class SlownieBase {
 
     public function setFractions(bool $v = true) : self {
         $this->fractions = $v;
+        return $this;
+    }
+
+    /**
+     * Sets flag to switch between translated currency name or currency picker use.
+     *
+     * @param boolean $v
+     * @return self
+     */
+    public function setPickerUse(bool $v = true) : self {
+        $this->pickerUse = $v;
         return $this;
     }
 
@@ -313,45 +320,25 @@ class SlownieBase {
      * @param string $currency ISO 4217 currency code or number.
      * @param boolean|null $fractions If FALSE translates fully, if TRUE uses fractional notation for minor rest.
      * @param string|null $rounding Defines type of rounding: "bankers", "normal", "none". By default "none".
+     * @param boolean|null $picker Sets flag to use or not use picker rather than full translation of currency.
      * @return string Output in words.
      */
-    public function output($v = null, string $currency = null, bool $fractions = null, string $rounding = null) : string {
+    public function output($v = null, string $currency = null, bool $fractions = null, string $rounding = null, bool $picker = null) : string {
         if($v !== null)          { $this->input = $v; }
         if($currency !== null)   { $this->setCurrency($currency); }
+        if($picker !== null)     { $this->setPickerUse($picker); }
         if($fractions !== null)  { $this->setFractions($fractions); }
         if($rounding !== null)   { $this->setRounding($rounding); }
+
+        // if new value introduced and rounding was not changed, 
+        // it still has to be rounded by currently met method
         if($v !== null and $rounding === null) {
             $this->roundByMethod();
         }
+
         if($this->needsParsing)  { $this->parse($this->rounded); }
         return $this->relayString();
     }
-
-    // empty holders
-    protected function getCurrencyMinor() {}
-    protected function getQuintillions() {}
-    protected function getQuadrillions() {}
-    protected function getTrillions() {}
-    protected function getBillions() {}
-    protected function getMillions() {}
-    protected function getThousands() {}
-    protected function getHundreds() {}
-    protected function getCurrencyFull() {}
-}
-
-/**
- * Class used to transcribe float value into words in Polish language.
- * 
- * @author Piotr Bonk <bonk.piotr@gmail.com>
- */
-class PL extends SlownieBase {
-    /** @var array $dictionary Dictionary for translation purposes and cross-reference tables. */
-    protected $dictionary = [
-        'currencies' => Resources\ISO4217\PL\Currencies, 
-           'numbers' => Resources\PL\Numbers,
-              'xref' => Resources\ISO4217\NumberToCode,
-            'suffix' => Resources\PL\LargeNumbers
-    ];
 
     /**
      * Returns quintillions in words.
@@ -360,20 +347,7 @@ class PL extends SlownieBase {
      * @return string Quintillions as string or empty.
      */
     protected function getQuintillions(string $v = null) : string {
-        if(intval($v) > 0) {
-            $w = $this->getHundreds($v);
-            $vmod = $v % 10;
-            if($v == 1) {
-                return $w . " " . $this->dictionary['suffix'][18]['s1'];
-            } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
-                return $w . " " . $this->dictionary['suffix'][18]['s2'];
-            } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
-                return $w . " " . $this->dictionary['suffix'][18]['s3'];
-            } elseif($v == 0) {
-                return "";
-            }
-        }
-        return "";
+        return $this->getLargeNumbers(18, $v);
     }
 
     /**
@@ -383,20 +357,7 @@ class PL extends SlownieBase {
      * @return string Quadrillions as string or empty.
      */
     protected function getQuadrillions(string $v = null) : string {
-        if(intval($v) > 0) {
-            $w = $this->getHundreds($v);
-            $vmod = $v % 10;
-            if($v == 1) {
-                return $w . " " . $this->dictionary['suffix'][15]['s1'];
-            } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
-                return $w . " " . $this->dictionary['suffix'][15]['s2'];
-            } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
-                return $w . " " . $this->dictionary['suffix'][15]['s3'];
-            } elseif($v == 0) {
-                return "";
-            }
-        }
-        return "";
+        return $this->getLargeNumbers(15, $v);
     }
 
     /**
@@ -406,20 +367,7 @@ class PL extends SlownieBase {
      * @return string Trillions as string or empty.
      */
     protected function getTrillions(string $v = null) : string {
-        if(intval($v) > 0) {
-            $w = $this->getHundreds($v);
-            $vmod = $v % 10;
-            if($v == 1) {
-                return $w . " " . $this->dictionary['suffix'][12]['s1'];
-            } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
-                return $w . " " . $this->dictionary['suffix'][12]['s2'];
-            } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
-                return $w . " " . $this->dictionary['suffix'][12]['s3'];
-            } elseif($v == 0) {
-                return "";
-            }
-        }
-        return "";
+        return $this->getLargeNumbers(12, $v);
     }
 
     /**
@@ -429,20 +377,7 @@ class PL extends SlownieBase {
      * @return string Billions as string or empty.
      */
     protected function getBillions(string $v = null) : string {
-        if(intval($v) > 0) {
-            $w = $this->getHundreds($v);
-            $vmod = $v % 10;
-            if($v == 1) {
-                return $w . " " . $this->dictionary['suffix'][9]['s1'];
-            } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
-                return $w . " " . $this->dictionary['suffix'][9]['s2'];
-            } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
-                return $w . " " . $this->dictionary['suffix'][9]['s3'];
-            } elseif($v == 0) {
-                return "";
-            }
-        }
-        return "";
+        return $this->getLargeNumbers(9, $v);
     }
 
     /**
@@ -452,20 +387,7 @@ class PL extends SlownieBase {
      * @return string Millions as string or empty.
      */
     protected function getMillions(string $v = null) : string {
-        if(intval($v) > 0) {
-            $w = $this->getHundreds($v);
-            $vmod = $v % 10;
-            if($v == 1) {
-                return $w . " " . $this->dictionary['suffix'][6]['s1'];
-            } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
-                return $w . " " . $this->dictionary['suffix'][6]['s2'];
-            } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
-                return $w . " " . $this->dictionary['suffix'][6]['s3'];
-            } elseif($v == 0) {
-                return "";
-            }
-        }
-        return "";
+        return $this->getLargeNumbers(6, $v);
     }
 
     /**
@@ -475,15 +397,47 @@ class PL extends SlownieBase {
      * @return string Thousands as string or empty.
      */
     protected function getThousands(string $v = null) : string {
+        return $this->getLargeNumbers(3, $v);
+    }
+
+    // empty holders (LANGUAGE SPECIFIC)
+    protected function getCurrencyMinor(string $v = null) : string { return ""; }
+    protected function getCurrencyFull() : string { return ""; }
+    protected function getHundreds(string $v = null) : string { return ""; }
+    protected function getLargeNumbers(int $power = 0, string $v = null) : string { return ""; }
+}
+
+/**
+ * Class used to transcribe float value into words in Polish language.
+ * 
+ * @author Piotr Bonk <bonk.piotr@gmail.com>
+ */
+class PL extends \tei187\Slownie\SlownieBase {
+    /** @var array $dictionary Dictionary for translation purposes and cross-reference tables. */
+    protected $dictionary = [
+        'currencies' => Resources\ISO4217\PL\Currencies, 
+           'numbers' => Resources\PL\Numbers,
+              'xref' => Resources\ISO4217\NumberToCode,
+            'suffix' => Resources\PL\LargeNumbers
+    ];
+
+    /**
+     * Template method to get correct suffix per nth power of 10 and given value part.
+     *
+     * @param integer $power N-th power of 10.
+     * @param string|null $v Input value part.
+     * @return string
+     */
+    protected function getLargeNumbers(int $power = 0, string $v = null) : string {
         if(intval($v) > 0) {
             $w = $this->getHundreds($v);
             $vmod = $v % 10;
             if($v == 1) {
-                return $w . " " . $this->dictionary['suffix'][3]['s1'];
+                return $w . " " . $this->dictionary['suffix'][$power]['s1'];
             } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
-                return $w . " " . $this->dictionary['suffix'][3]['s2'];
+                return $w . " " . $this->dictionary['suffix'][$power]['s2'];
             } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
-                return $w . " " . $this->dictionary['suffix'][3]['s3'];
+                return $w . " " . $this->dictionary['suffix'][$power]['s3'];
             } elseif($v == 0) {
                 return "";
             }
@@ -612,7 +566,7 @@ class PL extends SlownieBase {
  * 
  * @author Piotr Bonk <bonk.piotr@gmail.com>
  */
-class EN extends SlownieBase {
+class EN extends \tei187\Slownie\SlownieBase {
     /** @var array[] $dictionary Dictionary for translation purposes and cross-reference tables. */
     protected $dictionary = [
         'currencies' => Resources\ISO4217\EN\Currencies, 
@@ -622,141 +576,22 @@ class EN extends SlownieBase {
     ];
 
     /**
-     * Returns quintillions in words.
+     * Template method to get correct suffix per nth power of 10 and given value part.
      *
-     * @param string $v Input quintillions part.
-     * @return string Quintillions as string or empty.
+     * @param integer $power N-th power of 10.
+     * @param string|null $v Input value part.
+     * @return string
      */
-    protected function getQuintillions(string $v = null) : string {
+    protected function getLargeNumbers(int $power = 0, string $v = null) : string {
         if(intval($v) > 0) {
             $w = $this->getHundreds($v);
             if($v == 1) {
-                return $w . " " . $this->dictionary['suffix'][18]['s'];
+                return $w . " " . $this->dictionary['suffix'][$power]['s'];
             } elseif ($v > 1) {
                 if($this->currency == "none") {
-                    return $w . " " . $this->dictionary['suffix'][18]['p'];
+                    return $w . " " . $this->dictionary['suffix'][$power]['p'];
                 } else {
-                    return $w . " " . $this->dictionary['suffix'][18]['s'];
-                }
-            } elseif($v == 0) {
-                return "";
-            }
-        }
-        return "";
-    }
-
-    /**
-     * Returns quadrillions in words.
-     *
-     * @param string $v Input quadrillions part.
-     * @return string Quadrillions as string or empty.
-     */
-    protected function getQuadrillions(string $v = null) : string {
-        if(intval($v) > 0) {
-            $w = $this->getHundreds($v);
-            if($v == 1) {
-                return $w . " " . $this->dictionary['suffix'][15]['s'];
-            } elseif ($v > 1) {
-                if($this->currency == "none") {
-                    return $w . " " . $this->dictionary['suffix'][15]['p'];
-                } else {
-                    return $w . " " . $this->dictionary['suffix'][15]['s'];
-                }
-            } elseif($v == 0) {
-                return "";
-            }
-        }
-        return "";
-    }
-
-    /**
-     * Returns trillions in words.
-     *
-     * @param string $v Input trillions part.
-     * @return string Trillions as string or empty.
-     */
-    protected function getTrillions(string $v = null) : string {
-        if(intval($v) > 0) {
-            $w = $this->getHundreds($v);
-            if($v == 1) {
-                return $w . " " . $this->dictionary['suffix'][12]['s'];
-            } elseif ($v > 1) {
-                if($this->currency == "none") {
-                    return $w . " " . $this->dictionary['suffix'][12]['p'];
-                } else {
-                    return $w . " " . $this->dictionary['suffix'][12]['s'];
-                }
-            } elseif($v == 0) {
-                return "";
-            }
-        }
-        return "";
-    }
-
-    /**
-     * Returns billions in words.
-     *
-     * @param string $v Input billions part.
-     * @return string Billions as string or empty.
-     */
-    protected function getBillions(string $v = null) : string {
-        if(intval($v) > 0) {
-            $w = $this->getHundreds($v);
-            if($v == 1) {
-                return $w . " " . $this->dictionary['suffix'][9]['s'];
-            } elseif ($v > 1) {
-                if($this->currency == "none") {
-                    return $w . " " . $this->dictionary['suffix'][9]['p'];
-                } else {
-                    return $w . " " . $this->dictionary['suffix'][9]['s'];
-                }
-            } elseif($v == 0) {
-                return "";
-            }
-        }
-        return "";
-    }
-
-    /**
-     * Returns millions in words.
-     *
-     * @param string $v Input millions part.
-     * @return string Millions as string or empty.
-     */
-    protected function getMillions(string $v = null) : string {
-        if(intval($v) > 0) {
-            $w = $this->getHundreds($v);
-            if($v == 1) {
-                return $w . " " . $this->dictionary['suffix'][6]['s'];
-            } elseif ($v > 1) {
-                if($this->currency == "none") {
-                    return $w . " " . $this->dictionary['suffix'][6]['p'];
-                } else {
-                    return $w . " " . $this->dictionary['suffix'][6]['s'];
-                }
-            } elseif($v == 0) {
-                return "";
-            }
-        }
-        return "";
-    }
-
-    /**
-     * Returns thousands in words.
-     *
-     * @param string $v Input thousands part.
-     * @return string Thousands as string or empty.
-     */
-    protected function getThousands(string $v = null) : string {
-        if(intval($v) > 0) {
-            $w = $this->getHundreds($v);
-            if($v == 1) {
-                return $w . " " . $this->dictionary['suffix'][3]['s'];
-            } elseif ($v > 1) {
-                if($this->currency == "none") {
-                    return $w . " " . $this->dictionary['suffix'][3]['p'];
-                } else {
-                    return $w . " " . $this->dictionary['suffix'][3]['s'];
+                    return $w . " " . $this->dictionary['suffix'][$power]['s'];
                 }
             } elseif($v == 0) {
                 return "";

@@ -1,4 +1,7 @@
 <?php
+/**
+ * File holding Resources for different packages.
+ */
 namespace tei187\Resources\PL;
 
 /** @var array[] Transcription parts in Polish for numbers. */
