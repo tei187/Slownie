@@ -1,5 +1,5 @@
 # Slownie
-Class used to transcribe float values into words in English or Polish language, useful when word transcription is necessary (amount verification, genitive case use). Supports amounts up to 999.999.999.999,99 in many currencies (current list below).
+Class used to transcribe float values into words in English, German or Polish language, useful when word transcription is necessary (amount verification, genitive case use). Supports amounts up to 99.999.999.999.999 in many currencies (current list below).
 **(Work in progress... more of a proof of concept)**
 
 
