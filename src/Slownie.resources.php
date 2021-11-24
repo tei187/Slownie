@@ -2981,9 +2981,9 @@ const Currencies = [
     ],
     'all' => [
         's' => "albanischer Lek",
-        'p' => "albanische Lek",
+        'p' => "albanische Lekë",
         'minor' => [
-            's' => "Qindarka",
+            's' => "Qindarkë",
             'p' => "Qindarka",
         ]
     ],
@@ -3007,7 +3007,7 @@ const Currencies = [
     ],
     'ars' => [
         's' => "argentinischer Peso",
-        'P' => "argentinische Peso",
+        'P' => "argentinische Pesos",
         'minor' => Centavos
     ],
     'aud' => [
@@ -3050,10 +3050,10 @@ const Currencies = [
         ]
     ],
     'bgn' => [
-        's' => "bulgarischer Lev",
-        'p' => "bulgarische Lev",
+        's' => "bulgarischer Lew",
+        'p' => "bulgarische Lewa",
         'minor' => [
-            's' => "Stotinki",
+            's' => "Stotinka",
             'p' => "Stotinki",
         ]
     ],
@@ -3064,7 +3064,7 @@ const Currencies = [
     ],
     'bif' => [
         's' => "burundischer Franc",
-        'p' => "burundische Franken",
+        'p' => "burundische Francs",
         'minor' => Centimes_NotUsed
     ],
     'bmd' => [
@@ -3078,13 +3078,13 @@ const Currencies = [
         'minor' => Cents
     ],
     'bob' => [
-        's' => "Boliviano",
-        'p' => "Boliviano",
+        's' => "bolivianischer Boliviano",
+        'p' => "bolivianische Boliviano",
         'minor' => Centavos
     ],
     'brl' => [
         's' => "brasilianischer Real",
-        'p' => "brasilianische Real",
+        'p' => "brasilianische Reales",
         'minor' => Centavos
     ],
     'bsd' => [
@@ -3141,7 +3141,7 @@ const Currencies = [
     ],
     'clp' => [
         's' => "chilenischer Peso",
-        'p' => "chilenische Peso",
+        'p' => "chilenische Pesos",
         'minor' => Centavos_NotUsed
     ],
     'cny' => [
@@ -3160,7 +3160,7 @@ const Currencies = [
     ],
     'cop' => [
         's' => "kolumbianischer Peso",
-        'p' => "kolumbianische Peso",
+        'p' => "kolumbianische Pesos",
         'minor' => Centavos
     ],
     'crc' => [
@@ -3170,12 +3170,12 @@ const Currencies = [
     ],
     'cuc' => [
         's' => "kubanischer konvertierbarer Peso",
-        'p' => "kubanische konvertierbare Peso",
+        'p' => "kubanische konvertierbare Pesos",
         'minor' => Centavos
     ],
     'cup' => [
         's' => "kubanischer Peso",
-        'p' => "kubanische Peso",
+        'p' => "kubanische Pesos",
         'minor' => Centavos
     ],
     'cve' => [
@@ -3206,12 +3206,12 @@ const Currencies = [
     ],
     'dop' => [
         's' => "dominikanischer Peso",
-        'p' => "dominikanische Peso",
+        'p' => "dominikanische Pesos",
         'minor' => Centavos
     ],
     'dzd' => [
         's' => "algerischer Dinar",
-        'p' => "algerische Dinar",
+        'p' => "algerische Dinare",
         'minor' => Centimes
     ],
     'egp' => [
@@ -3347,7 +3347,7 @@ const Currencies = [
     ],
     'iqd' => [
         's' => "irakischer Dinar",
-        'p' => "irakische Dinar",
+        'p' => "irakische Dinare",
         'minor' => Fils_3dec
     ],
     'irr' => [
@@ -3355,7 +3355,7 @@ const Currencies = [
         'p' => "Iranische Rial",
         'minor' => [
             's' => "Dinar",
-            'p' => "Dinar",
+            'p' => "Dinare",
         ]
     ],
     'isk' => [
@@ -3374,7 +3374,7 @@ const Currencies = [
     ],
     'jod' => [
         's' => "jordanischer Dinar",
-        'p' => "jordanische Dinar",
+        'p' => "jordanische Dinare",
         'minor' => Piastres_3dec
     ],
     'jpy' => [
@@ -3425,7 +3425,7 @@ const Currencies = [
     ],
     'kwd' => [
         's' => "Kuwait-Dinar",
-        'p' => "Kuwait-Dinar",
+        'p' => "Kuwait-Dinare",
         'minor' => Fils_3dec
     ],
     'kyd' => [
@@ -3644,7 +3644,7 @@ const Currencies = [
     ],
     'php' => [
         's' => "philippinischer Peso",
-        'p' => "philippinische Peso",
+        'p' => "philippinische Pesos",
         'minor' => Centavos
     ],
     'pkr' => [
@@ -3868,7 +3868,7 @@ const Currencies = [
     ],
     'uyu' => [
         's' => "uruguayischer Peso",
-        'p' => "uruguayische Peso",
+        'p' => "uruguayische Pesos",
         'minor' => Centesimos
     ],
     'uzs' => [
