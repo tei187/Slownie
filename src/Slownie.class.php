@@ -690,4 +690,186 @@ class EN extends \tei187\Slownie\SlownieBase {
     }
 }
 
+/**
+ * Class used to transcribe float value into words in German language.
+ * 
+ * @author Piotr Bonk <bonk.piotr@gmail.com>
+ */
+class DE extends \tei187\Slownie\SlownieBase {
+    /** @var array[] $dictionary Dictionary for translation purposes and cross-reference tables. */
+    protected $dictionary = [
+        'currencies' => Resources\ISO4217\DE\Currencies, 
+           'numbers' => Resources\DE\Numbers,
+              'xref' => Resources\ISO4217\NumberToCode,
+            'suffix' => Resources\DE\LargeNumbers
+    ];
+
+    /**
+     * Template method to get correct suffix per nth power of 10 and given value part.
+     *
+     * @param integer $power N-th power of 10.
+     * @param string|null $v Input value part.
+     * @return string
+     */
+    protected function getLargeNumbers(int $power = 0, string $v = null) : string {
+        if(intval($v) > 0) {
+            $w = $this->getHundreds($v);
+            $w = ((trim($w) == "eins" OR trim($w) == "ein") AND $power >= 6) ? "eine" : $w;
+
+            if($v == 1) {
+                return $w . " " . $this->dictionary['suffix'][$power]['s'];
+            } elseif($v > 1) {
+                if($this->currency == "none") {
+                    return $w . " " . $this->dictionary['suffix'][$power]['p'];
+                } else {
+                    return $w . " " . $this->dictionary['suffix'][$power]['s'];
+                }
+            } elseif($v == 0) {
+                return "";
+            }
+        }
+        return "";
+    }
+
+    /**
+     * Returns hundreds part in words.
+     *
+     * @param string $v Input hundreds part.
+     * @param boolean $minor Switch if minor.
+     * @return string Hundreds as string or empty.
+     */
+    protected function getHundreds_OLD(string $v = null, bool $minor = false) : string {
+        if(intval($v) > 0) {
+            $teens = false;
+            $vp = [
+                'hundreds' => floor($v / 100),
+                'tens'     => floor(($v % 100) / 10),
+                'single'   => $v % 10,
+            ];
+                
+            $parts = [];
+            if($vp['hundreds'] > 0) {
+                // hundreds
+                $parts[] = $this->dictionary['numbers']['xoo'][$vp['hundreds'] * 100];
+            }
+            if($vp['tens'] > 0) {
+                // tens
+                if($vp['tens'] == 1) {
+                    if($vp['single'] > 0) {
+                        // teens
+                        $teens = true;
+                        $key = $vp['tens'].$vp['single'];
+                        $parts[] = $this->dictionary['numbers']['oxo'][$key];
+                    } else {
+                        $parts[] = $this->dictionary['numbers']['oxo'][$vp['tens'] * 10];
+                    }
+                } elseif($vp['tens'] >= 2) {
+                    $parts[] = $this->dictionary['numbers']['oxo'][$vp['tens'] * 10];
+                }
+            }
+
+            if($teens === false AND $vp['single'] > 0) {
+                $parts[] = $this->dictionary['numbers']['oox'][$vp['single']];
+            }
+    
+            if(count($parts) > 1) {
+                return implode(" ", $parts);
+            } elseif (count($parts) == 1) {
+                return $parts[0];
+            }
+        }
+        return "";
+    }
+
+    /**
+     * Returns hundreds part in words.
+     *
+     * @param string $v Input hundreds part.
+     * @param boolean $minor Switch if minor.
+     * @return string Hundreds as string or empty.
+     */
+    protected function getHundreds(string $v = null, bool $minor = false) : string {
+        $vInt = intval($v);
+        if($vInt > 0) {
+            $mod3 = $vInt % 100;
+            $mod2 = $mod3 % 10;
+            $hundreds = $vInt - $mod3;
+            $tens = floor($mod3 / 10) * 10;
+
+            $parts = [];
+
+            // check 10^2 position
+            if($vInt >= 100) {
+                $parts[] = $this->dictionary['numbers']['xoo'][$hundreds];
+            }
+
+            if($mod3 >= 10 AND $mod3 <= 20) { 
+                // ranging 10...20
+                $parts[] = $this->dictionary['numbers']['oxo'][$mod3];
+            } elseif($mod3 > 0 AND $mod3 < 10) { 
+                // ranging 01...09
+                $parts[] = $this->dictionary['numbers']['oox'][$mod3];
+            } elseif($mod3 > 20) { 
+                // ranging 21...n
+                if($mod2 == 0) { 
+                    // if single equals 0
+                    $parts[] = $this->dictionary['numbers']['oxo'][$mod3];
+                } elseif($mod2 == 1) { 
+                    // if single equals 1
+                    $parts[] = $this->dictionary['numbers']['ooy'][1]['s'] . "und" . $this->dictionary['numbers']['oxo'][$tens];
+                } else { 
+                    // if single other than 0 or 1, so x2...x9
+                    $parts[] = $this->dictionary['numbers']['oox'][$mod2] . "und" . $this->dictionary['numbers']['oxo'][$tens];
+                }
+            }
+
+            if(count($parts) > 1) {
+                return implode("", $parts);
+            } elseif (count($parts) == 1) {
+                return $parts[0];
+            }
+        }
+        return "";
+    }
+
+    /**
+     * Returns currency suffix.
+     *
+     * @param string $v Input last part of amount.
+     * @return string Currency suffix or empty string if not found.
+     */
+    protected function getCurrencyFull() : string {
+        if($this->currency != "none") {
+            $imploded = intval(implode("", $this->amountFull));
+            if($imploded == 1) {
+                return $this->dictionary['currencies'][$this->currency]['s'];
+            } elseif ($imploded >= 2) {
+                return $this->dictionary['currencies'][$this->currency]['p'];
+            } elseif($imploded == 0) {
+                return "";
+            }
+        }
+        return "";
+    }
+
+    /**
+     * Returns currency minors' suffix.
+     *
+     * @param string $v Input rest.
+     * @return string Currency minor suffix or empty string if not found.
+     */
+    protected function getCurrencyMinor(string $v = null) : string {
+        if($this->currency != "none") {
+            if($v == 1) {
+                return $this->dictionary['currencies'][$this->currency]['minor']['s'];
+            } elseif ($v >= 2) {
+                return $this->dictionary['currencies'][$this->currency]['minor']['p'];
+            } elseif($v == 0) {
+                return "";
+            }
+        }
+        return "";
+    }
+}
+
 ?>
