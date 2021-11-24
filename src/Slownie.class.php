@@ -241,6 +241,7 @@ class SlownieBase {
 
         // implode full and rest translations into one and return
         $whole = [ implode(" ", $full), implode(" ", $rest) ];
+        print_r($full);
         if($this->fractions) {
             return implode(" ", array_filter($whole));
         } else {
@@ -719,63 +720,9 @@ class DE extends \tei187\Slownie\SlownieBase {
             if($v == 1) {
                 return $w . " " . $this->dictionary['suffix'][$power]['s'];
             } elseif($v > 1) {
-                if($this->currency == "none") {
-                    return $w . " " . $this->dictionary['suffix'][$power]['p'];
-                } else {
-                    return $w . " " . $this->dictionary['suffix'][$power]['s'];
-                }
+                return $w . " " . $this->dictionary['suffix'][$power]['p'];
             } elseif($v == 0) {
                 return "";
-            }
-        }
-        return "";
-    }
-
-    /**
-     * Returns hundreds part in words.
-     *
-     * @param string $v Input hundreds part.
-     * @param boolean $minor Switch if minor.
-     * @return string Hundreds as string or empty.
-     */
-    protected function getHundreds_OLD(string $v = null, bool $minor = false) : string {
-        if(intval($v) > 0) {
-            $teens = false;
-            $vp = [
-                'hundreds' => floor($v / 100),
-                'tens'     => floor(($v % 100) / 10),
-                'single'   => $v % 10,
-            ];
-                
-            $parts = [];
-            if($vp['hundreds'] > 0) {
-                // hundreds
-                $parts[] = $this->dictionary['numbers']['xoo'][$vp['hundreds'] * 100];
-            }
-            if($vp['tens'] > 0) {
-                // tens
-                if($vp['tens'] == 1) {
-                    if($vp['single'] > 0) {
-                        // teens
-                        $teens = true;
-                        $key = $vp['tens'].$vp['single'];
-                        $parts[] = $this->dictionary['numbers']['oxo'][$key];
-                    } else {
-                        $parts[] = $this->dictionary['numbers']['oxo'][$vp['tens'] * 10];
-                    }
-                } elseif($vp['tens'] >= 2) {
-                    $parts[] = $this->dictionary['numbers']['oxo'][$vp['tens'] * 10];
-                }
-            }
-
-            if($teens === false AND $vp['single'] > 0) {
-                $parts[] = $this->dictionary['numbers']['oox'][$vp['single']];
-            }
-    
-            if(count($parts) > 1) {
-                return implode(" ", $parts);
-            } elseif (count($parts) == 1) {
-                return $parts[0];
             }
         }
         return "";
@@ -816,7 +763,7 @@ class DE extends \tei187\Slownie\SlownieBase {
                     $parts[] = $this->dictionary['numbers']['oxo'][$mod3];
                 } elseif($mod2 == 1) { 
                     // if single equals 1
-                    $parts[] = $this->dictionary['numbers']['ooy'][1]['s'] . "und" . $this->dictionary['numbers']['oxo'][$tens];
+                    $parts[] = $this->dictionary['numbers']['ooy'][1]['f'] . "und" . $this->dictionary['numbers']['oxo'][$tens];
                 } else { 
                     // if single other than 0 or 1, so x2...x9
                     $parts[] = $this->dictionary['numbers']['oox'][$mod2] . "und" . $this->dictionary['numbers']['oxo'][$tens];
@@ -869,6 +816,77 @@ class DE extends \tei187\Slownie\SlownieBase {
             }
         }
         return "";
+    }
+
+    /**
+     * Sets full in-words transcription of the amount. Handles $this->amountFull;
+     * 
+     * @return string Translated from numeric.
+     */
+    protected function relayString() : string {
+        $c = count($this->amountFull);
+        $full = [];
+        $arrayByPower10 = [];
+
+        foreach(array_reverse($this->amountFull) as $k => $v) { $arrayByPower10[$k * 3] = $v; }
+        $arrayByPower10 = array_reverse($arrayByPower10, true);
+
+        // deal with translation of full parts
+        foreach($arrayByPower10 as $k => $v) {
+            if($k == 0) {
+                $w = $this->getHundreds($v,false);
+                if($w == "eins" OR $w == "ein") {
+                    if(@$this->dictionary['currencies'][$this->currency]['f']) {
+                        $w = "eine";
+                    } else {
+                        $w = "ein";
+                    }
+                }
+                $full[$k] = $w;
+            } else {
+                $full[$k] = $this->translateNumber($k, $v); 
+            }
+        }
+        if($c > 0 and intval(implode("", $this->amountFull)) > 0) {
+            if($this->pickerUse) {
+                $full['currency'] = $this->getCurrency();
+            } else {
+                $full['currency'] = $this->getCurrencyFull($this->amountFull[$c-1]);
+            }
+        } else {
+            $full = [];
+        }
+
+        // deal with translation of rest
+        $rest = [];
+        if($this->amountPart > 0) {
+            if($this->fractions) {
+                $rest[] = $this->relayFractionMinors();
+            } else {
+                $rest[] = $this->getHundreds(str_pad($this->amountPart, $this->exponent, 0, STR_PAD_RIGHT), true);
+                $rest[] = $this->getCurrencyMinor(str_pad($this->amountPart, $this->exponent, 0, STR_PAD_RIGHT), true);
+            }
+        }
+        
+        // parse pow0 pow3
+        if(isset($full[0])) {
+            $full[0] = str_replace(" ", "", $full[0]);
+        }
+        if(isset($full[3])) {
+            $full[3] = str_replace(" ", "", $full[3]);
+        }
+        if(isset($full[0]) AND isset($full[3])) {
+            $full[3] = $full[3].$full[0];
+            unset($full[0]);
+        }
+
+        $whole = [ implode(" ", $full), implode(" ", $rest) ];
+        
+        if($this->fractions) {
+            return implode(" ", array_filter($whole));
+        } else {
+            return implode(", ", array_filter($whole));
+        }
     }
 }
 

@@ -2993,6 +2993,7 @@ const Currencies = [
         'minor' => [
             's' => "Luma",
             'p' => "Luma",
+            'f' => true,
         ]
     ],
     'ang' => [
@@ -3031,6 +3032,7 @@ const Currencies = [
     'bam' => [
         's' => "bosnisch-herzegowinischen konvertible Mark",
         'p' => "bosnisch-herzegowinischen konvertible Mark",
+        'f' => true,
         'minor' => [
             's' => "Fening",
             'p' => "Fening",
@@ -3055,6 +3057,7 @@ const Currencies = [
         'minor' => [
             's' => "Stotinka",
             'p' => "Stotinki",
+            'f' => true,
         ]
     ],
     'bhd' => [
@@ -3101,7 +3104,7 @@ const Currencies = [
         ]
     ],
     'bwp' => [
-        's' => "botswanischer Pula",
+        's' => "botswanisches Pula",
         'p' => "botswanische Pula",
         'minor' => [
             's' => "Thebe",
@@ -3114,6 +3117,7 @@ const Currencies = [
         'minor' => [
             's' => "Kopeke",
             'p' => "Kopeken",
+            'f' => true,
         ]
     ],
     'bzd' => [
@@ -3186,6 +3190,7 @@ const Currencies = [
     'czk' => [
         's' => "tschechische Krone",
         'p' => "tschechische Kronen",
+        'f' => true,
         'minor' => [
             's' => "Haléřů",
             'p' => "Haléřů",
@@ -3199,6 +3204,7 @@ const Currencies = [
     'dkk' => [
         's' => "dänische Krone",
         'p' => "dänische Kronen",
+        'f' => true,
         'minor' => [
             's' => "Øre",
             'p' => "Øre",
@@ -3266,6 +3272,7 @@ const Currencies = [
         'minor' => [
             's' => "Pesewa",
             'p' => "Pesewas",
+            'f' => true,
         ]
     ],
     'gip' => [
@@ -3299,6 +3306,7 @@ const Currencies = [
     'hnl' => [
         's' => "honduranische Lempira",
         'p' => "honduranische Lempira",
+        'f' => true,
         'minor' => Centavos
     ],
     'hkd' => [
@@ -3309,6 +3317,7 @@ const Currencies = [
     'hrk' => [
         's' => "kroatische Kuna",
         'p' => "kroatische Kuna",
+        'f' => true,
         'minor' => [
             's' => "lipa",
             'p' => "lipa",
@@ -3317,6 +3326,7 @@ const Currencies = [
     'htg' => [
         's' => "haitianischer Gourde",
         'p' => "haitianische Gourde",
+        'f' => true,
         'minor' => Centimes
     ],
     'huf' => [
@@ -3330,6 +3340,7 @@ const Currencies = [
     'idr' => [
         's' => "indonesische Rupiah",
         'p' => "indonesische Rupiah",
+        'f' => true,
         'minor' => Sen
     ],
     'ils' => [
@@ -3343,6 +3354,7 @@ const Currencies = [
     'inr' => [
         's' => "indische Rupie",
         'p' => "indische Rupien",
+        'f' => true,
         'minor' => Paisa
     ],
     'iqd' => [
@@ -3361,6 +3373,7 @@ const Currencies = [
     'isk' => [
         's' => "isländische Krone",
         'p' => "isländische Kronen",
+        'f' => true,
         'minor' => [
             's' => "Eyrir",
             'p' => "Aurar",
@@ -3457,6 +3470,7 @@ const Currencies = [
     'lkr' => [
         's' => "Sri-Lanka-Rupie",
         'p' => "Sri-Lanka-Rupien",
+        'f' => true,
         'minor' => Cents
     ],
     'lrd' => [
@@ -3500,6 +3514,7 @@ const Currencies = [
         'minor' => [
             's' => "Iraimbilanja",
             'p' => "Iraimbilanja",
+            'f' => true,
         ]
     ],
     'mkd' => [
@@ -3530,6 +3545,7 @@ const Currencies = [
     'mop' => [
         's' => "Macau-Pataca",
         'p' => "Macau-Pataca",
+        'f' => true,
         'minor' => [
             's' => "Avos",
             'p' => "Avos",
@@ -3546,11 +3562,13 @@ const Currencies = [
     'mur' => [
         's' => "Mauritius-Rupie",
         'p' => "Mauritius-Rupien",
+        'f' => true,
         'minor' => Cents
     ],
     'mvr' => [
         's' => "maledivische Rufiyaa",
         'p' => "maledivische Rufiyaa",
+        'f' => true,
         'minor' => [
             's' => "Laari",
             'p' => "Laari",
@@ -3592,6 +3610,7 @@ const Currencies = [
     'ngn' => [
         's' => "nigerianischer Naira",
         'p' => "nigerianische Naira",
+        'f' => true,
         'minor' => [
             's' => "Kobe",
             'p' => "Kobo",
@@ -3600,11 +3619,13 @@ const Currencies = [
     'npr' => [
         's' => "nepalesische Rupie",
         'p' => "nepalesische Rupien",
+        'f' => true,
         'minor' => Paisa,
     ],
     'nok' => [
         's' => "norwegische Krone",
         'p' => "norwegische Kronen",
+        'f' => true,
         'minor' => [
             's' => "Øre",
             'p' => "Øre",
@@ -3622,6 +3643,7 @@ const Currencies = [
             's' => "Baisa",
             'p' => "Baisa",
             'd' => 3,
+            'f' => true,
         ]
     ],
     'pab' => [
@@ -3650,6 +3672,7 @@ const Currencies = [
     'pkr' => [
         's' => "pakistanische Rupie",
         'p' => "pakistanische Rupien",
+        'f' => true,
         'minor' => Paisa
     ],
     'pln' => [
@@ -3695,6 +3718,7 @@ const Currencies = [
         'minor' => [
             's' => "Kopeke",
             'p' => "Kopeken",
+            'f' => true,
         ]
     ],
     'rwf' => [
@@ -3718,6 +3742,7 @@ const Currencies = [
     'scr' => [
         's' => "Seychellen-Rupie",
         'p' => "Seychellen-Rupien",
+        'f' => true,
         'minor' => Cents
     ],
     'sdg' => [
@@ -3728,6 +3753,7 @@ const Currencies = [
     'sek' => [
         's' => "swedische Krone",
         'p' => "swedische Kronen",
+        'f' => true,
         'minor' => [
             's' => "Öre",
             'p' => "Öre",
@@ -3776,6 +3802,7 @@ const Currencies = [
     'syp' => [
         's' => "syrische Lira",
         'p' => "syrische Lira",
+        'f' => true,
         'minor' => Piastres
     ],
     'szl' => [
@@ -3828,6 +3855,7 @@ const Currencies = [
     'try' => [
         's' => "türkische Lira",
         'p' => "türkische Lira",
+        'f' => true,
         'minor' => [
             's' => "Kuruş",
             'p' => "Kuruş",
@@ -3851,6 +3879,7 @@ const Currencies = [
     'uah' => [
         's' => "ukrainische Hryvnia",
         'p' => "ukrainische Hryvni",
+        'f' => true,
         'minor' => [
             's' => "Kopijka",
             'p' => "Kopijki",
@@ -4163,10 +4192,10 @@ const Numbers = [
         800 => "achthundert",
         900 => "neunhundert",
     ],
-    'ooy' => [
+    'ooy' => [ // for 10^x (x>=6)
         1 => [
-            's' => 'ein', 
-            'p' => 'eine'
+            'm' => 'ein', 
+            'f' => 'eine'
         ]
     ]
 ];
@@ -4175,7 +4204,7 @@ const Numbers = [
 const LargeNumbers = [
      3 => [
          's' => "tausend",
-         'p' => "tausende",
+         'p' => "tausend", // not really correct, but for simplicity sake
      ],
      6 => [
         's' => "Million",
@@ -4206,8 +4235,8 @@ const LargeNumbers = [
         'p' => "Septillionen",
     ],
     27 => [
-        's' => "octillion",
-        'p' => "octillions",
+        's' => "Octillion",
+        'p' => "Octillionen",
     ],
 ];
 
