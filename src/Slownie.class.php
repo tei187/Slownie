@@ -7,12 +7,12 @@ namespace tei187\Slownie;
 use tei187\Resources as Resources;
 
 /**
- * Class used to transcribe float value into words. Base for PL and EN class extensions.
- * 
+ * Abstract class used to transcribe float value into words. Base for PL, EN, DE class extensions.
+ * @abstract
  * @author Piotr Bonk <bonk.piotr@gmail.com>
  * @version 1.0.0
  */
-class SlownieBase {
+abstract class SlownieBase {
 // holding
     /** @var string[] $amountFull Hold parts of amount (without minor parts), divided by hundreds mark. */
     protected $amountFull = [];
@@ -241,7 +241,7 @@ class SlownieBase {
 
         // implode full and rest translations into one and return
         $whole = [ implode(" ", $full), implode(" ", $rest) ];
-        print_r($full);
+        
         if($this->fractions) {
             return implode(" ", array_filter($whole));
         } else {
@@ -401,11 +401,10 @@ class SlownieBase {
         return $this->getLargeNumbers(3, $v);
     }
 
-    // empty holders (LANGUAGE SPECIFIC)
-    protected function getCurrencyMinor(string $v = null) : string { return ""; }
-    protected function getCurrencyFull() : string { return ""; }
-    protected function getHundreds(string $v = null) : string { return ""; }
-    protected function getLargeNumbers(int $power = 0, string $v = null) : string { return ""; }
+    abstract protected function getCurrencyMinor(string $v = null) : string;
+    abstract protected function getCurrencyFull() : string;
+    abstract protected function getHundreds(string $v = null) : string;
+    abstract protected function getLargeNumbers(int $power = 0, string $v = null) : string;
 }
 
 /**

@@ -3,7 +3,7 @@ Search.appendIndex(
                 {
             "fqsen": "\\tei187\\Slownie\\SlownieBase",
             "name": "SlownieBase",
-            "summary": "Class\u0020used\u0020to\u0020transcribe\u0020float\u0020value\u0020into\u0020words.\u0020Base\u0020for\u0020PL\u0020and\u0020EN\u0020class\u0020extensions.",
+            "summary": "Abstract\u0020class\u0020used\u0020to\u0020transcribe\u0020float\u0020value\u0020into\u0020words.\u0020Base\u0020for\u0020PL,\u0020EN,\u0020DE\u0020class\u0020extensions.",
             "url": "classes/tei187-Slownie-SlownieBase.html"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A__construct\u0028\u0029",
