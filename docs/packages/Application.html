@@ -103,11 +103,13 @@
 <dl class="phpdocumentor-table-of-contents">
     
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/tei187-Slownie-SlownieBase.html"><abbr title="\tei187\Slownie\SlownieBase">SlownieBase</abbr></a></dt>
-        <dd>Class used to transcribe float value into words. Base for PL and EN class extensions.</dd>
+        <dd>Abstract class used to transcribe float value into words. Base for PL, EN, DE class extensions.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/tei187-Slownie-PL.html"><abbr title="\tei187\Slownie\PL">PL</abbr></a></dt>
         <dd>Class used to transcribe float value into words in Polish language.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/tei187-Slownie-EN.html"><abbr title="\tei187\Slownie\EN">EN</abbr></a></dt>
         <dd>Class used to transcribe float value into words in English language.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/tei187-Slownie-DE.html"><abbr title="\tei187\Slownie\DE">DE</abbr></a></dt>
+        <dd>Class used to transcribe float value into words in German language.</dd>
     
     </dl>
 
@@ -140,9 +142,23 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-iso4217-de.html#constant_Centavos">Centavos</a>
+    <span>
+        &nbsp;= [&#039;s&#039; =&gt; &quot;Centavo&quot;, &#039;p&#039; =&gt; &quot;Centavos&quot;]                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/tei187-resources-iso4217-en.html#constant_Centavos_NotUsed">Centavos_NotUsed</a>
     <span>
         &nbsp;= [&#039;s&#039; =&gt; &quot;centavo&quot;, &#039;p&#039; =&gt; &quot;centavos&quot;, &#039;u&#039; =&gt; false]                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-iso4217-de.html#constant_Centavos_NotUsed">Centavos_NotUsed</a>
+    <span>
+        &nbsp;= [&#039;s&#039; =&gt; &quot;Centavo&quot;, &#039;p&#039; =&gt; &quot;Centavos&quot;, &#039;u&#039; =&gt; false]                    </span>
 </dt>
 <dd></dd>
 
@@ -161,9 +177,30 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-iso4217-de.html#constant_Centesimos">Centesimos</a>
+    <span>
+        &nbsp;= [&#039;s&#039; =&gt; &quot;Centésimo&quot;, &#039;p&#039; =&gt; &quot;Centésimos&quot;]                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-iso4217-de.html#constant_Centimes">Centimes</a>
+    <span>
+        &nbsp;= [&#039;s&#039; =&gt; &quot;Centime&quot;, &#039;p&#039; =&gt; &quot;Centimes&quot;]                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/tei187-resources-iso4217-en.html#constant_Centimes">Centimes</a>
     <span>
         &nbsp;= [&#039;s&#039; =&gt; &quot;centime&quot;, &#039;p&#039; =&gt; &quot;centimes&quot;]                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-iso4217-de.html#constant_Centimes_NotUsed">Centimes_NotUsed</a>
+    <span>
+        &nbsp;= [&#039;s&#039; =&gt; &quot;Centime&quot;, &#039;p&#039; =&gt; &quot;Centimes&quot;, &#039;u&#039; =&gt; false]                    </span>
 </dt>
 <dd></dd>
 
@@ -182,6 +219,13 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-iso4217-de.html#constant_Centimos">Centimos</a>
+    <span>
+        &nbsp;= [&#039;s&#039; =&gt; &quot;Cêntimo&quot;, &#039;p&#039; =&gt; &quot;Cêntimos&quot;]                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/tei187-resources-iso4217-pl.html#constant_Centims">Centims</a>
     <span>
         &nbsp;= [&#039;s1&#039; =&gt; &quot;centym&quot;, &#039;s2&#039; =&gt; &quot;centymy&quot;, &#039;s3&#039; =&gt; &quot;centymów&quot;, &#039;f&#039; =&gt; false]                    </span>
@@ -196,16 +240,23 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="namespaces/tei187-resources-iso4217-pl.html#constant_Cents">Cents</a>
+    <a href="namespaces/tei187-resources-iso4217-en.html#constant_Cents">Cents</a>
     <span>
-        &nbsp;= [&#039;s1&#039; =&gt; &quot;cent&quot;, &#039;s2&#039; =&gt; &quot;centy&quot;, &#039;s3&#039; =&gt; &quot;centów&quot;, &#039;f&#039; =&gt; false]                    </span>
+        &nbsp;= [&#039;s&#039; =&gt; &quot;cent&quot;, &#039;p&#039; =&gt; &quot;cents&quot;]                    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="namespaces/tei187-resources-iso4217-en.html#constant_Cents">Cents</a>
+    <a href="namespaces/tei187-resources-iso4217-de.html#constant_Cents">Cents</a>
     <span>
-        &nbsp;= [&#039;s&#039; =&gt; &quot;cent&quot;, &#039;p&#039; =&gt; &quot;cents&quot;]                    </span>
+        &nbsp;= [&#039;s&#039; =&gt; &quot;Cent&quot;, &#039;p&#039; =&gt; &quot;Cent&quot;]                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-iso4217-pl.html#constant_Cents">Cents</a>
+    <span>
+        &nbsp;= [&#039;s1&#039; =&gt; &quot;cent&quot;, &#039;s2&#039; =&gt; &quot;centy&quot;, &#039;s3&#039; =&gt; &quot;centów&quot;, &#039;f&#039; =&gt; false]                    </span>
 </dt>
 <dd></dd>
 
@@ -224,6 +275,13 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-iso4217-de.html#constant_Cents_NotUsed">Cents_NotUsed</a>
+    <span>
+        &nbsp;= [&#039;s&#039; =&gt; &quot;Cent&quot;, &#039;p&#039; =&gt; &quot;Cent&quot;, &#039;u&#039; =&gt; false]                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/tei187-resources-iso4217-pl.html#constant_Currencies">Currencies</a>
     <span>
         &nbsp;= [&#039;aed&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dirham Zjednoczonych Emiratów Arabskich&quot;, &#039;s2&#039; =&gt; &quot;dirhamy Zjednoczonych Emiratów Arabskich&quot;, &#039;s3&#039; =&gt; &quot;dirhamów Zjednoczonych Emiratów Arabskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Fils], &#039;afn&#039; =&gt; [&#039;s1&#039; =&gt; &quot;afgani&quot;, &#039;s2&#039; =&gt; &quot;afgani&quot;, &#039;s3&#039; =&gt; &quot;afgani&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;pul&quot;, &#039;s2&#039; =&gt; &quot;pul&quot;, &#039;s3&#039; =&gt; &quot;pul&quot;, &#039;f&#039; =&gt; false]], &#039;all&#039; =&gt; [&#039;s1&#039; =&gt; &quot;lek&quot;, &#039;s2&#039; =&gt; &quot;leki&quot;, &#039;s3&#039; =&gt; &quot;leków&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;qindarka&quot;, &#039;s2&#039; =&gt; &quot;qindarki&quot;, &#039;s3&#039; =&gt; &quot;qindarek&quot;, &#039;f&#039; =&gt; true]], &#039;amd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dram armeński&quot;, &#039;s2&#039; =&gt; &quot;dramy armeńskie&quot;, &#039;s3&#039; =&gt; &quot;dramów armeńskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;lum&quot;, &#039;s2&#039; =&gt; &quot;lumy&quot;, &#039;s3&#039; =&gt; &quot;lumów&quot;, &#039;f&#039; =&gt; false]], &#039;ang&#039; =&gt; [&#039;s1&#039; =&gt; &quot;gulden Antyli Holenderskich&quot;, &#039;s2&#039; =&gt; &quot;guldeny Antyli Holenderskich&quot;, &#039;s3&#039; =&gt; &quot;guldenów Antyli Holenderskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;aoa&#039; =&gt; [&#039;s1&#039; =&gt; &quot;kwanza angolska&quot;, &#039;s2&#039; =&gt; &quot;kwanzy angolskie&quot;, &#039;s3&#039; =&gt; &quot;kwanz angolskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Centims], &#039;ars&#039; =&gt; [&#039;s1&#039; =&gt; &quot;peso argentyńskie&quot;, &#039;s2&#039; =&gt; &quot;peso argentyńskie&quot;, &#039;s3&#039; =&gt; &quot;peso argentyńskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centavo], &#039;aud&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar australijski&quot;, &#039;s2&#039; =&gt; &quot;dolary australijskie&quot;, &#039;s3&#039; =&gt; &quot;dolarów australijskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;awg&#039; =&gt; [&#039;s1&#039; =&gt; &quot;florin arubański&quot;, &#039;s2&#039; =&gt; &quot;floriny arubańskie&quot;, &#039;s3&#039; =&gt; &quot;florinów arubańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;azm&#039; =&gt; [&#039;s1&#039; =&gt; &quot;manat azerbejdżański&quot;, &#039;s2&#039; =&gt; &quot;manaty azerbejdżańskie&quot;, &#039;s3&#039; =&gt; &quot;manatów azerbejdżańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;gapik&quot;, &#039;s2&#039; =&gt; &quot;gapiki&quot;, &#039;s3&#039; =&gt; &quot;gapików&quot;, &#039;f&#039; =&gt; false]], &#039;bam&#039; =&gt; [&#039;s1&#039; =&gt; &quot;marka zamienna&quot;, &#039;s2&#039; =&gt; &quot;marki zamienne&quot;, &#039;s3&#039; =&gt; &quot;marek zamiennych&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;fenig&quot;, &#039;s2&#039; =&gt; &quot;fenigi&quot;, &#039;s3&#039; =&gt; &quot;fenigów&quot;, &#039;f&#039; =&gt; false]], &#039;bbd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar barbardoski&quot;, &#039;s2&#039; =&gt; &quot;dolary barbardoskie&quot;, &#039;s3&#039; =&gt; &quot;dolarów barbardoskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;bdt&#039; =&gt; [&#039;s1&#039; =&gt; &quot;taka&quot;, &#039;s2&#039; =&gt; &quot;taka&quot;, &#039;s3&#039; =&gt; &quot;taka&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;paisa&quot;, &#039;s2&#039; =&gt; &quot;paise&quot;, &#039;s3&#039; =&gt; &quot;paise&quot;, &#039;f&#039; =&gt; false]], &#039;bgn&#039; =&gt; [&#039;s1&#039; =&gt; &quot;lew&quot;, &#039;s2&#039; =&gt; &quot;lewy&quot;, &#039;s3&#039; =&gt; &quot;lewów&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;stotinka&quot;, &#039;s2&#039; =&gt; &quot;stotinki&quot;, &#039;s3&#039; =&gt; &quot;stotinek&quot;, &#039;f&#039; =&gt; true]], &#039;bhd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dinar bahrajski&quot;, &#039;s2&#039; =&gt; &quot;dinary bahrajskie&quot;, &#039;s3&#039; =&gt; &quot;dinarów bahrajskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Fils_3dec], &#039;bif&#039; =&gt; [&#039;s1&#039; =&gt; &quot;frank burundyjski&quot;, &#039;s2&#039; =&gt; &quot;franki burundyjskie&quot;, &#039;s3&#039; =&gt; &quot;franków burundyjskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centims_NotUsed], &#039;bmd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar bermudzki&quot;, &#039;s2&#039; =&gt; &quot;dolary bermudzkie&quot;, &#039;s3&#039; =&gt; &quot;dolarów bermudzkich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;bnd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar brunejski&quot;, &#039;s2&#039; =&gt; &quot;dolary brunejskie&quot;, &#039;s3&#039; =&gt; &quot;dolarów brunejskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;bob&#039; =&gt; [&#039;s1&#039; =&gt; &quot;boliviano&quot;, &#039;s2&#039; =&gt; &quot;boliviano&quot;, &#039;s3&#039; =&gt; &quot;boliviano&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centavo], &#039;brl&#039; =&gt; [&#039;s1&#039; =&gt; &quot;real brazylijski&quot;, &#039;s2&#039; =&gt; &quot;reale brazylijskie&quot;, &#039;s3&#039; =&gt; &quot;reali brazylijskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centavo], &#039;bsd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar bahamski&quot;, &#039;s2&#039; =&gt; &quot;dolary bahamskie&quot;, &#039;s3&#039; =&gt; &quot;dolarów bahamskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;btn&#039; =&gt; [&#039;s1&#039; =&gt; &quot;ngultrum butański&quot;, &#039;s2&#039; =&gt; &quot;ngultrum butańskie&quot;, &#039;s3&#039; =&gt; &quot;ngultrum butańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;czetrum&quot;, &#039;s2&#039; =&gt; &quot;czetrum&quot;, &#039;s3&#039; =&gt; &quot;czetrum&quot;, &#039;f&#039; =&gt; false]], &#039;bwp&#039; =&gt; [&#039;s1&#039; =&gt; &quot;pula botswańska&quot;, &#039;s2&#039; =&gt; &quot;pula botswańskie&quot;, &#039;s3&#039; =&gt; &quot;pula botswańskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;tebe&quot;, &#039;s2&#039; =&gt; &quot;tebe&quot;, &#039;s3&#039; =&gt; &quot;tebe&quot;, &#039;f&#039; =&gt; false]], &#039;byn&#039; =&gt; [&#039;s1&#039; =&gt; &quot;rubel białoruski&quot;, &#039;s2&#039; =&gt; &quot;ruble białoruskie&quot;, &#039;s3&#039; =&gt; &quot;rubli białoruskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;kopiejka&quot;, &#039;s2&#039; =&gt; &quot;kopiejki&quot;, &#039;s3&#039; =&gt; &quot;kopiejek&quot;, &#039;f&#039; =&gt; true]], &#039;bzd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar belizeński&quot;, &#039;s2&#039; =&gt; &quot;dolary belizeńskie&quot;, &#039;s3&#039; =&gt; &quot;dolarów belizeńskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;cad&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar kanadyjski&quot;, &#039;s2&#039; =&gt; &quot;dolary kanadyjskie&quot;, &#039;s3&#039; =&gt; &quot;dolarów kanadyjskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;cdf&#039; =&gt; [&#039;s1&#039; =&gt; &quot;frank kongijski&quot;, &#039;s2&#039; =&gt; &quot;franki kongijskie&quot;, &#039;s3&#039; =&gt; &quot;franków kongijskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centims], &#039;chf&#039; =&gt; [&#039;s1&#039; =&gt; &quot;frank szwajcarski&quot;, &#039;s2&#039; =&gt; &quot;franki szwajcarske&quot;, &#039;s3&#039; =&gt; &quot;franków szwajcarskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centims], &#039;clp&#039; =&gt; [&#039;s1&#039; =&gt; &quot;peso chillijski&quot;, &#039;s2&#039; =&gt; &quot;peso chillijskie&quot;, &#039;s3&#039; =&gt; &quot;peso chillijskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centavo_NotUsed], &#039;cny&#039; =&gt; [&#039;s1&#039; =&gt; &quot;yuan&quot;, &#039;s2&#039; =&gt; &quot;yuany&quot;, &#039;s3&#039; =&gt; &quot;yuanów&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;jiao&quot;, &#039;s2&#039; =&gt; &quot;jiao&quot;, &#039;s3&#039; =&gt; &quot;jiao&quot;, &#039;d&#039; =&gt; 1, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;fen&quot;, &#039;s2&#039; =&gt; &quot;feny&quot;, &#039;s3&#039; =&gt; &quot;fenów&quot;, &#039;d&#039; =&gt; 1, &#039;f&#039; =&gt; false]]], &#039;cop&#039; =&gt; [&#039;s1&#039; =&gt; &quot;peso kolumbijskie&quot;, &#039;s2&#039; =&gt; &quot;peso kolumbijskie&quot;, &#039;s3&#039; =&gt; &quot;peso kolumbijskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centavo], &#039;crc&#039; =&gt; [&#039;s1&#039; =&gt; &quot;colon kostarykański&quot;, &#039;s2&#039; =&gt; &quot;colon kostarykańskie&quot;, &#039;s3&#039; =&gt; &quot;colon kostarykańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centims], &#039;cuc&#039; =&gt; [&#039;s1&#039; =&gt; &quot;peso kubańskie wymienialne&quot;, &#039;s2&#039; =&gt; &quot;peso kubańskie wymienialne&quot;, &#039;s3&#039; =&gt; &quot;peso kubańskich wymienialnych&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centavo], &#039;cup&#039; =&gt; [&#039;s1&#039; =&gt; &quot;peso kubańskie&quot;, &#039;s2&#039; =&gt; &quot;peso kubańskie&quot;, &#039;s3&#039; =&gt; &quot;peso kubańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centavo], &#039;cve&#039; =&gt; [&#039;s1&#039; =&gt; &quot;escudo Zielonego Przylądka&quot;, &#039;s2&#039; =&gt; &quot;escudo Zielonego Przylądka&quot;, &#039;s3&#039; =&gt; &quot;escudo Zielonego Przylądka&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centavo], &#039;czk&#039; =&gt; [&#039;s1&#039; =&gt; &quot;korona czeska&quot;, &#039;s2&#039; =&gt; &quot;korony czeskie&quot;, &#039;s3&#039; =&gt; &quot;koron czeskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;halerz&quot;, &#039;s2&#039; =&gt; &quot;halerze&quot;, &#039;s3&#039; =&gt; &quot;halerzy&quot;, &#039;f&#039; =&gt; false]], &#039;djf&#039; =&gt; [&#039;s1&#039; =&gt; &quot;frank dżibutyjski&quot;, &#039;s2&#039; =&gt; &quot;franki dżibutyjskie&quot;, &#039;s3&#039; =&gt; &quot;franków dżibutyjskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centims_NotUsed], &#039;dkk&#039; =&gt; [&#039;s1&#039; =&gt; &quot;korona duńska&quot;, &#039;s2&#039; =&gt; &quot;korony duńskie&quot;, &#039;s3&#039; =&gt; &quot;koron duńskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;øre&quot;, &#039;s2&#039; =&gt; &quot;øre&quot;, &#039;s3&#039; =&gt; &quot;øre&quot;, &#039;f&#039; =&gt; false]], &#039;dzd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dinar algierski&quot;, &#039;s2&#039; =&gt; &quot;dinary algierskie&quot;, &#039;s3&#039; =&gt; &quot;dinarów algierskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Centims], &#039;dop&#039; =&gt; [&#039;s1&#039; =&gt; &quot;peso dominikańskie&quot;, &#039;s2&#039; =&gt; &quot;peso dominikańskie&quot;, &#039;s3&#039; =&gt; &quot;peso dominikańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centavo], &#039;egp&#039; =&gt; [&#039;s1&#039; =&gt; &quot;funt egipski&quot;, &#039;s2&#039; =&gt; &quot;funty egipskie&quot;, &#039;s3&#039; =&gt; &quot;funtów egipskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Piastres], &#039;eur&#039; =&gt; [&#039;s1&#039; =&gt; &quot;euro&quot;, &#039;s2&#039; =&gt; &quot;euro&quot;, &#039;s3&#039; =&gt; &quot;euro&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;ern&#039; =&gt; [&#039;s1&#039; =&gt; &quot;nakfa erytrejska&quot;, &#039;s2&#039; =&gt; &quot;nakfy erytrejskie&quot;, &#039;s3&#039; =&gt; &quot;nakf erytrejskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Cents], &#039;etb&#039; =&gt; [&#039;s1&#039; =&gt; &quot;birr etiopski&quot;, &#039;s2&#039; =&gt; &quot;birry etiopskie&quot;, &#039;s3&#039; =&gt; &quot;birrów etiopskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centims], &#039;fjd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar fidżi&quot;, &#039;s2&#039; =&gt; &quot;dolary fidżi&quot;, &#039;s3&#039; =&gt; &quot;dolarów fidżi&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;fkp&#039; =&gt; [&#039;s1&#039; =&gt; &quot;funt falklandzki&quot;, &#039;s2&#039; =&gt; &quot;funty falklandzkie&quot;, &#039;s3&#039; =&gt; &quot;funtów falklandzkich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Pens], &#039;gbp&#039; =&gt; [&#039;s1&#039; =&gt; &quot;funt brytyjski&quot;, &#039;s2&#039; =&gt; &quot;funty brytyjskie&quot;, &#039;s3&#039; =&gt; &quot;funtów brytyjskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Pens], &#039;gel&#039; =&gt; [&#039;s1&#039; =&gt; &quot;lari&quot;, &#039;s2&#039; =&gt; &quot;lari&quot;, &#039;s3&#039; =&gt; &quot;lari&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;tetri&quot;, &#039;s2&#039; =&gt; &quot;tetri&quot;, &#039;s3&#039; =&gt; &quot;tetri&quot;, &#039;f&#039; =&gt; false]], &#039;ghs&#039; =&gt; [&#039;s1&#039; =&gt; &quot;cedi ghańskie&quot;, &#039;s2&#039; =&gt; &quot;cedi ghańskie&quot;, &#039;s3&#039; =&gt; &quot;cedi ghańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;pesewa&quot;, &#039;s2&#039; =&gt; &quot;pesewa&quot;, &#039;s3&#039; =&gt; &quot;pesewa&quot;, &#039;f&#039; =&gt; false]], &#039;gip&#039; =&gt; [&#039;s1&#039; =&gt; &quot;funt gibraltarski&quot;, &#039;s2&#039; =&gt; &quot;funty gibraltarskie&quot;, &#039;s3&#039; =&gt; &quot;funtów gibraltarskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Pens], &#039;gmd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dalasi gambijski&quot;, &#039;s2&#039; =&gt; &quot;dalasi gambijskie&quot;, &#039;s3&#039; =&gt; &quot;dalasi gambijskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;butut&quot;, &#039;s2&#039; =&gt; &quot;bututy&quot;, &#039;s3&#039; =&gt; &quot;bututów&quot;, &#039;f&#039; =&gt; false]], &#039;gnf&#039; =&gt; [&#039;s1&#039; =&gt; &quot;frank gwinejski&quot;, &#039;s2&#039; =&gt; &quot;franki gwinejskie&quot;, &#039;s3&#039; =&gt; &quot;franków gwinejskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centims_NotUsed], &#039;gtq&#039; =&gt; [&#039;s1&#039; =&gt; &quot;quetzal&quot;, &#039;s2&#039; =&gt; &quot;quetzal&quot;, &#039;s3&#039; =&gt; &quot;quetzal&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centavo], &#039;gyd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar gujański&quot;, &#039;s2&#039; =&gt; &quot;dolary gujańskie&quot;, &#039;s3&#039; =&gt; &quot;dolarów gujańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;hnl&#039; =&gt; [&#039;s1&#039; =&gt; &quot;lempira honduraska&quot;, &#039;s2&#039; =&gt; &quot;lempiry honduraskie&quot;, &#039;s3&#039; =&gt; &quot;lempir honduraskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centavo], &#039;hkd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar hongkoński&quot;, &#039;s2&#039; =&gt; &quot;dolary hongkońskie&quot;, &#039;s3&#039; =&gt; &quot;dolarów hongkońskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;hrk&#039; =&gt; [&#039;s1&#039; =&gt; &quot;kuna&quot;, &#039;s2&#039; =&gt; &quot;kuny&quot;, &#039;s3&#039; =&gt; &quot;kun&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;lipa&quot;, &#039;s2&#039; =&gt; &quot;lipy&quot;, &#039;s3&#039; =&gt; &quot;lip&quot;, &#039;f&#039; =&gt; true]], &#039;htg&#039; =&gt; [&#039;s1&#039; =&gt; &quot;gourde&quot;, &#039;s2&#039; =&gt; &quot;gourde&quot;, &#039;s3&#039; =&gt; &quot;gourde&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centims], &#039;huf&#039; =&gt; [&#039;s1&#039; =&gt; &quot;forint&quot;, &#039;s2&#039; =&gt; &quot;forinty&quot;, &#039;s3&#039; =&gt; &quot;forintów&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;filler&quot;, &#039;s2&#039; =&gt; &quot;fillery&quot;, &#039;s3&#039; =&gt; &quot;fillerów&quot;, &#039;f&#039; =&gt; false]], &#039;idr&#039; =&gt; [&#039;s1&#039; =&gt; &quot;rupia indonezyjska&quot;, &#039;s2&#039; =&gt; &quot;rupie indonezyjskie&quot;, &#039;s3&#039; =&gt; &quot;rupii indonezyjskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Sen], &#039;ils&#039; =&gt; [&#039;s1&#039; =&gt; &quot;nowy izraelski szekel&quot;, &#039;s2&#039; =&gt; &quot;nowe izraelskie szekle&quot;, &#039;s3&#039; =&gt; &quot;nowych izraelskich szekli&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;agora&quot;, &#039;s2&#039; =&gt; &quot;agory&quot;, &#039;s3&#039; =&gt; &quot;agor&quot;, &#039;f&#039; =&gt; true]], &#039;inr&#039; =&gt; [&#039;s1&#039; =&gt; &quot;rupia indyjska&quot;, &#039;s2&#039; =&gt; &quot;rupie indyjskie&quot;, &#039;s3&#039; =&gt; &quot;rupii indyjskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Pais], &#039;iqd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dinar irakijski&quot;, &#039;s2&#039; =&gt; &quot;dinary irakijskie&quot;, &#039;s3&#039; =&gt; &quot;dinarów irakijskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Fils_3dec], &#039;irr&#039; =&gt; [&#039;s1&#039; =&gt; &quot;rial irański&quot;, &#039;s2&#039; =&gt; &quot;riale irańskie&quot;, &#039;s3&#039; =&gt; &quot;riali irańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dinar&quot;, &#039;s2&#039; =&gt; &quot;dinary&quot;, &#039;s3&#039; =&gt; &quot;dinarów&quot;, &#039;f&#039; =&gt; false]], &#039;isk&#039; =&gt; [&#039;s1&#039; =&gt; &quot;korona islandzka&quot;, &#039;s2&#039; =&gt; &quot;korony islandzkie&quot;, &#039;s3&#039; =&gt; &quot;koron islandzkich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;eyrir&quot;, &#039;s2&#039; =&gt; &quot;aurar&quot;, &#039;s3&#039; =&gt; &quot;aurar&quot;, &#039;f&#039; =&gt; false, &#039;u&#039; =&gt; false]], &#039;jmd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar jamajski&quot;, &#039;s2&#039; =&gt; &quot;dolary jamajskie&quot;, &#039;s3&#039; =&gt; &quot;dolarów jamajskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;jod&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dinar jordański&quot;, &#039;s2&#039; =&gt; &quot;dinary jordańskie&quot;, &#039;s3&#039; =&gt; &quot;dinarów jordańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Piastres_3dec], &#039;jpy&#039; =&gt; [&#039;s1&#039; =&gt; &quot;jen&quot;, &#039;s2&#039; =&gt; &quot;jeny&quot;, &#039;s3&#039; =&gt; &quot;jenów&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;sen&quot;, &#039;s2&#039; =&gt; &quot;seny&quot;, &#039;s3&#039; =&gt; &quot;senów&quot;, &#039;f&#039; =&gt; false, &#039;u&#039; =&gt; false]], &#039;kes&#039; =&gt; [&#039;s1&#039; =&gt; &quot;szyling kenijski&quot;, &#039;s2&#039; =&gt; &quot;szylingi kenijskie&quot;, &#039;s3&#039; =&gt; &quot;szylingów kenijskch&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;kgs&#039; =&gt; [&#039;s1&#039; =&gt; &quot;som kirgiski&quot;, &#039;s2&#039; =&gt; &quot;somy kirgiskie&quot;, &#039;s3&#039; =&gt; &quot;somów kirgiskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Tiyin], &#039;khr&#039; =&gt; [&#039;s1&#039; =&gt; &quot;riel kambodżański&quot;, &#039;s2&#039; =&gt; &quot;riel kambodżańskie&quot;, &#039;s3&#039; =&gt; &quot;riel kambodżańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Sen], &#039;kmf&#039; =&gt; [&#039;s1&#039; =&gt; &quot;frank komoryjski&quot;, &#039;s2&#039; =&gt; &quot;franki komoryjskie&quot;, &#039;s3&#039; =&gt; &quot;franków komoryjskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centims_NotUsed], &#039;kpw&#039; =&gt; [&#039;s1&#039; =&gt; &quot;won północnokoreański&quot;, &#039;s2&#039; =&gt; &quot;wony północnokoreańskie&quot;, &#039;s3&#039; =&gt; &quot;wonów północnokoreańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;czon&quot;, &#039;s2&#039; =&gt; &quot;czony&quot;, &#039;s3&#039; =&gt; &quot;czonów&quot;, &#039;f&#039; =&gt; false]], &#039;krw&#039; =&gt; [&#039;s1&#039; =&gt; &quot;won południowokoreański&quot;, &#039;s2&#039; =&gt; &quot;wony południowokoreańskie&quot;, &#039;s3&#039; =&gt; &quot;wonów południowokoreańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;czon&quot;, &#039;s2&#039; =&gt; &quot;czony&quot;, &#039;s3&#039; =&gt; &quot;czonów&quot;, &#039;f&#039; =&gt; false, &#039;u&#039; =&gt; false]], &#039;kwd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dinar kuwejcki&quot;, &#039;s2&#039; =&gt; &quot;dinary kuwejckie&quot;, &#039;s3&#039; =&gt; &quot;dinarów kuwejckich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Fils_3dec], &#039;kyd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar kajmański&quot;, &#039;s2&#039; =&gt; &quot;dolary kajmańskie&quot;, &#039;s3&#039; =&gt; &quot;dolarów kajmańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;kzt&#039; =&gt; [&#039;s1&#039; =&gt; &quot;tenge kazachski&quot;, &#039;s2&#039; =&gt; &quot;tenge kazachskie&quot;, &#039;s3&#039; =&gt; &quot;tenge kazachskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;tiyn&quot;, &#039;s2&#039; =&gt; &quot;tiyny&quot;, &#039;s3&#039; =&gt; &quot;tiynów&quot;, &#039;f&#039; =&gt; false]], &#039;lak&#039; =&gt; [&#039;s1&#039; =&gt; &quot;kip laotański&quot;, &#039;s2&#039; =&gt; &quot;kipy laotańskie&quot;, &#039;s3&#039; =&gt; &quot;kipów laotańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;at&quot;, &#039;s2&#039; =&gt; &quot;at&quot;, &#039;s3&#039; =&gt; &quot;at&quot;, &#039;f&#039; =&gt; false]], &#039;lbp&#039; =&gt; [&#039;s1&#039; =&gt; &quot;funt libański&quot;, &#039;s2&#039; =&gt; &quot;funty libańskie&quot;, &#039;s3&#039; =&gt; &quot;funtów libańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Piastres], &#039;lkr&#039; =&gt; [&#039;s1&#039; =&gt; &quot;rupia lankijska&quot;, &#039;s2&#039; =&gt; &quot;rupie lankijskie&quot;, &#039;s3&#039; =&gt; &quot;rupii lankijskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Cents], &#039;lrd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar liberyjski&quot;, &#039;s2&#039; =&gt; &quot;dolary liberyjskie&quot;, &#039;s3&#039; =&gt; &quot;dolarw liberyjskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;lsl&#039; =&gt; [&#039;s1&#039; =&gt; &quot;loti sotyjskie&quot;, &#039;s2&#039; =&gt; &quot;maloti sotyjskie&quot;, &#039;s3&#039; =&gt; &quot;maloti sotyjskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;sente&quot;, &#039;s2&#039; =&gt; &quot;lisente&quot;, &#039;s3&#039; =&gt; &quot;lisente&quot;, &#039;f&#039; =&gt; false]], &#039;lyd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dinar libijski&quot;, &#039;s2&#039; =&gt; &quot;dinary libijskie&quot;, &#039;s3&#039; =&gt; &quot;dinarów libijskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dirham&quot;, &#039;s2&#039; =&gt; &quot;dirhamy&quot;, &#039;s3&#039; =&gt; &quot;dirhamów&quot;, &#039;f&#039; =&gt; false, &#039;d&#039; =&gt; 3]], &#039;mad&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dirham marokański&quot;, &#039;s2&#039; =&gt; &quot;dirhamy marokańskie&quot;, &#039;s3&#039; =&gt; &quot;dirhamów marokańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centims], &#039;mdl&#039; =&gt; [&#039;s1&#039; =&gt; &quot;lej mołdawski&quot;, &#039;s2&#039; =&gt; &quot;leje mołdawskie&quot;, &#039;s3&#039; =&gt; &quot;lejów mołdawskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;ban&quot;, &#039;s2&#039; =&gt; &quot;bany&quot;, &#039;s3&#039; =&gt; &quot;banów&quot;, &#039;f&#039; =&gt; false]], &#039;mga&#039; =&gt; [&#039;s1&#039; =&gt; &quot;ariary malgaski&quot;, &#039;s2&#039; =&gt; &quot;ariary malgaskie&quot;, &#039;s3&#039; =&gt; &quot;ariary malgaskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;iraimbilanja&quot;, &#039;s2&#039; =&gt; &quot;iraimbilanja&quot;, &#039;s3&#039; =&gt; &quot;iraimbilanja&quot;, &#039;f&#039; =&gt; false]], &#039;mkd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;denar macedoński&quot;, &#039;s2&#039; =&gt; &quot;denary macedońskie&quot;, &#039;s3&#039; =&gt; &quot;denarów macedońskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;deni&quot;, &#039;s2&#039; =&gt; &quot;deni&quot;, &#039;s3&#039; =&gt; &quot;deni&quot;, &#039;f&#039; =&gt; false, &#039;u&#039; =&gt; false]], &#039;mmk&#039; =&gt; [&#039;s1&#039; =&gt; &quot;kiat mjanmański&quot;, &#039;s2&#039; =&gt; &quot;kiaty mjanmańskie&quot;, &#039;s3&#039; =&gt; &quot;kiatów mjanmańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;pia&quot;, &#039;s2&#039; =&gt; &quot;pia&quot;, &#039;s3&#039; =&gt; &quot;pia&quot;, &#039;f&#039; =&gt; false]], &#039;mnt&#039; =&gt; [&#039;s1&#039; =&gt; &quot;tugrik mongolski&quot;, &#039;s2&#039; =&gt; &quot;tugriki mongolskie&quot;, &#039;s3&#039; =&gt; &quot;tugrików mongolskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;möngö&quot;, &#039;s2&#039; =&gt; &quot;möngö&quot;, &#039;s3&#039; =&gt; &quot;möngö&quot;, &#039;f&#039; =&gt; false]], &#039;mop&#039; =&gt; [&#039;s1&#039; =&gt; &quot;pataca Macau&quot;, &#039;s2&#039; =&gt; &quot;pataca Macau&quot;, &#039;s3&#039; =&gt; &quot;pataca Macau&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;avos&quot;, &#039;s2&#039; =&gt; &quot;avos&quot;, &#039;s3&#039; =&gt; &quot;avos&quot;, &#039;f&#039; =&gt; false]], &#039;mru&#039; =&gt; [&#039;s1&#039; =&gt; &quot;ugija mauretańska&quot;, &#039;s2&#039; =&gt; &quot;ugija mauretańskie&quot;, &#039;s3&#039; =&gt; &quot;ugija mauretańskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;chum&quot;, &#039;s2&#039; =&gt; &quot;chum&quot;, &#039;s3&#039; =&gt; &quot;chum&quot;, &#039;f&#039; =&gt; false]], &#039;mur&#039; =&gt; [&#039;s1&#039; =&gt; &quot;rupia maurytyjska&quot;, &#039;s2&#039; =&gt; &quot;rupie maurytyjskie&quot;, &#039;s3&#039; =&gt; &quot;rupii maurytyjskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Cents], &#039;mvr&#039; =&gt; [&#039;s1&#039; =&gt; &quot;rupia malediwska&quot;, &#039;s2&#039; =&gt; &quot;rupie malediwskie&quot;, &#039;s3&#039; =&gt; &quot;rupii malediwskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;lari&quot;, &#039;s2&#039; =&gt; &quot;lari&quot;, &#039;s3&#039; =&gt; &quot;lari&quot;, &#039;f&#039; =&gt; false]], &#039;mxn&#039; =&gt; [&#039;s1&#039; =&gt; &quot;peso meksykańskie&quot;, &#039;s2&#039; =&gt; &quot;peso meksykańskie&quot;, &#039;s3&#039; =&gt; &quot;peso meksykańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centavo], &#039;myr&#039; =&gt; [&#039;s1&#039; =&gt; &quot;ringgit malezyjski&quot;, &#039;s2&#039; =&gt; &quot;ringgity malezyjskie&quot;, &#039;s3&#039; =&gt; &quot;ringgitów malezyjskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Sen], &#039;mwk&#039; =&gt; [&#039;s1&#039; =&gt; &quot;kwacha malawijska&quot;, &#039;s2&#039; =&gt; &quot;kwacha malawijskie&quot;, &#039;s3&#039; =&gt; &quot;kwacha malawijskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;tambala&quot;, &#039;s2&#039; =&gt; &quot;tambala&quot;, &#039;s3&#039; =&gt; &quot;tambala&quot;, &#039;f&#039; =&gt; true]], &#039;mzn&#039; =&gt; [&#039;s1&#039; =&gt; &quot;nowy metical mozambijski&quot;, &#039;s2&#039; =&gt; &quot;nowe meticale mozambijskie&quot;, &#039;s3&#039; =&gt; &quot;nowych meticali mozambijskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Centavo], &#039;nad&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar namibijski&quot;, &#039;s2&#039; =&gt; &quot;dolary namibijskie&quot;, &#039;s3&#039; =&gt; &quot;dolarów namibijskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;nio&#039; =&gt; [&#039;s1&#039; =&gt; &quot;cordoba oro&quot;, &#039;s2&#039; =&gt; &quot;cordoby oro&quot;, &#039;s3&#039; =&gt; &quot;cordób oro&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centavo], &#039;ngn&#039; =&gt; [&#039;s1&#039; =&gt; &quot;naira nigeryjska&quot;, &#039;s2&#039; =&gt; &quot;nairy nigeryjskie&quot;, &#039;s3&#039; =&gt; &quot;nair nigeryjskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;kobe&quot;, &#039;s2&#039; =&gt; &quot;kobo&quot;, &#039;s3&#039; =&gt; &quot;kobo&quot;, &#039;f&#039; =&gt; false]], &#039;npr&#039; =&gt; [&#039;s1&#039; =&gt; &quot;rupia nepalska&quot;, &#039;s2&#039; =&gt; &quot;rupie nepalskie&quot;, &#039;s3&#039; =&gt; &quot;rupii nepalskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Pais], &#039;nok&#039; =&gt; [&#039;s1&#039; =&gt; &quot;korona norweska&quot;, &#039;s2&#039; =&gt; &quot;korony norweskie&quot;, &#039;s3&#039; =&gt; &quot;koron norweskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;øre&quot;, &#039;s2&#039; =&gt; &quot;øre&quot;, &#039;s3&#039; =&gt; &quot;øre&quot;, &#039;f&#039; =&gt; false]], &#039;nzd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar nowozelandzki&quot;, &#039;s2&#039; =&gt; &quot;dolary nowozelandzkie&quot;, &#039;s3&#039; =&gt; &quot;dolarów nowozelandzkich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;omr&#039; =&gt; [&#039;s1&#039; =&gt; &quot;rial omański&quot;, &#039;s2&#039; =&gt; &quot;riale omańskie&quot;, &#039;s3&#039; =&gt; &quot;riali omańskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;baisa&quot;, &#039;s2&#039; =&gt; &quot;baisa&quot;, &#039;s3&#039; =&gt; &quot;baisa&quot;, &#039;f&#039; =&gt; false, &#039;d&#039; =&gt; 3]], &#039;pab&#039; =&gt; [&#039;s1&#039; =&gt; &quot;balboa panamski&quot;, &#039;s2&#039; =&gt; &quot;balboa panamskie&quot;, &#039;s3&#039; =&gt; &quot;balboa panamskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centesimo], &#039;pen&#039; =&gt; [&#039;s1&#039; =&gt; &quot;sol peruwiański&quot;, &#039;s2&#039; =&gt; &quot;sole peruwiańskie&quot;, &#039;s3&#039; =&gt; &quot;soli peruwiańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centims], &#039;pgk&#039; =&gt; [&#039;s1&#039; =&gt; &quot;kina papuaska&quot;, &#039;s2&#039; =&gt; &quot;kina papuaskie&quot;, &#039;s3&#039; =&gt; &quot;kina papuaskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;toea&quot;, &#039;s2&#039; =&gt; &quot;toea&quot;, &#039;s3&#039; =&gt; &quot;toea&quot;, &#039;f&#039; =&gt; false]], &#039;php&#039; =&gt; [&#039;s1&#039; =&gt; &quot;peso filipiński&quot;, &#039;s2&#039; =&gt; &quot;peso filipińskie&quot;, &#039;s3&#039; =&gt; &quot;peso filipińskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centavo], &#039;pkr&#039; =&gt; [&#039;s1&#039; =&gt; &quot;rupia pakistańska&quot;, &#039;s2&#039; =&gt; &quot;rupie pakistańskie&quot;, &#039;s3&#039; =&gt; &quot;rupii pakistańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Pais], &#039;pln&#039; =&gt; [&#039;s1&#039; =&gt; &quot;złoty&quot;, &#039;s2&#039; =&gt; &quot;złote&quot;, &#039;s3&#039; =&gt; &quot;złotych&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;grosz&quot;, &#039;s2&#039; =&gt; &quot;grosze&quot;, &#039;s3&#039; =&gt; &quot;groszy&quot;, &#039;f&#039; =&gt; false]], &#039;pyg&#039; =&gt; [&#039;s1&#039; =&gt; &quot;guaraní paragwajski&quot;, &#039;s2&#039; =&gt; &quot;guaraní paragwajskie&quot;, &#039;s3&#039; =&gt; &quot;guaraní paragwajskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centims_NotUsed], &#039;qar&#039; =&gt; [&#039;s1&#039; =&gt; &quot;rial katarski&quot;, &#039;s2&#039; =&gt; &quot;riale katarskie&quot;, &#039;s3&#039; =&gt; &quot;riali katarskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dirham&quot;, &#039;s2&#039; =&gt; &quot;dirhamy&quot;, &#039;s3&#039; =&gt; &quot;dirhamów&quot;, &#039;f&#039; =&gt; false]], &#039;ron&#039; =&gt; [&#039;s1&#039; =&gt; &quot;lej rumuński&quot;, &#039;s2&#039; =&gt; &quot;leje rumuńskie&quot;, &#039;s3&#039; =&gt; &quot;lejów rumuńskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;ban&quot;, &#039;s2&#039; =&gt; &quot;bany&quot;, &#039;s3&#039; =&gt; &quot;banów&quot;, &#039;f&#039; =&gt; false]], &#039;rsd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dinar serbski&quot;, &#039;s2&#039; =&gt; &quot;dinary serbskie&quot;, &#039;s3&#039; =&gt; &quot;dinarów serbskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;para&quot;, &#039;s2&#039; =&gt; &quot;para&quot;, &#039;s3&#039; =&gt; &quot;para&quot;, &#039;f&#039; =&gt; false]], &#039;rub&#039; =&gt; [&#039;s1&#039; =&gt; &quot;rubel rosyjski&quot;, &#039;s2&#039; =&gt; &quot;ruble rosyjskie&quot;, &#039;s3&#039; =&gt; &quot;rubli rosyjskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;kopiejka&quot;, &#039;s2&#039; =&gt; &quot;kopiejki&quot;, &#039;s3&#039; =&gt; &quot;kopiejek&quot;, &#039;f&#039; =&gt; true]], &#039;rwf&#039; =&gt; [&#039;s1&#039; =&gt; &quot;frank rwandyjski&quot;, &#039;s2&#039; =&gt; &quot;franki rwandyjskie&quot;, &#039;s3&#039; =&gt; &quot;franków rwandyjskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centims_NotUsed], &#039;sar&#039; =&gt; [&#039;s1&#039; =&gt; &quot;rial saudyjski&quot;, &#039;s2&#039; =&gt; &quot;riale saudyjskie&quot;, &#039;s3&#039; =&gt; &quot;riali saudyjskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;halal&quot;, &#039;s2&#039; =&gt; &quot;halale&quot;, &#039;s3&#039; =&gt; &quot;halali&quot;, &#039;f&#039; =&gt; false]], &#039;sbd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar Wysp Salomona&quot;, &#039;s2&#039; =&gt; &quot;dolary Wysp Salomona&quot;, &#039;s3&#039; =&gt; &quot;dolarów Wysp Salomona&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;scr&#039; =&gt; [&#039;s1&#039; =&gt; &quot;rupia seszelska&quot;, &#039;s2&#039; =&gt; &quot;rupie seszelskie&quot;, &#039;s3&#039; =&gt; &quot;rupii seszelskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Cents], &#039;sdg&#039; =&gt; [&#039;s1&#039; =&gt; &quot;funt sudański&quot;, &#039;s2&#039; =&gt; &quot;funty sudańskie&quot;, &#039;s3&#039; =&gt; &quot;funtów sudańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Piastres], &#039;sek&#039; =&gt; [&#039;s1&#039; =&gt; &quot;korona szwedzka&quot;, &#039;s2&#039; =&gt; &quot;korony szwedzkie&quot;, &#039;s3&#039; =&gt; &quot;koron szwedzkich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;öre&quot;, &#039;s2&#039; =&gt; &quot;öre&quot;, &#039;s3&#039; =&gt; &quot;öre&quot;, &#039;f&#039; =&gt; false]], &#039;sgd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar singapurski&quot;, &#039;s2&#039; =&gt; &quot;dolary singapurskie&quot;, &#039;s3&#039; =&gt; &quot;dolarów singapurskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;shp&#039; =&gt; [&#039;s1&#039; =&gt; &quot;funt Świętej Heleny&quot;, &#039;s2&#039; =&gt; &quot;funty Świętej Heleny&quot;, &#039;s3&#039; =&gt; &quot;funtów Świętej Heleny&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Pens], &#039;sll&#039; =&gt; [&#039;s1&#039; =&gt; &quot;leone sierraleoński&quot;, &#039;s2&#039; =&gt; &quot;leone sierraleońskie&quot;, &#039;s3&#039; =&gt; &quot;leone sierraleońskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;sos&#039; =&gt; [&#039;s1&#039; =&gt; &quot;szyling somalijski&quot;, &#039;s2&#039; =&gt; &quot;szylingi somalijskie&quot;, &#039;s3&#039; =&gt; &quot;szylingów somalijskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;srd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar surinamski&quot;, &#039;s2&#039; =&gt; &quot;dolary surinamskie&quot;, &#039;s3&#039; =&gt; &quot;dolarów surinamskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;ssp&#039; =&gt; [&#039;s1&#039; =&gt; &quot;funt południowosudański&quot;, &#039;s2&#039; =&gt; &quot;funty południowosudańskie&quot;, &#039;s3&#039; =&gt; &quot;funtów południowosudańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Piastres], &#039;stn&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dobra Tomasza/Książęca&quot;, &#039;s2&#039; =&gt; &quot;dobry Tomasza/Książęce&quot;, &#039;s3&#039; =&gt; &quot;dóbr Tomasza/Książęcych&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centims], &#039;svc&#039; =&gt; [&#039;s1&#039; =&gt; &quot;colón salwadorski&quot;, &#039;s2&#039; =&gt; &quot;colón salwadorskie&quot;, &#039;s3&#039; =&gt; &quot;colón salwadorskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centavo], &#039;syp&#039; =&gt; [&#039;s1&#039; =&gt; &quot;funt syryjski&quot;, &#039;s2&#039; =&gt; &quot;funty syryjskie&quot;, &#039;s3&#039; =&gt; &quot;funtów syryjskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Piastres], &#039;szl&#039; =&gt; [&#039;s1&#039; =&gt; &quot;lilangeni suazyjski&quot;, &#039;s2&#039; =&gt; &quot;lilangeni suazyjskie&quot;, &#039;s3&#039; =&gt; &quot;lilangeni suazyjskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;thb&#039; =&gt; [&#039;s1&#039; =&gt; &quot;baht tajski&quot;, &#039;s2&#039; =&gt; &quot;bahty tajskie&quot;, &#039;s3&#039; =&gt; &quot;bahtów tajskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;satang&quot;, &#039;s2&#039; =&gt; &quot;satangi&quot;, &#039;s3&#039; =&gt; &quot;satangów&quot;, &#039;f&#039; =&gt; false]], &#039;tjs&#039; =&gt; [&#039;s1&#039; =&gt; &quot;somoni tadżykistański&quot;, &#039;s2&#039; =&gt; &quot;somoni tadżykistańskie&quot;, &#039;s3&#039; =&gt; &quot;somoni tadżykistańskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;diram&quot;, &#039;s2&#039; =&gt; &quot;diramy&quot;, &#039;s3&#039; =&gt; &quot;diramów&quot;, &#039;f&#039; =&gt; false]], &#039;tmt&#039; =&gt; [&#039;s1&#039; =&gt; &quot;manat turkmeński&quot;, &#039;s2&#039; =&gt; &quot;manaty turkmeńskie&quot;, &#039;s3&#039; =&gt; &quot;manatów turkmeńskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;tenge&quot;, &#039;s2&#039; =&gt; &quot;tenge&quot;, &#039;s3&#039; =&gt; &quot;tenge&quot;, &#039;f&#039; =&gt; false]], &#039;tnd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dinar tunezyjski&quot;, &#039;s2&#039; =&gt; &quot;dinary tunezyjskie&quot;, &#039;s3&#039; =&gt; &quot;dinarów tunezyjskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;milim&quot;, &#039;s2&#039; =&gt; &quot;milimy&quot;, &#039;s3&#039; =&gt; &quot;milimów&quot;, &#039;f&#039; =&gt; false, &#039;d&#039; =&gt; 3]], &#039;top&#039; =&gt; [&#039;s1&#039; =&gt; &quot;pa&#039;anga tongijska&quot;, &#039;s2&#039; =&gt; &quot;pa&#039;angi tongijskie&quot;, &#039;s3&#039; =&gt; &quot;pa&#039;ang tongijskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;seniti&quot;, &#039;s2&#039; =&gt; &quot;seniti&quot;, &#039;s3&#039; =&gt; &quot;seniti&quot;, &#039;f&#039; =&gt; false]], &#039;try&#039; =&gt; [&#039;s1&#039; =&gt; &quot;lira turecka&quot;, &#039;s2&#039; =&gt; &quot;liry tureckie&quot;, &#039;s3&#039; =&gt; &quot;lir tureckich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;kurusz&quot;, &#039;s2&#039; =&gt; &quot;kurusze&quot;, &#039;s3&#039; =&gt; &quot;kuruszy&quot;, &#039;f&#039; =&gt; false]], &#039;ttd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar Trynidadu i Tobago&quot;, &#039;s2&#039; =&gt; &quot;dolary Trynidadu i Tobago&quot;, &#039;s3&#039; =&gt; &quot;dolarów Trynidadu i Tobago&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;twd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar tajwański&quot;, &#039;s2&#039; =&gt; &quot;dolary tajwańskie&quot;, &#039;s3&#039; =&gt; &quot;dolarów tajwańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;tzs&#039; =&gt; [&#039;s1&#039; =&gt; &quot;szyling tanzański&quot;, &#039;s2&#039; =&gt; &quot;szylingi tanzańskie&quot;, &#039;s3&#039; =&gt; &quot;szylingów tanzańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;uah&#039; =&gt; [&#039;s1&#039; =&gt; &quot;hrywna&quot;, &#039;s2&#039; =&gt; &quot;hrywny&quot;, &#039;s3&#039; =&gt; &quot;hrywien&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;kopiejka&quot;, &#039;s2&#039; =&gt; &quot;kopiejki&quot;, &#039;s3&#039; =&gt; &quot;kopiejek&quot;, &#039;f&#039; =&gt; true]], &#039;ugx&#039; =&gt; [&#039;s1&#039; =&gt; &quot;szyling ugandyjski&quot;, &#039;s2&#039; =&gt; &quot;szylingi ugandyjskie&quot;, &#039;s3&#039; =&gt; &quot;szylingów ugandyjskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents_NotUsed], &#039;usd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar amerykański&quot;, &#039;s2&#039; =&gt; &quot;dolary amerykańskie&quot;, &#039;s3&#039; =&gt; &quot;dolarów amerykańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;uyu&#039; =&gt; [&#039;s1&#039; =&gt; &quot;peso urugwajski&quot;, &#039;s2&#039; =&gt; &quot;peso urugwajskie&quot;, &#039;s3&#039; =&gt; &quot;peso urugwajskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centesimo], &#039;uzs&#039; =&gt; [&#039;s1&#039; =&gt; &quot;sum uzbecki&quot;, &#039;s2&#039; =&gt; &quot;sumy uzbecki&quot;, &#039;s3&#039; =&gt; &quot;sumów uzbecki&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Tiyin], &#039;ves&#039; =&gt; [&#039;s1&#039; =&gt; &quot;boliwar wenezuelski soberano&quot;, &#039;s2&#039; =&gt; &quot;boliwary wenezuelskie soberano&quot;, &#039;s3&#039; =&gt; &quot;boliwarów wenezuelskich soberano&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centims], &#039;vnd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dong wietnamski&quot;, &#039;s2&#039; =&gt; &quot;dongi wietnamskie&quot;, &#039;s3&#039; =&gt; &quot;dongów wietnamskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;xu&quot;, &#039;s2&#039; =&gt; &quot;xu&quot;, &#039;s3&#039; =&gt; &quot;xu&quot;, &#039;f&#039; =&gt; false, &#039;u&#039; =&gt; false]], &#039;vuv&#039; =&gt; [&#039;s1&#039; =&gt; &quot;vatu vanuatuańskie&quot;, &#039;s2&#039; =&gt; &quot;vatu vanuatuańskie&quot;, &#039;s3&#039; =&gt; &quot;vatu vanuatuańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;&quot;, &#039;s2&#039; =&gt; &quot;&quot;, &#039;s3&#039; =&gt; &quot;&quot;, &#039;f&#039; =&gt; false, &#039;u&#039; =&gt; false]], &#039;wst&#039; =&gt; [&#039;s1&#039; =&gt; &quot;tala samoańska&quot;, &#039;s2&#039; =&gt; &quot;tala samoańskie&quot;, &#039;s3&#039; =&gt; &quot;tala samoańskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;sene&quot;, &#039;s2&#039; =&gt; &quot;sene&quot;, &#039;s3&#039; =&gt; &quot;sene&quot;, &#039;f&#039; =&gt; false]], &#039;xaf&#039; =&gt; [&#039;s1&#039; =&gt; &quot;środkowoafrykański frank CFA&quot;, &#039;s2&#039; =&gt; &quot;środkowoafrykańskie franki CFA&quot;, &#039;s3&#039; =&gt; &quot;środkowoafrykańskich franków CFA&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents_NotUsed], &#039;xcd&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar wschodniokaraibski&quot;, &#039;s2&#039; =&gt; &quot;dolary wschodniokaraibskie&quot;, &#039;s3&#039; =&gt; &quot;dolarów wschodniokaraibskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;xof&#039; =&gt; [&#039;s1&#039; =&gt; &quot;zachodnioafrykański frank CFA&quot;, &#039;s2&#039; =&gt; &quot;zachodnioafrykańskie franki CFA&quot;, &#039;s3&#039; =&gt; &quot;zachodnioafrykańskich franków CFA&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centims_NotUsed], &#039;xpf&#039; =&gt; [&#039;s1&#039; =&gt; &quot;frank CFP&quot;, &#039;s2&#039; =&gt; &quot;franki CFP&quot;, &#039;s3&#039; =&gt; &quot;franków CFP&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Centims_NotUsed], &#039;yer&#039; =&gt; [&#039;s1&#039; =&gt; &quot;rial jemeński&quot;, &#039;s2&#039; =&gt; &quot;riale jemeńskie&quot;, &#039;s3&#039; =&gt; &quot;riali jemeńskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Fils], &#039;zar&#039; =&gt; [&#039;s1&#039; =&gt; &quot;rand południowoafrykański&quot;, &#039;s2&#039; =&gt; &quot;randy południowoafrykańskie&quot;, &#039;s3&#039; =&gt; &quot;randów południowoafrykańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents], &#039;zmw&#039; =&gt; [&#039;s1&#039; =&gt; &quot;kwacha zambijska&quot;, &#039;s2&#039; =&gt; &quot;kwacha zambijskie&quot;, &#039;s3&#039; =&gt; &quot;kwacha zambijskich&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;ngwee&quot;, &#039;s2&#039; =&gt; &quot;ngwee&quot;, &#039;s3&#039; =&gt; &quot;ngwee&quot;, &#039;f&#039; =&gt; true]], &#039;zwl&#039; =&gt; [&#039;s1&#039; =&gt; &quot;dolar Zimbabwe&quot;, &#039;s2&#039; =&gt; &quot;dolary Zimbabwe&quot;, &#039;s3&#039; =&gt; &quot;dolarów Zimbabwe&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; Cents]]                    </span>
@@ -238,9 +296,175 @@
 <dd>Supported currencies by ISO 4217. (EN)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="namespaces/tei187-resources-iso4217-en.html#constant_Fils">Fils</a>
+    <a href="namespaces/tei187-resources-iso4217-de.html#constant_Currencies">Currencies</a>
     <span>
-        &nbsp;= [&#039;s&#039; =&gt; &quot;fils&quot;, &#039;p&#039; =&gt; &quot;fils&quot;]                    </span>
+        &nbsp;= [
+    &#039;aed&#039; =&gt; [&#039;s&#039; =&gt; &quot;VAE-Dirham&quot;, &#039;p&#039; =&gt; &quot;VAE-Dirham&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Fils&quot;, &#039;p&#039; =&gt; &quot;Fils&quot;]],
+    &#039;afn&#039; =&gt; [&#039;s&#039; =&gt; &quot;afghanischer Afghani&quot;, &#039;p&#039; =&gt; &quot;afghanische Afghani&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Pul&quot;, &#039;p&#039; =&gt; &quot;Pul&quot;]],
+    &#039;all&#039; =&gt; [&#039;s&#039; =&gt; &quot;albanischer Lek&quot;, &#039;p&#039; =&gt; &quot;albanische Lekë&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Qindarkë&quot;, &#039;p&#039; =&gt; &quot;Qindarka&quot;]],
+    &#039;amd&#039; =&gt; [&#039;s&#039; =&gt; &quot;armenischer Dram&quot;, &#039;p&#039; =&gt; &quot;armenische Dram&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Luma&quot;, &#039;p&#039; =&gt; &quot;Luma&quot;, &#039;f&#039; =&gt; true]],
+    &#039;ang&#039; =&gt; [&#039;s&#039; =&gt; &quot;niederländischer Antillen-Gulden&quot;, &#039;s&#039; =&gt; &quot;niederländische Antillen-Gulden&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;aoa&#039; =&gt; [&#039;s&#039; =&gt; &quot;angolanischer Kwanza&quot;, &#039;p&#039; =&gt; &quot;angolanische Kwanza&quot;, &#039;minor&#039; =&gt; Centimos],
+    &#039;ars&#039; =&gt; [&#039;s&#039; =&gt; &quot;argentinischer Peso&quot;, &#039;P&#039; =&gt; &quot;argentinische Pesos&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;aud&#039; =&gt; [&#039;s&#039; =&gt; &quot;australischer Dollar&quot;, &#039;p&#039; =&gt; &quot;australische Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;awg&#039; =&gt; [&#039;s&#039; =&gt; &quot;Aruba-Florin&quot;, &#039;p&#039; =&gt; &quot;Aruba-Florin&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;azm&#039; =&gt; [&#039;s&#039; =&gt; &quot;aserbaidschanischer Manat&quot;, &#039;p&#039; =&gt; &quot;aserbaidschanische Manat&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Qəpik&quot;, &#039;p&#039; =&gt; &quot;Qəpik&quot;]],
+    &#039;bam&#039; =&gt; [&#039;s&#039; =&gt; &quot;bosnisch-herzegowinischen konvertible Mark&quot;, &#039;p&#039; =&gt; &quot;bosnisch-herzegowinischen konvertible Mark&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Fening&quot;, &#039;p&#039; =&gt; &quot;Fening&quot;]],
+    &#039;bbd&#039; =&gt; [&#039;s&#039; =&gt; &quot;barbadischer Dollar&quot;, &#039;p&#039; =&gt; &quot;barbadische Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;bdt&#039; =&gt; [&#039;s&#039; =&gt; &quot;bangladeschischer Taka&quot;, &#039;p&#039; =&gt; &quot;bangladeschische Taka&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Poisha&quot;, &#039;p&#039; =&gt; &quot;Poisha&quot;]],
+    &#039;bgn&#039; =&gt; [&#039;s&#039; =&gt; &quot;bulgarischer Lew&quot;, &#039;p&#039; =&gt; &quot;bulgarische Lewa&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Stotinka&quot;, &#039;p&#039; =&gt; &quot;Stotinki&quot;, &#039;f&#039; =&gt; true]],
+    &#039;bhd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Bahraini-Dinar&quot;, &#039;p&#039; =&gt; &quot;Bahraini-Dinaren&quot;, &#039;minor&#039; =&gt; Fils_3dec],
+    &#039;bif&#039; =&gt; [&#039;s&#039; =&gt; &quot;burundischer Franc&quot;, &#039;p&#039; =&gt; &quot;burundische Francs&quot;, &#039;minor&#039; =&gt; Centimes_NotUsed],
+    &#039;bmd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Bermuda-Dollar&quot;, &#039;p&#039; =&gt; &quot;Bermuda-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;bnd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Brunei-Dollar&quot;, &#039;p&#039; =&gt; &quot;Brunei-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;bob&#039; =&gt; [&#039;s&#039; =&gt; &quot;bolivianischer Boliviano&quot;, &#039;p&#039; =&gt; &quot;bolivianische Boliviano&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;brl&#039; =&gt; [&#039;s&#039; =&gt; &quot;brasilianischer Real&quot;, &#039;p&#039; =&gt; &quot;brasilianische Reales&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;bsd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Bahama-Dollar&quot;, &#039;p&#039; =&gt; &quot;Bahama-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;btn&#039; =&gt; [&#039;s&#039; =&gt; &quot;bhutanischer Ngultrum&quot;, &#039;p&#039; =&gt; &quot;bhutanische Ngultrum&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Chhetrum&quot;, &#039;p&#039; =&gt; &quot;Chhetrum&quot;]],
+    &#039;bwp&#039; =&gt; [&#039;s&#039; =&gt; &quot;botswanisches Pula&quot;, &#039;p&#039; =&gt; &quot;botswanische Pula&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Thebe&quot;, &#039;p&#039; =&gt; &quot;Thebe&quot;]],
+    &#039;byn&#039; =&gt; [&#039;s&#039; =&gt; &quot;belarussischer Rubel&quot;, &#039;p&#039; =&gt; &quot;belarussische Rubel&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kopeke&quot;, &#039;p&#039; =&gt; &quot;Kopeken&quot;, &#039;f&#039; =&gt; true]],
+    &#039;bzd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Belize-Dollar&quot;, &#039;p&#039; =&gt; &quot;Belize-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;cad&#039; =&gt; [&#039;s&#039; =&gt; &quot;kanadischer Dollar&quot;, &#039;p&#039; =&gt; &quot;kanadische Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;cdf&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kongo-Franc&quot;, &#039;p&#039; =&gt; &quot;Kongo-Francs&quot;, &#039;minor&#039; =&gt; Centimes],
+    &#039;chf&#039; =&gt; [&#039;s&#039; =&gt; &quot;Schweizerfranken&quot;, &#039;p&#039; =&gt; &quot;Schweizerfranken&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Rappen&quot;, &#039;p&#039; =&gt; &quot;Rappen&quot;]],
+    &#039;clp&#039; =&gt; [&#039;s&#039; =&gt; &quot;chilenischer Peso&quot;, &#039;p&#039; =&gt; &quot;chilenische Pesos&quot;, &#039;minor&#039; =&gt; Centavos_NotUsed],
+    &#039;cny&#039; =&gt; [&#039;s&#039; =&gt; &quot;Renminbi Yuan&quot;, &#039;p&#039; =&gt; &quot;Renminbi Yuan&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Jiǎo&quot;, &#039;p&#039; =&gt; &quot;Jiǎo&quot;, &#039;d&#039; =&gt; 1, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Fēn&quot;, &#039;p&#039; =&gt; &quot;Fēn&quot;, &#039;d&#039; =&gt; 1]]],
+    &#039;cop&#039; =&gt; [&#039;s&#039; =&gt; &quot;kolumbianischer Peso&quot;, &#039;p&#039; =&gt; &quot;kolumbianische Pesos&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;crc&#039; =&gt; [&#039;s&#039; =&gt; &quot;Costa-Rica-Colón&quot;, &#039;p&#039; =&gt; &quot;Costa-Rica-Colón&quot;, &#039;minor&#039; =&gt; Centimos],
+    &#039;cuc&#039; =&gt; [&#039;s&#039; =&gt; &quot;kubanischer konvertierbarer Peso&quot;, &#039;p&#039; =&gt; &quot;kubanische konvertierbare Pesos&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;cup&#039; =&gt; [&#039;s&#039; =&gt; &quot;kubanischer Peso&quot;, &#039;p&#039; =&gt; &quot;kubanische Pesos&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;cve&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kap-Verde-Escudo&quot;, &#039;p&#039; =&gt; &quot;Kap-Verde-Escudo&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;czk&#039; =&gt; [&#039;s&#039; =&gt; &quot;tschechische Krone&quot;, &#039;p&#039; =&gt; &quot;tschechische Kronen&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Haléřů&quot;, &#039;p&#039; =&gt; &quot;Haléřů&quot;]],
+    &#039;djf&#039; =&gt; [&#039;s&#039; =&gt; &quot;Dschibuti-Franc&quot;, &#039;p&#039; =&gt; &quot;Dschibuti-Francs&quot;, &#039;minor&#039; =&gt; Centimes_NotUsed],
+    &#039;dkk&#039; =&gt; [&#039;s&#039; =&gt; &quot;dänische Krone&quot;, &#039;p&#039; =&gt; &quot;dänische Kronen&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Øre&quot;, &#039;p&#039; =&gt; &quot;Øre&quot;]],
+    &#039;dop&#039; =&gt; [&#039;s&#039; =&gt; &quot;dominikanischer Peso&quot;, &#039;p&#039; =&gt; &quot;dominikanische Pesos&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;dzd&#039; =&gt; [&#039;s&#039; =&gt; &quot;algerischer Dinar&quot;, &#039;p&#039; =&gt; &quot;algerische Dinare&quot;, &#039;minor&#039; =&gt; Centimes],
+    &#039;egp&#039; =&gt; [&#039;s&#039; =&gt; &quot;ägyptisches Pfund&quot;, &#039;p&#039; =&gt; &quot;ägyptische Pfunde&quot;, &#039;minor&#039; =&gt; Piastres],
+    &#039;eur&#039; =&gt; [&#039;s&#039; =&gt; &quot;Euro&quot;, &#039;p&#039; =&gt; &quot;Euro&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;ern&#039; =&gt; [&#039;s&#039; =&gt; &quot;eritreischer Nakfa&quot;, &#039;p&#039; =&gt; &quot;eritreische Nakfa&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;etb&#039; =&gt; [&#039;s&#039; =&gt; &quot;äthiopischer Birr&quot;, &#039;p&#039; =&gt; &quot;äthiopische Birr&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Santim&quot;, &#039;p&#039; =&gt; &quot;Santim&quot;]],
+    &#039;fjd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Fidschi-Dollar&quot;, &#039;p&#039; =&gt; &quot;Fidschi-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;fkp&#039; =&gt; [&#039;s&#039; =&gt; &quot;Falkland-Pfund&quot;, &#039;p&#039; =&gt; &quot;Falkland-Pfunde&quot;, &#039;minor&#039; =&gt; Pence],
+    &#039;gbp&#039; =&gt; [&#039;s&#039; =&gt; &quot;Pfund Sterling&quot;, &#039;p&#039; =&gt; &quot;Pfunde Sterling&quot;, &#039;minor&#039; =&gt; Pence],
+    &#039;gel&#039; =&gt; [&#039;s&#039; =&gt; &quot;georgischer Lari&quot;, &#039;p&#039; =&gt; &quot;georgische Lari&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Tetri&quot;, &#039;p&#039; =&gt; &quot;Tetri&quot;]],
+    &#039;ghs&#039; =&gt; [&#039;s&#039; =&gt; &quot;ghanaischer Cedi&quot;, &#039;p&#039; =&gt; &quot;ghanaische Cedi&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Pesewa&quot;, &#039;p&#039; =&gt; &quot;Pesewas&quot;, &#039;f&#039; =&gt; true]],
+    &#039;gip&#039; =&gt; [&#039;s&#039; =&gt; &quot;gibraltarisches Pfund&quot;, &#039;p&#039; =&gt; &quot;gibraltarische Pfunde&quot;, &#039;minor&#039; =&gt; Pence],
+    &#039;gmd&#039; =&gt; [&#039;s&#039; =&gt; &quot;gambischer Dalasi&quot;, &#039;p&#039; =&gt; &quot;gambische Dalasi&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Butut&quot;, &#039;p&#039; =&gt; &quot;Bututs&quot;]],
+    &#039;gnf&#039; =&gt; [&#039;s&#039; =&gt; &quot;Franc Guinéen&quot;, &#039;p&#039; =&gt; &quot;Franc Guinéen&quot;, &#039;minor&#039; =&gt; Centimes_NotUsed],
+    &#039;gtq&#039; =&gt; [&#039;s&#039; =&gt; &quot;guatemaltekischer Quetzal&quot;, &#039;p&#039; =&gt; &quot;guatemaltekische Quetzal&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;gyd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Guyana-Dollar&quot;, &#039;p&#039; =&gt; &quot;Guyana-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;hnl&#039; =&gt; [&#039;s&#039; =&gt; &quot;honduranische Lempira&quot;, &#039;p&#039; =&gt; &quot;honduranische Lempira&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Centavos],
+    &#039;hkd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Hongkong-Dollar&quot;, &#039;p&#039; =&gt; &quot;Hongkong-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;hrk&#039; =&gt; [&#039;s&#039; =&gt; &quot;kroatische Kuna&quot;, &#039;p&#039; =&gt; &quot;kroatische Kuna&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;lipa&quot;, &#039;p&#039; =&gt; &quot;lipa&quot;]],
+    &#039;htg&#039; =&gt; [&#039;s&#039; =&gt; &quot;haitianischer Gourde&quot;, &#039;p&#039; =&gt; &quot;haitianische Gourde&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Centimes],
+    &#039;huf&#039; =&gt; [&#039;s&#039; =&gt; &quot;ungarischer Forint&quot;, &#039;p&#039; =&gt; &quot;ungarische Forint&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Fillér&quot;, &#039;p&#039; =&gt; &quot;Fillér&quot;]],
+    &#039;idr&#039; =&gt; [&#039;s&#039; =&gt; &quot;indonesische Rupiah&quot;, &#039;p&#039; =&gt; &quot;indonesische Rupiah&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Sen],
+    &#039;ils&#039; =&gt; [&#039;s&#039; =&gt; &quot;israelischer neuer Schekel&quot;, &#039;p&#039; =&gt; &quot;israelischen neuen Schekel&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Agorot&quot;, &#039;p&#039; =&gt; &quot;Agorot&quot;]],
+    &#039;inr&#039; =&gt; [&#039;s&#039; =&gt; &quot;indische Rupie&quot;, &#039;p&#039; =&gt; &quot;indische Rupien&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Paisa],
+    &#039;iqd&#039; =&gt; [&#039;s&#039; =&gt; &quot;irakischer Dinar&quot;, &#039;p&#039; =&gt; &quot;irakische Dinare&quot;, &#039;minor&#039; =&gt; Fils_3dec],
+    &#039;irr&#039; =&gt; [&#039;s&#039; =&gt; &quot;iranischer Rial&quot;, &#039;p&#039; =&gt; &quot;Iranische Rial&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Dinar&quot;, &#039;p&#039; =&gt; &quot;Dinare&quot;]],
+    &#039;isk&#039; =&gt; [&#039;s&#039; =&gt; &quot;isländische Krone&quot;, &#039;p&#039; =&gt; &quot;isländische Kronen&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Eyrir&quot;, &#039;p&#039; =&gt; &quot;Aurar&quot;, &#039;u&#039; =&gt; false]],
+    &#039;jmd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Jamaika-Dollar&quot;, &#039;p&#039; =&gt; &quot;Jamaika-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;jod&#039; =&gt; [&#039;s&#039; =&gt; &quot;jordanischer Dinar&quot;, &#039;p&#039; =&gt; &quot;jordanische Dinare&quot;, &#039;minor&#039; =&gt; Piastres_3dec],
+    &#039;jpy&#039; =&gt; [&#039;s&#039; =&gt; &quot;japanischer Yen&quot;, &#039;p&#039; =&gt; &quot;japanische Yen&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Sen&quot;, &#039;p&#039; =&gt; &quot;Sen&quot;, &#039;u&#039; =&gt; false]],
+    &#039;kes&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kenia-Schilling&quot;, &#039;p&#039; =&gt; &quot;Kenia-Schilling&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;kgs&#039; =&gt; [&#039;s&#039; =&gt; &quot;kirgistanischer Som&quot;, &#039;p&#039; =&gt; &quot;kirgistanische Som&quot;, &#039;minor&#039; =&gt; Tyiyn],
+    &#039;khr&#039; =&gt; [&#039;s&#039; =&gt; &quot;kambodschanischer Riel&quot;, &#039;p&#039; =&gt; &quot;kambodschanische Riel&quot;, &#039;minor&#039; =&gt; Sen],
+    &#039;kmf&#039; =&gt; [&#039;s&#039; =&gt; &quot;Komoren-Franc&quot;, &#039;p&#039; =&gt; &quot;Komoren-Francs&quot;, &#039;minor&#039; =&gt; Centimes_NotUsed],
+    &#039;kpw&#039; =&gt; [&#039;s&#039; =&gt; &quot;nordkoreanischer Won&quot;, &#039;p&#039; =&gt; &quot;nordkoreanische Won&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Chon&quot;, &#039;p&#039; =&gt; &quot;Chon&quot;]],
+    &#039;krw&#039; =&gt; [&#039;s&#039; =&gt; &quot;südkoreanischer Won&quot;, &#039;p&#039; =&gt; &quot;südkoreanische Won&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Chon&quot;, &#039;p&#039; =&gt; &quot;Chon&quot;, &#039;u&#039; =&gt; false]],
+    &#039;kwd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kuwait-Dinar&quot;, &#039;p&#039; =&gt; &quot;Kuwait-Dinare&quot;, &#039;minor&#039; =&gt; Fils_3dec],
+    &#039;kyd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kaiman-Dollar&quot;, &#039;p&#039; =&gt; &quot;Kaiman-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;kzt&#039; =&gt; [&#039;s&#039; =&gt; &quot;kasachischer Tenge&quot;, &#039;p&#039; =&gt; &quot;kasachische Tenge&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Tiyn&quot;, &#039;p&#039; =&gt; &quot;Tiyn&quot;]],
+    &#039;lak&#039; =&gt; [&#039;s&#039; =&gt; &quot;laotischer Kip&quot;, &#039;p&#039; =&gt; &quot;laotische Kip&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Att&quot;, &#039;p&#039; =&gt; &quot;Att&quot;]],
+    &#039;lbp&#039; =&gt; [&#039;s&#039; =&gt; &quot;libanesisches Pfund&quot;, &#039;p&#039; =&gt; &quot;libanesische Pfunde&quot;, &#039;minor&#039; =&gt; Piastres],
+    &#039;lkr&#039; =&gt; [&#039;s&#039; =&gt; &quot;Sri-Lanka-Rupie&quot;, &#039;p&#039; =&gt; &quot;Sri-Lanka-Rupien&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Cents],
+    &#039;lrd&#039; =&gt; [&#039;s&#039; =&gt; &quot;liberianischer Dollar&quot;, &#039;p&#039; =&gt; &quot;liberianische Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;lsl&#039; =&gt; [&#039;s&#039; =&gt; &quot;lesothischer Loti&quot;, &#039;p&#039; =&gt; &quot;lesothischer Loti&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Sente&quot;, &#039;p&#039; =&gt; &quot;Lisente&quot;]],
+    &#039;lyd&#039; =&gt; [&#039;s&#039; =&gt; &quot;libyscher Dinar&quot;, &#039;p&#039; =&gt; &quot;libysche Dinare&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Dirham&quot;, &#039;p&#039; =&gt; &quot;Dirham&quot;, &#039;d&#039; =&gt; 3]],
+    &#039;mad&#039; =&gt; [&#039;s&#039; =&gt; &quot;marokkanischer Dirham&quot;, &#039;p&#039; =&gt; &quot;marokkanische Dirham&quot;, &#039;minor&#039; =&gt; Centimes],
+    &#039;mdl&#039; =&gt; [&#039;s&#039; =&gt; &quot;moldauischer Leu&quot;, &#039;p&#039; =&gt; &quot;moldauischer Lei&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Bani&quot;, &#039;p&#039; =&gt; &quot;Bani&quot;]],
+    &#039;mga&#039; =&gt; [&#039;s&#039; =&gt; &quot;madagassischer Ariary&quot;, &#039;p&#039; =&gt; &quot;madagassische Ariary&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Iraimbilanja&quot;, &#039;p&#039; =&gt; &quot;Iraimbilanja&quot;, &#039;f&#039; =&gt; true]],
+    &#039;mkd&#039; =&gt; [&#039;s&#039; =&gt; &quot;mazedonischer Denar&quot;, &#039;p&#039; =&gt; &quot;mazedonische Denare&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Deni&quot;, &#039;p&#039; =&gt; &quot;Deni&quot;, &#039;u&#039; =&gt; false]],
+    &#039;mmk&#039; =&gt; [&#039;s&#039; =&gt; &quot;Myanmar-Kyat&quot;, &#039;p&#039; =&gt; &quot;Myanmar-Kyat&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Pya&quot;, &#039;p&#039; =&gt; &quot;Pya&quot;]],
+    &#039;mnt&#039; =&gt; [&#039;s&#039; =&gt; &quot;mongolischer Tögrög&quot;, &#039;p&#039; =&gt; &quot;mongolische Tögrög&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Möngö&quot;, &#039;p&#039; =&gt; &quot;Möngö&quot;]],
+    &#039;mop&#039; =&gt; [&#039;s&#039; =&gt; &quot;Macau-Pataca&quot;, &#039;p&#039; =&gt; &quot;Macau-Pataca&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Avos&quot;, &#039;p&#039; =&gt; &quot;Avos&quot;]],
+    &#039;mru&#039; =&gt; [&#039;s&#039; =&gt; &quot;mauretanischer Ouguiya&quot;, &#039;p&#039; =&gt; &quot;mauretanische Ouguiya&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Khoums&quot;, &#039;p&#039; =&gt; &quot;Khoums&quot;]],
+    &#039;mur&#039; =&gt; [&#039;s&#039; =&gt; &quot;Mauritius-Rupie&quot;, &#039;p&#039; =&gt; &quot;Mauritius-Rupien&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Cents],
+    &#039;mvr&#039; =&gt; [&#039;s&#039; =&gt; &quot;maledivische Rufiyaa&quot;, &#039;p&#039; =&gt; &quot;maledivische Rufiyaa&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Laari&quot;, &#039;p&#039; =&gt; &quot;Laari&quot;]],
+    &#039;mxn&#039; =&gt; [&#039;s&#039; =&gt; &quot;mexikanischer Peso&quot;, &#039;p&#039; =&gt; &quot;mexikanische Pesos&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;myr&#039; =&gt; [&#039;s&#039; =&gt; &quot;malaysischer Ringgit&quot;, &#039;p&#039; =&gt; &quot;malaysische Ringgit&quot;, &#039;minor&#039; =&gt; Sen],
+    &#039;mwk&#039; =&gt; [&#039;s&#039; =&gt; &quot;Malawi-Kwacha&quot;, &#039;p&#039; =&gt; &quot;Malawi-Kwacha&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Tambala&quot;, &#039;p&#039; =&gt; &quot;Tambala&quot;]],
+    &#039;mzn&#039; =&gt; [&#039;s&#039; =&gt; &quot;mosambikanisches Metical&quot;, &#039;p&#039; =&gt; &quot;mosambikanische Meticais&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;nad&#039; =&gt; [&#039;s&#039; =&gt; &quot;Namibia-Dollar&quot;, &#039;p&#039; =&gt; &quot;Namibia-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;nio&#039; =&gt; [&#039;s&#039; =&gt; &quot;nicaraguanischer Córdoba&quot;, &#039;p&#039; =&gt; &quot;nicaraguanischer Córdoba&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;ngn&#039; =&gt; [&#039;s&#039; =&gt; &quot;nigerianischer Naira&quot;, &#039;p&#039; =&gt; &quot;nigerianische Naira&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kobe&quot;, &#039;p&#039; =&gt; &quot;Kobo&quot;]],
+    &#039;npr&#039; =&gt; [&#039;s&#039; =&gt; &quot;nepalesische Rupie&quot;, &#039;p&#039; =&gt; &quot;nepalesische Rupien&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Paisa],
+    &#039;nok&#039; =&gt; [&#039;s&#039; =&gt; &quot;norwegische Krone&quot;, &#039;p&#039; =&gt; &quot;norwegische Kronen&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Øre&quot;, &#039;p&#039; =&gt; &quot;Øre&quot;]],
+    &#039;nzd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Neuseeland-Dollar&quot;, &#039;p&#039; =&gt; &quot;Neuseeland-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;omr&#039; =&gt; [&#039;s&#039; =&gt; &quot;omanischer Rial&quot;, &#039;p&#039; =&gt; &quot;omanische Rial&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Baisa&quot;, &#039;p&#039; =&gt; &quot;Baisa&quot;, &#039;d&#039; =&gt; 3, &#039;f&#039; =&gt; true]],
+    &#039;pab&#039; =&gt; [&#039;s&#039; =&gt; &quot;panamaischer Balboa&quot;, &#039;p&#039; =&gt; &quot;panamaische Balboa&quot;, &#039;minor&#039; =&gt; Centesimos],
+    &#039;pen&#039; =&gt; [&#039;s&#039; =&gt; &quot;peruanischer Sol&quot;, &#039;p&#039; =&gt; &quot;peruanische Sol&quot;, &#039;minor&#039; =&gt; Centimos],
+    &#039;pgk&#039; =&gt; [&#039;s&#039; =&gt; &quot;Papua-Kina&quot;, &#039;p&#039; =&gt; &quot;Papua-Kina&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Toea&quot;, &#039;p&#039; =&gt; &quot;Toea&quot;]],
+    &#039;php&#039; =&gt; [&#039;s&#039; =&gt; &quot;philippinischer Peso&quot;, &#039;p&#039; =&gt; &quot;philippinische Pesos&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;pkr&#039; =&gt; [&#039;s&#039; =&gt; &quot;pakistanische Rupie&quot;, &#039;p&#039; =&gt; &quot;pakistanische Rupien&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Paisa],
+    &#039;pln&#039; =&gt; [&#039;s&#039; =&gt; &quot;polnischer Zloty&quot;, &#039;p&#039; =&gt; &quot;polnische Zloty&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Grosz&quot;, &#039;p&#039; =&gt; &quot;Grosze&quot;]],
+    &#039;pyg&#039; =&gt; [&#039;s&#039; =&gt; &quot;paraguayischer Guaraní&quot;, &#039;p&#039; =&gt; &quot;paraguayische Guaraní&quot;, &#039;minor&#039; =&gt; Centimes_NotUsed],
+    &#039;qar&#039; =&gt; [&#039;s&#039; =&gt; &quot;Katar-Riyal&quot;, &#039;p&#039; =&gt; &quot;Katar-Riyal&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Dirham&quot;, &#039;p&#039; =&gt; &quot;Dirham&quot;]],
+    &#039;ron&#039; =&gt; [&#039;s&#039; =&gt; &quot;rumänischer Leu&quot;, &#039;p&#039; =&gt; &quot;rumänische Lei&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Ban&quot;, &#039;p&#039; =&gt; &quot;Bani&quot;]],
+    &#039;rsd&#039; =&gt; [&#039;s&#039; =&gt; &quot;serbischer Dinar&quot;, &#039;p&#039; =&gt; &quot;serbische Dinare&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Para&quot;, &#039;p&#039; =&gt; &quot;Para&quot;]],
+    &#039;rub&#039; =&gt; [&#039;s&#039; =&gt; &quot;russischer Rubel&quot;, &#039;p&#039; =&gt; &quot;russische Rubel&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kopeke&quot;, &#039;p&#039; =&gt; &quot;Kopeken&quot;, &#039;f&#039; =&gt; true]],
+    &#039;rwf&#039; =&gt; [&#039;s&#039; =&gt; &quot;Ruanda-Franc&quot;, &#039;p&#039; =&gt; &quot;Ruanda-Francs&quot;, &#039;minor&#039; =&gt; Centimes_NotUsed],
+    &#039;sar&#039; =&gt; [&#039;s&#039; =&gt; &quot;Saudi-Riyal&quot;, &#039;p&#039; =&gt; &quot;Saudi-Riyal&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Halala&quot;, &#039;p&#039; =&gt; &quot;Halalas&quot;]],
+    &#039;sbd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Salomonen-Dollar&quot;, &#039;p&#039; =&gt; &quot;Salomonen-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;scr&#039; =&gt; [&#039;s&#039; =&gt; &quot;Seychellen-Rupie&quot;, &#039;p&#039; =&gt; &quot;Seychellen-Rupien&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Cents],
+    &#039;sdg&#039; =&gt; [&#039;s&#039; =&gt; &quot;sudanesisches Pfund&quot;, &#039;p&#039; =&gt; &quot;sudanesische Pfunde&quot;, &#039;minor&#039; =&gt; Piastres],
+    &#039;sek&#039; =&gt; [&#039;s&#039; =&gt; &quot;swedische Krone&quot;, &#039;p&#039; =&gt; &quot;swedische Kronen&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Öre&quot;, &#039;p&#039; =&gt; &quot;Öre&quot;]],
+    &#039;sgd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Singapur-Dollar&quot;, &#039;p&#039; =&gt; &quot;Singapur-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;shp&#039; =&gt; [&#039;s&#039; =&gt; &quot;St.-Helena-Pfund&quot;, &#039;p&#039; =&gt; &quot;St.-Helena-Pfunde&quot;, &#039;minor&#039; =&gt; Pence],
+    &#039;sll&#039; =&gt; [&#039;s&#039; =&gt; &quot;sierra-leonischer Leone&quot;, &#039;p&#039; =&gt; &quot;sierra-leonische Leones&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;sos&#039; =&gt; [&#039;s&#039; =&gt; &quot;Somalia-Schilling&quot;, &#039;p&#039; =&gt; &quot;Somalia-Schilling&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;srd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Suriname-Dollar&quot;, &#039;p&#039; =&gt; &quot;Suriname-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;ssp&#039; =&gt; [&#039;s&#039; =&gt; &quot;südsudanesisches Pfund&quot;, &#039;p&#039; =&gt; &quot;südsudanesische Pfunde&quot;, &#039;minor&#039; =&gt; Piastres],
+    &#039;stn&#039; =&gt; [&#039;s&#039; =&gt; &quot;são-toméischer Dobra&quot;, &#039;p&#039; =&gt; &quot;são-toméische Dobra&quot;, &#039;minor&#039; =&gt; Centimos],
+    &#039;svc&#039; =&gt; [&#039;s&#039; =&gt; &quot;El-Salvador-Colón&quot;, &#039;p&#039; =&gt; &quot;El-Salvador-Colones&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;syp&#039; =&gt; [&#039;s&#039; =&gt; &quot;syrische Lira&quot;, &#039;p&#039; =&gt; &quot;syrische Lira&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Piastres],
+    &#039;szl&#039; =&gt; [&#039;s&#039; =&gt; &quot;Swasi-Lilangeni&quot;, &#039;p&#039; =&gt; &quot;Swasi-Emalangeni&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;thb&#039; =&gt; [&#039;s&#039; =&gt; &quot;thailändischer Baht&quot;, &#039;p&#039; =&gt; &quot;thailändische Baht&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Satang&quot;, &#039;p&#039; =&gt; &quot;Satang&quot;]],
+    /// HERE JACKASS
+    &#039;tjs&#039; =&gt; [&#039;s&#039; =&gt; &quot;tadschikischer Somoni&quot;, &#039;p&#039; =&gt; &quot;tadschikische Somoni&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Diram&quot;, &#039;p&#039; =&gt; &quot;Diram&quot;]],
+    &#039;tmt&#039; =&gt; [&#039;s&#039; =&gt; &quot;Turkmenistan-Manat&quot;, &#039;p&#039; =&gt; &quot;Turkmenistan-Manat&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Teňňe&quot;, &#039;p&#039; =&gt; &quot;Teňňe&quot;]],
+    &#039;tnd&#039; =&gt; [&#039;s&#039; =&gt; &quot;tunesischer Dinar&quot;, &#039;p&#039; =&gt; &quot;tunesische Dinare&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Milime&quot;, &#039;p&#039; =&gt; &quot;Milimes&quot;, &#039;d&#039; =&gt; 3]],
+    &#039;top&#039; =&gt; [&#039;s&#039; =&gt; &quot;tongaischer Paʻanga&quot;, &#039;p&#039; =&gt; &quot;tongaische Paʻanga&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Seniti&quot;, &#039;p&#039; =&gt; &quot;Seniti&quot;]],
+    &#039;try&#039; =&gt; [&#039;s&#039; =&gt; &quot;türkische Lira&quot;, &#039;p&#039; =&gt; &quot;türkische Lira&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kuruş&quot;, &#039;p&#039; =&gt; &quot;Kuruş&quot;]],
+    &#039;ttd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Trinidad-und-Tobago-Dollar&quot;, &#039;p&#039; =&gt; &quot;Trinidad-und-Tobago-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;twd&#039; =&gt; [&#039;s&#039; =&gt; &quot;neuer Taiwan-Dollar&quot;, &#039;p&#039; =&gt; &quot;neue Taiwan-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;tzs&#039; =&gt; [&#039;s&#039; =&gt; &quot;Tansania-Schilling&quot;, &#039;p&#039; =&gt; &quot;Tansania-Schilling&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;uah&#039; =&gt; [&#039;s&#039; =&gt; &quot;ukrainische Hryvnia&quot;, &#039;p&#039; =&gt; &quot;ukrainische Hryvni&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kopijka&quot;, &#039;p&#039; =&gt; &quot;Kopijki&quot;]],
+    &#039;ugx&#039; =&gt; [&#039;s&#039; =&gt; &quot;Uganda-Schilling&quot;, &#039;p&#039; =&gt; &quot;Uganda-Schilling&quot;, &#039;minor&#039; =&gt; Cents_NotUsed],
+    &#039;usd&#039; =&gt; [&#039;s&#039; =&gt; &quot;US-Dollar&quot;, &#039;p&#039; =&gt; &quot;US-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;uyu&#039; =&gt; [&#039;s&#039; =&gt; &quot;uruguayischer Peso&quot;, &#039;p&#039; =&gt; &quot;uruguayische Pesos&quot;, &#039;minor&#039; =&gt; Centesimos],
+    &#039;uzs&#039; =&gt; [&#039;s&#039; =&gt; &quot;usbekischer Soʻm&quot;, &#039;p&#039; =&gt; &quot;usbekische Soʻm&quot;, &#039;minor&#039; =&gt; Tyiyn],
+    &#039;ves&#039; =&gt; [&#039;s&#039; =&gt; &quot;venezolanischer Bolívar Soberano&quot;, &#039;p&#039; =&gt; &quot;venezolanische Bolívar Soberano&quot;, &#039;minor&#039; =&gt; Centimos],
+    &#039;vnd&#039; =&gt; [&#039;s&#039; =&gt; &quot;vietnamesischer Đồng&quot;, &#039;p&#039; =&gt; &quot;vietnamesischee Đồng&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Xu&quot;, &#039;p&#039; =&gt; &quot;Xu&quot;, &#039;u&#039; =&gt; false]],
+    &#039;vuv&#039; =&gt; [&#039;s&#039; =&gt; &quot;Vatu&quot;, &#039;p&#039; =&gt; &quot;Vatu&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;&quot;, &#039;p&#039; =&gt; &quot;&quot;, &#039;u&#039; =&gt; false]],
+    &#039;wst&#039; =&gt; [&#039;s&#039; =&gt; &quot;samoanischer Tala&quot;, &#039;p&#039; =&gt; &quot;samoanische Tala&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Sene&quot;, &#039;p&#039; =&gt; &quot;Sene&quot;]],
+    &#039;xaf&#039; =&gt; [&#039;s&#039; =&gt; &quot;zentralafrikanischer CFA-Franc&quot;, &#039;p&#039; =&gt; &quot;zentralafrikanische CFA-Francs&quot;, &#039;minor&#039; =&gt; Centimes_NotUsed],
+    &#039;xcd&#039; =&gt; [&#039;s&#039; =&gt; &quot;ostkaribischer Dollar&quot;, &#039;p&#039; =&gt; &quot;ostkaribische Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;xof&#039; =&gt; [&#039;s&#039; =&gt; &quot;westafrikanischer CFA-Franc&quot;, &#039;p&#039; =&gt; &quot;westafrikanische CFA-Francs&quot;, &#039;minor&#039; =&gt; Centimes_NotUsed],
+    &#039;xpf&#039; =&gt; [&#039;s&#039; =&gt; &quot;CFP-Franc&quot;, &#039;p&#039; =&gt; &quot;CFP-Francs&quot;, &#039;minor&#039; =&gt; Centimes_NotUsed],
+    &#039;yer&#039; =&gt; [&#039;s&#039; =&gt; &quot;Jemen-Rial&quot;, &#039;p&#039; =&gt; &quot;Jemen-Rial&quot;, &#039;minor&#039; =&gt; Fils],
+    &#039;zar&#039; =&gt; [&#039;s&#039; =&gt; &quot;südafrikanischer Rand&quot;, &#039;p&#039; =&gt; &quot;südafrikanische Rand&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;zmw&#039; =&gt; [&#039;s&#039; =&gt; &quot;sambischer Kwacha&quot;, &#039;p&#039; =&gt; &quot;sambische Kwacha&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Ngwee&quot;, &#039;p&#039; =&gt; &quot;Ngwee&quot;]],
+    &#039;zwl&#039; =&gt; [&#039;s&#039; =&gt; &quot;Simbabwe-Dollar&quot;, &#039;p&#039; =&gt; &quot;Simbabwe-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+]                    </span>
+</dt>
+<dd>Supported currencies by ISO 4217. (DE)</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-iso4217-de.html#constant_Fils">Fils</a>
+    <span>
+        &nbsp;= [&#039;s&#039; =&gt; &quot;Fils&quot;, &#039;p&#039; =&gt; &quot;Fils&quot;]                    </span>
 </dt>
 <dd></dd>
 
@@ -252,9 +476,16 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="namespaces/tei187-resources-iso4217-en.html#constant_Fils_3dec">Fils_3dec</a>
+    <a href="namespaces/tei187-resources-iso4217-en.html#constant_Fils">Fils</a>
     <span>
-        &nbsp;= [&#039;s&#039; =&gt; &quot;fils&quot;, &#039;p&#039; =&gt; &quot;fils&quot;, &#039;d&#039; =&gt; 3]                    </span>
+        &nbsp;= [&#039;s&#039; =&gt; &quot;fils&quot;, &#039;p&#039; =&gt; &quot;fils&quot;]                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-iso4217-de.html#constant_Fils_3dec">Fils_3dec</a>
+    <span>
+        &nbsp;= [&#039;s&#039; =&gt; &quot;Fils&quot;, &#039;p&#039; =&gt; &quot;Fils&quot;, &#039;d&#039; =&gt; 3]                    </span>
 </dt>
 <dd></dd>
 
@@ -266,9 +497,16 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="namespaces/tei187-resources-en.html#constant_LargeNumbers">LargeNumbers</a>
+    <a href="namespaces/tei187-resources-iso4217-en.html#constant_Fils_3dec">Fils_3dec</a>
     <span>
-        &nbsp;= [3 =&gt; [&#039;s&#039; =&gt; &quot;thousand&quot;, &#039;p&#039; =&gt; &quot;thousands&quot;], 6 =&gt; [&#039;s&#039; =&gt; &quot;million&quot;, &#039;p&#039; =&gt; &quot;millions&quot;], 9 =&gt; [&#039;s&#039; =&gt; &quot;billion&quot;, &#039;p&#039; =&gt; &quot;billions&quot;], 12 =&gt; [&#039;s&#039; =&gt; &quot;trillion&quot;, &#039;p&#039; =&gt; &quot;trillions&quot;], 15 =&gt; [&#039;s&#039; =&gt; &quot;quadrillion&quot;, &#039;p&#039; =&gt; &quot;quadrillions&quot;], 18 =&gt; [&#039;s&#039; =&gt; &quot;quintillion&quot;, &#039;p&#039; =&gt; &quot;quintillions&quot;], 21 =&gt; [&#039;s&#039; =&gt; &quot;sextillion&quot;, &#039;p&#039; =&gt; &quot;sextillions&quot;], 24 =&gt; [&#039;s&#039; =&gt; &quot;septillion&quot;, &#039;p&#039; =&gt; &quot;septillions&quot;], 27 =&gt; [&#039;s&#039; =&gt; &quot;octillion&quot;, &#039;p&#039; =&gt; &quot;octillions&quot;]]                    </span>
+        &nbsp;= [&#039;s&#039; =&gt; &quot;fils&quot;, &#039;p&#039; =&gt; &quot;fils&quot;, &#039;d&#039; =&gt; 3]                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-de.html#constant_LargeNumbers">LargeNumbers</a>
+    <span>
+        &nbsp;= [3 =&gt; [&#039;s&#039; =&gt; &quot;tausend&quot;, &#039;p&#039; =&gt; &quot;tausend&quot;], 6 =&gt; [&#039;s&#039; =&gt; &quot;Million&quot;, &#039;p&#039; =&gt; &quot;Millionen&quot;], 9 =&gt; [&#039;s&#039; =&gt; &quot;Milliarde&quot;, &#039;p&#039; =&gt; &quot;Milliarden&quot;], 12 =&gt; [&#039;s&#039; =&gt; &quot;Billion&quot;, &#039;p&#039; =&gt; &quot;Billionen&quot;], 15 =&gt; [&#039;s&#039; =&gt; &quot;Billiarde&quot;, &#039;p&#039; =&gt; &quot;Billiarden&quot;], 18 =&gt; [&#039;s&#039; =&gt; &quot;Trillion&quot;, &#039;p&#039; =&gt; &quot;Trillionen&quot;], 21 =&gt; [&#039;s&#039; =&gt; &quot;Sextillion&quot;, &#039;p&#039; =&gt; &quot;Sextillionen&quot;], 24 =&gt; [&#039;s&#039; =&gt; &quot;Septillion&quot;, &#039;p&#039; =&gt; &quot;Septillionen&quot;], 27 =&gt; [&#039;s&#039; =&gt; &quot;Octillion&quot;, &#039;p&#039; =&gt; &quot;Octillionen&quot;]]                    </span>
 </dt>
 <dd></dd>
 
@@ -280,6 +518,13 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-en.html#constant_LargeNumbers">LargeNumbers</a>
+    <span>
+        &nbsp;= [3 =&gt; [&#039;s&#039; =&gt; &quot;thousand&quot;, &#039;p&#039; =&gt; &quot;thousands&quot;], 6 =&gt; [&#039;s&#039; =&gt; &quot;million&quot;, &#039;p&#039; =&gt; &quot;millions&quot;], 9 =&gt; [&#039;s&#039; =&gt; &quot;billion&quot;, &#039;p&#039; =&gt; &quot;billions&quot;], 12 =&gt; [&#039;s&#039; =&gt; &quot;trillion&quot;, &#039;p&#039; =&gt; &quot;trillions&quot;], 15 =&gt; [&#039;s&#039; =&gt; &quot;quadrillion&quot;, &#039;p&#039; =&gt; &quot;quadrillions&quot;], 18 =&gt; [&#039;s&#039; =&gt; &quot;quintillion&quot;, &#039;p&#039; =&gt; &quot;quintillions&quot;], 21 =&gt; [&#039;s&#039; =&gt; &quot;sextillion&quot;, &#039;p&#039; =&gt; &quot;sextillions&quot;], 24 =&gt; [&#039;s&#039; =&gt; &quot;septillion&quot;, &#039;p&#039; =&gt; &quot;septillions&quot;], 27 =&gt; [&#039;s&#039; =&gt; &quot;octillion&quot;, &#039;p&#039; =&gt; &quot;octillions&quot;]]                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/tei187-resources-pl.html#constant_Minerals">Minerals</a>
     <span>
         &nbsp;= [&#039;units&#039; =&gt; [&#039;g&#039; =&gt; [&#039;s1&#039; =&gt; &quot;gram&quot;, &#039;s2&#039; =&gt; &quot;gramy&quot;, &#039;s3&#039; =&gt; &quot;gramów&quot;, &#039;f&#039; =&gt; false, &#039;d&#039; =&gt; 3], &#039;kg&#039; =&gt; [&#039;s1&#039; =&gt; &quot;kilogram&quot;, &#039;s2&#039; =&gt; &quot;kilogramy&quot;, &#039;s3&#039; =&gt; &quot;kilogramów&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;gram&quot;, &#039;s2&#039; =&gt; &quot;gramy&quot;, &#039;s3&#039; =&gt; &quot;gramów&quot;, &#039;f&#039; =&gt; false, &#039;d&#039; =&gt; 3]], &#039;t&#039; =&gt; [&#039;s1&#039; =&gt; &quot;tona&quot;, &#039;s2&#039; =&gt; &quot;tony&quot;, &#039;s3&#039; =&gt; &quot;ton&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;kilogram&quot;, &#039;s2&#039; =&gt; &quot;kilogramy&quot;, &#039;s3&#039; =&gt; &quot;kilogramów&quot;, &#039;f&#039; =&gt; false, &#039;d&#039; =&gt; 3, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;gram&quot;, &#039;s2&#039; =&gt; &quot;gramy&quot;, &#039;s3&#039; =&gt; &quot;gramów&quot;, &#039;f&#039; =&gt; false, &#039;d&#039; =&gt; 3]]], &#039;oz&#039; =&gt; [&#039;s1&#039; =&gt; &quot;uncja&quot;, &#039;s2&#039; =&gt; &quot;uncje&quot;, &#039;s3&#039; =&gt; &quot;uncji&quot;, &#039;f&#039; =&gt; true], &#039;ozt&#039; =&gt; [&#039;s1&#039; =&gt; &quot;uncja trojańska&quot;, &#039;s2&#039; =&gt; &quot;uncje trojańskie&quot;, &#039;s3&#039; =&gt; &quot;uncji trojańskich&quot;, &#039;f&#039; =&gt; true], &#039;lb&#039; =&gt; [&#039;s1&#039; =&gt; &quot;funt&quot;, &#039;s2&#039; =&gt; &quot;funty&quot;, &#039;s3&#039; =&gt; &quot;funtów&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;uncja&quot;, &#039;s2&#039; =&gt; &quot;uncje&quot;, &#039;s3&#039; =&gt; &quot;uncji&quot;, &#039;f&#039; =&gt; true, &#039;parts&#039; =&gt; 16]], &#039;lbt&#039; =&gt; [&#039;s1&#039; =&gt; &quot;funt trojański&quot;, &#039;s2&#039; =&gt; &quot;funty trojańskie&quot;, &#039;s3&#039; =&gt; &quot;funtów trojańskich&quot;, &#039;f&#039; =&gt; false, &#039;minor&#039; =&gt; [&#039;s1&#039; =&gt; &quot;uncja trojańska&quot;, &#039;s2&#039; =&gt; &quot;uncje trojańskie&quot;, &#039;s3&#039; =&gt; &quot;uncji trojańskich&quot;, &#039;f&#039; =&gt; true, &#039;parts&#039; =&gt; 12]]], &#039;suffix&#039; =&gt; [&#039;xag&#039; =&gt; &quot;srebra&quot;, &#039;xau&#039; =&gt; &quot;złota&quot;, &#039;xpt&#039; =&gt; &quot;paladu&quot;, &#039;xpd&#039; =&gt; &quot;platyny&quot;]]                    </span>
@@ -287,9 +532,12 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="namespaces/tei187-resources-en.html#constant_Numbers">Numbers</a>
+    <a href="namespaces/tei187-resources-de.html#constant_Numbers">Numbers</a>
     <span>
-        &nbsp;= [&#039;oox&#039; =&gt; [1 =&gt; &quot;one&quot;, 2 =&gt; &quot;two&quot;, 3 =&gt; &quot;three&quot;, 4 =&gt; &quot;four&quot;, 5 =&gt; &quot;five&quot;, 6 =&gt; &quot;six&quot;, 7 =&gt; &quot;seven&quot;, 8 =&gt; &quot;eight&quot;, 9 =&gt; &quot;nine&quot;], &#039;oxo&#039; =&gt; [10 =&gt; &quot;ten&quot;, 11 =&gt; &quot;eleven&quot;, 12 =&gt; &quot;twelve&quot;, 13 =&gt; &quot;thirteen&quot;, 14 =&gt; &quot;fourteen&quot;, 15 =&gt; &quot;fifteen&quot;, 16 =&gt; &quot;sixteen&quot;, 17 =&gt; &quot;seventeen&quot;, 18 =&gt; &quot;eighteen&quot;, 19 =&gt; &quot;nineteen&quot;, 20 =&gt; &quot;twenty&quot;, 30 =&gt; &quot;thirty&quot;, 40 =&gt; &quot;forty&quot;, 50 =&gt; &quot;fifty&quot;, 60 =&gt; &quot;sixty&quot;, 70 =&gt; &quot;seventy&quot;, 80 =&gt; &quot;eighty&quot;, 90 =&gt; &quot;ninety&quot;], &#039;xoo&#039; =&gt; [100 =&gt; &quot;one hundred&quot;, 200 =&gt; &quot;two hundred&quot;, 300 =&gt; &quot;three hundred&quot;, 400 =&gt; &quot;four hundred&quot;, 500 =&gt; &quot;five hundred&quot;, 600 =&gt; &quot;six hundred&quot;, 700 =&gt; &quot;seven hundred&quot;, 800 =&gt; &quot;eight hundred&quot;, 900 =&gt; &quot;nine hundred&quot;]]                    </span>
+        &nbsp;= [&#039;oox&#039; =&gt; [1 =&gt; &quot;eins&quot;, 2 =&gt; &quot;zwei&quot;, 3 =&gt; &quot;drei&quot;, 4 =&gt; &quot;vier&quot;, 5 =&gt; &quot;fünf&quot;, 6 =&gt; &quot;sechs&quot;, 7 =&gt; &quot;sieben&quot;, 8 =&gt; &quot;acht&quot;, 9 =&gt; &quot;neun&quot;], &#039;oxo&#039; =&gt; [10 =&gt; &quot;zehn&quot;, 11 =&gt; &quot;elf&quot;, 12 =&gt; &quot;zwölf&quot;, 13 =&gt; &quot;dreizehn&quot;, 14 =&gt; &quot;vierzehn&quot;, 15 =&gt; &quot;fünfzehn&quot;, 16 =&gt; &quot;sechzehn&quot;, 17 =&gt; &quot;siebzehn&quot;, 18 =&gt; &quot;achtzehn&quot;, 19 =&gt; &quot;neunzehn&quot;, 20 =&gt; &quot;zwanzig&quot;, 30 =&gt; &quot;dreißig&quot;, 40 =&gt; &quot;vierzig&quot;, 50 =&gt; &quot;fünfzig&quot;, 60 =&gt; &quot;sechzig&quot;, 70 =&gt; &quot;siebzig&quot;, 80 =&gt; &quot;achtzig&quot;, 90 =&gt; &quot;neunzig&quot;], &#039;xoo&#039; =&gt; [100 =&gt; &quot;einhundert&quot;, 200 =&gt; &quot;zweihundert&quot;, 300 =&gt; &quot;dreihundert&quot;, 400 =&gt; &quot;vierhundert&quot;, 500 =&gt; &quot;fünfhundert&quot;, 600 =&gt; &quot;sechshundert&quot;, 700 =&gt; &quot;siebenhundert&quot;, 800 =&gt; &quot;achthundert&quot;, 900 =&gt; &quot;neunhundert&quot;], &#039;ooy&#039; =&gt; [
+    // for 10^x (x&gt;=6)
+    1 =&gt; [&#039;m&#039; =&gt; &#039;ein&#039;, &#039;f&#039; =&gt; &#039;eine&#039;],
+]]                    </span>
 </dt>
 <dd></dd>
 
@@ -297,6 +545,13 @@
     <a href="namespaces/tei187-resources-pl.html#constant_Numbers">Numbers</a>
     <span>
         &nbsp;= [&#039;oox&#039; =&gt; [1 =&gt; &quot;jeden&quot;, 2 =&gt; &quot;dwa&quot;, 3 =&gt; &quot;trzy&quot;, 4 =&gt; &quot;cztery&quot;, 5 =&gt; &quot;pięć&quot;, 6 =&gt; &quot;sześć&quot;, 7 =&gt; &quot;siedem&quot;, 8 =&gt; &quot;osiem&quot;, 9 =&gt; &quot;dziewięć&quot;], &#039;oxo&#039; =&gt; [10 =&gt; &quot;dziesięć&quot;, 11 =&gt; &quot;jedenaście&quot;, 12 =&gt; &quot;dwanaście&quot;, 13 =&gt; &quot;trzynaście&quot;, 14 =&gt; &quot;czternaście&quot;, 15 =&gt; &quot;piętnaście&quot;, 16 =&gt; &quot;szesnaście&quot;, 17 =&gt; &quot;siedemnaście&quot;, 18 =&gt; &quot;osiemnaście&quot;, 19 =&gt; &quot;dziewiętnaście&quot;, 20 =&gt; &quot;dwadzieścia&quot;, 30 =&gt; &quot;trzydzieści&quot;, 40 =&gt; &quot;czterdzieści&quot;, 50 =&gt; &quot;pięćdziesiąt&quot;, 60 =&gt; &quot;sześćdziesiąt&quot;, 70 =&gt; &quot;siedemdziesiąt&quot;, 80 =&gt; &quot;osiemdziesiąt&quot;, 90 =&gt; &quot;dziewięćdziesiąt&quot;], &#039;xoo&#039; =&gt; [100 =&gt; &quot;sto&quot;, 200 =&gt; &quot;dwieście&quot;, 300 =&gt; &quot;trzysta&quot;, 400 =&gt; &quot;czterysta&quot;, 500 =&gt; &quot;pięćset&quot;, 600 =&gt; &quot;sześćset&quot;, 700 =&gt; &quot;siedemset&quot;, 800 =&gt; &quot;osiemset&quot;, 900 =&gt; &quot;dziewięćset&quot;], &#039;f-oox&#039; =&gt; [1 =&gt; &quot;jedna&quot;, 2 =&gt; &quot;dwie&quot;, 3 =&gt; &quot;trzy&quot;, 4 =&gt; &quot;cztery&quot;, 5 =&gt; &quot;pięć&quot;, 6 =&gt; &quot;sześć&quot;, 7 =&gt; &quot;siedem&quot;, 8 =&gt; &quot;osiem&quot;, 9 =&gt; &quot;dziewięć&quot;]]                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-en.html#constant_Numbers">Numbers</a>
+    <span>
+        &nbsp;= [&#039;oox&#039; =&gt; [1 =&gt; &quot;one&quot;, 2 =&gt; &quot;two&quot;, 3 =&gt; &quot;three&quot;, 4 =&gt; &quot;four&quot;, 5 =&gt; &quot;five&quot;, 6 =&gt; &quot;six&quot;, 7 =&gt; &quot;seven&quot;, 8 =&gt; &quot;eight&quot;, 9 =&gt; &quot;nine&quot;], &#039;oxo&#039; =&gt; [10 =&gt; &quot;ten&quot;, 11 =&gt; &quot;eleven&quot;, 12 =&gt; &quot;twelve&quot;, 13 =&gt; &quot;thirteen&quot;, 14 =&gt; &quot;fourteen&quot;, 15 =&gt; &quot;fifteen&quot;, 16 =&gt; &quot;sixteen&quot;, 17 =&gt; &quot;seventeen&quot;, 18 =&gt; &quot;eighteen&quot;, 19 =&gt; &quot;nineteen&quot;, 20 =&gt; &quot;twenty&quot;, 30 =&gt; &quot;thirty&quot;, 40 =&gt; &quot;forty&quot;, 50 =&gt; &quot;fifty&quot;, 60 =&gt; &quot;sixty&quot;, 70 =&gt; &quot;seventy&quot;, 80 =&gt; &quot;eighty&quot;, 90 =&gt; &quot;ninety&quot;], &#039;xoo&#039; =&gt; [100 =&gt; &quot;one hundred&quot;, 200 =&gt; &quot;two hundred&quot;, 300 =&gt; &quot;three hundred&quot;, 400 =&gt; &quot;four hundred&quot;, 500 =&gt; &quot;five hundred&quot;, 600 =&gt; &quot;six hundred&quot;, 700 =&gt; &quot;seven hundred&quot;, 800 =&gt; &quot;eight hundred&quot;, 900 =&gt; &quot;nine hundred&quot;]]                    </span>
 </dt>
 <dd></dd>
 
@@ -322,6 +577,13 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-iso4217-de.html#constant_Paisa">Paisa</a>
+    <span>
+        &nbsp;= [&#039;s&#039; =&gt; &quot;Paisa&quot;, &#039;p&#039; =&gt; &quot;Paisa&quot;]                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/tei187-resources-iso4217-en.html#constant_Pence">Pence</a>
     <span>
         &nbsp;= [&#039;s&#039; =&gt; &quot;penny&quot;, &#039;p&#039; =&gt; &quot;pence&quot;]                    </span>
@@ -329,9 +591,23 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-iso4217-de.html#constant_Pence">Pence</a>
+    <span>
+        &nbsp;= [&#039;s&#039; =&gt; &quot;Penny&quot;, &#039;p&#039; =&gt; &quot;Pence&quot;]                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/tei187-resources-iso4217-pl.html#constant_Pens">Pens</a>
     <span>
         &nbsp;= [&#039;s1&#039; =&gt; &quot;pens&quot;, &#039;s2&#039; =&gt; &quot;pensy&quot;, &#039;s3&#039; =&gt; &quot;pensów&quot;, &#039;f&#039; =&gt; false]                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-iso4217-de.html#constant_Piastres">Piastres</a>
+    <span>
+        &nbsp;= [&#039;s&#039; =&gt; &quot;Piaster&quot;, &#039;p&#039; =&gt; &quot;Piaster&quot;]                    </span>
 </dt>
 <dd></dd>
 
@@ -350,13 +626,6 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="namespaces/tei187-resources-iso4217-pl.html#constant_Piastres_3dec">Piastres_3dec</a>
-    <span>
-        &nbsp;= [&#039;s1&#039; =&gt; &quot;piastr&quot;, &#039;s2&#039; =&gt; &quot;piastry&quot;, &#039;s3&#039; =&gt; &quot;piastrów&quot;, &#039;f&#039; =&gt; false, &#039;d&#039; =&gt; 2]                    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/tei187-resources-iso4217-en.html#constant_Piastres_3dec">Piastres_3dec</a>
     <span>
         &nbsp;= [&#039;s&#039; =&gt; &quot;piastre&quot;, &#039;p&#039; =&gt; &quot;piastres&quot;, &#039;d&#039; =&gt; 3]                    </span>
@@ -364,9 +633,23 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="namespaces/tei187-resources-iso4217-pl.html#constant_Sen">Sen</a>
+    <a href="namespaces/tei187-resources-iso4217-de.html#constant_Piastres_3dec">Piastres_3dec</a>
     <span>
-        &nbsp;= [&#039;s1&#039; =&gt; &quot;sen&quot;, &#039;s2&#039; =&gt; &quot;seny&quot;, &#039;s3&#039; =&gt; &quot;senów&quot;, &#039;f&#039; =&gt; false]                    </span>
+        &nbsp;= [&#039;s&#039; =&gt; &quot;Piaster&quot;, &#039;p&#039; =&gt; &quot;Piaster&quot;, &#039;d&#039; =&gt; 3]                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-iso4217-pl.html#constant_Piastres_3dec">Piastres_3dec</a>
+    <span>
+        &nbsp;= [&#039;s1&#039; =&gt; &quot;piastr&quot;, &#039;s2&#039; =&gt; &quot;piastry&quot;, &#039;s3&#039; =&gt; &quot;piastrów&quot;, &#039;f&#039; =&gt; false, &#039;d&#039; =&gt; 2]                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-iso4217-de.html#constant_Sen">Sen</a>
+    <span>
+        &nbsp;= [&#039;s&#039; =&gt; &quot;Sen&quot;, &#039;p&#039; =&gt; &quot;Sen&quot;]                    </span>
 </dt>
 <dd></dd>
 
@@ -378,9 +661,23 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-iso4217-pl.html#constant_Sen">Sen</a>
+    <span>
+        &nbsp;= [&#039;s1&#039; =&gt; &quot;sen&quot;, &#039;s2&#039; =&gt; &quot;seny&quot;, &#039;s3&#039; =&gt; &quot;senów&quot;, &#039;f&#039; =&gt; false]                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/tei187-resources-iso4217-pl.html#constant_Tiyin">Tiyin</a>
     <span>
         &nbsp;= [&#039;s1&#039; =&gt; &quot;tyin&quot;, &#039;s2&#039; =&gt; &quot;tyiny&quot;, &#039;s3&#039; =&gt; &quot;tyinów&quot;, &#039;f&#039; =&gt; false]                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/tei187-resources-iso4217-de.html#constant_Tyiyn">Tyiyn</a>
+    <span>
+        &nbsp;= [&#039;s&#039; =&gt; &quot;Tyiyn&quot;, &#039;p&#039; =&gt; &quot;Tyiyn&quot;]                    </span>
 </dt>
 <dd></dd>
 
@@ -487,6 +784,35 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_Centavos">
+        Centavos
+        <a href="namespaces/tei187-resources-iso4217-de.html#constant_Centavos" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">2893</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Centavos</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;Centavo&quot;, &#039;p&#039; =&gt; &quot;Centavos&quot;]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Regular extension - centavos. (DE)</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_Centavos_NotUsed">
         Centavos_NotUsed
         <a href="namespaces/tei187-resources-iso4217-en.html#constant_Centavos_NotUsed" class="headerlink"><i class="fas fa-link"></i></a>
@@ -510,6 +836,35 @@
 
     
         <section class="phpdocumentor-description"><p>Regular extension - centavos (not used). (EN)</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_Centavos_NotUsed">
+        Centavos_NotUsed
+        <a href="namespaces/tei187-resources-iso4217-de.html#constant_Centavos_NotUsed" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">2899</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Centavos_NotUsed</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;Centavo&quot;, &#039;p&#039; =&gt; &quot;Centavos&quot;, &#039;u&#039; =&gt; false]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Regular extension - centavos (not used). (DE)</p>
 </section>
 
     
@@ -574,6 +929,64 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_Centesimos">
+        Centesimos
+        <a href="namespaces/tei187-resources-iso4217-de.html#constant_Centesimos" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">2874</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Centesimos</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;Centésimo&quot;, &#039;p&#039; =&gt; &quot;Centésimos&quot;]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Regular extension - centesimos. (DE)</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_Centimes">
+        Centimes
+        <a href="namespaces/tei187-resources-iso4217-de.html#constant_Centimes" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">2880</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Centimes</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;Centime&quot;, &#039;p&#039; =&gt; &quot;Centimes&quot;]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Regular extension - centimes. (DE)</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_Centimes">
         Centimes
         <a href="namespaces/tei187-resources-iso4217-en.html#constant_Centimes" class="headerlink"><i class="fas fa-link"></i></a>
@@ -597,6 +1010,35 @@
 
     
         <section class="phpdocumentor-description"><p>Regular extension - centimes. (EN)</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_Centimes_NotUsed">
+        Centimes_NotUsed
+        <a href="namespaces/tei187-resources-iso4217-de.html#constant_Centimes_NotUsed" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">2886</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Centimes_NotUsed</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;Centime&quot;, &#039;p&#039; =&gt; &quot;Centimes&quot;, &#039;u&#039; =&gt; false]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Regular extension - centimes (not used). (DE)</p>
 </section>
 
     
@@ -655,6 +1097,35 @@
 
     
         <section class="phpdocumentor-description"><p>Regular extension - centimos. (EN)</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_Centimos">
+        Centimos
+        <a href="namespaces/tei187-resources-iso4217-de.html#constant_Centimos" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">2868</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Centimos</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;Cêntimo&quot;, &#039;p&#039; =&gt; &quot;Cêntimos&quot;]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Regular extension - centimos. (DE)</p>
 </section>
 
     
@@ -721,35 +1192,6 @@
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_Cents">
         Cents
-        <a href="namespaces/tei187-resources-iso4217-pl.html#constant_Cents" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">116</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
-    <span class="phpdocumentor-signature__name">Cents</span>
-    = <span class="phpdocumentor-signature__default-value">[&#039;s1&#039; =&gt; &quot;cent&quot;, &#039;s2&#039; =&gt; &quot;centy&quot;, &#039;s3&#039; =&gt; &quot;centów&quot;, &#039;f&#039; =&gt; false]</span>
-</code>
-
-
-    
-        <section class="phpdocumentor-description"><p>Regular extension - cents. (PL)</p>
-</section>
-
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_Cents">
-        Cents
         <a href="namespaces/tei187-resources-iso4217-en.html#constant_Cents" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
 
@@ -771,6 +1213,64 @@
 
     
         <section class="phpdocumentor-description"><p>Regular extension - cents. (EN)</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_Cents">
+        Cents
+        <a href="namespaces/tei187-resources-iso4217-de.html#constant_Cents" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">2855</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Cents</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;Cent&quot;, &#039;p&#039; =&gt; &quot;Cent&quot;]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Regular extension - cents. (DE)</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_Cents">
+        Cents
+        <a href="namespaces/tei187-resources-iso4217-pl.html#constant_Cents" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">116</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Cents</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s1&#039; =&gt; &quot;cent&quot;, &#039;s2&#039; =&gt; &quot;centy&quot;, &#039;s3&#039; =&gt; &quot;centów&quot;, &#039;f&#039; =&gt; false]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Regular extension - cents. (PL)</p>
 </section>
 
     
@@ -829,6 +1329,35 @@
 
     
         <section class="phpdocumentor-description"><p>Regular extension - cents (not used). (PL)</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_Cents_NotUsed">
+        Cents_NotUsed
+        <a href="namespaces/tei187-resources-iso4217-de.html#constant_Cents_NotUsed" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">2861</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Cents_NotUsed</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;Cent&quot;, &#039;p&#039; =&gt; &quot;Cent&quot;, &#039;u&#039; =&gt; false]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Regular extension - cents (not used). (DE)</p>
 </section>
 
     
@@ -903,15 +1432,207 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_Fils">
-        Fils
-        <a href="namespaces/tei187-resources-iso4217-en.html#constant_Fils" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_Currencies">
+        Currencies
+        <a href="namespaces/tei187-resources-iso4217-de.html#constant_Currencies" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1809</span>
+    <span class="phpdocumentor-element-found-in__line">2965</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Supported currencies by ISO 4217. (DE)</p>
+
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Currencies</span>
+    = <span class="phpdocumentor-signature__default-value">[
+    &#039;aed&#039; =&gt; [&#039;s&#039; =&gt; &quot;VAE-Dirham&quot;, &#039;p&#039; =&gt; &quot;VAE-Dirham&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Fils&quot;, &#039;p&#039; =&gt; &quot;Fils&quot;]],
+    &#039;afn&#039; =&gt; [&#039;s&#039; =&gt; &quot;afghanischer Afghani&quot;, &#039;p&#039; =&gt; &quot;afghanische Afghani&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Pul&quot;, &#039;p&#039; =&gt; &quot;Pul&quot;]],
+    &#039;all&#039; =&gt; [&#039;s&#039; =&gt; &quot;albanischer Lek&quot;, &#039;p&#039; =&gt; &quot;albanische Lekë&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Qindarkë&quot;, &#039;p&#039; =&gt; &quot;Qindarka&quot;]],
+    &#039;amd&#039; =&gt; [&#039;s&#039; =&gt; &quot;armenischer Dram&quot;, &#039;p&#039; =&gt; &quot;armenische Dram&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Luma&quot;, &#039;p&#039; =&gt; &quot;Luma&quot;, &#039;f&#039; =&gt; true]],
+    &#039;ang&#039; =&gt; [&#039;s&#039; =&gt; &quot;niederländischer Antillen-Gulden&quot;, &#039;s&#039; =&gt; &quot;niederländische Antillen-Gulden&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;aoa&#039; =&gt; [&#039;s&#039; =&gt; &quot;angolanischer Kwanza&quot;, &#039;p&#039; =&gt; &quot;angolanische Kwanza&quot;, &#039;minor&#039; =&gt; Centimos],
+    &#039;ars&#039; =&gt; [&#039;s&#039; =&gt; &quot;argentinischer Peso&quot;, &#039;P&#039; =&gt; &quot;argentinische Pesos&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;aud&#039; =&gt; [&#039;s&#039; =&gt; &quot;australischer Dollar&quot;, &#039;p&#039; =&gt; &quot;australische Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;awg&#039; =&gt; [&#039;s&#039; =&gt; &quot;Aruba-Florin&quot;, &#039;p&#039; =&gt; &quot;Aruba-Florin&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;azm&#039; =&gt; [&#039;s&#039; =&gt; &quot;aserbaidschanischer Manat&quot;, &#039;p&#039; =&gt; &quot;aserbaidschanische Manat&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Qəpik&quot;, &#039;p&#039; =&gt; &quot;Qəpik&quot;]],
+    &#039;bam&#039; =&gt; [&#039;s&#039; =&gt; &quot;bosnisch-herzegowinischen konvertible Mark&quot;, &#039;p&#039; =&gt; &quot;bosnisch-herzegowinischen konvertible Mark&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Fening&quot;, &#039;p&#039; =&gt; &quot;Fening&quot;]],
+    &#039;bbd&#039; =&gt; [&#039;s&#039; =&gt; &quot;barbadischer Dollar&quot;, &#039;p&#039; =&gt; &quot;barbadische Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;bdt&#039; =&gt; [&#039;s&#039; =&gt; &quot;bangladeschischer Taka&quot;, &#039;p&#039; =&gt; &quot;bangladeschische Taka&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Poisha&quot;, &#039;p&#039; =&gt; &quot;Poisha&quot;]],
+    &#039;bgn&#039; =&gt; [&#039;s&#039; =&gt; &quot;bulgarischer Lew&quot;, &#039;p&#039; =&gt; &quot;bulgarische Lewa&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Stotinka&quot;, &#039;p&#039; =&gt; &quot;Stotinki&quot;, &#039;f&#039; =&gt; true]],
+    &#039;bhd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Bahraini-Dinar&quot;, &#039;p&#039; =&gt; &quot;Bahraini-Dinaren&quot;, &#039;minor&#039; =&gt; Fils_3dec],
+    &#039;bif&#039; =&gt; [&#039;s&#039; =&gt; &quot;burundischer Franc&quot;, &#039;p&#039; =&gt; &quot;burundische Francs&quot;, &#039;minor&#039; =&gt; Centimes_NotUsed],
+    &#039;bmd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Bermuda-Dollar&quot;, &#039;p&#039; =&gt; &quot;Bermuda-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;bnd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Brunei-Dollar&quot;, &#039;p&#039; =&gt; &quot;Brunei-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;bob&#039; =&gt; [&#039;s&#039; =&gt; &quot;bolivianischer Boliviano&quot;, &#039;p&#039; =&gt; &quot;bolivianische Boliviano&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;brl&#039; =&gt; [&#039;s&#039; =&gt; &quot;brasilianischer Real&quot;, &#039;p&#039; =&gt; &quot;brasilianische Reales&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;bsd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Bahama-Dollar&quot;, &#039;p&#039; =&gt; &quot;Bahama-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;btn&#039; =&gt; [&#039;s&#039; =&gt; &quot;bhutanischer Ngultrum&quot;, &#039;p&#039; =&gt; &quot;bhutanische Ngultrum&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Chhetrum&quot;, &#039;p&#039; =&gt; &quot;Chhetrum&quot;]],
+    &#039;bwp&#039; =&gt; [&#039;s&#039; =&gt; &quot;botswanisches Pula&quot;, &#039;p&#039; =&gt; &quot;botswanische Pula&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Thebe&quot;, &#039;p&#039; =&gt; &quot;Thebe&quot;]],
+    &#039;byn&#039; =&gt; [&#039;s&#039; =&gt; &quot;belarussischer Rubel&quot;, &#039;p&#039; =&gt; &quot;belarussische Rubel&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kopeke&quot;, &#039;p&#039; =&gt; &quot;Kopeken&quot;, &#039;f&#039; =&gt; true]],
+    &#039;bzd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Belize-Dollar&quot;, &#039;p&#039; =&gt; &quot;Belize-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;cad&#039; =&gt; [&#039;s&#039; =&gt; &quot;kanadischer Dollar&quot;, &#039;p&#039; =&gt; &quot;kanadische Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;cdf&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kongo-Franc&quot;, &#039;p&#039; =&gt; &quot;Kongo-Francs&quot;, &#039;minor&#039; =&gt; Centimes],
+    &#039;chf&#039; =&gt; [&#039;s&#039; =&gt; &quot;Schweizerfranken&quot;, &#039;p&#039; =&gt; &quot;Schweizerfranken&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Rappen&quot;, &#039;p&#039; =&gt; &quot;Rappen&quot;]],
+    &#039;clp&#039; =&gt; [&#039;s&#039; =&gt; &quot;chilenischer Peso&quot;, &#039;p&#039; =&gt; &quot;chilenische Pesos&quot;, &#039;minor&#039; =&gt; Centavos_NotUsed],
+    &#039;cny&#039; =&gt; [&#039;s&#039; =&gt; &quot;Renminbi Yuan&quot;, &#039;p&#039; =&gt; &quot;Renminbi Yuan&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Jiǎo&quot;, &#039;p&#039; =&gt; &quot;Jiǎo&quot;, &#039;d&#039; =&gt; 1, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Fēn&quot;, &#039;p&#039; =&gt; &quot;Fēn&quot;, &#039;d&#039; =&gt; 1]]],
+    &#039;cop&#039; =&gt; [&#039;s&#039; =&gt; &quot;kolumbianischer Peso&quot;, &#039;p&#039; =&gt; &quot;kolumbianische Pesos&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;crc&#039; =&gt; [&#039;s&#039; =&gt; &quot;Costa-Rica-Colón&quot;, &#039;p&#039; =&gt; &quot;Costa-Rica-Colón&quot;, &#039;minor&#039; =&gt; Centimos],
+    &#039;cuc&#039; =&gt; [&#039;s&#039; =&gt; &quot;kubanischer konvertierbarer Peso&quot;, &#039;p&#039; =&gt; &quot;kubanische konvertierbare Pesos&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;cup&#039; =&gt; [&#039;s&#039; =&gt; &quot;kubanischer Peso&quot;, &#039;p&#039; =&gt; &quot;kubanische Pesos&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;cve&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kap-Verde-Escudo&quot;, &#039;p&#039; =&gt; &quot;Kap-Verde-Escudo&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;czk&#039; =&gt; [&#039;s&#039; =&gt; &quot;tschechische Krone&quot;, &#039;p&#039; =&gt; &quot;tschechische Kronen&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Haléřů&quot;, &#039;p&#039; =&gt; &quot;Haléřů&quot;]],
+    &#039;djf&#039; =&gt; [&#039;s&#039; =&gt; &quot;Dschibuti-Franc&quot;, &#039;p&#039; =&gt; &quot;Dschibuti-Francs&quot;, &#039;minor&#039; =&gt; Centimes_NotUsed],
+    &#039;dkk&#039; =&gt; [&#039;s&#039; =&gt; &quot;dänische Krone&quot;, &#039;p&#039; =&gt; &quot;dänische Kronen&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Øre&quot;, &#039;p&#039; =&gt; &quot;Øre&quot;]],
+    &#039;dop&#039; =&gt; [&#039;s&#039; =&gt; &quot;dominikanischer Peso&quot;, &#039;p&#039; =&gt; &quot;dominikanische Pesos&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;dzd&#039; =&gt; [&#039;s&#039; =&gt; &quot;algerischer Dinar&quot;, &#039;p&#039; =&gt; &quot;algerische Dinare&quot;, &#039;minor&#039; =&gt; Centimes],
+    &#039;egp&#039; =&gt; [&#039;s&#039; =&gt; &quot;ägyptisches Pfund&quot;, &#039;p&#039; =&gt; &quot;ägyptische Pfunde&quot;, &#039;minor&#039; =&gt; Piastres],
+    &#039;eur&#039; =&gt; [&#039;s&#039; =&gt; &quot;Euro&quot;, &#039;p&#039; =&gt; &quot;Euro&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;ern&#039; =&gt; [&#039;s&#039; =&gt; &quot;eritreischer Nakfa&quot;, &#039;p&#039; =&gt; &quot;eritreische Nakfa&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;etb&#039; =&gt; [&#039;s&#039; =&gt; &quot;äthiopischer Birr&quot;, &#039;p&#039; =&gt; &quot;äthiopische Birr&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Santim&quot;, &#039;p&#039; =&gt; &quot;Santim&quot;]],
+    &#039;fjd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Fidschi-Dollar&quot;, &#039;p&#039; =&gt; &quot;Fidschi-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;fkp&#039; =&gt; [&#039;s&#039; =&gt; &quot;Falkland-Pfund&quot;, &#039;p&#039; =&gt; &quot;Falkland-Pfunde&quot;, &#039;minor&#039; =&gt; Pence],
+    &#039;gbp&#039; =&gt; [&#039;s&#039; =&gt; &quot;Pfund Sterling&quot;, &#039;p&#039; =&gt; &quot;Pfunde Sterling&quot;, &#039;minor&#039; =&gt; Pence],
+    &#039;gel&#039; =&gt; [&#039;s&#039; =&gt; &quot;georgischer Lari&quot;, &#039;p&#039; =&gt; &quot;georgische Lari&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Tetri&quot;, &#039;p&#039; =&gt; &quot;Tetri&quot;]],
+    &#039;ghs&#039; =&gt; [&#039;s&#039; =&gt; &quot;ghanaischer Cedi&quot;, &#039;p&#039; =&gt; &quot;ghanaische Cedi&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Pesewa&quot;, &#039;p&#039; =&gt; &quot;Pesewas&quot;, &#039;f&#039; =&gt; true]],
+    &#039;gip&#039; =&gt; [&#039;s&#039; =&gt; &quot;gibraltarisches Pfund&quot;, &#039;p&#039; =&gt; &quot;gibraltarische Pfunde&quot;, &#039;minor&#039; =&gt; Pence],
+    &#039;gmd&#039; =&gt; [&#039;s&#039; =&gt; &quot;gambischer Dalasi&quot;, &#039;p&#039; =&gt; &quot;gambische Dalasi&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Butut&quot;, &#039;p&#039; =&gt; &quot;Bututs&quot;]],
+    &#039;gnf&#039; =&gt; [&#039;s&#039; =&gt; &quot;Franc Guinéen&quot;, &#039;p&#039; =&gt; &quot;Franc Guinéen&quot;, &#039;minor&#039; =&gt; Centimes_NotUsed],
+    &#039;gtq&#039; =&gt; [&#039;s&#039; =&gt; &quot;guatemaltekischer Quetzal&quot;, &#039;p&#039; =&gt; &quot;guatemaltekische Quetzal&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;gyd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Guyana-Dollar&quot;, &#039;p&#039; =&gt; &quot;Guyana-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;hnl&#039; =&gt; [&#039;s&#039; =&gt; &quot;honduranische Lempira&quot;, &#039;p&#039; =&gt; &quot;honduranische Lempira&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Centavos],
+    &#039;hkd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Hongkong-Dollar&quot;, &#039;p&#039; =&gt; &quot;Hongkong-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;hrk&#039; =&gt; [&#039;s&#039; =&gt; &quot;kroatische Kuna&quot;, &#039;p&#039; =&gt; &quot;kroatische Kuna&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;lipa&quot;, &#039;p&#039; =&gt; &quot;lipa&quot;]],
+    &#039;htg&#039; =&gt; [&#039;s&#039; =&gt; &quot;haitianischer Gourde&quot;, &#039;p&#039; =&gt; &quot;haitianische Gourde&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Centimes],
+    &#039;huf&#039; =&gt; [&#039;s&#039; =&gt; &quot;ungarischer Forint&quot;, &#039;p&#039; =&gt; &quot;ungarische Forint&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Fillér&quot;, &#039;p&#039; =&gt; &quot;Fillér&quot;]],
+    &#039;idr&#039; =&gt; [&#039;s&#039; =&gt; &quot;indonesische Rupiah&quot;, &#039;p&#039; =&gt; &quot;indonesische Rupiah&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Sen],
+    &#039;ils&#039; =&gt; [&#039;s&#039; =&gt; &quot;israelischer neuer Schekel&quot;, &#039;p&#039; =&gt; &quot;israelischen neuen Schekel&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Agorot&quot;, &#039;p&#039; =&gt; &quot;Agorot&quot;]],
+    &#039;inr&#039; =&gt; [&#039;s&#039; =&gt; &quot;indische Rupie&quot;, &#039;p&#039; =&gt; &quot;indische Rupien&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Paisa],
+    &#039;iqd&#039; =&gt; [&#039;s&#039; =&gt; &quot;irakischer Dinar&quot;, &#039;p&#039; =&gt; &quot;irakische Dinare&quot;, &#039;minor&#039; =&gt; Fils_3dec],
+    &#039;irr&#039; =&gt; [&#039;s&#039; =&gt; &quot;iranischer Rial&quot;, &#039;p&#039; =&gt; &quot;Iranische Rial&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Dinar&quot;, &#039;p&#039; =&gt; &quot;Dinare&quot;]],
+    &#039;isk&#039; =&gt; [&#039;s&#039; =&gt; &quot;isländische Krone&quot;, &#039;p&#039; =&gt; &quot;isländische Kronen&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Eyrir&quot;, &#039;p&#039; =&gt; &quot;Aurar&quot;, &#039;u&#039; =&gt; false]],
+    &#039;jmd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Jamaika-Dollar&quot;, &#039;p&#039; =&gt; &quot;Jamaika-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;jod&#039; =&gt; [&#039;s&#039; =&gt; &quot;jordanischer Dinar&quot;, &#039;p&#039; =&gt; &quot;jordanische Dinare&quot;, &#039;minor&#039; =&gt; Piastres_3dec],
+    &#039;jpy&#039; =&gt; [&#039;s&#039; =&gt; &quot;japanischer Yen&quot;, &#039;p&#039; =&gt; &quot;japanische Yen&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Sen&quot;, &#039;p&#039; =&gt; &quot;Sen&quot;, &#039;u&#039; =&gt; false]],
+    &#039;kes&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kenia-Schilling&quot;, &#039;p&#039; =&gt; &quot;Kenia-Schilling&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;kgs&#039; =&gt; [&#039;s&#039; =&gt; &quot;kirgistanischer Som&quot;, &#039;p&#039; =&gt; &quot;kirgistanische Som&quot;, &#039;minor&#039; =&gt; Tyiyn],
+    &#039;khr&#039; =&gt; [&#039;s&#039; =&gt; &quot;kambodschanischer Riel&quot;, &#039;p&#039; =&gt; &quot;kambodschanische Riel&quot;, &#039;minor&#039; =&gt; Sen],
+    &#039;kmf&#039; =&gt; [&#039;s&#039; =&gt; &quot;Komoren-Franc&quot;, &#039;p&#039; =&gt; &quot;Komoren-Francs&quot;, &#039;minor&#039; =&gt; Centimes_NotUsed],
+    &#039;kpw&#039; =&gt; [&#039;s&#039; =&gt; &quot;nordkoreanischer Won&quot;, &#039;p&#039; =&gt; &quot;nordkoreanische Won&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Chon&quot;, &#039;p&#039; =&gt; &quot;Chon&quot;]],
+    &#039;krw&#039; =&gt; [&#039;s&#039; =&gt; &quot;südkoreanischer Won&quot;, &#039;p&#039; =&gt; &quot;südkoreanische Won&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Chon&quot;, &#039;p&#039; =&gt; &quot;Chon&quot;, &#039;u&#039; =&gt; false]],
+    &#039;kwd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kuwait-Dinar&quot;, &#039;p&#039; =&gt; &quot;Kuwait-Dinare&quot;, &#039;minor&#039; =&gt; Fils_3dec],
+    &#039;kyd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kaiman-Dollar&quot;, &#039;p&#039; =&gt; &quot;Kaiman-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;kzt&#039; =&gt; [&#039;s&#039; =&gt; &quot;kasachischer Tenge&quot;, &#039;p&#039; =&gt; &quot;kasachische Tenge&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Tiyn&quot;, &#039;p&#039; =&gt; &quot;Tiyn&quot;]],
+    &#039;lak&#039; =&gt; [&#039;s&#039; =&gt; &quot;laotischer Kip&quot;, &#039;p&#039; =&gt; &quot;laotische Kip&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Att&quot;, &#039;p&#039; =&gt; &quot;Att&quot;]],
+    &#039;lbp&#039; =&gt; [&#039;s&#039; =&gt; &quot;libanesisches Pfund&quot;, &#039;p&#039; =&gt; &quot;libanesische Pfunde&quot;, &#039;minor&#039; =&gt; Piastres],
+    &#039;lkr&#039; =&gt; [&#039;s&#039; =&gt; &quot;Sri-Lanka-Rupie&quot;, &#039;p&#039; =&gt; &quot;Sri-Lanka-Rupien&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Cents],
+    &#039;lrd&#039; =&gt; [&#039;s&#039; =&gt; &quot;liberianischer Dollar&quot;, &#039;p&#039; =&gt; &quot;liberianische Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;lsl&#039; =&gt; [&#039;s&#039; =&gt; &quot;lesothischer Loti&quot;, &#039;p&#039; =&gt; &quot;lesothischer Loti&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Sente&quot;, &#039;p&#039; =&gt; &quot;Lisente&quot;]],
+    &#039;lyd&#039; =&gt; [&#039;s&#039; =&gt; &quot;libyscher Dinar&quot;, &#039;p&#039; =&gt; &quot;libysche Dinare&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Dirham&quot;, &#039;p&#039; =&gt; &quot;Dirham&quot;, &#039;d&#039; =&gt; 3]],
+    &#039;mad&#039; =&gt; [&#039;s&#039; =&gt; &quot;marokkanischer Dirham&quot;, &#039;p&#039; =&gt; &quot;marokkanische Dirham&quot;, &#039;minor&#039; =&gt; Centimes],
+    &#039;mdl&#039; =&gt; [&#039;s&#039; =&gt; &quot;moldauischer Leu&quot;, &#039;p&#039; =&gt; &quot;moldauischer Lei&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Bani&quot;, &#039;p&#039; =&gt; &quot;Bani&quot;]],
+    &#039;mga&#039; =&gt; [&#039;s&#039; =&gt; &quot;madagassischer Ariary&quot;, &#039;p&#039; =&gt; &quot;madagassische Ariary&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Iraimbilanja&quot;, &#039;p&#039; =&gt; &quot;Iraimbilanja&quot;, &#039;f&#039; =&gt; true]],
+    &#039;mkd&#039; =&gt; [&#039;s&#039; =&gt; &quot;mazedonischer Denar&quot;, &#039;p&#039; =&gt; &quot;mazedonische Denare&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Deni&quot;, &#039;p&#039; =&gt; &quot;Deni&quot;, &#039;u&#039; =&gt; false]],
+    &#039;mmk&#039; =&gt; [&#039;s&#039; =&gt; &quot;Myanmar-Kyat&quot;, &#039;p&#039; =&gt; &quot;Myanmar-Kyat&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Pya&quot;, &#039;p&#039; =&gt; &quot;Pya&quot;]],
+    &#039;mnt&#039; =&gt; [&#039;s&#039; =&gt; &quot;mongolischer Tögrög&quot;, &#039;p&#039; =&gt; &quot;mongolische Tögrög&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Möngö&quot;, &#039;p&#039; =&gt; &quot;Möngö&quot;]],
+    &#039;mop&#039; =&gt; [&#039;s&#039; =&gt; &quot;Macau-Pataca&quot;, &#039;p&#039; =&gt; &quot;Macau-Pataca&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Avos&quot;, &#039;p&#039; =&gt; &quot;Avos&quot;]],
+    &#039;mru&#039; =&gt; [&#039;s&#039; =&gt; &quot;mauretanischer Ouguiya&quot;, &#039;p&#039; =&gt; &quot;mauretanische Ouguiya&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Khoums&quot;, &#039;p&#039; =&gt; &quot;Khoums&quot;]],
+    &#039;mur&#039; =&gt; [&#039;s&#039; =&gt; &quot;Mauritius-Rupie&quot;, &#039;p&#039; =&gt; &quot;Mauritius-Rupien&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Cents],
+    &#039;mvr&#039; =&gt; [&#039;s&#039; =&gt; &quot;maledivische Rufiyaa&quot;, &#039;p&#039; =&gt; &quot;maledivische Rufiyaa&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Laari&quot;, &#039;p&#039; =&gt; &quot;Laari&quot;]],
+    &#039;mxn&#039; =&gt; [&#039;s&#039; =&gt; &quot;mexikanischer Peso&quot;, &#039;p&#039; =&gt; &quot;mexikanische Pesos&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;myr&#039; =&gt; [&#039;s&#039; =&gt; &quot;malaysischer Ringgit&quot;, &#039;p&#039; =&gt; &quot;malaysische Ringgit&quot;, &#039;minor&#039; =&gt; Sen],
+    &#039;mwk&#039; =&gt; [&#039;s&#039; =&gt; &quot;Malawi-Kwacha&quot;, &#039;p&#039; =&gt; &quot;Malawi-Kwacha&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Tambala&quot;, &#039;p&#039; =&gt; &quot;Tambala&quot;]],
+    &#039;mzn&#039; =&gt; [&#039;s&#039; =&gt; &quot;mosambikanisches Metical&quot;, &#039;p&#039; =&gt; &quot;mosambikanische Meticais&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;nad&#039; =&gt; [&#039;s&#039; =&gt; &quot;Namibia-Dollar&quot;, &#039;p&#039; =&gt; &quot;Namibia-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;nio&#039; =&gt; [&#039;s&#039; =&gt; &quot;nicaraguanischer Córdoba&quot;, &#039;p&#039; =&gt; &quot;nicaraguanischer Córdoba&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;ngn&#039; =&gt; [&#039;s&#039; =&gt; &quot;nigerianischer Naira&quot;, &#039;p&#039; =&gt; &quot;nigerianische Naira&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kobe&quot;, &#039;p&#039; =&gt; &quot;Kobo&quot;]],
+    &#039;npr&#039; =&gt; [&#039;s&#039; =&gt; &quot;nepalesische Rupie&quot;, &#039;p&#039; =&gt; &quot;nepalesische Rupien&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Paisa],
+    &#039;nok&#039; =&gt; [&#039;s&#039; =&gt; &quot;norwegische Krone&quot;, &#039;p&#039; =&gt; &quot;norwegische Kronen&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Øre&quot;, &#039;p&#039; =&gt; &quot;Øre&quot;]],
+    &#039;nzd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Neuseeland-Dollar&quot;, &#039;p&#039; =&gt; &quot;Neuseeland-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;omr&#039; =&gt; [&#039;s&#039; =&gt; &quot;omanischer Rial&quot;, &#039;p&#039; =&gt; &quot;omanische Rial&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Baisa&quot;, &#039;p&#039; =&gt; &quot;Baisa&quot;, &#039;d&#039; =&gt; 3, &#039;f&#039; =&gt; true]],
+    &#039;pab&#039; =&gt; [&#039;s&#039; =&gt; &quot;panamaischer Balboa&quot;, &#039;p&#039; =&gt; &quot;panamaische Balboa&quot;, &#039;minor&#039; =&gt; Centesimos],
+    &#039;pen&#039; =&gt; [&#039;s&#039; =&gt; &quot;peruanischer Sol&quot;, &#039;p&#039; =&gt; &quot;peruanische Sol&quot;, &#039;minor&#039; =&gt; Centimos],
+    &#039;pgk&#039; =&gt; [&#039;s&#039; =&gt; &quot;Papua-Kina&quot;, &#039;p&#039; =&gt; &quot;Papua-Kina&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Toea&quot;, &#039;p&#039; =&gt; &quot;Toea&quot;]],
+    &#039;php&#039; =&gt; [&#039;s&#039; =&gt; &quot;philippinischer Peso&quot;, &#039;p&#039; =&gt; &quot;philippinische Pesos&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;pkr&#039; =&gt; [&#039;s&#039; =&gt; &quot;pakistanische Rupie&quot;, &#039;p&#039; =&gt; &quot;pakistanische Rupien&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Paisa],
+    &#039;pln&#039; =&gt; [&#039;s&#039; =&gt; &quot;polnischer Zloty&quot;, &#039;p&#039; =&gt; &quot;polnische Zloty&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Grosz&quot;, &#039;p&#039; =&gt; &quot;Grosze&quot;]],
+    &#039;pyg&#039; =&gt; [&#039;s&#039; =&gt; &quot;paraguayischer Guaraní&quot;, &#039;p&#039; =&gt; &quot;paraguayische Guaraní&quot;, &#039;minor&#039; =&gt; Centimes_NotUsed],
+    &#039;qar&#039; =&gt; [&#039;s&#039; =&gt; &quot;Katar-Riyal&quot;, &#039;p&#039; =&gt; &quot;Katar-Riyal&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Dirham&quot;, &#039;p&#039; =&gt; &quot;Dirham&quot;]],
+    &#039;ron&#039; =&gt; [&#039;s&#039; =&gt; &quot;rumänischer Leu&quot;, &#039;p&#039; =&gt; &quot;rumänische Lei&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Ban&quot;, &#039;p&#039; =&gt; &quot;Bani&quot;]],
+    &#039;rsd&#039; =&gt; [&#039;s&#039; =&gt; &quot;serbischer Dinar&quot;, &#039;p&#039; =&gt; &quot;serbische Dinare&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Para&quot;, &#039;p&#039; =&gt; &quot;Para&quot;]],
+    &#039;rub&#039; =&gt; [&#039;s&#039; =&gt; &quot;russischer Rubel&quot;, &#039;p&#039; =&gt; &quot;russische Rubel&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kopeke&quot;, &#039;p&#039; =&gt; &quot;Kopeken&quot;, &#039;f&#039; =&gt; true]],
+    &#039;rwf&#039; =&gt; [&#039;s&#039; =&gt; &quot;Ruanda-Franc&quot;, &#039;p&#039; =&gt; &quot;Ruanda-Francs&quot;, &#039;minor&#039; =&gt; Centimes_NotUsed],
+    &#039;sar&#039; =&gt; [&#039;s&#039; =&gt; &quot;Saudi-Riyal&quot;, &#039;p&#039; =&gt; &quot;Saudi-Riyal&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Halala&quot;, &#039;p&#039; =&gt; &quot;Halalas&quot;]],
+    &#039;sbd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Salomonen-Dollar&quot;, &#039;p&#039; =&gt; &quot;Salomonen-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;scr&#039; =&gt; [&#039;s&#039; =&gt; &quot;Seychellen-Rupie&quot;, &#039;p&#039; =&gt; &quot;Seychellen-Rupien&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Cents],
+    &#039;sdg&#039; =&gt; [&#039;s&#039; =&gt; &quot;sudanesisches Pfund&quot;, &#039;p&#039; =&gt; &quot;sudanesische Pfunde&quot;, &#039;minor&#039; =&gt; Piastres],
+    &#039;sek&#039; =&gt; [&#039;s&#039; =&gt; &quot;swedische Krone&quot;, &#039;p&#039; =&gt; &quot;swedische Kronen&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Öre&quot;, &#039;p&#039; =&gt; &quot;Öre&quot;]],
+    &#039;sgd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Singapur-Dollar&quot;, &#039;p&#039; =&gt; &quot;Singapur-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;shp&#039; =&gt; [&#039;s&#039; =&gt; &quot;St.-Helena-Pfund&quot;, &#039;p&#039; =&gt; &quot;St.-Helena-Pfunde&quot;, &#039;minor&#039; =&gt; Pence],
+    &#039;sll&#039; =&gt; [&#039;s&#039; =&gt; &quot;sierra-leonischer Leone&quot;, &#039;p&#039; =&gt; &quot;sierra-leonische Leones&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;sos&#039; =&gt; [&#039;s&#039; =&gt; &quot;Somalia-Schilling&quot;, &#039;p&#039; =&gt; &quot;Somalia-Schilling&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;srd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Suriname-Dollar&quot;, &#039;p&#039; =&gt; &quot;Suriname-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;ssp&#039; =&gt; [&#039;s&#039; =&gt; &quot;südsudanesisches Pfund&quot;, &#039;p&#039; =&gt; &quot;südsudanesische Pfunde&quot;, &#039;minor&#039; =&gt; Piastres],
+    &#039;stn&#039; =&gt; [&#039;s&#039; =&gt; &quot;são-toméischer Dobra&quot;, &#039;p&#039; =&gt; &quot;são-toméische Dobra&quot;, &#039;minor&#039; =&gt; Centimos],
+    &#039;svc&#039; =&gt; [&#039;s&#039; =&gt; &quot;El-Salvador-Colón&quot;, &#039;p&#039; =&gt; &quot;El-Salvador-Colones&quot;, &#039;minor&#039; =&gt; Centavos],
+    &#039;syp&#039; =&gt; [&#039;s&#039; =&gt; &quot;syrische Lira&quot;, &#039;p&#039; =&gt; &quot;syrische Lira&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; Piastres],
+    &#039;szl&#039; =&gt; [&#039;s&#039; =&gt; &quot;Swasi-Lilangeni&quot;, &#039;p&#039; =&gt; &quot;Swasi-Emalangeni&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;thb&#039; =&gt; [&#039;s&#039; =&gt; &quot;thailändischer Baht&quot;, &#039;p&#039; =&gt; &quot;thailändische Baht&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Satang&quot;, &#039;p&#039; =&gt; &quot;Satang&quot;]],
+    /// HERE JACKASS
+    &#039;tjs&#039; =&gt; [&#039;s&#039; =&gt; &quot;tadschikischer Somoni&quot;, &#039;p&#039; =&gt; &quot;tadschikische Somoni&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Diram&quot;, &#039;p&#039; =&gt; &quot;Diram&quot;]],
+    &#039;tmt&#039; =&gt; [&#039;s&#039; =&gt; &quot;Turkmenistan-Manat&quot;, &#039;p&#039; =&gt; &quot;Turkmenistan-Manat&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Teňňe&quot;, &#039;p&#039; =&gt; &quot;Teňňe&quot;]],
+    &#039;tnd&#039; =&gt; [&#039;s&#039; =&gt; &quot;tunesischer Dinar&quot;, &#039;p&#039; =&gt; &quot;tunesische Dinare&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Milime&quot;, &#039;p&#039; =&gt; &quot;Milimes&quot;, &#039;d&#039; =&gt; 3]],
+    &#039;top&#039; =&gt; [&#039;s&#039; =&gt; &quot;tongaischer Paʻanga&quot;, &#039;p&#039; =&gt; &quot;tongaische Paʻanga&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Seniti&quot;, &#039;p&#039; =&gt; &quot;Seniti&quot;]],
+    &#039;try&#039; =&gt; [&#039;s&#039; =&gt; &quot;türkische Lira&quot;, &#039;p&#039; =&gt; &quot;türkische Lira&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kuruş&quot;, &#039;p&#039; =&gt; &quot;Kuruş&quot;]],
+    &#039;ttd&#039; =&gt; [&#039;s&#039; =&gt; &quot;Trinidad-und-Tobago-Dollar&quot;, &#039;p&#039; =&gt; &quot;Trinidad-und-Tobago-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;twd&#039; =&gt; [&#039;s&#039; =&gt; &quot;neuer Taiwan-Dollar&quot;, &#039;p&#039; =&gt; &quot;neue Taiwan-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;tzs&#039; =&gt; [&#039;s&#039; =&gt; &quot;Tansania-Schilling&quot;, &#039;p&#039; =&gt; &quot;Tansania-Schilling&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;uah&#039; =&gt; [&#039;s&#039; =&gt; &quot;ukrainische Hryvnia&quot;, &#039;p&#039; =&gt; &quot;ukrainische Hryvni&quot;, &#039;f&#039; =&gt; true, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Kopijka&quot;, &#039;p&#039; =&gt; &quot;Kopijki&quot;]],
+    &#039;ugx&#039; =&gt; [&#039;s&#039; =&gt; &quot;Uganda-Schilling&quot;, &#039;p&#039; =&gt; &quot;Uganda-Schilling&quot;, &#039;minor&#039; =&gt; Cents_NotUsed],
+    &#039;usd&#039; =&gt; [&#039;s&#039; =&gt; &quot;US-Dollar&quot;, &#039;p&#039; =&gt; &quot;US-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;uyu&#039; =&gt; [&#039;s&#039; =&gt; &quot;uruguayischer Peso&quot;, &#039;p&#039; =&gt; &quot;uruguayische Pesos&quot;, &#039;minor&#039; =&gt; Centesimos],
+    &#039;uzs&#039; =&gt; [&#039;s&#039; =&gt; &quot;usbekischer Soʻm&quot;, &#039;p&#039; =&gt; &quot;usbekische Soʻm&quot;, &#039;minor&#039; =&gt; Tyiyn],
+    &#039;ves&#039; =&gt; [&#039;s&#039; =&gt; &quot;venezolanischer Bolívar Soberano&quot;, &#039;p&#039; =&gt; &quot;venezolanische Bolívar Soberano&quot;, &#039;minor&#039; =&gt; Centimos],
+    &#039;vnd&#039; =&gt; [&#039;s&#039; =&gt; &quot;vietnamesischer Đồng&quot;, &#039;p&#039; =&gt; &quot;vietnamesischee Đồng&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Xu&quot;, &#039;p&#039; =&gt; &quot;Xu&quot;, &#039;u&#039; =&gt; false]],
+    &#039;vuv&#039; =&gt; [&#039;s&#039; =&gt; &quot;Vatu&quot;, &#039;p&#039; =&gt; &quot;Vatu&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;&quot;, &#039;p&#039; =&gt; &quot;&quot;, &#039;u&#039; =&gt; false]],
+    &#039;wst&#039; =&gt; [&#039;s&#039; =&gt; &quot;samoanischer Tala&quot;, &#039;p&#039; =&gt; &quot;samoanische Tala&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Sene&quot;, &#039;p&#039; =&gt; &quot;Sene&quot;]],
+    &#039;xaf&#039; =&gt; [&#039;s&#039; =&gt; &quot;zentralafrikanischer CFA-Franc&quot;, &#039;p&#039; =&gt; &quot;zentralafrikanische CFA-Francs&quot;, &#039;minor&#039; =&gt; Centimes_NotUsed],
+    &#039;xcd&#039; =&gt; [&#039;s&#039; =&gt; &quot;ostkaribischer Dollar&quot;, &#039;p&#039; =&gt; &quot;ostkaribische Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;xof&#039; =&gt; [&#039;s&#039; =&gt; &quot;westafrikanischer CFA-Franc&quot;, &#039;p&#039; =&gt; &quot;westafrikanische CFA-Francs&quot;, &#039;minor&#039; =&gt; Centimes_NotUsed],
+    &#039;xpf&#039; =&gt; [&#039;s&#039; =&gt; &quot;CFP-Franc&quot;, &#039;p&#039; =&gt; &quot;CFP-Francs&quot;, &#039;minor&#039; =&gt; Centimes_NotUsed],
+    &#039;yer&#039; =&gt; [&#039;s&#039; =&gt; &quot;Jemen-Rial&quot;, &#039;p&#039; =&gt; &quot;Jemen-Rial&quot;, &#039;minor&#039; =&gt; Fils],
+    &#039;zar&#039; =&gt; [&#039;s&#039; =&gt; &quot;südafrikanischer Rand&quot;, &#039;p&#039; =&gt; &quot;südafrikanische Rand&quot;, &#039;minor&#039; =&gt; Cents],
+    &#039;zmw&#039; =&gt; [&#039;s&#039; =&gt; &quot;sambischer Kwacha&quot;, &#039;p&#039; =&gt; &quot;sambische Kwacha&quot;, &#039;minor&#039; =&gt; [&#039;s&#039; =&gt; &quot;Ngwee&quot;, &#039;p&#039; =&gt; &quot;Ngwee&quot;]],
+    &#039;zwl&#039; =&gt; [&#039;s&#039; =&gt; &quot;Simbabwe-Dollar&quot;, &#039;p&#039; =&gt; &quot;Simbabwe-Dollar&quot;, &#039;minor&#039; =&gt; Cents],
+]</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>'s' - 1 unit
+'p' - more than 1 unit (plural)
+'u' - in use for minor, false if not, otherwise doesn't matter
+'d' - in minor units, describes how many decimal points are in use, if none set defaults to 2</p>
+</section>
+
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_Fils">
+        Fils
+        <a href="namespaces/tei187-resources-iso4217-de.html#constant_Fils" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">2906</span>
 
     </aside>
 
@@ -920,12 +1641,12 @@
     <span class="phpdocumentor-signature__visibility">public</span>
     <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
     <span class="phpdocumentor-signature__name">Fils</span>
-    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;fils&quot;, &#039;p&#039; =&gt; &quot;fils&quot;]</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;Fils&quot;, &#039;p&#039; =&gt; &quot;Fils&quot;]</span>
 </code>
 
 
     
-        <section class="phpdocumentor-description"><p>Regular extension - fils. (EN)</p>
+        <section class="phpdocumentor-description"><p>Regular extension - fils. (DE)</p>
 </section>
 
     
@@ -961,15 +1682,44 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_Fils_3dec">
-        Fils_3dec
-        <a href="namespaces/tei187-resources-iso4217-en.html#constant_Fils_3dec" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_Fils">
+        Fils
+        <a href="namespaces/tei187-resources-iso4217-en.html#constant_Fils" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1815</span>
+    <span class="phpdocumentor-element-found-in__line">1809</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Fils</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;fils&quot;, &#039;p&#039; =&gt; &quot;fils&quot;]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Regular extension - fils. (EN)</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_Fils_3dec">
+        Fils_3dec
+        <a href="namespaces/tei187-resources-iso4217-de.html#constant_Fils_3dec" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">2912</span>
 
     </aside>
 
@@ -978,12 +1728,12 @@
     <span class="phpdocumentor-signature__visibility">public</span>
     <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
     <span class="phpdocumentor-signature__name">Fils_3dec</span>
-    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;fils&quot;, &#039;p&#039; =&gt; &quot;fils&quot;, &#039;d&#039; =&gt; 3]</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;Fils&quot;, &#039;p&#039; =&gt; &quot;Fils&quot;, &#039;d&#039; =&gt; 3]</span>
 </code>
 
 
     
-        <section class="phpdocumentor-description"><p>Regular extension - fils, 3 decimal points. (EN)</p>
+        <section class="phpdocumentor-description"><p>Regular extension - fils, 3 decimal points. (DE)</p>
 </section>
 
     
@@ -1019,15 +1769,44 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_LargeNumbers">
-        LargeNumbers
-        <a href="namespaces/tei187-resources-en.html#constant_LargeNumbers" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_Fils_3dec">
+        Fils_3dec
+        <a href="namespaces/tei187-resources-iso4217-en.html#constant_Fils_3dec" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1716</span>
+    <span class="phpdocumentor-element-found-in__line">1815</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Fils_3dec</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;fils&quot;, &#039;p&#039; =&gt; &quot;fils&quot;, &#039;d&#039; =&gt; 3]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Regular extension - fils, 3 decimal points. (EN)</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_LargeNumbers">
+        LargeNumbers
+        <a href="namespaces/tei187-resources-de.html#constant_LargeNumbers" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">4204</span>
 
     </aside>
 
@@ -1036,12 +1815,12 @@
     <span class="phpdocumentor-signature__visibility">public</span>
     <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
     <span class="phpdocumentor-signature__name">LargeNumbers</span>
-    = <span class="phpdocumentor-signature__default-value">[3 =&gt; [&#039;s&#039; =&gt; &quot;thousand&quot;, &#039;p&#039; =&gt; &quot;thousands&quot;], 6 =&gt; [&#039;s&#039; =&gt; &quot;million&quot;, &#039;p&#039; =&gt; &quot;millions&quot;], 9 =&gt; [&#039;s&#039; =&gt; &quot;billion&quot;, &#039;p&#039; =&gt; &quot;billions&quot;], 12 =&gt; [&#039;s&#039; =&gt; &quot;trillion&quot;, &#039;p&#039; =&gt; &quot;trillions&quot;], 15 =&gt; [&#039;s&#039; =&gt; &quot;quadrillion&quot;, &#039;p&#039; =&gt; &quot;quadrillions&quot;], 18 =&gt; [&#039;s&#039; =&gt; &quot;quintillion&quot;, &#039;p&#039; =&gt; &quot;quintillions&quot;], 21 =&gt; [&#039;s&#039; =&gt; &quot;sextillion&quot;, &#039;p&#039; =&gt; &quot;sextillions&quot;], 24 =&gt; [&#039;s&#039; =&gt; &quot;septillion&quot;, &#039;p&#039; =&gt; &quot;septillions&quot;], 27 =&gt; [&#039;s&#039; =&gt; &quot;octillion&quot;, &#039;p&#039; =&gt; &quot;octillions&quot;]]</span>
+    = <span class="phpdocumentor-signature__default-value">[3 =&gt; [&#039;s&#039; =&gt; &quot;tausend&quot;, &#039;p&#039; =&gt; &quot;tausend&quot;], 6 =&gt; [&#039;s&#039; =&gt; &quot;Million&quot;, &#039;p&#039; =&gt; &quot;Millionen&quot;], 9 =&gt; [&#039;s&#039; =&gt; &quot;Milliarde&quot;, &#039;p&#039; =&gt; &quot;Milliarden&quot;], 12 =&gt; [&#039;s&#039; =&gt; &quot;Billion&quot;, &#039;p&#039; =&gt; &quot;Billionen&quot;], 15 =&gt; [&#039;s&#039; =&gt; &quot;Billiarde&quot;, &#039;p&#039; =&gt; &quot;Billiarden&quot;], 18 =&gt; [&#039;s&#039; =&gt; &quot;Trillion&quot;, &#039;p&#039; =&gt; &quot;Trillionen&quot;], 21 =&gt; [&#039;s&#039; =&gt; &quot;Sextillion&quot;, &#039;p&#039; =&gt; &quot;Sextillionen&quot;], 24 =&gt; [&#039;s&#039; =&gt; &quot;Septillion&quot;, &#039;p&#039; =&gt; &quot;Septillionen&quot;], 27 =&gt; [&#039;s&#039; =&gt; &quot;Octillion&quot;, &#039;p&#039; =&gt; &quot;Octillionen&quot;]]</span>
 </code>
 
 
     
-        <section class="phpdocumentor-description"><p>Transcription parts in English for large numbers.</p>
+        <section class="phpdocumentor-description"><p>Transcription parts in German for large numbers.</p>
 </section>
 
     
@@ -1071,6 +1850,35 @@
 
     
         <section class="phpdocumentor-description"><p>Transcription parts in Polish for large numbers.</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_LargeNumbers">
+        LargeNumbers
+        <a href="namespaces/tei187-resources-en.html#constant_LargeNumbers" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">1716</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">LargeNumbers</span>
+    = <span class="phpdocumentor-signature__default-value">[3 =&gt; [&#039;s&#039; =&gt; &quot;thousand&quot;, &#039;p&#039; =&gt; &quot;thousands&quot;], 6 =&gt; [&#039;s&#039; =&gt; &quot;million&quot;, &#039;p&#039; =&gt; &quot;millions&quot;], 9 =&gt; [&#039;s&#039; =&gt; &quot;billion&quot;, &#039;p&#039; =&gt; &quot;billions&quot;], 12 =&gt; [&#039;s&#039; =&gt; &quot;trillion&quot;, &#039;p&#039; =&gt; &quot;trillions&quot;], 15 =&gt; [&#039;s&#039; =&gt; &quot;quadrillion&quot;, &#039;p&#039; =&gt; &quot;quadrillions&quot;], 18 =&gt; [&#039;s&#039; =&gt; &quot;quintillion&quot;, &#039;p&#039; =&gt; &quot;quintillions&quot;], 21 =&gt; [&#039;s&#039; =&gt; &quot;sextillion&quot;, &#039;p&#039; =&gt; &quot;sextillions&quot;], 24 =&gt; [&#039;s&#039; =&gt; &quot;septillion&quot;, &#039;p&#039; =&gt; &quot;septillions&quot;], 27 =&gt; [&#039;s&#039; =&gt; &quot;octillion&quot;, &#039;p&#039; =&gt; &quot;octillions&quot;]]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Transcription parts in English for large numbers.</p>
 </section>
 
     
@@ -1108,13 +1916,13 @@
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_Numbers">
         Numbers
-        <a href="namespaces/tei187-resources-en.html#constant_Numbers" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="namespaces/tei187-resources-de.html#constant_Numbers" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1670</span>
+    <span class="phpdocumentor-element-found-in__line">4152</span>
 
     </aside>
 
@@ -1123,12 +1931,15 @@
     <span class="phpdocumentor-signature__visibility">public</span>
     <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
     <span class="phpdocumentor-signature__name">Numbers</span>
-    = <span class="phpdocumentor-signature__default-value">[&#039;oox&#039; =&gt; [1 =&gt; &quot;one&quot;, 2 =&gt; &quot;two&quot;, 3 =&gt; &quot;three&quot;, 4 =&gt; &quot;four&quot;, 5 =&gt; &quot;five&quot;, 6 =&gt; &quot;six&quot;, 7 =&gt; &quot;seven&quot;, 8 =&gt; &quot;eight&quot;, 9 =&gt; &quot;nine&quot;], &#039;oxo&#039; =&gt; [10 =&gt; &quot;ten&quot;, 11 =&gt; &quot;eleven&quot;, 12 =&gt; &quot;twelve&quot;, 13 =&gt; &quot;thirteen&quot;, 14 =&gt; &quot;fourteen&quot;, 15 =&gt; &quot;fifteen&quot;, 16 =&gt; &quot;sixteen&quot;, 17 =&gt; &quot;seventeen&quot;, 18 =&gt; &quot;eighteen&quot;, 19 =&gt; &quot;nineteen&quot;, 20 =&gt; &quot;twenty&quot;, 30 =&gt; &quot;thirty&quot;, 40 =&gt; &quot;forty&quot;, 50 =&gt; &quot;fifty&quot;, 60 =&gt; &quot;sixty&quot;, 70 =&gt; &quot;seventy&quot;, 80 =&gt; &quot;eighty&quot;, 90 =&gt; &quot;ninety&quot;], &#039;xoo&#039; =&gt; [100 =&gt; &quot;one hundred&quot;, 200 =&gt; &quot;two hundred&quot;, 300 =&gt; &quot;three hundred&quot;, 400 =&gt; &quot;four hundred&quot;, 500 =&gt; &quot;five hundred&quot;, 600 =&gt; &quot;six hundred&quot;, 700 =&gt; &quot;seven hundred&quot;, 800 =&gt; &quot;eight hundred&quot;, 900 =&gt; &quot;nine hundred&quot;]]</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;oox&#039; =&gt; [1 =&gt; &quot;eins&quot;, 2 =&gt; &quot;zwei&quot;, 3 =&gt; &quot;drei&quot;, 4 =&gt; &quot;vier&quot;, 5 =&gt; &quot;fünf&quot;, 6 =&gt; &quot;sechs&quot;, 7 =&gt; &quot;sieben&quot;, 8 =&gt; &quot;acht&quot;, 9 =&gt; &quot;neun&quot;], &#039;oxo&#039; =&gt; [10 =&gt; &quot;zehn&quot;, 11 =&gt; &quot;elf&quot;, 12 =&gt; &quot;zwölf&quot;, 13 =&gt; &quot;dreizehn&quot;, 14 =&gt; &quot;vierzehn&quot;, 15 =&gt; &quot;fünfzehn&quot;, 16 =&gt; &quot;sechzehn&quot;, 17 =&gt; &quot;siebzehn&quot;, 18 =&gt; &quot;achtzehn&quot;, 19 =&gt; &quot;neunzehn&quot;, 20 =&gt; &quot;zwanzig&quot;, 30 =&gt; &quot;dreißig&quot;, 40 =&gt; &quot;vierzig&quot;, 50 =&gt; &quot;fünfzig&quot;, 60 =&gt; &quot;sechzig&quot;, 70 =&gt; &quot;siebzig&quot;, 80 =&gt; &quot;achtzig&quot;, 90 =&gt; &quot;neunzig&quot;], &#039;xoo&#039; =&gt; [100 =&gt; &quot;einhundert&quot;, 200 =&gt; &quot;zweihundert&quot;, 300 =&gt; &quot;dreihundert&quot;, 400 =&gt; &quot;vierhundert&quot;, 500 =&gt; &quot;fünfhundert&quot;, 600 =&gt; &quot;sechshundert&quot;, 700 =&gt; &quot;siebenhundert&quot;, 800 =&gt; &quot;achthundert&quot;, 900 =&gt; &quot;neunhundert&quot;], &#039;ooy&#039; =&gt; [
+    // for 10^x (x&gt;=6)
+    1 =&gt; [&#039;m&#039; =&gt; &#039;ein&#039;, &#039;f&#039; =&gt; &#039;eine&#039;],
+]]</span>
 </code>
 
 
     
-        <section class="phpdocumentor-description"><p>Transcription parts in English for numbers.</p>
+        <section class="phpdocumentor-description"><p>Transcription parts in German for numbers.</p>
 </section>
 
     
@@ -1164,6 +1975,35 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_Numbers">
+        Numbers
+        <a href="namespaces/tei187-resources-en.html#constant_Numbers" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">1670</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Numbers</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;oox&#039; =&gt; [1 =&gt; &quot;one&quot;, 2 =&gt; &quot;two&quot;, 3 =&gt; &quot;three&quot;, 4 =&gt; &quot;four&quot;, 5 =&gt; &quot;five&quot;, 6 =&gt; &quot;six&quot;, 7 =&gt; &quot;seven&quot;, 8 =&gt; &quot;eight&quot;, 9 =&gt; &quot;nine&quot;], &#039;oxo&#039; =&gt; [10 =&gt; &quot;ten&quot;, 11 =&gt; &quot;eleven&quot;, 12 =&gt; &quot;twelve&quot;, 13 =&gt; &quot;thirteen&quot;, 14 =&gt; &quot;fourteen&quot;, 15 =&gt; &quot;fifteen&quot;, 16 =&gt; &quot;sixteen&quot;, 17 =&gt; &quot;seventeen&quot;, 18 =&gt; &quot;eighteen&quot;, 19 =&gt; &quot;nineteen&quot;, 20 =&gt; &quot;twenty&quot;, 30 =&gt; &quot;thirty&quot;, 40 =&gt; &quot;forty&quot;, 50 =&gt; &quot;fifty&quot;, 60 =&gt; &quot;sixty&quot;, 70 =&gt; &quot;seventy&quot;, 80 =&gt; &quot;eighty&quot;, 90 =&gt; &quot;ninety&quot;], &#039;xoo&#039; =&gt; [100 =&gt; &quot;one hundred&quot;, 200 =&gt; &quot;two hundred&quot;, 300 =&gt; &quot;three hundred&quot;, 400 =&gt; &quot;four hundred&quot;, 500 =&gt; &quot;five hundred&quot;, 600 =&gt; &quot;six hundred&quot;, 700 =&gt; &quot;seven hundred&quot;, 800 =&gt; &quot;eight hundred&quot;, 900 =&gt; &quot;nine hundred&quot;]]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Transcription parts in English for numbers.</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_NumberToCode">
         NumberToCode
         <a href="namespaces/tei187-resources-iso4217.html#constant_NumberToCode" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1172,7 +2012,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2857</span>
+    <span class="phpdocumentor-element-found-in__line">3989</span>
 
     </aside>
 
@@ -1251,6 +2091,35 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_Paisa">
+        Paisa
+        <a href="namespaces/tei187-resources-iso4217-de.html#constant_Paisa" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">2938</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Paisa</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;Paisa&quot;, &#039;p&#039; =&gt; &quot;Paisa&quot;]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Regular extension - paisa. (DE)</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_Pence">
         Pence
         <a href="namespaces/tei187-resources-iso4217-en.html#constant_Pence" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1280,6 +2149,35 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_Pence">
+        Pence
+        <a href="namespaces/tei187-resources-iso4217-de.html#constant_Pence" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">2919</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Pence</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;Penny&quot;, &#039;p&#039; =&gt; &quot;Pence&quot;]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Regular extension - pence. (DE)</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_Pens">
         Pens
         <a href="namespaces/tei187-resources-iso4217-pl.html#constant_Pens" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1303,6 +2201,35 @@
 
     
         <section class="phpdocumentor-description"><p>Regular extension - pens. (PL)</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_Piastres">
+        Piastres
+        <a href="namespaces/tei187-resources-iso4217-de.html#constant_Piastres" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">2925</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Piastres</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;Piaster&quot;, &#039;p&#039; =&gt; &quot;Piaster&quot;]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Regular extension - piastres. (DE)</p>
 </section>
 
     
@@ -1369,35 +2296,6 @@
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_Piastres_3dec">
         Piastres_3dec
-        <a href="namespaces/tei187-resources-iso4217-pl.html#constant_Piastres_3dec" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">201</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
-    <span class="phpdocumentor-signature__name">Piastres_3dec</span>
-    = <span class="phpdocumentor-signature__default-value">[&#039;s1&#039; =&gt; &quot;piastr&quot;, &#039;s2&#039; =&gt; &quot;piastry&quot;, &#039;s3&#039; =&gt; &quot;piastrów&quot;, &#039;f&#039; =&gt; false, &#039;d&#039; =&gt; 2]</span>
-</code>
-
-
-    
-        <section class="phpdocumentor-description"><p>Regular extension - piastres, 3 decimal points. (PL)</p>
-</section>
-
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_Piastres_3dec">
-        Piastres_3dec
         <a href="namespaces/tei187-resources-iso4217-en.html#constant_Piastres_3dec" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
 
@@ -1425,15 +2323,73 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_Sen">
-        Sen
-        <a href="namespaces/tei187-resources-iso4217-pl.html#constant_Sen" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_Piastres_3dec">
+        Piastres_3dec
+        <a href="namespaces/tei187-resources-iso4217-de.html#constant_Piastres_3dec" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">210</span>
+    <span class="phpdocumentor-element-found-in__line">2931</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Piastres_3dec</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;Piaster&quot;, &#039;p&#039; =&gt; &quot;Piaster&quot;, &#039;d&#039; =&gt; 3]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Regular extension - piastres, 3 decimal points. (DE)</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_Piastres_3dec">
+        Piastres_3dec
+        <a href="namespaces/tei187-resources-iso4217-pl.html#constant_Piastres_3dec" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">201</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Piastres_3dec</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s1&#039; =&gt; &quot;piastr&quot;, &#039;s2&#039; =&gt; &quot;piastry&quot;, &#039;s3&#039; =&gt; &quot;piastrów&quot;, &#039;f&#039; =&gt; false, &#039;d&#039; =&gt; 2]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Regular extension - piastres, 3 decimal points. (PL)</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_Sen">
+        Sen
+        <a href="namespaces/tei187-resources-iso4217-de.html#constant_Sen" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">2944</span>
 
     </aside>
 
@@ -1442,12 +2398,12 @@
     <span class="phpdocumentor-signature__visibility">public</span>
     <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
     <span class="phpdocumentor-signature__name">Sen</span>
-    = <span class="phpdocumentor-signature__default-value">[&#039;s1&#039; =&gt; &quot;sen&quot;, &#039;s2&#039; =&gt; &quot;seny&quot;, &#039;s3&#039; =&gt; &quot;senów&quot;, &#039;f&#039; =&gt; false]</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;Sen&quot;, &#039;p&#039; =&gt; &quot;Sen&quot;]</span>
 </code>
 
 
     
-        <section class="phpdocumentor-description"><p>Regular extension - sen. (PL)</p>
+        <section class="phpdocumentor-description"><p>Regular extension - sen. (DE)</p>
 </section>
 
     
@@ -1483,6 +2439,35 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_Sen">
+        Sen
+        <a href="namespaces/tei187-resources-iso4217-pl.html#constant_Sen" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">210</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Sen</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s1&#039; =&gt; &quot;sen&quot;, &#039;s2&#039; =&gt; &quot;seny&quot;, &#039;s3&#039; =&gt; &quot;senów&quot;, &#039;f&#039; =&gt; false]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Regular extension - sen. (PL)</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_Tiyin">
         Tiyin
         <a href="namespaces/tei187-resources-iso4217-pl.html#constant_Tiyin" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1506,6 +2491,35 @@
 
     
         <section class="phpdocumentor-description"><p>Regular extension - tiyin. (PL)</p>
+</section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_Tyiyn">
+        Tyiyn
+        <a href="namespaces/tei187-resources-iso4217-de.html#constant_Tyiyn" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Slownie.resources.php"><a href="files/src-slownie-resources.html"><abbr title="src/Slownie.resources.php">Slownie.resources.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">2950</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">Tyiyn</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;s&#039; =&gt; &quot;Tyiyn&quot;, &#039;p&#039; =&gt; &quot;Tyiyn&quot;]</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"><p>Regular extension - tyiyn. (DE)</p>
 </section>
 
     
