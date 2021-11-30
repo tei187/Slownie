@@ -1,5 +1,5 @@
 # Slownie
-Class used to transcribe float values into words in English, German or Polish language, useful when word transcription is necessary (amount verification, genitive case use). Supports amounts up to 99.999.999.999.999 in many currencies (current list below).
+Class used to transcribe float values into words in English, German or Polish language, useful when word transcription is necessary (amount verification, genitive case use). Supports amounts up to 999.999.999.999.999.999.999 in many currencies (current list below).
 **(Work in progress... more of a proof of concept)**
 
 
@@ -9,14 +9,14 @@ Class used to transcribe float values into words in English, German or Polish la
 ### Basic
 ```php
 // EN EXTENSION
-$en = new tei187\Slownie\EN(12345.31, 'pln');  // (EN)
+$en = new tei187\Slownie\EN("12345.31", 'pln');  // (EN)
 echo $en->output();                            // outputs: twelve thousand three hundred forty five Polish zlotys, thirty one grosze
-echo $en->output(999999999.99, 'usd');         // outputs: nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine United States dollars, ninety nine cents
+echo $en->output("999999999.99", 'usd');         // outputs: nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine United States dollars, ninety nine cents
 
 // PL EXTENSION
-$pl = new tei187\Slownie\PL(12345.31, 'pln');  // (PL)
+$pl = new tei187\Slownie\PL("12345.31", 'pln');  // (PL)
 echo $pl->output();                            // outputs: dwanaście tysięcy trzysta czterdzieści pięć złotych, trzydzieści jeden groszy
-echo $pl->output(999999999.99, 'usd');         // outputs: dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć dolarów amerykańskich, dziewięćdziesiąt dziewięć centów
+echo $pl->output("999999999.99", 'usd');         // outputs: dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć dolarów amerykańskich, dziewięćdziesiąt dziewięć centów
 ```
 
 
@@ -27,53 +27,15 @@ echo $pl->output(999999999.99, 'usd');         // outputs: dziewięćset dziewi�
 Depending on use, sometimes it is not necessary to use a full-word notation of fractional currency but its' actual fractional transcription. In this case you could use `setFractions(true)`.
 ```php
 // EN Extension
-$en = new tei187\Slownie\EN(123.45, 'usd'); // meaning the amount of 123.45 USD (EN)
+$en = new tei187\Slownie\EN("123.45", 'usd'); // meaning the amount of 123.45 USD (EN)
 echo $en->output();                         // outputs: one hundred twenty three United States dollars, forty five cents
 echo $en->setFractions(true)->output();     // outputs: one hundred twenty three United States dollars 45/100
 ```
 ```php
 // PL Extension
-$pl = new tei187\Slownie\PL(123.45, 'usd'); // meaning the amount of 123.45 USD (PL)
+$pl = new tei187\Slownie\PL("123.45", 'usd'); // meaning the amount of 123.45 USD (PL)
 echo $pl->output();                         // outputs: sto dwadzieścia trzy dolary amerykańskie, czterdzieści pięć centów
 echo $pl->setFractions(true)->output();     // outputs: sto dwadzieścia trzy dolary amerykańskie 45/100
-```
-
-
-
-#### Rounding
-It is possible to assign a specific type of rounding with `setRounding()` method, which can assign one of three rounding methods: 
-- `"none"` (no rounding, does not check if exponent is used),
-- `"normal"` (halves up),
-- `"bankers"` (so-called *"banker's rounding"* or halves-up-to-even).
-```php
-// EN EXTENSION
-$en = new tei187\Slownie\EN(0.5, 'jpy'); // meaning the amount of 0.5 JPY (EN)
-
-$en->setRounding("none");    // set rounding method to none (disables rounding of exponent)
-echo $en->output();          // outputs: "fifty sen"
-
-$en->setRounding("normal");  // set rounding method to normal
-echo $en->output();          // outputs: "one Japanese yen", because JPY currency uses no exponent and as such 0.50 JPY will round up to 1.00 JPY
-
-$en->setRounding("bankers"); // set rounding method to banker's rounding
-echo $en->output();          // outputs an empty string, because: 
-                             // 1) JPY currency uses no exponent, 
-                             // 2) banker's method rounds halves to even numbers, hence rounding outcome is 0.
-```
-```php
-// PL EXTENSION
-$pl = new tei187\Slownie\PL(0.5, 'jpy'); // meaning the amount of 0.5 JPY (PL)
-
-$pl->setRounding("none");    // set rounding method to none (disables rounding of exponent)
-echo $pl->output();          // outputs: "pięćdziesiąt senów"
-
-$pl->setRounding("normal");  // set rounding method to normal
-echo $pl->output();          // outputs: "jeden jen", because JPY currency uses no exponent
-
-$pl->setRounding("bankers"); // set rounding method to banker's rounding
-echo $pl->output();          // outputs an empty string, because: 
-                             // 1) JPY currency uses no exponent, 
-                             // 2) banker's method rounds halves to even numbers, hence rounding outcome is 0.
 ```
 
 
@@ -82,13 +44,13 @@ echo $pl->output();          // outputs an empty string, because:
 Currencies can be passed as both IS0 4217 currency codes and ISO 4217 currency numbers.
 ```php
 // EN EXTENSION
-$en = new tei187\Slownie\EN(5.51);      // (EN)
+$en = new tei187\Slownie\EN("5.51");      // (EN)
 echo $en->setCurrency("bob")->output(); // outputs: five bolivianos, fifty one centavos
 echo $en->setCurrency("068")->output(); // outputs: five bolivianos, fifty one centavos
 ```
 ```php
 // PL EXTENSION
-$pl = new tei187\Slownie\PL(5.51);      // (PL)
+$pl = new tei187\Slownie\PL("5.51");      // (PL)
 echo $pl->setCurrency("bob")->output(); // outputs: pięć boliviano, pięćdziesiąt jeden centavo
 echo $pl->setCurrency("068")->output(); // outputs: pięć boliviano, pięćdziesiąt jeden centavo
 ```

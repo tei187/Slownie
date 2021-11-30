@@ -116,11 +116,12 @@
 
     // [ amount, currency, fractional notation ]
     $pool = [
-        [ 1234567.89133, 'lyd', true],
-        [ 999999999.99, 'usd', false],
-        [ 12.50, '060', false ],
-        [ 5432, 'none', false ],
-        [ 1000000000, 'usd', true]
+        [ "1234567.89133", 'lyd', true],
+        [ "999999999.99", 'usd', false],
+        [ "12.50", '060', false ],
+        [ "5432", 'none', false ],
+        [ "1000000000", 'usd', true],
+        [ "999999999999999999999", 'uah', true]
     ];
 
     $tests = new tei187\Slownie\PL;

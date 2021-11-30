@@ -21,15 +21,10 @@ Search.appendIndex(
             "summary": "Returns\u0020exponent\u0020use\u0020for\u0020set\u0020currency.",
             "url": "classes/tei187-Slownie-SlownieBase.html#method_findExponentUse"
         },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AsetRounding\u0028\u0029",
-            "name": "setRounding",
-            "summary": "Sets\u0020rounding\u0020method.",
-            "url": "classes/tei187-Slownie-SlownieBase.html#method_setRounding"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AroundByMethod\u0028\u0029",
-            "name": "roundByMethod",
-            "summary": "Sets\u0020\u0024this\u002D\u003Erounded\u0020by\u0020specified\u0020\u0024this\u002D\u003Eround\u0020method.",
-            "url": "classes/tei187-Slownie-SlownieBase.html#method_roundByMethod"
+            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AsetFormatting\u0028\u0029",
+            "name": "setFormatting",
+            "summary": "Defines\u0020input\u0020string\u0020formatting.",
+            "url": "classes/tei187-Slownie-SlownieBase.html#method_setFormatting"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003ArelayFractionMinors\u0028\u0029",
             "name": "relayFractionMinors",
@@ -70,11 +65,6 @@ Search.appendIndex(
             "name": "getCurrency",
             "summary": "Returns\u0020currently\u0020set\u0020currency...\u0020in\u0020uppercase.\u0020That\u0027s\u0020pretty\u0020much\u0020it.",
             "url": "classes/tei187-Slownie-SlownieBase.html#method_getCurrency"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AgetRounded\u0028\u0029",
-            "name": "getRounded",
-            "summary": "Returns\u0020input\u0020amount\u0020rounded\u0020by\u0020set\u0020rounding\u0020method.",
-            "url": "classes/tei187-Slownie-SlownieBase.html#method_getRounded"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003Aoutput\u0028\u0029",
             "name": "output",
@@ -165,6 +155,11 @@ Search.appendIndex(
             "name": "rounding",
             "summary": "",
             "url": "classes/tei187-Slownie-SlownieBase.html#property_rounding"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024formatting",
+            "name": "formatting",
+            "summary": "",
+            "url": "classes/tei187-Slownie-SlownieBase.html#property_formatting"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024exponentUse",
             "name": "exponentUse",
