@@ -29,6 +29,8 @@ abstract class SlownieBase {
     protected $currency = "none";
     /** @var string $rounding Rounding method for exponents. "Bankers", "normal", or "none". */
     protected $rounding = "none";
+    /** @var string[] $formatting Settings for number formatting. */
+    protected $formatting = [ 'thousands' => ",", "decimals" => "." ];
 // flags
     /** @var bool $exponent Chosen currencies decimal points, 2 by default. */
     protected $exponentUse = true;
@@ -42,14 +44,13 @@ abstract class SlownieBase {
     /**
      * Class constructor.
      *
-     * @param float|string|null $amount Amount to process. Has to be well formed float or float-formed string.
+     * @param string|null $amount Amount to process. Has to be well formed float or float-formed string.
      * @param string|null $currency ISO 4217 currency code or number (refer to tei187\Resources\ISO4217\{lang}\Currencies or tei187\Resources\ISO4217\NumberToCode). By default "none".
      * @param boolean $fractions If FALSE translates fully, if TRUE uses fractional notation for minor rest.
-     * @param string $rounding Defines type of rounding: "bankers", "normal", "none". By default "none".
      * @param boolean|null $picker Sets flag to use or not use picker rather than full translation of currency.
      * @return void
      */
-    function __construct($amount = null, string $currency = null, bool $fractions = false, string $rounding = "none", bool $picker = null) {
+    function __construct($amount = null, string $currency = null, bool $fractions = false, bool $picker = null) {
         if(is_string($currency)) {
             $this->setCurrency($currency);
         }
@@ -57,9 +58,9 @@ abstract class SlownieBase {
             $this->setPickerUse($picker);
         }
         $this->input = $amount;
-        $this->setRounding($rounding);
+        //$this->setRounding($rounding);
         $this->setFractions($fractions);
-        $this->parse($this->rounded);
+        $this->parse($this->input);
     }
 
     /**
@@ -87,47 +88,16 @@ abstract class SlownieBase {
     }
 
     /**
-     * Sets rounding method.
-     *
-     * @param string|null $rounding Accepts "bankers", "normal". Defaults to null which sets rounding method to "none";
-     * @return self
-     */
-    public function setRounding(string $rounding = null) : self {
-        switch($rounding) {
-            case "bankers": $this->rounding = "bankers"; break;
-            case "normal":  $this->rounding = "normal"; break;
-            default:        $this->rounding = "none"; break;
-        }
-        $this->roundByMethod();
-        $this->needsParsing = true;
-        return $this;
-    }
-
-    /**
-     * Sets $this->rounded by specified $this->round method.
-     *
+     * Defines input string formatting.
+     * 
+     * @param string $thousands Thousands separator.
+     * @param string $decimals Decimal separator.
      * @return void
      */
-    protected function roundByMethod() : void {
-        $temp = doubleval($this->input);
-        if($this->exponent == 0 OR $this->exponentUse !== true) {
-            $exponent = 0;
-        } else {
-            $exponent = $this->exponent;
-        }
-        switch(strtolower($this->rounding)) {
-            case "bankers": 
-                $this->rounded = round($temp, $exponent, PHP_ROUND_HALF_EVEN);
-                break;
-            case "normal":
-                $this->rounded = round($temp, $exponent, PHP_ROUND_HALF_UP);
-                break;
-            default:
-                $this->rounding = "none";
-                $this->rounded = $temp;
-                break;
-        }
-        unset($temp);
+    public function setFormatting(string $thousands = ".", string $decimals = ",") : void {
+        $this->formatting['thousands'] = $thousands != null ? $thousands : $this->formatting['thousands'];
+        $this->formatting['decimals']  = $decimals != null  ? $decimals  : $this->formatting['decimals'];
+        return;
     }
 
     /**
@@ -142,23 +112,27 @@ abstract class SlownieBase {
     /**
      * Parses input amount. Assigns values to $this->amountPart and $this->amountFull.
      *
-     * @param float $v Input amount.
+     * @param string|null $v Input amount.
      * @return boolean Returns TRUE is value is proper, FALSE if otherwise.
      */
-    protected function parse(float $v = null) : bool {
-        $v = str_replace(" ", "", $v); // clear spaces
-        $v = doubleval($v); // convert to double
-        if(is_double($v)) {
-            $v = number_format($v, $this->exponent, ",", "."); // reformat to 123.456,78
-            $v_explode = explode(",", $v);
-            $this->amountPart = $v_explode[1]; // get minor
-            $this->amountFull = array_map(
-                fn($val): string => intval($val), 
-                explode(".", $v_explode[0])
-            ); // explode by separators and remap as integers to avoid leading zeroes for each thousandth part
+    protected function parse(string $v = null) : bool {
+        $v = str_replace($this->formatting['thousands'], "", $v);
+        if(strlen(trim($v)) !== 0 or !is_null($v)) {
+            $exp = explode($this->formatting['decimals'], $v);
+            $final = array_map(
+                function($v) { return strrev($v); }, 
+                array_reverse(str_split(strrev($exp[0]), 3))
+            );
+            $this->amountPart = 
+                count($exp) == 2 
+                ? round(
+                    $exp[1] / (10 ** strlen($exp[1])), 
+                    $this->exponent) * (10 ** $this->exponent)
+                : 0;
+            $this->amountFull = array_map( fn($val): string => intval($val), $final);
         } else {
-            $this->amountFull = [];
-            $this->amountPart = 0;
+            $this->amountPart = null;
+            $this->amountFull = null;
             return false;
         }
         return true;
@@ -303,41 +277,21 @@ abstract class SlownieBase {
     }
 
     /**
-     * Returns input amount rounded by set rounding method.
-     *
-     * @return float|int|string
-     */
-    public function getRounded(bool $padded = false) {
-        if(!$padded) {
-            return $this->rounded;
-        }
-        return number_format($this->rounded, $this->exponent);
-    }
-
-    /**
      * Returns amount in words.
      *
      * @param float|string|null $v Input value. Has to be well formed float or float formed string.
      * @param string $currency ISO 4217 currency code or number.
      * @param boolean|null $fractions If FALSE translates fully, if TRUE uses fractional notation for minor rest.
-     * @param string|null $rounding Defines type of rounding: "bankers", "normal", "none". By default "none".
      * @param boolean|null $picker Sets flag to use or not use picker rather than full translation of currency.
      * @return string Output in words.
      */
-    public function output($v = null, string $currency = null, bool $fractions = null, string $rounding = null, bool $picker = null) : string {
+    public function output($v = null, string $currency = null, bool $fractions = null, bool $picker = null) : string {
         if($v !== null)          { $this->input = $v; }
         if($currency !== null)   { $this->setCurrency($currency); }
         if($picker !== null)     { $this->setPickerUse($picker); }
         if($fractions !== null)  { $this->setFractions($fractions); }
-        if($rounding !== null)   { $this->setRounding($rounding); }
 
-        // if new value introduced and rounding was not changed, 
-        // it still has to be rounded by currently met method
-        if($v !== null and $rounding === null) {
-            $this->roundByMethod();
-        }
-
-        if($this->needsParsing)  { $this->parse($this->rounded); }
+        if($this->needsParsing)  { $this->parse($this->input); }
         return $this->relayString();
     }
 
