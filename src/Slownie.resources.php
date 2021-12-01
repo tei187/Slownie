@@ -201,7 +201,7 @@ const Piastres = [
     's2' => "piastry",
     's3' => "piastrów",
     'f' => false,
-    'd' => 2,
+    'd' => 3,
 ];
 
  /** @var array[] Regular extension - sen. (PL) */
@@ -2847,6 +2847,100 @@ const Currencies = [
     ],
 ];
 
+namespace tei187\Resources\DE;
+
+/** @var array[] Transcription parts in German for numbers. */
+const Numbers = [
+    'oox' => [
+        1 => "eins",
+        2 => "zwei",
+        3 => "drei",
+        4 => "vier",
+        5 => "fünf",
+        6 => "sechs",
+        7 => "sieben",
+        8 => "acht",
+        9 => "neun",
+    ],
+    'oxo' => [
+        10 => "zehn", 
+        11 => "elf", 
+        12 => "zwölf", 
+        13 => "dreizehn", 
+        14 => "vierzehn", 
+        15 => "fünfzehn", 
+        16 => "sechzehn", 
+        17 => "siebzehn", 
+        18 => "achtzehn", 
+        19 => "neunzehn", 
+        20 => "zwanzig",
+        30 => "dreißig",
+        40 => "vierzig", 
+        50 => "fünfzig", 
+        60 => "sechzig", 
+        70 => "siebzig", 
+        80 => "achtzig", 
+        90 => "neunzig",
+    ],
+    'xoo' => [
+        100 => "einhundert",
+        200 => "zweihundert",
+        300 => "dreihundert",
+        400 => "vierhundert",
+        500 => "fünfhundert",
+        600 => "sechshundert",
+        700 => "siebenhundert",
+        800 => "achthundert",
+        900 => "neunhundert",
+    ],
+    'ooy' => [ // for 10^x (x>=6)
+        1 => [
+            'm' => 'ein', 
+            'f' => 'eine'
+        ]
+    ]
+];
+
+/** @var array[] Transcription parts in German for large numbers. */
+const LargeNumbers = [
+     3 => [
+         's' => "tausend",
+         'p' => "tausend", // not really correct, but for simplicity sake
+     ],
+     6 => [
+        's' => "Million",
+        'p' => "Millionen",
+     ],
+     9 => [
+        's' => "Milliarde",
+        'p' => "Milliarden",
+     ],
+    12 => [
+        's' => "Billion",
+        'p' => "Billionen",
+    ],
+    15 => [
+        's' => "Billiarde",
+        'p' => "Billiarden",
+    ],
+    18 => [
+        's' => "Trillion",
+        'p' => "Trillionen",
+    ],
+    21 => [
+        's' => "Sextillion",
+        'p' => "Sextillionen",
+    ],
+    24 => [
+        's' => "Septillion",
+        'p' => "Septillionen",
+    ],
+    27 => [
+        's' => "Octillion",
+        'p' => "Octillionen",
+    ],
+];
+
 namespace tei187\Resources\ISO4217\DE;
 
 /** @var array[] Regular extension - cents. (DE) */
@@ -3981,6 +4075,166 @@ const Currencies = [
 
 namespace tei187\Resources\ISO4217;
 
+const CurrencySpecifics = [
+    'aed' => [ ],
+    'afn' => [ ],
+    'all' => [ ],
+    'amd' => [ ],
+    'ang' => [ ],
+    'aoa' => [ ],
+    'ars' => [ ],
+    'aud' => [ ],
+    'awg' => [ ],
+    'azm' => [ ],
+    'bam' => [ ],
+    'bbd' => [ ],
+    'bdt' => [ ],
+    'bgn' => [ ],
+    'bhd' => [ 'minor' => [ 'd' => 3 ] ],
+    'bif' => [ 'minor' => [ 'u' => false ] ],
+    'bmd' => [ ],
+    'bnd' => [ ],
+    'bob' => [ ],
+    'brl' => [ ],
+    'bsd' => [ ],
+    'btn' => [ ],
+    'bwp' => [ ],
+    'byn' => [ ],
+    'bzd' => [ ],
+    'cad' => [ ],
+    'cdf' => [ ],
+    'chf' => [ ],
+    'clp' => [ 'minor' => [ 'u' => false ] ],
+    'cny' => [ ],
+    'cop' => [ ],
+    'crc' => [ ],
+    'cuc' => [ ],
+    'cup' => [ ],
+    'cve' => [ ],
+    'czk' => [ ],
+    'djf' => [ 'minor' => [ 'u' => false ] ],
+    'dkk' => [ ],
+    'dzd' => [ ],
+    'dop' => [ ],
+    'egp' => [ ],
+    'eur' => [ ],
+    'ern' => [ ],
+    'etb' => [ ],
+    'fjd' => [ ],
+    'fkp' => [ ],
+    'gbp' => [ ],
+    'gel' => [ ],
+    'ghs' => [ ],
+    'gip' => [ ],
+    'gmd' => [ ],
+    'gnf' => [ 'minor' => [ 'u' => false ] ],
+    'gtq' => [ ],
+    'gyd' => [ ],
+    'hnl' => [ ],
+    'hkd' => [ ],
+    'hrk' => [ ],
+    'htg' => [ ],
+    'huf' => [ ],
+    'idr' => [ ],
+    'ils' => [ ],
+    'inr' => [ ],
+    'iqd' => [ 'minor' => [ 'd' => 3 ] ],
+    'irr' => [ ],
+    'isk' => [ 'minor' => [ 'u' => false ] ],
+    'jmd' => [ ],
+    'jod' => [ 'minor' => [ 'd' => 3 ] ],
+    'jpy' => [ 'minor' => [ 'u' => false ] ],
+    'kes' => [ ],
+    'kgs' => [ ],
+    'khr' => [ ],
+    'kmf' => [ 'minor' => [ 'u' => false ] ],
+    'kpw' => [ ],
+    'krw' => [ 'minor' => [ 'u' => false ] ],
+    'kwd' => [ 'minor' => [ 'd' => 3 ] ],
+    'kyd' => [ ],
+    'kzt' => [ ],
+    'lak' => [ ],
+    'lbp' => [ ],
+    'lkr' => [ ],
+    'lrd' => [ ],
+    'lsl' => [ ],
+    'lyd' => [ ],
+    'mad' => [ ],
+    'mdl' => [ ],
+    'mga' => [ ],
+    'mkd' => [ 'minor' => [ 'u' => false ] ],
+    'mmk' => [ ],
+    'mnt' => [ ],
+    'mop' => [ ],
+    'mru' => [ ],
+    'mur' => [ ],
+    'mvr' => [ ],
+    'mxn' => [ ],
+    'myr' => [ ],
+    'mwk' => [ ],
+    'mzn' => [ ],
+    'nad' => [ ],
+    'nio' => [ ],
+    'ngn' => [ ],
+    'npr' => [ ],
+    'nok' => [ ],
+    'nzd' => [ ],
+    'omr' => [ 'minor' => [ 'd' => 3 ] ],
+    'pab' => [ ],
+    'pen' => [ ],
+    'pgk' => [ ],
+    'php' => [ ],
+    'pkr' => [ ],
+    'pln' => [ ],
+    'pyg' => [ 'minor' => [ 'u' => false ] ],
+    'qar' => [ ],
+    'ron' => [ ],
+    'rsd' => [ ],
+    'rub' => [ ],
+    'rwf' => [ 'minor' => [ 'u' => false ] ],
+    'sar' => [ ],
+    'sbd' => [ ],
+    'scr' => [ ],
+    'sdg' => [ ],
+    'sek' => [ ],
+    'sgd' => [ ],
+    'shp' => [ ],
+    'sll' => [ ],
+    'sos' => [ ],
+    'srd' => [ ],
+    'ssp' => [ ],
+    'stn' => [ ],
+    'svc' => [ ],
+    'syp' => [ ],
+    'szl' => [ ],
+    'thb' => [ ],
+    'tjs' => [ ],
+    'tmt' => [ ],
+    'tnd' => [ 'minor' => [ 'd' => 3, ] ],
+    'top' => [ ],
+    'try' => [ ],
+    'ttd' => [ ],
+    'twd' => [ ],
+    'tzs' => [ ],
+    'uah' => [ ],
+    'ugx' => [ 'minor' => [ 'u' => false ] ],
+    'usd' => [ ],
+    'uyu' => [ ],
+    'uzs' => [ ],
+    'ves' => [ ],
+    'vnd' => [ 'minor' => [ 'u' => false ] ],
+    'vuv' => [ 'minor' => [ 'u' => false ] ],
+    'wst' => [ ],
+    'xaf' => [ 'minor' => [ 'u' => false ] ],
+    'xcd' => [ ],
+    'xof' => [ 'minor' => [ 'u' => false ] ],
+    'xpf' => [ 'minor' => [ 'u' => false ] ],
+    'yer' => [ ],
+    'zar' => [ ],
+    'zmw' => [ ],
+    'zwl' => [ ],
+];
+
 /**
  * @var array[] Cross-reference table between ISO 4217 Numbers and currency pickers.
  */
@@ -4142,100 +4396,6 @@ const NumberToCode = [
     '981' => "gel",
     '985' => "pln",
     '986' => "brl",
-];
-
-namespace tei187\Resources\DE;
-
-/** @var array[] Transcription parts in German for numbers. */
-const Numbers = [
-    'oox' => [
-        1 => "eins",
-        2 => "zwei",
-        3 => "drei",
-        4 => "vier",
-        5 => "fünf",
-        6 => "sechs",
-        7 => "sieben",
-        8 => "acht",
-        9 => "neun",
-    ],
-    'oxo' => [
-        10 => "zehn", 
-        11 => "elf", 
-        12 => "zwölf", 
-        13 => "dreizehn", 
-        14 => "vierzehn", 
-        15 => "fünfzehn", 
-        16 => "sechzehn", 
-        17 => "siebzehn", 
-        18 => "achtzehn", 
-        19 => "neunzehn", 
-        20 => "zwanzig",
-        30 => "dreißig",
-        40 => "vierzig", 
-        50 => "fünfzig", 
-        60 => "sechzig", 
-        70 => "siebzig", 
-        80 => "achtzig", 
-        90 => "neunzig",
-    ],
-    'xoo' => [
-        100 => "einhundert",
-        200 => "zweihundert",
-        300 => "dreihundert",
-        400 => "vierhundert",
-        500 => "fünfhundert",
-        600 => "sechshundert",
-        700 => "siebenhundert",
-        800 => "achthundert",
-        900 => "neunhundert",
-    ],
-    'ooy' => [ // for 10^x (x>=6)
-        1 => [
-            'm' => 'ein', 
-            'f' => 'eine'
-        ]
-    ]
-];
-
-/** @var array[] Transcription parts in German for large numbers. */
-const LargeNumbers = [
-     3 => [
-         's' => "tausend",
-         'p' => "tausend", // not really correct, but for simplicity sake
-     ],
-     6 => [
-        's' => "Million",
-        'p' => "Millionen",
-     ],
-     9 => [
-        's' => "Milliarde",
-        'p' => "Milliarden",
-     ],
-    12 => [
-        's' => "Billion",
-        'p' => "Billionen",
-    ],
-    15 => [
-        's' => "Billiarde",
-        'p' => "Billiarden",
-    ],
-    18 => [
-        's' => "Trillion",
-        'p' => "Trillionen",
-    ],
-    21 => [
-        's' => "Sextillion",
-        'p' => "Sextillionen",
-    ],
-    24 => [
-        's' => "Septillion",
-        'p' => "Septillionen",
-    ],
-    27 => [
-        's' => "Octillion",
-        'p' => "Octillionen",
-    ],
 ];
 
 ?>

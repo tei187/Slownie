@@ -69,8 +69,8 @@ abstract class SlownieBase {
      * @return integer Exponent assigned to current currency, otherwise default 2.
      */
     protected function findExponent() : int {
-        if(isset($this->dictionary['currencies'][$this->currency]['minor']['d'])) {
-            return $this->dictionary['currencies'][$this->currency]['minor']['d'];
+        if(isset(\tei187\Resources\ISO4217\CurrencySpecifics[$this->currency]['minor']['d'])) {
+            return \tei187\Resources\ISO4217\CurrencySpecifics[$this->currency]['minor']['d'];
         }
         return 2;
     }
@@ -81,8 +81,8 @@ abstract class SlownieBase {
      * @return boolean Use of exponent for current currency, otherwise FALSE.
      */
     protected function findExponentUse() : bool {
-        if(isset($this->dictionary['currencies'][$this->currency]['minor']['u'])) {
-            return $this->dictionary['currencies'][$this->currency]['minor']['u'];
+        if(isset(\tei187\Resources\ISO4217\CurrencySpecifics[$this->currency]['minor']['u'])) {
+            return \tei187\Resources\ISO4217\CurrencySpecifics[$this->currency]['minor']['d'];
         }
         return true;
     }
@@ -125,10 +125,8 @@ abstract class SlownieBase {
             );
             $this->amountPart = 
                 count($exp) == 2 
-                ? round(
-                    $exp[1] / (10 ** strlen($exp[1])), 
-                    $this->exponent) * (10 ** $this->exponent)
-                : 0;
+                    ? round($exp[1] / (10 ** strlen($exp[1])), $this->exponent) * (10 ** $this->exponent)
+                    : 0;
             $this->amountFull = array_map( fn($val): string => intval($val), $final);
         } else {
             $this->amountPart = null;
@@ -841,6 +839,64 @@ class DE extends \tei187\Slownie\SlownieBase {
             return implode(", ", array_filter($whole));
         }
     }
+}
+
+class Currency {
+    private string $picker;
+    private int    $exponent;
+    private bool   $exponentUse;
+
+    function __construct($c = null) {
+        $this->checkCurrency($c);
+    }
+
+    private function checkCurrency($c) : bool {
+        if(!is_null(Resources\ISO4217\NumberToCode) AND !is_null($c)) {
+            if(is_numeric($c)) {
+                $c = str_pad($c, 3, "0", STR_PAD_LEFT);
+                if(key_exists($c, Resources\ISO4217\NumberToCode))
+                    return $this->assignSpecifics((string) Resources\ISO4217\NumberToCode[$c]);
+            } elseif(ctype_alpha($c)) {
+                if(key_exists(strtolower($c), Resources\ISO4217\CurrencySpecifics))
+                    return $this->assignSpecifics($c);
+            }
+        }
+        return false;
+    }
+
+    private function assignSpecifics(string $c) : void {
+        $specificData = Resources\ISO4217\CurrencySpecifics[strtolower($c)];
+        $this->picker = strtolower($c);
+
+        $this->exponent = 
+            isset($specificData[$c]['minor']['d']) 
+            ? $specificData[$c]['minor']['d'] 
+            : 2;
+
+        $this->exponentUse = 
+            isset($specificData[$c]['minor']['u']) 
+            ? $specificData[$c]['minor']['u'] 
+            : true;
+
+        return;
+    }
+
+    /**
+     * Public equivalent of self::checkCurrency. If parameter is proper, fills object's attributes.
+     *
+     * @param string $c Currency numeric code or alpha code according to ISO4217 standard.
+     * @return boolean
+     */
+    public function set(string $c) : bool {
+        return $this->checkCurrency($c);
+    }
+
+    /** @return string Currently assigned picker. */
+    public function getPicker()      : string { return strtoupper(self::$picker); }
+    /** @return int Assigned currencies' exponent length. */
+    public function getExponent()    : int    { return strtoupper(self::$exponent); }
+    /** @return bool Assigned currencies' exponent use status. */
+    public function getExponentUse() : bool   { return strtoupper(self::$exponentUse); }
 }
 
 ?>
