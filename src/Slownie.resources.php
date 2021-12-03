@@ -118,30 +118,12 @@ const Cents = [
     'f' => false,
 ];
 
- /** @var array[] Regular extension - cents (not used). (PL) */
-  const Cents_NotUsed = [
-    's1' => "cent",
-    's2' => "centy",
-    's3' => "centów",
-    'f' => false,
-    'u' => false
-];
-
  /** @var array[] Regular extension - centavo. (PL) */
 const Centavo = [
     's1' => "centavo",
     's2' => "centavo",
     's3' => "centavo",
     'f' => false,
-];
-
- /** @var array[] Regular extension - centavo (not used). (PL) */
-  const Centavo_NotUsed = [
-    's1' => "centavo",
-    's2' => "centavo",
-    's3' => "centavo",
-    'f' => false,
-    'u' => false
 ];
 
  /** @var array[] Regular extension - centesimo. (PL) */
@@ -160,24 +142,6 @@ const Centims = [
     'f' => false,
 ];
 
- /** @var array[] Regular extension - centims (not used). (PL) */
-  const Centims_NotUsed = [
-    's1' => "centym",
-    's2' => "centymy",
-    's3' => "centymów",
-    'f' => false,
-    'u' => false,
-];
-
- /** @var array[] Regular extension - fils, 3 decimal points. (PL) */
-const Fils_3dec = [
-    's1' => "fils",
-    's2' => "filsy",
-    's3' => "filsów",
-    'f' => false,
-    'd' => 3,
-];
-
  /** @var array[] Regular extension - fils. (PL) */
 const Fils = [
     's1' => "fils",
@@ -192,16 +156,6 @@ const Piastres = [
     's2' => "piastry",
     's3' => "piastrów",
     'f' => false,
-    'd' => 2,
-];
-
- /** @var array[] Regular extension - piastres, 3 decimal points. (PL) */
-  const Piastres_3dec = [
-    's1' => "piastr",
-    's2' => "piastry",
-    's3' => "piastrów",
-    'f' => false,
-    'd' => 3,
 ];
 
  /** @var array[] Regular extension - sen. (PL) */
@@ -387,14 +341,14 @@ const Currencies = [
         's2' => "dinary bahrajskie",
         's3' => "dinarów bahrajskich",
         'f' => false,
-        'minor' => Fils_3dec
+        'minor' => Fils
     ],
     'bif' => [
         's1' => "frank burundyjski",
         's2' => "franki burundyjskie",
         's3' => "franków burundyjskich",
         'f' => false,
-        'minor' => Centims_NotUsed
+        'minor' => Centims
     ],
     'bmd' => [
         's1' => "dolar bermudzki",
@@ -500,7 +454,7 @@ const Currencies = [
         's2' => "peso chillijskie",
         's3' => "peso chillijskich",
         'f' => false,
-        'minor' => Centavo_NotUsed
+        'minor' => Centavo
     ],
     'cny' => [
         's1' => "yuan",
@@ -511,13 +465,11 @@ const Currencies = [
             's1' => "jiao",
             's2' => "jiao",
             's3' => "jiao",
-            'd' => 1,
             'f' => false,
             'minor' => [
                 's1' => "fen",
                 's2' => "feny",
                 's3' => "fenów",
-                'd' => 1,
                 'f' => false,
             ]
         ]
@@ -574,7 +526,7 @@ const Currencies = [
         's2' => "franki dżibutyjskie",
         's3' => "franków dżibutyjskich",
         'f' => false,
-        'minor' => Centims_NotUsed
+        'minor' => Centims
     ],
     'dkk' => [
         's1' => "korona duńska",
@@ -699,7 +651,7 @@ const Currencies = [
         's2' => "franki gwinejskie",
         's3' => "franków gwinejskich",
         'f' => false,
-        'minor' => Centims_NotUsed
+        'minor' => Centims
     ],
     'gtq' => [
         's1' => "quetzal",
@@ -791,7 +743,7 @@ const Currencies = [
         's2' => "dinary irakijskie",
         's3' => "dinarów irakijskich",
         'f' => false,
-        'minor' => Fils_3dec
+        'minor' => Fils
     ],
     'irr' => [
         's1' => "rial irański",
@@ -815,7 +767,6 @@ const Currencies = [
             's2' => "aurar",
             's3' => "aurar",
             'f' => false,
-            'u' => false,
         ]
     ],
     'jmd' => [
@@ -830,7 +781,7 @@ const Currencies = [
         's2' => "dinary jordańskie",
         's3' => "dinarów jordańskich",
         'f' => false,
-        'minor' => Piastres_3dec
+        'minor' => Piastres
     ],
     'jpy' => [
         's1' => "jen",
@@ -842,7 +793,6 @@ const Currencies = [
             's2' => "seny",
             's3' => "senów",
             'f' => false,
-            'u' => false,
         ]
     ],
     'kes' => [
@@ -871,7 +821,7 @@ const Currencies = [
         's2' => "franki komoryjskie",
         's3' => "franków komoryjskich",
         'f' => false,
-        'minor' => Centims_NotUsed
+        'minor' => Centims
     ],
     'kpw' => [
         's1' => "won północnokoreański",
@@ -895,7 +845,6 @@ const Currencies = [
             's2' => "czony",
             's3' => "czonów",
             'f' => false,
-            'u' => false,
         ]
     ],
     'kwd' => [
@@ -903,7 +852,7 @@ const Currencies = [
         's2' => "dinary kuwejckie",
         's3' => "dinarów kuwejckich",
         'f' => false,
-        'minor' => Fils_3dec
+        'minor' => Fils
     ],
     'kyd' => [
         's1' => "dolar kajmański",
@@ -979,7 +928,6 @@ const Currencies = [
             's2' => "dirhamy",
             's3' => "dirhamów",
             'f' => false,
-            'd' => 3
         ]
     ],
     'mad' => [
@@ -1023,7 +971,6 @@ const Currencies = [
             's2' => "deni",
             's3' => "deni",
             'f' => false,
-            'u' => false,
         ]
     ],
     'mmk' => [
@@ -1248,7 +1195,7 @@ const Currencies = [
         's2' => "guaraní paragwajskie",
         's3' => "guaraní paragwajskich",
         'f' => false,
-        'minor' => Centims_NotUsed
+        'minor' => Centims
     ],
     'qar' => [
         's1' => "rial katarski",
@@ -1303,7 +1250,7 @@ const Currencies = [
         's2' => "franki rwandyjskie",
         's3' => "franków rwandyjskich",
         'f' => false,
-        'minor' => Centims_NotUsed
+        'minor' => Centims
     ],
     'sar' => [
         's1' => "rial saudyjski",
@@ -1466,7 +1413,6 @@ const Currencies = [
             's2' => "milimy",
             's3' => "milimów",
             'f' => false,
-            'd' => 3,
         ]
     ],
     'top' => [
@@ -1531,7 +1477,7 @@ const Currencies = [
         's2' => "szylingi ugandyjskie",
         's3' => "szylingów ugandyjskich",
         'f' => false,
-        'minor' => Cents_NotUsed
+        'minor' => Cents
     ],
     'usd' => [
         's1' => "dolar amerykański",
@@ -1571,7 +1517,6 @@ const Currencies = [
             's2' => "xu",
             's3' => "xu",
             'f' => false,
-            'u' => false,
         ]
     ],
     'vuv' => [
@@ -1584,7 +1529,6 @@ const Currencies = [
             's2' => "",
             's3' => "",
             'f' => false,
-            'u' => false,
         ]
     ],
     'wst' => [
@@ -1604,7 +1548,7 @@ const Currencies = [
         's2' => "środkowoafrykańskie franki CFA",
         's3' => "środkowoafrykańskich franków CFA",
         'f' => false,
-        'minor' => Cents_NotUsed
+        'minor' => Cents
     ],
     'xcd' => [
         's1' => "dolar wschodniokaraibski",
@@ -1618,14 +1562,14 @@ const Currencies = [
         's2' => "zachodnioafrykańskie franki CFA",
         's3' => "zachodnioafrykańskich franków CFA",
         'f' => false,
-        'minor' => Centims_NotUsed
+        'minor' => Centims
     ],
     'xpf' => [
         's1' => "frank CFP",
         's2' => "franki CFP",
         's3' => "franków CFP",
         'f' => false,
-        'minor' => Centims_NotUsed
+        'minor' => Centims
     ],
     'yer' => [
         's1' => "rial jemeński",
@@ -1758,13 +1702,6 @@ const Cents = [
     'p' => "cents",
 ];
 
-/** @var array[] Regular extension - cents (not used). (EN) */
-const Cents_NotUsed = [
-    's' => "cent",
-    'p' => "cents",
-    'u' => false,
-];
-
 /** @var array[] Regular extension - centimos. (EN) */
 const Centimos = [
     's' => "cêntimo",
@@ -1783,37 +1720,16 @@ const Centimes = [
     'p' => "centimes",
 ];
 
-/** @var array[] Regular extension - centimes (not used). (EN) */
-const Centimes_NotUsed = [
-    's' => "centime",
-    'p' => "centimes",
-    'u' => false,
-];
-
 /** @var array[] Regular extension - centavos. (EN) */
 const Centavos = [
     's' => "centavo",
     'p' => "centavos",
 ];
 
-/** @var array[] Regular extension - centavos (not used). (EN) */
-const Centavos_NotUsed = [
-    's' => "centavo",
-    'p' => "centavos",
-    'u' => false,
-];
-
 /** @var array[] Regular extension - fils. (EN) */
 const Fils = [
     's' => "fils",
     'p' => "fils",
-];
-
-/** @var array[] Regular extension - fils, 3 decimal points. (EN) */
-const Fils_3dec = [
-    's' => "fils",
-    'p' => "fils",
-    'd' => 3,
 ];
 
 /** @var array[] Regular extension - pence. (EN) */
@@ -1826,13 +1742,6 @@ const Pence = [
 const Piastres = [
     's' => "piastre",
     'p' => "piastres",
-];
-
-/** @var array[] Regular extension - piastres, 3 decimal points. (EN) */
-const Piastres_3dec = [
-    's' => "piastre",
-    'p' => "piastres",
-    'd' => 3,
 ];
 
 /** @var array[] Regular extension - paisa. (EN) */
@@ -1961,12 +1870,12 @@ const Currencies = [
     'bhd' => [
         's' => "Bahraini dinar",
         'p' => "Bahraini dinars",
-        'minor' => Fils_3dec
+        'minor' => Fils
     ],
     'bif' => [
         's' => "Burundian franc",
         'p' => "Burundian francs",
-        'minor' => Centimes_NotUsed
+        'minor' => Centimes
     ],
     'bmd' => [
         's' => "Bermudian dollar",
@@ -2040,7 +1949,7 @@ const Currencies = [
     'clp' => [
         's' => "Chilean peso",
         'p' => "Chilean pesos",
-        'minor' => Centavos_NotUsed
+        'minor' => Centavos
     ],
     'cny' => [
         's' => "yuán",
@@ -2049,7 +1958,7 @@ const Currencies = [
         'minor' => [
             's' => "jiǎo",
             'p' => "jiǎo",
-            'd' => 1,
+            'd' => 2,
             'minor' => [
                 's' => "fēn",
                 'p' => "fēn",
@@ -2093,7 +2002,7 @@ const Currencies = [
     'djf' => [
         's' => "Djiboutian franc",
         'p' => "Djiboutian francs",
-        'minor' => Centimes_NotUsed
+        'minor' => Centimes
     ],
     'dkk' => [
         's' => "Danish krone",
@@ -2180,7 +2089,7 @@ const Currencies = [
     'gnf' => [
         's' => "Guinean franc",
         'p' => "Guinean francs",
-        'minor' => Centimes_NotUsed
+        'minor' => Centimes
     ],
     'gtq' => [
         's' => "Guatemalan quetzal",
@@ -2244,7 +2153,7 @@ const Currencies = [
     'iqd' => [
         's' => "Iraqi dinar",
         'p' => "Iraqi dinars",
-        'minor' => Fils_3dec
+        'minor' => Fils
     ],
     'irr' => [
         's' => "Iranian rial",
@@ -2271,7 +2180,7 @@ const Currencies = [
     'jod' => [
         's' => "Jordanian dinar",
         'p' => "Jordanian dinars",
-        'minor' => Piastres_3dec
+        'minor' => Piastres
     ],
     'jpy' => [
         's' => "Japanese yen",
@@ -2300,7 +2209,7 @@ const Currencies = [
     'kmf' => [
         's' => "Comoro franc",
         'p' => "Comoro francs",
-        'minor' => Centimes_NotUsed
+        'minor' => Centimes
     ],
     'kpw' => [
         's' => "North Korean won",
@@ -2322,7 +2231,7 @@ const Currencies = [
     'kwd' => [
         's' => "Kuwaiti dinar",
         'p' => "Kuwaiti dinars",
-        'minor' => Fils_3dec
+        'minor' => Fils
     ],
     'kyd' => [
         's' => "Cayman Islands dollar",
@@ -2559,7 +2468,7 @@ const Currencies = [
     'pyg' => [
         's' => "Paraguayan guaraní",
         'p' => "Paraguayan guaraní",
-        'minor' => Centimes_NotUsed
+        'minor' => Centimes
     ],
     'qar' => [
         's' => "Qatari riyal",
@@ -2596,7 +2505,7 @@ const Currencies = [
     'rwf' => [
         's' => "Rwandan franc",
         'p' => "Rwandan francs",
-        'minor' => Centimes_NotUsed
+        'minor' => Centimes
     ],
     'sar' => [
         's' => "Saudi riyal",
@@ -2754,7 +2663,7 @@ const Currencies = [
     'ugx' => [
         's' => "Ugandan shilling",
         'p' => "Ugandan shillings",
-        'minor' => Cents_NotUsed
+        'minor' => Cents
     ],
     'usd' => [
         's' => "United States dollar",
@@ -2805,7 +2714,7 @@ const Currencies = [
     'xaf' => [
         's' => "Central African CFA franc",
         'p' => "Central African CFA francs",
-        'minor' => Centimes_NotUsed
+        'minor' => Centimes
     ],
     'xcd' => [
         's' => "East Caribbean dollar",
@@ -2815,12 +2724,12 @@ const Currencies = [
     'xof' => [
         's' => "West African CFA franc",
         'p' => "West African CFA francs",
-        'minor' => Centimes_NotUsed
+        'minor' => Centimes
     ],
     'xpf' => [
         's' => "CFP franc",
         'p' => "CFP francs",
-        'minor' => Centimes_NotUsed
+        'minor' => Centimes
     ],
     'yer' => [
         's' => "Yemeni rial",
@@ -2949,13 +2858,6 @@ const Cents = [
     'p' => "Cent",
 ];
 
-/** @var array[] Regular extension - cents (not used). (DE) */
-const Cents_NotUsed = [
-    's' => "Cent",
-    'p' => "Cent",
-    'u' => false,
-];
-
 /** @var array[] Regular extension - centimos. (DE) */
 const Centimos = [
     's' => "Cêntimo",
@@ -2974,37 +2876,16 @@ const Centimes = [
     'p' => "Centimes",
 ];
 
-/** @var array[] Regular extension - centimes (not used). (DE) */
-const Centimes_NotUsed = [
-    's' => "Centime",
-    'p' => "Centimes",
-    'u' => false,
-];
-
 /** @var array[] Regular extension - centavos. (DE) */
 const Centavos = [
     's' => "Centavo",
     'p' => "Centavos",
 ];
 
-/** @var array[] Regular extension - centavos (not used). (DE) */
-const Centavos_NotUsed = [
-    's' => "Centavo",
-    'p' => "Centavos",
-    'u' => false,
-];
-
 /** @var array[] Regular extension - fils. (DE) */
 const Fils = [
     's' => "Fils",
     'p' => "Fils",
-];
-
-/** @var array[] Regular extension - fils, 3 decimal points. (DE) */
-const Fils_3dec = [
-    's' => "Fils",
-    'p' => "Fils",
-    'd' => 3,
 ];
 
 /** @var array[] Regular extension - pence. (DE) */
@@ -3017,13 +2898,6 @@ const Pence = [
 const Piastres = [
     's' => "Piaster",
     'p' => "Piaster",
-];
-
-/** @var array[] Regular extension - piastres, 3 decimal points. (DE) */
-const Piastres_3dec = [
-    's' => "Piaster",
-    'p' => "Piaster",
-    'd' => 3,
 ];
 
 /** @var array[] Regular extension - paisa. (DE) */
@@ -3155,12 +3029,12 @@ const Currencies = [
     'bhd' => [
         's' => "Bahraini-Dinar",
         'p' => "Bahraini-Dinaren",
-        'minor' => Fils_3dec
+        'minor' => Fils
     ],
     'bif' => [
         's' => "burundischer Franc",
         'p' => "burundische Francs",
-        'minor' => Centimes_NotUsed
+        'minor' => Centimes
     ],
     'bmd' => [
         's' => "Bermuda-Dollar",
@@ -3238,7 +3112,7 @@ const Currencies = [
     'clp' => [
         's' => "chilenischer Peso",
         'p' => "chilenische Pesos",
-        'minor' => Centavos_NotUsed
+        'minor' => Centavos
     ],
     'cny' => [
         's' => "Renminbi Yuan",
@@ -3246,7 +3120,7 @@ const Currencies = [
         'minor' => [
             's' => "Jiǎo",
             'p' => "Jiǎo",
-            'd' => 1,
+            'd' => 2,
             'minor' => [
                 's' => "Fēn",
                 'p' => "Fēn",
@@ -3291,7 +3165,7 @@ const Currencies = [
     'djf' => [
         's' => "Dschibuti-Franc",
         'p' => "Dschibuti-Francs",
-        'minor' => Centimes_NotUsed
+        'minor' => Centimes
     ],
     'dkk' => [
         's' => "dänische Krone",
@@ -3383,7 +3257,7 @@ const Currencies = [
     'gnf' => [
         's' => "Franc Guinéen",
         'p' => "Franc Guinéen",
-        'minor' => Centimes_NotUsed
+        'minor' => Centimes
     ],
     'gtq' => [
         's' => "guatemaltekischer Quetzal",
@@ -3452,7 +3326,7 @@ const Currencies = [
     'iqd' => [
         's' => "irakischer Dinar",
         'p' => "irakische Dinare",
-        'minor' => Fils_3dec
+        'minor' => Fils
     ],
     'irr' => [
         's' => "iranischer Rial",
@@ -3480,7 +3354,7 @@ const Currencies = [
     'jod' => [
         's' => "jordanischer Dinar",
         'p' => "jordanische Dinare",
-        'minor' => Piastres_3dec
+        'minor' => Piastres
     ],
     'jpy' => [
         's' => "japanischer Yen",
@@ -3509,7 +3383,7 @@ const Currencies = [
     'kmf' => [
         's' => "Komoren-Franc",
         'p' => "Komoren-Francs",
-        'minor' => Centimes_NotUsed
+        'minor' => Centimes
     ],
     'kpw' => [
         's' => "nordkoreanischer Won",
@@ -3531,7 +3405,7 @@ const Currencies = [
     'kwd' => [
         's' => "Kuwait-Dinar",
         'p' => "Kuwait-Dinare",
-        'minor' => Fils_3dec
+        'minor' => Fils
     ],
     'kyd' => [
         's' => "Kaiman-Dollar",
@@ -3584,7 +3458,6 @@ const Currencies = [
         'minor' => [
             's' => "Dirham",
             'p' => "Dirham",
-            'd' => 3
         ]
     ],
     'mad' => [
@@ -3778,7 +3651,7 @@ const Currencies = [
     'pyg' => [
         's' => "paraguayischer Guaraní",
         'p' => "paraguayische Guaraní",
-        'minor' => Centimes_NotUsed
+        'minor' => Centimes
     ],
     'qar' => [
         's' => "Katar-Riyal",
@@ -3816,7 +3689,7 @@ const Currencies = [
     'rwf' => [
         's' => "Ruanda-Franc",
         'p' => "Ruanda-Francs",
-        'minor' => Centimes_NotUsed
+        'minor' => Centimes
     ],
     'sar' => [
         's' => "Saudi-Riyal",
@@ -3980,7 +3853,7 @@ const Currencies = [
     'ugx' => [
         's' => "Uganda-Schilling",
         'p' => "Uganda-Schilling",
-        'minor' => Cents_NotUsed
+        'minor' => Cents
     ],
     'usd' => [
         's' => "US-Dollar",
@@ -4031,7 +3904,7 @@ const Currencies = [
     'xaf' => [
         's' => "zentralafrikanischer CFA-Franc",
         'p' => "zentralafrikanische CFA-Francs",
-        'minor' => Centimes_NotUsed
+        'minor' => Centimes
     ],
     'xcd' => [
         's' => "ostkaribischer Dollar",
@@ -4041,12 +3914,12 @@ const Currencies = [
     'xof' => [
         's' => "westafrikanischer CFA-Franc",
         'p' => "westafrikanische CFA-Francs",
-        'minor' => Centimes_NotUsed
+        'minor' => Centimes
     ],
     'xpf' => [
         's' => "CFP-Franc",
         'p' => "CFP-Francs",
-        'minor' => Centimes_NotUsed
+        'minor' => Centimes
     ],
     'yer' => [
         's' => "Jemen-Rial",
@@ -4075,7 +3948,7 @@ const Currencies = [
 
 namespace tei187\Resources\ISO4217;
 
-const CurrencySpecifics = [
+const Specifics = [
     'aed' => [ ],
     'afn' => [ ],
     'all' => [ ],
@@ -4158,7 +4031,7 @@ const CurrencySpecifics = [
     'lkr' => [ ],
     'lrd' => [ ],
     'lsl' => [ ],
-    'lyd' => [ ],
+    'lyd' => [ 'minor' => [ 'd' => 3 ] ],
     'mad' => [ ],
     'mdl' => [ ],
     'mga' => [ ],
@@ -4236,7 +4109,7 @@ const CurrencySpecifics = [
 ];
 
 /**
- * @var array[] Cross-reference table between ISO 4217 Numbers and currency pickers.
+ * @var string[] Cross-reference table between ISO 4217 Numbers and currency pickers.
  */
 const NumberToCode = [
     '008' => "all",

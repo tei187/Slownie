@@ -4,7 +4,9 @@
  */
 namespace tei187\Slownie;
 
-use tei187\Resources as Resources;
+use       tei187\Resources                      as Resources;
+use const tei187\Resources\ISO4217\Specifics    as CurrencySpecifics;
+use const tei187\Resources\ISO4217\NumberToCode as CurrencyNumberToCode;
 
 /**
  * Abstract class used to transcribe float value into words. Base for PL, EN, DE class extensions.
@@ -13,25 +15,23 @@ use tei187\Resources as Resources;
  * @version 1.0.0
  */
 abstract class SlownieBase {
-// holding
+// input-specific
     /** @var string[] $amountFull Hold parts of amount (without minor parts), divided by hundreds mark. */
     protected $amountFull = [];
     /** @var integer $amountPart Holds decimal parts of amount, only minors. */
     protected $amountPart = 0;
     /** @var float|string $input Whatever was passed as amount. */
     protected $input = 0;
-// config
+// currency-based
+    /** @var object $currency Chosen currency, null by default. */
+    protected Currency $currency;
     /** @var float $rounded Rounded input by set rounding method. */
     protected $rounded = 0;
     /** @var integer $exponent Chosen currencies decimal points, 2 by default. */
     protected $exponent = 2;
-    /** @var string $currency Chosen currency, "none" by default. */
-    protected $currency = "none";
-    /** @var string $rounding Rounding method for exponents. "Bankers", "normal", or "none". */
-    protected $rounding = "none";
+// config
     /** @var string[] $formatting Settings for number formatting. */
     protected $formatting = [ 'thousands' => ",", "decimals" => "." ];
-// flags
     /** @var bool $exponent Chosen currencies decimal points, 2 by default. */
     protected $exponentUse = true;
     /** @var bool $pickerUse Flag to switch between translated currency name or currency picker. */
@@ -40,64 +40,28 @@ abstract class SlownieBase {
     protected $fractions = false;
     /** @var bool $needsParsing Flag to accertain if amount needs reparsing due to changes. */
     protected $needsParsing = true;
-
+// methods
     /**
      * Class constructor.
      *
      * @param string|null $amount Amount to process. Has to be well formed float or float-formed string.
-     * @param string|null $currency ISO 4217 currency code or number (refer to tei187\Resources\ISO4217\{lang}\Currencies or tei187\Resources\ISO4217\NumberToCode). By default "none".
+     * @param string||null $currency ISO 4217 currency code or number (refer to tei187\Resources\ISO4217\{lang}\Currencies or tei187\Resources\ISO4217\NumberToCode). By default null.
      * @param boolean $fractions If FALSE translates fully, if TRUE uses fractional notation for minor rest.
      * @param boolean|null $picker Sets flag to use or not use picker rather than full translation of currency.
      * @return void
      */
-    function __construct($amount = null, string $currency = null, bool $fractions = false, bool $picker = null) {
+    function __construct($amount = null, mixed $currency = null, bool $fractions = false, bool $picker = null) {
         if(is_string($currency)) {
-            $this->setCurrency($currency);
+            $this->currency = new \tei187\Slownie\Currency($currency);
+        } elseif(is_object($currency) AND get_class($currency) === new \tei187\Slownie\Currency) {
+            $this->currency = $currency;
         }
         if($picker !== null) { 
             $this->setPickerUse($picker);
         }
         $this->input = $amount;
-        //$this->setRounding($rounding);
         $this->setFractions($fractions);
         $this->parse($this->input);
-    }
-
-    /**
-     * Returns exponent for set currency.
-     *
-     * @return integer Exponent assigned to current currency, otherwise default 2.
-     */
-    protected function findExponent() : int {
-        if(isset(\tei187\Resources\ISO4217\CurrencySpecifics[$this->currency]['minor']['d'])) {
-            return \tei187\Resources\ISO4217\CurrencySpecifics[$this->currency]['minor']['d'];
-        }
-        return 2;
-    }
-
-    /**
-     * Returns exponent use for set currency.
-     *
-     * @return boolean Use of exponent for current currency, otherwise FALSE.
-     */
-    protected function findExponentUse() : bool {
-        if(isset(\tei187\Resources\ISO4217\CurrencySpecifics[$this->currency]['minor']['u'])) {
-            return \tei187\Resources\ISO4217\CurrencySpecifics[$this->currency]['minor']['d'];
-        }
-        return true;
-    }
-
-    /**
-     * Defines input string formatting.
-     * 
-     * @param string $thousands Thousands separator.
-     * @param string $decimals Decimal separator.
-     * @return void
-     */
-    public function setFormatting(string $thousands = ".", string $decimals = ",") : void {
-        $this->formatting['thousands'] = $thousands != null ? $thousands : $this->formatting['thousands'];
-        $this->formatting['decimals']  = $decimals != null  ? $decimals  : $this->formatting['decimals'];
-        return;
     }
 
     /**
@@ -106,72 +70,11 @@ abstract class SlownieBase {
      * @return string
      */
     protected function relayFractionMinors() : string {
-        return str_pad($this->amountPart, $this->exponent, "0", STR_PAD_RIGHT) . "/" . (10 ** $this->exponent);
-    }
-
-    /**
-     * Parses input amount. Assigns values to $this->amountPart and $this->amountFull.
-     *
-     * @param string|null $v Input amount.
-     * @return boolean Returns TRUE is value is proper, FALSE if otherwise.
-     */
-    protected function parse(string $v = null) : bool {
-        $v = str_replace($this->formatting['thousands'], "", $v);
-        if(strlen(trim($v)) !== 0 or !is_null($v)) {
-            $exp = explode($this->formatting['decimals'], $v);
-            $final = array_map(
-                function($v) { return strrev($v); }, 
-                array_reverse(str_split(strrev($exp[0]), 3))
-            );
-            $this->amountPart = 
-                count($exp) == 2 
-                    ? round($exp[1] / (10 ** strlen($exp[1])), $this->exponent) * (10 ** $this->exponent)
-                    : 0;
-            $this->amountFull = array_map( fn($val): string => intval($val), $final);
-        } else {
-            $this->amountPart = null;
-            $this->amountFull = null;
-            return false;
-        }
-        return true;
-    }
-
-    /**
-     * Assigns currency.
-     *
-     * @param string $currency Currency shortcode. Has to exist as index in tei187\Resources\ISO4217\{lang}\Currencies, or as cross-referenced ISO 4217 _STRING_ index of tei187\Resources\ISO4217\NumberToCode (with leading zeroes), or 'none' (default).
-     * @return self
-     */
-    public function setCurrency(string $currency) : self {
-        if(is_string($currency) and strlen($currency) == 3) {
-            $check = false; // verifier, used to signify if currency has been found in any correlated array
-
-            // 1st condition: if currency key is numeric and exists in cross-reference array (so passed as numeric code)
-            // 2nd condition: if currency key isn't necessarily numeric and exists in short code array (passed as short code)
-            if(ctype_digit($currency) and key_exists($currency, $this->dictionary['xref'])) {
-                $this->currency = $this->dictionary['xref'][$currency];
-                $check = true;
-            } elseif (key_exists(strtolower($currency), $this->dictionary['currencies'])) {
-                $this->currency = strtolower($currency);
-                $check = true;
-            }
-
-            // if checks out, assigns exponent and exponent's use
-            // if doesnt check out, assigns no currency and default exponent
-            if($check === true) {
-                $this->exponent = $this->findExponent();
-                $this->exponentUse = $this->findExponentUse();
-            } else {
-                $this->exponent = 2;
-                $this->exponentUse = true;
-                $this->currency = "none";
-            }
-        } else {
-            $this->exponent = 2;
-            $this->exponentUse = true;
-            $this->currency = "none";
-        }
-        return $this;
+        return str_pad(
+            $this->amountPart, 
+            $this->currency->getExponent(), 
+            "0", STR_PAD_RIGHT
+        ) . "/" . (10 ** $this->currency->getExponent());
     }
 
     /**
@@ -202,12 +105,12 @@ abstract class SlownieBase {
 
         // deal with translation of rest
         $rest = [];
-        if($this->amountPart > 0) {
+        if($this->amountPart > 0 AND $this->currency->getExponentUse() === true) {
             if($this->fractions) {
                 $rest[] = $this->relayFractionMinors();
             } else {
-                $rest[] = $this->getHundreds(str_pad($this->amountPart, $this->exponent, 0, STR_PAD_RIGHT), true);
-                $rest[] = $this->getCurrencyMinor(str_pad($this->amountPart, $this->exponent, 0, STR_PAD_RIGHT), true);
+                $rest[] = $this->getHundreds(str_pad($this->amountPart, $this->currency->getExponent(), 0, STR_PAD_RIGHT), true);
+                $rest[] = $this->getCurrencyMinor(str_pad($this->amountPart, $this->currency->getExponent(), 0, STR_PAD_RIGHT), true);
             }
         }
 
@@ -243,35 +146,30 @@ abstract class SlownieBase {
     }
 
     /**
-     * Sets flag for fractional notation true/false for minor rest.
+     * Parses input amount. Assigns values to $this->amountPart and $this->amountFull.
      *
-     * @param boolean $v
-     * @return self
+     * @param string|null $v Input amount.
+     * @return boolean Returns TRUE is value is proper, FALSE if otherwise.
      */
-
-    public function setFractions(bool $v = true) : self {
-        $this->fractions = $v;
-        return $this;
-    }
-
-    /**
-     * Sets flag to switch between translated currency name or currency picker use.
-     *
-     * @param boolean $v
-     * @return self
-     */
-    public function setPickerUse(bool $v = true) : self {
-        $this->pickerUse = $v;
-        return $this;
-    }
-
-    /**
-     * Returns currently set currency... in uppercase. That's pretty much it...
-     *
-     * @return string
-     */
-    public function getCurrency() : string {
-        return strtoupper($this->currency);
+    protected function parse(string $v = null) : bool {
+        $v = str_replace($this->formatting['thousands'], "", $v);
+        if(strlen(trim($v)) !== 0 or !is_null($v)) {
+            $exp = explode($this->formatting['decimals'], $v);
+            $final = array_map(
+                function($v) { return strrev($v); }, 
+                array_reverse(str_split(strrev($exp[0]), 3))
+            );
+            $this->amountPart = 
+                count($exp) == 2 
+                    ? round($exp[1] / (10 ** strlen($exp[1])), $this->currency->getExponent()) * (10 ** $this->currency->getExponent())
+                    : 0;
+            $this->amountFull = array_map( fn($val): string => intval($val), $final);
+        } else {
+            $this->amountPart = null;
+            $this->amountFull = null;
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -294,14 +192,84 @@ abstract class SlownieBase {
     }
 
     /**
+     * Developer method. Verifies if all keys from tei187\Resources\ISO4217\NumberToCode exist in language pack.
+     * 
+     * @return bool TRUE on correct, FALSE otherwise.
+     */
+    public function verifyCodes() : bool {
+        $i = 0;
+        foreach(CurrencyNumberToCode as $v) {
+            if(!key_exists($v, $this->dictionary['currencies'])) $i++;
+        }
+        if($i != 0) return false;
+        return true;
+    }
+// - setters
+    /**
+     * Assigns currency.
+     *
+     * @param string|null $currency Currency shortcode. Has to exist as index in tei187\Resources\ISO4217\{lang}\Currencies, or as cross-referenced ISO 4217 _STRING_ index of tei187\Resources\ISO4217\NumberToCode (with leading zeroes), or 'none' (default).
+     * @return self
+     */
+    public function setCurrency(string $currency = null) : self {
+        $this->currency = new \tei187\Slownie\Currency();
+        if($this->currency->set($currency) === false) {
+            $this->currency->reset();
+            $this->currency->setExponent(0);
+            $this->currency->setExponentUse(false);
+        }
+        return $this;
+    }
+
+    /**
+     * Defines input string formatting.
+     * 
+     * @param string $thousands Thousands separator.
+     * @param string $decimals Decimal separator.
+     * @return void
+     */
+    public function setFormatting(string $thousands = ".", string $decimals = ",") : void {
+        $this->formatting['thousands'] = $thousands != null ? $thousands : $this->formatting['thousands'];
+        $this->formatting['decimals']  = $decimals != null  ? $decimals  : $this->formatting['decimals'];
+        return;
+    }
+
+    /**
+     * Sets flag for fractional notation true/false for minor rest.
+     *
+     * @param boolean $v
+     * @return self
+     */
+    public function setFractions(bool $v = true) : self {
+        $this->fractions = $v;
+        return $this;
+    }
+
+    /**
+     * Sets flag to switch between translated currency name or currency picker use.
+     *
+     * @param boolean $v
+     * @return self
+     */
+    public function setPickerUse(bool $v = true) : self {
+        $this->pickerUse = $v;
+        return $this;
+    }
+// - getters
+    /**
+     * Returns currently set currency... in uppercase. That's pretty much it...
+     *
+     * @return string
+     */
+    public function getCurrency() : string { return strtoupper($this->currency->getPicker()); }
+
+    /**
      * Returns quintillions in words.
      *
      * @param string $v Input quintillions part.
      * @return string Quintillions as string or empty.
      */
-    protected function getQuintillions(string $v = null) : string {
-        return $this->getLargeNumbers(18, $v);
-    }
+    protected function getQuintillions(string $v = null) : string { return $this->getLargeNumbers(18, $v); }
 
     /**
      * Returns quadrillions in words.
@@ -309,9 +277,7 @@ abstract class SlownieBase {
      * @param string $v Input quadrillions part.
      * @return string Quadrillions as string or empty.
      */
-    protected function getQuadrillions(string $v = null) : string {
-        return $this->getLargeNumbers(15, $v);
-    }
+    protected function getQuadrillions(string $v = null) : string { return $this->getLargeNumbers(15, $v);}
 
     /**
      * Returns trillions in words.
@@ -319,9 +285,7 @@ abstract class SlownieBase {
      * @param string $v Input trillions part.
      * @return string Trillions as string or empty.
      */
-    protected function getTrillions(string $v = null) : string {
-        return $this->getLargeNumbers(12, $v);
-    }
+    protected function getTrillions(string $v = null) : string { return $this->getLargeNumbers(12, $v); }
 
     /**
      * Returns billions in words.
@@ -329,9 +293,7 @@ abstract class SlownieBase {
      * @param string $v Input billions part.
      * @return string Billions as string or empty.
      */
-    protected function getBillions(string $v = null) : string {
-        return $this->getLargeNumbers(9, $v);
-    }
+    protected function getBillions(string $v = null) : string { return $this->getLargeNumbers(9, $v); }
 
     /**
      * Returns millions in words.
@@ -339,9 +301,7 @@ abstract class SlownieBase {
      * @param string $v Input millions part.
      * @return string Millions as string or empty.
      */
-    protected function getMillions(string $v = null) : string {
-        return $this->getLargeNumbers(6, $v);
-    }
+    protected function getMillions(string $v = null) : string { return $this->getLargeNumbers(6, $v); }
 
     /**
      * Returns thousands in words.
@@ -349,9 +309,7 @@ abstract class SlownieBase {
      * @param string $v Input thousands part.
      * @return string Thousands as string or empty.
      */
-    protected function getThousands(string $v = null) : string {
-        return $this->getLargeNumbers(3, $v);
-    }
+    protected function getThousands(string $v = null) : string { return $this->getLargeNumbers(3, $v); }
 
     abstract protected function getCurrencyMinor(string $v = null) : string;
     abstract protected function getCurrencyFull() : string;
@@ -360,287 +318,129 @@ abstract class SlownieBase {
 }
 
 /**
- * Class used to transcribe float value into words in Polish language.
- * 
- * @author Piotr Bonk <bonk.piotr@gmail.com>
+ * Class designed to retrieve and handle basic currency-specific information.
  */
-class PL extends \tei187\Slownie\SlownieBase {
-    /** @var array $dictionary Dictionary for translation purposes and cross-reference tables. */
-    protected $dictionary = [
-        'currencies' => Resources\ISO4217\PL\Currencies, 
-           'numbers' => Resources\PL\Numbers,
-              'xref' => Resources\ISO4217\NumberToCode,
-            'suffix' => Resources\PL\LargeNumbers
-    ];
+class Currency {
+    /** @var string|null Assigned currency picker. */
+    private ?string $picker;
+    /** @var integer|null Length of assigned currency exponent. */
+    private ?int $exponent;
+    /** @var bool|null Flag wether exponent is used/valid/available as a coin of banknote. */
+    private ?bool $exponentUse;
 
     /**
-     * Template method to get correct suffix per nth power of 10 and given value part.
-     *
-     * @param integer $power N-th power of 10.
-     * @param string|null $v Input value part.
-     * @return string
+     * Class constructor.
+     * @param string|integer|null $c ISO 4217 applicable currency number (3-characters-long numeric or string) or currency code (3-characters-long string).
      */
-    protected function getLargeNumbers(int $power = 0, string $v = null) : string {
-        if(intval($v) > 0) {
-            $w = $this->getHundreds($v);
-            $vmod = $v % 10;
-            if($v == 1) {
-                return $w . " " . $this->dictionary['suffix'][$power]['s1'];
-            } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
-                return $w . " " . $this->dictionary['suffix'][$power]['s2'];
-            } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
-                return $w . " " . $this->dictionary['suffix'][$power]['s3'];
-            } elseif($v == 0) {
-                return "";
-            }
-        }
-        return "";
+    function __construct($c = null) {
+        $this->checkCurrency($c);
     }
 
     /**
-     * Returns hundreds part in words.
-     *
-     * @param string $v Input hundreds part.
-     * @param boolean $minor Switch if minor.
-     * @return string Hundreds as string or empty.
+     * Verifies input, including assigning attributes if verified.
+     * @param string|integer $c ISO 4217 applicable currency number (3-characters-long numeric or string) or currency code (3-characters-long string).
+     * @return boolean
      */
-    protected function getHundreds(string $v = null, bool $minor = false) : string {
-        if(intval($v) > 0) {
-            $teens = false;
-            $vp = [
-                'hundreds' => floor($v / 100),
-                'tens'     => floor(($v % 100) / 10),
-                'single'   => $v % 10,
-            ];
-                
-            $parts = [];
-            if($vp['hundreds'] > 0) {
-                // hundreds
-                $parts[] = $this->dictionary['numbers']['xoo'][$vp['hundreds'] * 100];
-            }
-            if($vp['tens'] > 0) {
-                // tens
-                if($vp['tens'] == 1) {
-                    if($vp['single'] > 0) {
-                        // teens
-                        $teens = true;
-                        $key = $vp['tens'].$vp['single'];
-                        $parts[] = $this->dictionary['numbers']['oxo'][$key];
-                    } else {
-                        $parts[] = $this->dictionary['numbers']['oxo'][$vp['tens'] * 10];
-                    }
-                } elseif($vp['tens'] >= 2) {
-                    $parts[] = $this->dictionary['numbers']['oxo'][$vp['tens'] * 10];
-                }
-            }
-
-            if($teens === false AND $vp['single'] > 0) {
-                if($this->currency !== "none") {
-                    // check for 'gender'
-                    if($minor) {
-                        $switch = $this->dictionary['currencies'][$this->currency]['minor']['f'];
-                    } else {
-                        $switch = $this->dictionary['currencies'][$this->currency]['f'];
-                    }
-    
-                    if($switch) {
-                        if($vp['single'] == intval(implode("", $this->amountFull))) {
-                            $parts[] = $this->dictionary['numbers']['f-oox'][$vp['single']];
-                        } elseif($vp['single'] > 1) {
-                            $parts[] = $this->dictionary['numbers']['f-oox'][$vp['single']];
-                        } else {
-                            $parts[] = $this->dictionary['numbers']['oox'][$vp['single']];
-                        }
-                    } else {
-                        $parts[] = $this->dictionary['numbers']['oox'][$vp['single']];
-                    }
-                } else {
-                    $parts[] = $this->dictionary['numbers']['oox'][$vp['single']];
-                }
-            }
-    
-            if(count($parts) > 1) {
-                return implode(" ", $parts);
-            } elseif (count($parts) == 1) {
-                return $parts[0];
+    private function checkCurrency($c) : bool {
+        $c = strval(preg_replace('/[^0-9A-Za-z]?/m', '', $c));
+        
+        if(!is_null(CurrencyNumberToCode) AND !is_null($c) AND strlen($c) != 0) {
+            if(is_numeric($c)) {
+                $c = str_pad(strval($c), 3, "0", STR_PAD_LEFT);
+                if(key_exists($c, CurrencyNumberToCode))
+                    $this->assignSpecifics((string) CurrencyNumberToCode[$c]);
+                    return true;
+            } elseif(ctype_alpha($c) and strlen($c) == 3) {
+                if(key_exists(strtolower($c), CurrencySpecifics))
+                    $this->assignSpecifics($c);
+                    return true;
+            } else {
+                $this->reset();
+                return false;
             }
         }
-        return "";
+        // reset object, because input currency is not correct
+        $this->reset();
+        return false;
     }
 
     /**
-     * Returns currency suffix.
-     *
-     * @param string $v Input last part of amount.
-     * @return string Currency suffix or empty string if not found.
+     * Resets attributes.
+     * @return void
      */
-    protected function getCurrencyFull(string $v = null) : string {
-        if($this->currency != "none") {
-            $vmod = $v % 10; // rename?
-            if($v == 1) {
-                return $this->dictionary['currencies'][$this->currency]['s1'];
-            } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
-                return $this->dictionary['currencies'][$this->currency]['s2'];
-            } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
-                return $this->dictionary['currencies'][$this->currency]['s3'];
-            } elseif($v == 0) {
-                return "";
-            }
-        }
-        return "";
+    public function reset() : self {
+        $this->picker      = null;
+        $this->exponent    = null;
+        $this->exponentUse = null;
+        return $this;
     }
 
     /**
-     * Returns currency minors' suffix.
-     *
-     * @param string $v Input rest.
-     * @return string Currency minor suffix or empty string if not found.
+     * Assigns specific attributes per recognized currency.
+     * @param string $c ISO 4217 applicable currency number (3-characters-long numeric or string) or currency code (3-characters-long string).
+     * @return void
      */
-    protected function getCurrencyMinor(string $v = null) : string {
-        if($this->currency != "none") {
-            $vmod = $v % 10;
-            if($v == 1) {
-                return $this->dictionary['currencies'][$this->currency]['minor']['s1'];
-            } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
-                return $this->dictionary['currencies'][$this->currency]['minor']['s2'];
-            } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
-                return $this->dictionary['currencies'][$this->currency]['minor']['s3'];
-            } elseif($v == 0) {
-                return "";
-            }
-        }
-        return "";
+    private function assignSpecifics(string $c) : void {
+        $this->picker = strtolower($c);
+
+        $this->exponent = 
+            isset(CurrencySpecifics[strtolower($c)]['minor']['d']) 
+            ? CurrencySpecifics[strtolower($c)]['minor']['d'] 
+            : 2;
+
+        $this->exponentUse = 
+            isset(CurrencySpecifics[strtolower($c)]['minor']['u']) 
+            ? CurrencySpecifics[strtolower($c)]['minor']['u'] 
+            : true;
+        
+        return;
     }
+
+    /**
+     * Public equivalent of self::checkCurrency. If parameter is proper, fills object's attributes.
+     * @param string $c Currency numeric code or alpha code according to ISO 4217 standard.
+     * @return boolean|Currency
+     */
+    public function set(string $c = null) {
+        if(!$this->checkCurrency($c)) {
+            return false;
+        }
+        return $this;
+    }
+
+    public function setExponent(int $x) : self {
+        $this->exponent = $x;
+        return $this;
+    }
+
+    public function setExponentUse(bool $b) : self {
+        $this->exponentUse = $b;
+        return $this;
+    }
+
+    /**
+     * Retrieves attributes.
+     * @return array
+     */
+    public function getParams() : array {
+        return [
+            'picker' =>      $this->picker,
+            'exponent' =>    $this->exponent,
+            'exponentUse' => $this->exponentUse
+        ];
+    }
+
+    /** @return string Currently assigned picker. */
+    public function getPicker(bool $flag = false) : ?string { if($flag) { return strtoupper($this->picker); } else { return $this->picker; } }
+    /** @return integer Assigned currencies' exponent length. */
+    public function getExponent()    : int    { return $this->exponent; }
+    /** @return bool Assigned currencies' exponent use status. */
+    public function getExponentUse() : bool   { return $this->exponentUse; }
 }
 
-/**
- * Class used to transcribe float value into words in English language.
- * 
- * @author Piotr Bonk <bonk.piotr@gmail.com>
- */
-class EN extends \tei187\Slownie\SlownieBase {
-    /** @var array[] $dictionary Dictionary for translation purposes and cross-reference tables. */
-    protected $dictionary = [
-        'currencies' => Resources\ISO4217\EN\Currencies, 
-           'numbers' => Resources\EN\Numbers,
-              'xref' => Resources\ISO4217\NumberToCode,
-            'suffix' => Resources\EN\LargeNumbers
-    ];
-
-    /**
-     * Template method to get correct suffix per nth power of 10 and given value part.
-     *
-     * @param integer $power N-th power of 10.
-     * @param string|null $v Input value part.
-     * @return string
-     */
-    protected function getLargeNumbers(int $power = 0, string $v = null) : string {
-        if(intval($v) > 0) {
-            $w = $this->getHundreds($v);
-            if($v == 1) {
-                return $w . " " . $this->dictionary['suffix'][$power]['s'];
-            } elseif ($v > 1) {
-                if($this->currency == "none") {
-                    return $w . " " . $this->dictionary['suffix'][$power]['p'];
-                } else {
-                    return $w . " " . $this->dictionary['suffix'][$power]['s'];
-                }
-            } elseif($v == 0) {
-                return "";
-            }
-        }
-        return "";
-    }
-
-    /**
-     * Returns hundreds part in words.
-     *
-     * @param string $v Input hundreds part.
-     * @param boolean $minor Switch if minor.
-     * @return string Hundreds as string or empty.
-     */
-    protected function getHundreds(string $v = null, bool $minor = false) : string {
-        if(intval($v) > 0) {
-            $teens = false;
-            $vp = [
-                'hundreds' => floor($v / 100),
-                'tens'     => floor(($v % 100) / 10),
-                'single'   => $v % 10,
-            ];
-                
-            $parts = [];
-            if($vp['hundreds'] > 0) {
-                // hundreds
-                $parts[] = $this->dictionary['numbers']['xoo'][$vp['hundreds'] * 100];
-            }
-            if($vp['tens'] > 0) {
-                // tens
-                if($vp['tens'] == 1) {
-                    if($vp['single'] > 0) {
-                        // teens
-                        $teens = true;
-                        $key = $vp['tens'].$vp['single'];
-                        $parts[] = $this->dictionary['numbers']['oxo'][$key];
-                    } else {
-                        $parts[] = $this->dictionary['numbers']['oxo'][$vp['tens'] * 10];
-                    }
-                } elseif($vp['tens'] >= 2) {
-                    $parts[] = $this->dictionary['numbers']['oxo'][$vp['tens'] * 10];
-                }
-            }
-
-            if($teens === false AND $vp['single'] > 0) {
-                $parts[] = $this->dictionary['numbers']['oox'][$vp['single']];
-            }
-    
-            if(count($parts) > 1) {
-                return implode(" ", $parts);
-            } elseif (count($parts) == 1) {
-                return $parts[0];
-            }
-        }
-        return "";
-    }
-
-    /**
-     * Returns currency suffix.
-     *
-     * @param string $v Input last part of amount.
-     * @return string Currency suffix or empty string if not found.
-     */
-    protected function getCurrencyFull() : string {
-        if($this->currency != "none") {
-            $imploded = intval(implode("", $this->amountFull));
-            if($imploded == 1) {
-                return $this->dictionary['currencies'][$this->currency]['s'];
-            } elseif ($imploded >= 2) {
-                return $this->dictionary['currencies'][$this->currency]['p'];
-            } elseif($imploded == 0) {
-                return "";
-            }
-        }
-        return "";
-    }
-
-    /**
-     * Returns currency minors' suffix.
-     *
-     * @param string $v Input rest.
-     * @return string Currency minor suffix or empty string if not found.
-     */
-    protected function getCurrencyMinor(string $v = null) : string {
-        if($this->currency != "none") {
-            if($v == 1) {
-                return $this->dictionary['currencies'][$this->currency]['minor']['s'];
-            } elseif ($v >= 2) {
-                return $this->dictionary['currencies'][$this->currency]['minor']['p'];
-            } elseif($v == 0) {
-                return "";
-            }
-        }
-        return "";
-    }
-}
+# # # # # # # # # #
+# language  packs #
+# # # # # # # # # #
 
 /**
  * Class used to transcribe float value into words in German language.
@@ -652,7 +452,7 @@ class DE extends \tei187\Slownie\SlownieBase {
     protected $dictionary = [
         'currencies' => Resources\ISO4217\DE\Currencies, 
            'numbers' => Resources\DE\Numbers,
-              'xref' => Resources\ISO4217\NumberToCode,
+              'xref' => CurrencyNumberToCode,
             'suffix' => Resources\DE\LargeNumbers
     ];
 
@@ -737,12 +537,12 @@ class DE extends \tei187\Slownie\SlownieBase {
      * @return string Currency suffix or empty string if not found.
      */
     protected function getCurrencyFull() : string {
-        if($this->currency != "none") {
+        if($this->currency->getPicker() != null) {
             $imploded = intval(implode("", $this->amountFull));
             if($imploded == 1) {
-                return $this->dictionary['currencies'][$this->currency]['s'];
+                return $this->dictionary['currencies'][$this->currency->getPicker()]['s'];
             } elseif ($imploded >= 2) {
-                return $this->dictionary['currencies'][$this->currency]['p'];
+                return $this->dictionary['currencies'][$this->currency->getPicker()]['p'];
             } elseif($imploded == 0) {
                 return "";
             }
@@ -757,11 +557,11 @@ class DE extends \tei187\Slownie\SlownieBase {
      * @return string Currency minor suffix or empty string if not found.
      */
     protected function getCurrencyMinor(string $v = null) : string {
-        if($this->currency != "none") {
+        if($this->currency->getPicker() != null) {
             if($v == 1) {
-                return $this->dictionary['currencies'][$this->currency]['minor']['s'];
+                return $this->dictionary['currencies'][$this->currency->getPicker()]['minor']['s'];
             } elseif ($v >= 2) {
-                return $this->dictionary['currencies'][$this->currency]['minor']['p'];
+                return $this->dictionary['currencies'][$this->currency->getPicker()]['minor']['p'];
             } elseif($v == 0) {
                 return "";
             }
@@ -787,7 +587,7 @@ class DE extends \tei187\Slownie\SlownieBase {
             if($k == 0) {
                 $w = $this->getHundreds($v,false);
                 if($w == "eins" OR $w == "ein") {
-                    if(@$this->dictionary['currencies'][$this->currency]['f']) {
+                    if(@$this->dictionary['currencies'][$this->currency->getPicker()]['f']) {
                         $w = "eine";
                     } else {
                         $w = "ein";
@@ -814,8 +614,8 @@ class DE extends \tei187\Slownie\SlownieBase {
             if($this->fractions) {
                 $rest[] = $this->relayFractionMinors();
             } else {
-                $rest[] = $this->getHundreds(str_pad($this->amountPart, $this->exponent, 0, STR_PAD_RIGHT), true);
-                $rest[] = $this->getCurrencyMinor(str_pad($this->amountPart, $this->exponent, 0, STR_PAD_RIGHT), true);
+                $rest[] = $this->getHundreds(str_pad($this->amountPart, $this->currency->getExponent(), 0, STR_PAD_RIGHT), true);
+                $rest[] = $this->getCurrencyMinor(str_pad($this->amountPart, $this->currency->getExponent(), 0, STR_PAD_RIGHT), true);
             }
         }
         
@@ -841,62 +641,287 @@ class DE extends \tei187\Slownie\SlownieBase {
     }
 }
 
-class Currency {
-    private string $picker;
-    private int    $exponent;
-    private bool   $exponentUse;
+/**
+ * Class used to transcribe float value into words in English language.
+ * 
+ * @author Piotr Bonk <bonk.piotr@gmail.com>
+ */
+class EN extends \tei187\Slownie\SlownieBase {
+    /** @var array[] $dictionary Dictionary for translation purposes and cross-reference tables. */
+    protected $dictionary = [
+        'currencies' => Resources\ISO4217\EN\Currencies, 
+           'numbers' => Resources\EN\Numbers,
+              'xref' => CurrencyNumberToCode,
+            'suffix' => Resources\EN\LargeNumbers
+    ];
 
-    function __construct($c = null) {
-        $this->checkCurrency($c);
-    }
-
-    private function checkCurrency($c) : bool {
-        if(!is_null(Resources\ISO4217\NumberToCode) AND !is_null($c)) {
-            if(is_numeric($c)) {
-                $c = str_pad($c, 3, "0", STR_PAD_LEFT);
-                if(key_exists($c, Resources\ISO4217\NumberToCode))
-                    return $this->assignSpecifics((string) Resources\ISO4217\NumberToCode[$c]);
-            } elseif(ctype_alpha($c)) {
-                if(key_exists(strtolower($c), Resources\ISO4217\CurrencySpecifics))
-                    return $this->assignSpecifics($c);
+    /**
+     * Template method to get correct suffix per nth power of 10 and given value part.
+     *
+     * @param integer $power N-th power of 10.
+     * @param string|null $v Input value part.
+     * @return string
+     */
+    protected function getLargeNumbers(int $power = 0, string $v = null) : string {
+        if(intval($v) > 0) {
+            $w = $this->getHundreds($v);
+            if($v == 1) {
+                return $w . " " . $this->dictionary['suffix'][$power]['s'];
+            } elseif ($v > 1) {
+                if($this->currency == null) {
+                    return $w . " " . $this->dictionary['suffix'][$power]['p'];
+                } else {
+                    return $w . " " . $this->dictionary['suffix'][$power]['s'];
+                }
+            } elseif($v == 0) {
+                return "";
             }
         }
-        return false;
-    }
-
-    private function assignSpecifics(string $c) : void {
-        $specificData = Resources\ISO4217\CurrencySpecifics[strtolower($c)];
-        $this->picker = strtolower($c);
-
-        $this->exponent = 
-            isset($specificData[$c]['minor']['d']) 
-            ? $specificData[$c]['minor']['d'] 
-            : 2;
-
-        $this->exponentUse = 
-            isset($specificData[$c]['minor']['u']) 
-            ? $specificData[$c]['minor']['u'] 
-            : true;
-
-        return;
+        return "";
     }
 
     /**
-     * Public equivalent of self::checkCurrency. If parameter is proper, fills object's attributes.
+     * Returns hundreds part in words.
      *
-     * @param string $c Currency numeric code or alpha code according to ISO4217 standard.
-     * @return boolean
+     * @param string $v Input hundreds part.
+     * @param boolean $minor Switch if minor.
+     * @return string Hundreds as string or empty.
      */
-    public function set(string $c) : bool {
-        return $this->checkCurrency($c);
+    protected function getHundreds(string $v = null, bool $minor = false) : string {
+        if(intval($v) > 0) {
+            $teens = false;
+            $vp = [
+                'hundreds' => floor($v / 100),
+                'tens'     => floor(($v % 100) / 10),
+                'single'   => $v % 10,
+            ];
+                
+            $parts = [];
+            if($vp['hundreds'] > 0) {
+                // hundreds
+                $parts[] = $this->dictionary['numbers']['xoo'][$vp['hundreds'] * 100];
+            }
+            if($vp['tens'] > 0) {
+                // tens
+                if($vp['tens'] == 1) {
+                    if($vp['single'] > 0) {
+                        // teens
+                        $teens = true;
+                        $key = $vp['tens'].$vp['single'];
+                        $parts[] = $this->dictionary['numbers']['oxo'][$key];
+                    } else {
+                        $parts[] = $this->dictionary['numbers']['oxo'][$vp['tens'] * 10];
+                    }
+                } elseif($vp['tens'] >= 2) {
+                    $parts[] = $this->dictionary['numbers']['oxo'][$vp['tens'] * 10];
+                }
+            }
+
+            if($teens === false AND $vp['single'] > 0) {
+                $parts[] = $this->dictionary['numbers']['oox'][$vp['single']];
+            }
+    
+            if(count($parts) > 1) {
+                return implode(" ", $parts);
+            } elseif (count($parts) == 1) {
+                return $parts[0];
+            }
+        }
+        return "";
     }
 
-    /** @return string Currently assigned picker. */
-    public function getPicker()      : string { return strtoupper(self::$picker); }
-    /** @return int Assigned currencies' exponent length. */
-    public function getExponent()    : int    { return strtoupper(self::$exponent); }
-    /** @return bool Assigned currencies' exponent use status. */
-    public function getExponentUse() : bool   { return strtoupper(self::$exponentUse); }
+    /**
+     * Returns currency suffix.
+     *
+     * @param string $v Input last part of amount.
+     * @return string Currency suffix or empty string if not found.
+     */
+    protected function getCurrencyFull() : string {
+        if($this->currency->getPicker() != null) {
+            $imploded = intval(implode("", $this->amountFull));
+            if($imploded == 1) {
+                return $this->dictionary['currencies'][$this->currency->getPicker()]['s'];
+            } elseif ($imploded >= 2) {
+                return $this->dictionary['currencies'][$this->currency->getPicker()]['p'];
+            } elseif($imploded == 0) {
+                return "";
+            }
+        }
+        return "";
+    }
+
+    /**
+     * Returns currency minors' suffix.
+     *
+     * @param string $v Input rest.
+     * @return string Currency minor suffix or empty string if not found.
+     */
+    protected function getCurrencyMinor(string $v = null) : string {
+        if($this->currency->getPicker() != null) {
+            if($v == 1) {
+                return $this->dictionary['currencies'][$this->currency->getPicker()]['minor']['s'];
+            } elseif ($v >= 2) {
+                return $this->dictionary['currencies'][$this->currency->getPicker()]['minor']['p'];
+            } elseif($v == 0) {
+                return "";
+            }
+        }
+        return "";
+    }
+}
+
+/**
+ * Class used to transcribe float value into words in Polish language.
+ * 
+ * @author Piotr Bonk <bonk.piotr@gmail.com>
+ */
+class PL extends \tei187\Slownie\SlownieBase {
+    /** @var array $dictionary Dictionary for translation purposes and cross-reference tables. */
+    protected $dictionary = [
+        'currencies' => Resources\ISO4217\PL\Currencies, 
+           'numbers' => Resources\PL\Numbers,
+              'xref' => CurrencyNumberToCode,
+            'suffix' => Resources\PL\LargeNumbers
+    ];
+
+    /**
+     * Template method to get correct suffix per nth power of 10 and given value part.
+     *
+     * @param integer $power N-th power of 10.
+     * @param string|null $v Input value part.
+     * @return string
+     */
+    protected function getLargeNumbers(int $power = 0, string $v = null) : string {
+        if(intval($v) > 0) {
+            $w = $this->getHundreds($v);
+            $vmod = $v % 10;
+            if($v == 1) {
+                return $w . " " . $this->dictionary['suffix'][$power]['s1'];
+            } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
+                return $w . " " . $this->dictionary['suffix'][$power]['s2'];
+            } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
+                return $w . " " . $this->dictionary['suffix'][$power]['s3'];
+            } elseif($v == 0) {
+                return "";
+            }
+        }
+        return "";
+    }
+
+    /**
+     * Returns hundreds part in words.
+     *
+     * @param string $v Input hundreds part.
+     * @param boolean $minor Switch if minor.
+     * @return string Hundreds as string or empty.
+     */
+    protected function getHundreds(string $v = null, bool $minor = false) : string {
+        if(intval($v) > 0) {
+            $teens = false;
+            $vp = [
+                'hundreds' => floor($v / 100),
+                'tens'     => floor(($v % 100) / 10),
+                'single'   => $v % 10,
+            ];
+                
+            $parts = [];
+            if($vp['hundreds'] > 0) {
+                // hundreds
+                $parts[] = $this->dictionary['numbers']['xoo'][$vp['hundreds'] * 100];
+            }
+            if($vp['tens'] > 0) {
+                // tens
+                if($vp['tens'] == 1) {
+                    if($vp['single'] > 0) {
+                        // teens
+                        $teens = true;
+                        $key = $vp['tens'].$vp['single'];
+                        $parts[] = $this->dictionary['numbers']['oxo'][$key];
+                    } else {
+                        $parts[] = $this->dictionary['numbers']['oxo'][$vp['tens'] * 10];
+                    }
+                } elseif($vp['tens'] >= 2) {
+                    $parts[] = $this->dictionary['numbers']['oxo'][$vp['tens'] * 10];
+                }
+            }
+
+            if($teens === false AND $vp['single'] > 0) {
+                if($this->currency->getPicker() !== null) {
+                    // check for 'gender'
+                    if($minor) {
+                        $switch = $this->dictionary['currencies'][$this->currency->getPicker()]['minor']['f'];
+                    } else {
+                        $switch = $this->dictionary['currencies'][$this->currency->getPicker()]['f'];
+                    }
+    
+                    if($switch) {
+                        if($vp['single'] == intval(implode("", $this->amountFull))) {
+                            $parts[] = $this->dictionary['numbers']['f-oox'][$vp['single']];
+                        } elseif($vp['single'] > 1) {
+                            $parts[] = $this->dictionary['numbers']['f-oox'][$vp['single']];
+                        } else {
+                            $parts[] = $this->dictionary['numbers']['oox'][$vp['single']];
+                        }
+                    } else {
+                        $parts[] = $this->dictionary['numbers']['oox'][$vp['single']];
+                    }
+                } else {
+                    $parts[] = $this->dictionary['numbers']['oox'][$vp['single']];
+                }
+            }
+    
+            if(count($parts) > 1) {
+                return implode(" ", $parts);
+            } elseif (count($parts) == 1) {
+                return $parts[0];
+            }
+        }
+        return "";
+    }
+
+    /**
+     * Returns currency suffix.
+     *
+     * @param string $v Input last part of amount.
+     * @return string Currency suffix or empty string if not found.
+     */
+    protected function getCurrencyFull(string $v = null) : string {
+        if($this->currency->getPicker() != null) {
+            $vmod = $v % 10; // rename?
+            if($v == 1) {
+                return $this->dictionary['currencies'][$this->currency->getPicker()]['s1'];
+            } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
+                return $this->dictionary['currencies'][$this->currency->getPicker()]['s2'];
+            } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
+                return $this->dictionary['currencies'][$this->currency->getPicker()]['s3'];
+            } elseif($v == 0) {
+                return "";
+            }
+        }
+        return "";
+    }
+
+    /**
+     * Returns currency minors' suffix.
+     *
+     * @param string $v Input rest.
+     * @return string Currency minor suffix or empty string if not found.
+     */
+    protected function getCurrencyMinor(string $v = null) : string {
+        if($this->currency->getPicker() != null) {
+            $vmod = $v % 10;
+            if($v == 1) {
+                return $this->dictionary['currencies'][$this->currency->getPicker()]['minor']['s1'];
+            } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
+                return $this->dictionary['currencies'][$this->currency->getPicker()]['minor']['s2'];
+            } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
+                return $this->dictionary['currencies'][$this->currency->getPicker()]['minor']['s3'];
+            } elseif($v == 0) {
+                return "";
+            }
+        }
+        return "";
+    }
 }
 
 ?>
