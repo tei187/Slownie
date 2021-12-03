@@ -11,35 +11,10 @@ Search.appendIndex(
             "summary": "Class\u0020constructor.",
             "url": "classes/tei187-Slownie-SlownieBase.html#method___construct"
         },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AfindExponent\u0028\u0029",
-            "name": "findExponent",
-            "summary": "Returns\u0020exponent\u0020for\u0020set\u0020currency.",
-            "url": "classes/tei187-Slownie-SlownieBase.html#method_findExponent"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AfindExponentUse\u0028\u0029",
-            "name": "findExponentUse",
-            "summary": "Returns\u0020exponent\u0020use\u0020for\u0020set\u0020currency.",
-            "url": "classes/tei187-Slownie-SlownieBase.html#method_findExponentUse"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AsetFormatting\u0028\u0029",
-            "name": "setFormatting",
-            "summary": "Defines\u0020input\u0020string\u0020formatting.",
-            "url": "classes/tei187-Slownie-SlownieBase.html#method_setFormatting"
-        },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003ArelayFractionMinors\u0028\u0029",
             "name": "relayFractionMinors",
             "summary": "Returns\u0020string\u0020x\/y,\u0020where\u0020X\u0020is\u0020the\u0020minor\u0020rest\u0020and\u0020Y\u0020is\u0020power\u0020of\u002010\u0020to\u0020the\u0020exponent\u0020length.",
             "url": "classes/tei187-Slownie-SlownieBase.html#method_relayFractionMinors"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003Aparse\u0028\u0029",
-            "name": "parse",
-            "summary": "Parses\u0020input\u0020amount.\u0020Assigns\u0020values\u0020to\u0020\u0024this\u002D\u003EamountPart\u0020and\u0020\u0024this\u002D\u003EamountFull.",
-            "url": "classes/tei187-Slownie-SlownieBase.html#method_parse"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AsetCurrency\u0028\u0029",
-            "name": "setCurrency",
-            "summary": "Assigns\u0020currency.",
-            "url": "classes/tei187-Slownie-SlownieBase.html#method_setCurrency"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003ArelayString\u0028\u0029",
             "name": "relayString",
@@ -50,6 +25,31 @@ Search.appendIndex(
             "name": "translateNumber",
             "summary": "Switches\u0020between\u0020translations\u0020for\u0020given\u0020value\u0020multiplied\u0020by\u0020N\u002Dpower\u0020of\u0020ten.",
             "url": "classes/tei187-Slownie-SlownieBase.html#method_translateNumber"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "Parses\u0020input\u0020amount.\u0020Assigns\u0020values\u0020to\u0020\u0024this\u002D\u003EamountPart\u0020and\u0020\u0024this\u002D\u003EamountFull.",
+            "url": "classes/tei187-Slownie-SlownieBase.html#method_parse"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003Aoutput\u0028\u0029",
+            "name": "output",
+            "summary": "Undocumented\u0020function",
+            "url": "classes/tei187-Slownie-SlownieBase.html#method_output"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AverifyCodes\u0028\u0029",
+            "name": "verifyCodes",
+            "summary": "Developer\u0020method.\u0020Verifies\u0020if\u0020all\u0020keys\u0020from\u0020tei187\\Resources\\ISO4217\\NumberToCode\u0020exist\u0020in\u0020language\u0020pack.",
+            "url": "classes/tei187-Slownie-SlownieBase.html#method_verifyCodes"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AsetCurrency\u0028\u0029",
+            "name": "setCurrency",
+            "summary": "Assigns\u0020currency.",
+            "url": "classes/tei187-Slownie-SlownieBase.html#method_setCurrency"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AsetFormatting\u0028\u0029",
+            "name": "setFormatting",
+            "summary": "Defines\u0020input\u0020string\u0020formatting.",
+            "url": "classes/tei187-Slownie-SlownieBase.html#method_setFormatting"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AsetFractions\u0028\u0029",
             "name": "setFractions",
@@ -65,11 +65,6 @@ Search.appendIndex(
             "name": "getCurrency",
             "summary": "Returns\u0020currently\u0020set\u0020currency...\u0020in\u0020uppercase.\u0020That\u0027s\u0020pretty\u0020much\u0020it.",
             "url": "classes/tei187-Slownie-SlownieBase.html#method_getCurrency"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003Aoutput\u0028\u0029",
-            "name": "output",
-            "summary": "Returns\u0020amount\u0020in\u0020words.",
-            "url": "classes/tei187-Slownie-SlownieBase.html#method_output"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AgetQuintillions\u0028\u0029",
             "name": "getQuintillions",
@@ -136,35 +131,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/tei187-Slownie-SlownieBase.html#property_input"
         },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024rounded",
-            "name": "rounded",
-            "summary": "",
-            "url": "classes/tei187-Slownie-SlownieBase.html#property_rounded"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024exponent",
-            "name": "exponent",
-            "summary": "",
-            "url": "classes/tei187-Slownie-SlownieBase.html#property_exponent"
-        },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024currency",
             "name": "currency",
             "summary": "",
             "url": "classes/tei187-Slownie-SlownieBase.html#property_currency"
         },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024rounding",
-            "name": "rounding",
-            "summary": "",
-            "url": "classes/tei187-Slownie-SlownieBase.html#property_rounding"
-        },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024formatting",
             "name": "formatting",
             "summary": "",
             "url": "classes/tei187-Slownie-SlownieBase.html#property_formatting"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024exponentUse",
-            "name": "exponentUse",
-            "summary": "",
-            "url": "classes/tei187-Slownie-SlownieBase.html#property_exponentUse"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003A\u0024pickerUse",
             "name": "pickerUse",
@@ -181,65 +156,80 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/tei187-Slownie-SlownieBase.html#property_needsParsing"
         },                {
-            "fqsen": "\\tei187\\Slownie\\PL",
-            "name": "PL",
-            "summary": "Class\u0020used\u0020to\u0020transcribe\u0020float\u0020value\u0020into\u0020words\u0020in\u0020Polish\u0020language.",
-            "url": "classes/tei187-Slownie-PL.html"
+            "fqsen": "\\tei187\\Slownie\\Currency",
+            "name": "Currency",
+            "summary": "Class\u0020designed\u0020to\u0020retrieve\u0020and\u0020handle\u0020basic\u0020currency\u002Dspecific\u0020information.",
+            "url": "classes/tei187-Slownie-Currency.html"
         },                {
-            "fqsen": "\\tei187\\Slownie\\PL\u003A\u003AgetLargeNumbers\u0028\u0029",
-            "name": "getLargeNumbers",
-            "summary": "Template\u0020method\u0020to\u0020get\u0020correct\u0020suffix\u0020per\u0020nth\u0020power\u0020of\u002010\u0020and\u0020given\u0020value\u0020part.",
-            "url": "classes/tei187-Slownie-PL.html#method_getLargeNumbers"
+            "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Class\u0020constructor.",
+            "url": "classes/tei187-Slownie-Currency.html#method___construct"
         },                {
-            "fqsen": "\\tei187\\Slownie\\PL\u003A\u003AgetHundreds\u0028\u0029",
-            "name": "getHundreds",
-            "summary": "Returns\u0020hundreds\u0020part\u0020in\u0020words.",
-            "url": "classes/tei187-Slownie-PL.html#method_getHundreds"
+            "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003AcheckCurrency\u0028\u0029",
+            "name": "checkCurrency",
+            "summary": "Verifies\u0020input,\u0020including\u0020assigning\u0020attributes\u0020if\u0020verified.",
+            "url": "classes/tei187-Slownie-Currency.html#method_checkCurrency"
         },                {
-            "fqsen": "\\tei187\\Slownie\\PL\u003A\u003AgetCurrencyFull\u0028\u0029",
-            "name": "getCurrencyFull",
-            "summary": "Returns\u0020currency\u0020suffix.",
-            "url": "classes/tei187-Slownie-PL.html#method_getCurrencyFull"
+            "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003AassignSpecifics\u0028\u0029",
+            "name": "assignSpecifics",
+            "summary": "Assigns\u0020specific\u0020attributes\u0020per\u0020recognized\u0020currency.",
+            "url": "classes/tei187-Slownie-Currency.html#method_assignSpecifics"
         },                {
-            "fqsen": "\\tei187\\Slownie\\PL\u003A\u003AgetCurrencyMinor\u0028\u0029",
-            "name": "getCurrencyMinor",
-            "summary": "Returns\u0020currency\u0020minors\u0027\u0020suffix.",
-            "url": "classes/tei187-Slownie-PL.html#method_getCurrencyMinor"
+            "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "Public\u0020equivalent\u0020of\u0020self\u003A\u003AcheckCurrency.\u0020If\u0020parameter\u0020is\u0020proper,\u0020fills\u0020object\u0027s\u0020attributes\u003A\u0020picker,\u0020decimal\u0020exponent\u0020and\u0020exponent\u0027s\u0020use.",
+            "url": "classes/tei187-Slownie-Currency.html#method_set"
         },                {
-            "fqsen": "\\tei187\\Slownie\\PL\u003A\u003A\u0024dictionary",
-            "name": "dictionary",
+            "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003Areset\u0028\u0029",
+            "name": "reset",
+            "summary": "Resets\u0020object\u0027s\u0020attributes.",
+            "url": "classes/tei187-Slownie-Currency.html#method_reset"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003AsetExponent\u0028\u0029",
+            "name": "setExponent",
+            "summary": "Forces\u0020overwrite\u0020of\u0020decimal\u0020exponent.\u0020In\u0020this\u0020case,\u0020must\u0020be\u0020used\u0020after\u0020set\u0028\u0029\u0020method.",
+            "url": "classes/tei187-Slownie-Currency.html#method_setExponent"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003AsetExponentUse\u0028\u0029",
+            "name": "setExponentUse",
+            "summary": "Forces\u0020overwrite\u0020of\u0020exponent\u0027s\u0020use.\u0020In\u0020this\u0020case,\u0020must\u0020be\u0020used\u0020after\u0020set\u0028\u0029\u0020method.",
+            "url": "classes/tei187-Slownie-Currency.html#method_setExponentUse"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003AgetParams\u0028\u0029",
+            "name": "getParams",
+            "summary": "Retrieves\u0020attributes.",
+            "url": "classes/tei187-Slownie-Currency.html#method_getParams"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003AgetPicker\u0028\u0029",
+            "name": "getPicker",
             "summary": "",
-            "url": "classes/tei187-Slownie-PL.html#property_dictionary"
+            "url": "classes/tei187-Slownie-Currency.html#method_getPicker"
         },                {
-            "fqsen": "\\tei187\\Slownie\\EN",
-            "name": "EN",
-            "summary": "Class\u0020used\u0020to\u0020transcribe\u0020float\u0020value\u0020into\u0020words\u0020in\u0020English\u0020language.",
-            "url": "classes/tei187-Slownie-EN.html"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\EN\u003A\u003AgetLargeNumbers\u0028\u0029",
-            "name": "getLargeNumbers",
-            "summary": "Template\u0020method\u0020to\u0020get\u0020correct\u0020suffix\u0020per\u0020nth\u0020power\u0020of\u002010\u0020and\u0020given\u0020value\u0020part.",
-            "url": "classes/tei187-Slownie-EN.html#method_getLargeNumbers"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\EN\u003A\u003AgetHundreds\u0028\u0029",
-            "name": "getHundreds",
-            "summary": "Returns\u0020hundreds\u0020part\u0020in\u0020words.",
-            "url": "classes/tei187-Slownie-EN.html#method_getHundreds"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\EN\u003A\u003AgetCurrencyFull\u0028\u0029",
-            "name": "getCurrencyFull",
-            "summary": "Returns\u0020currency\u0020suffix.",
-            "url": "classes/tei187-Slownie-EN.html#method_getCurrencyFull"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\EN\u003A\u003AgetCurrencyMinor\u0028\u0029",
-            "name": "getCurrencyMinor",
-            "summary": "Returns\u0020currency\u0020minors\u0027\u0020suffix.",
-            "url": "classes/tei187-Slownie-EN.html#method_getCurrencyMinor"
-        },                {
-            "fqsen": "\\tei187\\Slownie\\EN\u003A\u003A\u0024dictionary",
-            "name": "dictionary",
+            "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003AgetExponent\u0028\u0029",
+            "name": "getExponent",
             "summary": "",
-            "url": "classes/tei187-Slownie-EN.html#property_dictionary"
+            "url": "classes/tei187-Slownie-Currency.html#method_getExponent"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003AgetExponentUse\u0028\u0029",
+            "name": "getExponentUse",
+            "summary": "",
+            "url": "classes/tei187-Slownie-Currency.html#method_getExponentUse"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003A\u0024picker",
+            "name": "picker",
+            "summary": "",
+            "url": "classes/tei187-Slownie-Currency.html#property_picker"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003A\u0024exponent",
+            "name": "exponent",
+            "summary": "",
+            "url": "classes/tei187-Slownie-Currency.html#property_exponent"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003A\u0024exponentUse",
+            "name": "exponentUse",
+            "summary": "",
+            "url": "classes/tei187-Slownie-Currency.html#property_exponentUse"
         },                {
             "fqsen": "\\tei187\\Slownie\\DE",
             "name": "DE",
@@ -276,6 +266,66 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/tei187-Slownie-DE.html#property_dictionary"
         },                {
+            "fqsen": "\\tei187\\Slownie\\EN",
+            "name": "EN",
+            "summary": "Class\u0020used\u0020to\u0020transcribe\u0020float\u0020value\u0020into\u0020words\u0020in\u0020English\u0020language.",
+            "url": "classes/tei187-Slownie-EN.html"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\EN\u003A\u003AgetLargeNumbers\u0028\u0029",
+            "name": "getLargeNumbers",
+            "summary": "Template\u0020method\u0020to\u0020get\u0020correct\u0020suffix\u0020per\u0020nth\u0020power\u0020of\u002010\u0020and\u0020given\u0020value\u0020part.",
+            "url": "classes/tei187-Slownie-EN.html#method_getLargeNumbers"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\EN\u003A\u003AgetHundreds\u0028\u0029",
+            "name": "getHundreds",
+            "summary": "Returns\u0020hundreds\u0020part\u0020in\u0020words.",
+            "url": "classes/tei187-Slownie-EN.html#method_getHundreds"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\EN\u003A\u003AgetCurrencyFull\u0028\u0029",
+            "name": "getCurrencyFull",
+            "summary": "Returns\u0020currency\u0020suffix.",
+            "url": "classes/tei187-Slownie-EN.html#method_getCurrencyFull"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\EN\u003A\u003AgetCurrencyMinor\u0028\u0029",
+            "name": "getCurrencyMinor",
+            "summary": "Returns\u0020currency\u0020minors\u0027\u0020suffix.",
+            "url": "classes/tei187-Slownie-EN.html#method_getCurrencyMinor"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\EN\u003A\u003A\u0024dictionary",
+            "name": "dictionary",
+            "summary": "",
+            "url": "classes/tei187-Slownie-EN.html#property_dictionary"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\PL",
+            "name": "PL",
+            "summary": "Class\u0020used\u0020to\u0020transcribe\u0020float\u0020value\u0020into\u0020words\u0020in\u0020Polish\u0020language.",
+            "url": "classes/tei187-Slownie-PL.html"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\PL\u003A\u003AgetLargeNumbers\u0028\u0029",
+            "name": "getLargeNumbers",
+            "summary": "Template\u0020method\u0020to\u0020get\u0020correct\u0020suffix\u0020per\u0020nth\u0020power\u0020of\u002010\u0020and\u0020given\u0020value\u0020part.",
+            "url": "classes/tei187-Slownie-PL.html#method_getLargeNumbers"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\PL\u003A\u003AgetHundreds\u0028\u0029",
+            "name": "getHundreds",
+            "summary": "Returns\u0020hundreds\u0020part\u0020in\u0020words.",
+            "url": "classes/tei187-Slownie-PL.html#method_getHundreds"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\PL\u003A\u003AgetCurrencyFull\u0028\u0029",
+            "name": "getCurrencyFull",
+            "summary": "Returns\u0020currency\u0020suffix.",
+            "url": "classes/tei187-Slownie-PL.html#method_getCurrencyFull"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\PL\u003A\u003AgetCurrencyMinor\u0028\u0029",
+            "name": "getCurrencyMinor",
+            "summary": "Returns\u0020currency\u0020minors\u0027\u0020suffix.",
+            "url": "classes/tei187-Slownie-PL.html#method_getCurrencyMinor"
+        },                {
+            "fqsen": "\\tei187\\Slownie\\PL\u003A\u003A\u0024dictionary",
+            "name": "dictionary",
+            "summary": "",
+            "url": "classes/tei187-Slownie-PL.html#property_dictionary"
+        },                {
             "fqsen": "\\tei187\\Resources\\PL\\Minerals",
             "name": "Minerals",
             "summary": "",
@@ -296,20 +346,10 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/tei187-resources-iso4217-pl.html#constant_Cents"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\\Cents_NotUsed",
-            "name": "Cents_NotUsed",
-            "summary": "",
-            "url": "namespaces/tei187-resources-iso4217-pl.html#constant_Cents_NotUsed"
-        },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\PL\\Centavo",
             "name": "Centavo",
             "summary": "",
             "url": "namespaces/tei187-resources-iso4217-pl.html#constant_Centavo"
-        },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\\Centavo_NotUsed",
-            "name": "Centavo_NotUsed",
-            "summary": "",
-            "url": "namespaces/tei187-resources-iso4217-pl.html#constant_Centavo_NotUsed"
         },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\PL\\Centesimo",
             "name": "Centesimo",
@@ -321,16 +361,6 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/tei187-resources-iso4217-pl.html#constant_Centims"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\\Centims_NotUsed",
-            "name": "Centims_NotUsed",
-            "summary": "",
-            "url": "namespaces/tei187-resources-iso4217-pl.html#constant_Centims_NotUsed"
-        },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\\Fils_3dec",
-            "name": "Fils_3dec",
-            "summary": "",
-            "url": "namespaces/tei187-resources-iso4217-pl.html#constant_Fils_3dec"
-        },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\PL\\Fils",
             "name": "Fils",
             "summary": "",
@@ -340,11 +370,6 @@ Search.appendIndex(
             "name": "Piastres",
             "summary": "",
             "url": "namespaces/tei187-resources-iso4217-pl.html#constant_Piastres"
-        },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\\Piastres_3dec",
-            "name": "Piastres_3dec",
-            "summary": "",
-            "url": "namespaces/tei187-resources-iso4217-pl.html#constant_Piastres_3dec"
         },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\PL\\Sen",
             "name": "Sen",
@@ -386,11 +411,6 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/tei187-resources-iso4217-en.html#constant_Cents"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\\Cents_NotUsed",
-            "name": "Cents_NotUsed",
-            "summary": "",
-            "url": "namespaces/tei187-resources-iso4217-en.html#constant_Cents_NotUsed"
-        },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\EN\\Centimos",
             "name": "Centimos",
             "summary": "",
@@ -406,30 +426,15 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/tei187-resources-iso4217-en.html#constant_Centimes"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\\Centimes_NotUsed",
-            "name": "Centimes_NotUsed",
-            "summary": "",
-            "url": "namespaces/tei187-resources-iso4217-en.html#constant_Centimes_NotUsed"
-        },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\EN\\Centavos",
             "name": "Centavos",
             "summary": "",
             "url": "namespaces/tei187-resources-iso4217-en.html#constant_Centavos"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\\Centavos_NotUsed",
-            "name": "Centavos_NotUsed",
-            "summary": "",
-            "url": "namespaces/tei187-resources-iso4217-en.html#constant_Centavos_NotUsed"
-        },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\EN\\Fils",
             "name": "Fils",
             "summary": "",
             "url": "namespaces/tei187-resources-iso4217-en.html#constant_Fils"
-        },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\\Fils_3dec",
-            "name": "Fils_3dec",
-            "summary": "",
-            "url": "namespaces/tei187-resources-iso4217-en.html#constant_Fils_3dec"
         },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\EN\\Pence",
             "name": "Pence",
@@ -440,11 +445,6 @@ Search.appendIndex(
             "name": "Piastres",
             "summary": "",
             "url": "namespaces/tei187-resources-iso4217-en.html#constant_Piastres"
-        },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\\Piastres_3dec",
-            "name": "Piastres_3dec",
-            "summary": "",
-            "url": "namespaces/tei187-resources-iso4217-en.html#constant_Piastres_3dec"
         },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\EN\\Paisa",
             "name": "Paisa",
@@ -466,15 +466,20 @@ Search.appendIndex(
             "summary": "Supported\u0020currencies\u0020by\u0020ISO\u00204217.\u0020\u0028EN\u0029",
             "url": "namespaces/tei187-resources-iso4217-en.html#constant_Currencies"
         },                {
+            "fqsen": "\\tei187\\Resources\\DE\\Numbers",
+            "name": "Numbers",
+            "summary": "",
+            "url": "namespaces/tei187-resources-de.html#constant_Numbers"
+        },                {
+            "fqsen": "\\tei187\\Resources\\DE\\LargeNumbers",
+            "name": "LargeNumbers",
+            "summary": "",
+            "url": "namespaces/tei187-resources-de.html#constant_LargeNumbers"
+        },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\DE\\Cents",
             "name": "Cents",
             "summary": "",
             "url": "namespaces/tei187-resources-iso4217-de.html#constant_Cents"
-        },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\\Cents_NotUsed",
-            "name": "Cents_NotUsed",
-            "summary": "",
-            "url": "namespaces/tei187-resources-iso4217-de.html#constant_Cents_NotUsed"
         },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\DE\\Centimos",
             "name": "Centimos",
@@ -491,30 +496,15 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/tei187-resources-iso4217-de.html#constant_Centimes"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\\Centimes_NotUsed",
-            "name": "Centimes_NotUsed",
-            "summary": "",
-            "url": "namespaces/tei187-resources-iso4217-de.html#constant_Centimes_NotUsed"
-        },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\DE\\Centavos",
             "name": "Centavos",
             "summary": "",
             "url": "namespaces/tei187-resources-iso4217-de.html#constant_Centavos"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\\Centavos_NotUsed",
-            "name": "Centavos_NotUsed",
-            "summary": "",
-            "url": "namespaces/tei187-resources-iso4217-de.html#constant_Centavos_NotUsed"
-        },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\DE\\Fils",
             "name": "Fils",
             "summary": "",
             "url": "namespaces/tei187-resources-iso4217-de.html#constant_Fils"
-        },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\\Fils_3dec",
-            "name": "Fils_3dec",
-            "summary": "",
-            "url": "namespaces/tei187-resources-iso4217-de.html#constant_Fils_3dec"
         },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\DE\\Pence",
             "name": "Pence",
@@ -525,11 +515,6 @@ Search.appendIndex(
             "name": "Piastres",
             "summary": "",
             "url": "namespaces/tei187-resources-iso4217-de.html#constant_Piastres"
-        },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\\Piastres_3dec",
-            "name": "Piastres_3dec",
-            "summary": "",
-            "url": "namespaces/tei187-resources-iso4217-de.html#constant_Piastres_3dec"
         },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\DE\\Paisa",
             "name": "Paisa",
@@ -551,20 +536,15 @@ Search.appendIndex(
             "summary": "Supported\u0020currencies\u0020by\u0020ISO\u00204217.\u0020\u0028DE\u0029",
             "url": "namespaces/tei187-resources-iso4217-de.html#constant_Currencies"
         },                {
+            "fqsen": "\\tei187\\Resources\\ISO4217\\Specifics",
+            "name": "Specifics",
+            "summary": "",
+            "url": "namespaces/tei187-resources-iso4217.html#constant_Specifics"
+        },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\NumberToCode",
             "name": "NumberToCode",
             "summary": "",
             "url": "namespaces/tei187-resources-iso4217.html#constant_NumberToCode"
-        },                {
-            "fqsen": "\\tei187\\Resources\\DE\\Numbers",
-            "name": "Numbers",
-            "summary": "",
-            "url": "namespaces/tei187-resources-de.html#constant_Numbers"
-        },                {
-            "fqsen": "\\tei187\\Resources\\DE\\LargeNumbers",
-            "name": "LargeNumbers",
-            "summary": "",
-            "url": "namespaces/tei187-resources-de.html#constant_LargeNumbers"
         },                {
             "fqsen": "\\",
             "name": "\\",
@@ -606,6 +586,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/tei187-resources-iso4217-en.html"
         },                {
+            "fqsen": "\\tei187\\Resources\\DE",
+            "name": "DE",
+            "summary": "",
+            "url": "namespaces/tei187-resources-de.html"
+        },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\DE",
             "name": "DE",
             "summary": "",
@@ -615,10 +600,5 @@ Search.appendIndex(
             "name": "ISO4217",
             "summary": "",
             "url": "namespaces/tei187-resources-iso4217.html"
-        },                {
-            "fqsen": "\\tei187\\Resources\\DE",
-            "name": "DE",
-            "summary": "",
-            "url": "namespaces/tei187-resources-de.html"
         }            ]
 );

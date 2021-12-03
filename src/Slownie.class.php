@@ -25,15 +25,9 @@ abstract class SlownieBase {
 // currency-based
     /** @var object $currency Chosen currency, null by default. */
     protected Currency $currency;
-    /** @var float $rounded Rounded input by set rounding method. */
-    protected $rounded = 0;
-    /** @var integer $exponent Chosen currencies decimal points, 2 by default. */
-    protected $exponent = 2;
 // config
     /** @var string[] $formatting Settings for number formatting. */
     protected $formatting = [ 'thousands' => ",", "decimals" => "." ];
-    /** @var bool $exponent Chosen currencies decimal points, 2 by default. */
-    protected $exponentUse = true;
     /** @var bool $pickerUse Flag to switch between translated currency name or currency picker. */
     protected $pickerUse = false;
     /** @var boolean $fractions Translate fully (with minors) or partially (with fractional notation). FALSE by default. */
@@ -45,12 +39,12 @@ abstract class SlownieBase {
      * Class constructor.
      *
      * @param string|null $amount Amount to process. Has to be well formed float or float-formed string.
-     * @param string||null $currency ISO 4217 currency code or number (refer to tei187\Resources\ISO4217\{lang}\Currencies or tei187\Resources\ISO4217\NumberToCode). By default null.
+     * @param string|\tei187\Slownie\Currency|null $currency ISO 4217 currency code or number (refer to tei187\Resources\ISO4217\{lang}\Currencies or tei187\Resources\ISO4217\NumberToCode). By default null.
      * @param boolean $fractions If FALSE translates fully, if TRUE uses fractional notation for minor rest.
-     * @param boolean|null $picker Sets flag to use or not use picker rather than full translation of currency.
+     * @param boolean $picker Sets flag to use or not use picker rather than full translation of currency.
      * @return void
      */
-    function __construct($amount = null, mixed $currency = null, bool $fractions = false, bool $picker = null) {
+    function __construct(?string $amount = null, ?mixed $currency = null, bool $fractions = false, bool $picker = false) {
         if(is_string($currency)) {
             $this->currency = new \tei187\Slownie\Currency($currency);
         } elseif(is_object($currency) AND get_class($currency) === new \tei187\Slownie\Currency) {
@@ -131,7 +125,7 @@ abstract class SlownieBase {
      * @param integer|null $digits Full amount part (000-999) to translate.
      * @return string
      */
-    protected function translateNumber(int $power = null, int $digits = null) : string {
+    protected function translateNumber(?int $power = null, ?int $digits = null) : string {
         switch($power) {
             case 0:  $output = $this->getHundreds($digits);     break;
             case 3:  $output = $this->getThousands($digits);    break;
@@ -151,7 +145,7 @@ abstract class SlownieBase {
      * @param string|null $v Input amount.
      * @return boolean Returns TRUE is value is proper, FALSE if otherwise.
      */
-    protected function parse(string $v = null) : bool {
+    protected function parse(?string $v = null) : bool {
         $v = str_replace($this->formatting['thousands'], "", $v);
         if(strlen(trim($v)) !== 0 or !is_null($v)) {
             $exp = explode($this->formatting['decimals'], $v);
@@ -161,7 +155,9 @@ abstract class SlownieBase {
             );
             $this->amountPart = 
                 count($exp) == 2 
-                    ? round($exp[1] / (10 ** strlen($exp[1])), $this->currency->getExponent()) * (10 ** $this->currency->getExponent())
+                    ? round(
+                        $exp[1] / (10 ** strlen($exp[1])), 
+                        $this->currency->getExponent()) * (10 ** $this->currency->getExponent() )
                     : 0;
             $this->amountFull = array_map( fn($val): string => intval($val), $final);
         } else {
@@ -181,9 +177,21 @@ abstract class SlownieBase {
      * @param boolean|null $picker Sets flag to use or not use picker rather than full translation of currency.
      * @return string Output in words.
      */
-    public function output($v = null, string $currency = null, bool $fractions = null, bool $picker = null) : string {
+
+     /**
+      * Undocumented function
+      *
+      * @param [type] $v
+      * @param mixed|null $currency
+      * @param boolean|null $fractions
+      * @param boolean|null $picker
+      * @return string
+      */
+    public function output(?mixed $v = null, ?mixed $currency = null, ?bool $fractions = false, ?bool $picker = false) : string {
         if($v !== null)          { $this->input = $v; }
-        if($currency !== null)   { $this->setCurrency($currency); }
+        if($currency !== null)   { 
+            
+        }
         if($picker !== null)     { $this->setPickerUse($picker); }
         if($fractions !== null)  { $this->setFractions($fractions); }
 
@@ -211,7 +219,7 @@ abstract class SlownieBase {
      * @param string|null $currency Currency shortcode. Has to exist as index in tei187\Resources\ISO4217\{lang}\Currencies, or as cross-referenced ISO 4217 _STRING_ index of tei187\Resources\ISO4217\NumberToCode (with leading zeroes), or 'none' (default).
      * @return self
      */
-    public function setCurrency(string $currency = null) : self {
+    public function setCurrency(?string $currency = null) : self {
         $this->currency = new \tei187\Slownie\Currency();
         if($this->currency->set($currency) === false) {
             $this->currency->reset();
@@ -269,7 +277,7 @@ abstract class SlownieBase {
      * @param string $v Input quintillions part.
      * @return string Quintillions as string or empty.
      */
-    protected function getQuintillions(string $v = null) : string { return $this->getLargeNumbers(18, $v); }
+    protected function getQuintillions(?string $v = null) : string { return $this->getLargeNumbers(18, $v); }
 
     /**
      * Returns quadrillions in words.
@@ -277,7 +285,7 @@ abstract class SlownieBase {
      * @param string $v Input quadrillions part.
      * @return string Quadrillions as string or empty.
      */
-    protected function getQuadrillions(string $v = null) : string { return $this->getLargeNumbers(15, $v);}
+    protected function getQuadrillions(?string $v = null) : string { return $this->getLargeNumbers(15, $v);}
 
     /**
      * Returns trillions in words.
@@ -285,7 +293,7 @@ abstract class SlownieBase {
      * @param string $v Input trillions part.
      * @return string Trillions as string or empty.
      */
-    protected function getTrillions(string $v = null) : string { return $this->getLargeNumbers(12, $v); }
+    protected function getTrillions(?string $v = null) : string { return $this->getLargeNumbers(12, $v); }
 
     /**
      * Returns billions in words.
@@ -293,7 +301,7 @@ abstract class SlownieBase {
      * @param string $v Input billions part.
      * @return string Billions as string or empty.
      */
-    protected function getBillions(string $v = null) : string { return $this->getLargeNumbers(9, $v); }
+    protected function getBillions(?string $v = null) : string { return $this->getLargeNumbers(9, $v); }
 
     /**
      * Returns millions in words.
@@ -301,7 +309,7 @@ abstract class SlownieBase {
      * @param string $v Input millions part.
      * @return string Millions as string or empty.
      */
-    protected function getMillions(string $v = null) : string { return $this->getLargeNumbers(6, $v); }
+    protected function getMillions(?string $v = null) : string { return $this->getLargeNumbers(6, $v); }
 
     /**
      * Returns thousands in words.
@@ -309,19 +317,19 @@ abstract class SlownieBase {
      * @param string $v Input thousands part.
      * @return string Thousands as string or empty.
      */
-    protected function getThousands(string $v = null) : string { return $this->getLargeNumbers(3, $v); }
+    protected function getThousands(?string $v = null) : string { return $this->getLargeNumbers(3, $v); }
 
-    abstract protected function getCurrencyMinor(string $v = null) : string;
+    abstract protected function getCurrencyMinor(?string $v = null) : string;
     abstract protected function getCurrencyFull() : string;
-    abstract protected function getHundreds(string $v = null) : string;
-    abstract protected function getLargeNumbers(int $power = 0, string $v = null) : string;
+    abstract protected function getHundreds(?string $v = null) : string;
+    abstract protected function getLargeNumbers(int $power = 0, ?string $v = null) : string;
 }
 
 /**
  * Class designed to retrieve and handle basic currency-specific information.
  */
 class Currency {
-    /** @var string|null Assigned currency picker. */
+    /** @var string|integer|null Assigned currency picker. */
     private ?string $picker;
     /** @var integer|null Length of assigned currency exponent. */
     private ?int $exponent;
@@ -332,16 +340,16 @@ class Currency {
      * Class constructor.
      * @param string|integer|null $c ISO 4217 applicable currency number (3-characters-long numeric or string) or currency code (3-characters-long string).
      */
-    function __construct($c = null) {
+    function __construct(?mixed $c = null) {
         $this->checkCurrency($c);
     }
 
     /**
      * Verifies input, including assigning attributes if verified.
-     * @param string|integer $c ISO 4217 applicable currency number (3-characters-long numeric or string) or currency code (3-characters-long string).
+     * @param string|integer|null $c ISO 4217 applicable currency number (3-characters-long numeric or string) or currency code (3-characters-long string).
      * @return boolean
      */
-    private function checkCurrency($c) : bool {
+    private function checkCurrency(?mixed $c = null) : bool {
         $c = strval(preg_replace('/[^0-9A-Za-z]?/m', '', $c));
         
         if(!is_null(CurrencyNumberToCode) AND !is_null($c) AND strlen($c) != 0) {
@@ -362,17 +370,6 @@ class Currency {
         // reset object, because input currency is not correct
         $this->reset();
         return false;
-    }
-
-    /**
-     * Resets attributes.
-     * @return void
-     */
-    public function reset() : self {
-        $this->picker      = null;
-        $this->exponent    = null;
-        $this->exponentUse = null;
-        return $this;
     }
 
     /**
@@ -397,22 +394,45 @@ class Currency {
     }
 
     /**
-     * Public equivalent of self::checkCurrency. If parameter is proper, fills object's attributes.
+     * Public equivalent of self::checkCurrency. If parameter is proper, fills object's attributes: picker, decimal exponent and exponent's use.
      * @param string $c Currency numeric code or alpha code according to ISO 4217 standard.
      * @return boolean|Currency
      */
-    public function set(string $c = null) {
+    public function set(?string $c = null) {
         if(!$this->checkCurrency($c)) {
             return false;
         }
         return $this;
     }
 
+    /**
+     * Resets object's attributes.
+     * @return void
+     */
+    public function reset() : self {
+        $this->picker      = null;
+        $this->exponent    = null;
+        $this->exponentUse = null;
+        return $this;
+    }
+
+    /**
+     * Forces overwrite of decimal exponent. In this case, must be used after set() method.
+     *
+     * @param integer $x Decimal point.
+     * @return self
+     */
     public function setExponent(int $x) : self {
         $this->exponent = $x;
         return $this;
     }
 
+    /**
+     * Forces overwrite of exponent's use. In this case, must be used after set() method.
+     *
+     * @param boolean $b Flag boolean.
+     * @return self
+     */
     public function setExponentUse(bool $b) : self {
         $this->exponentUse = $b;
         return $this;
@@ -430,8 +450,10 @@ class Currency {
         ];
     }
 
-    /** @return string Currently assigned picker. */
-    public function getPicker(bool $flag = false) : ?string { if($flag) { return strtoupper($this->picker); } else { return $this->picker; } }
+    /** 
+     * @param boolean $flag Default FALSE. Returns picker in lowercase on FALSE, uppercase on TRUE.
+     * @return string Currently assigned picker. */
+    public function getPicker(bool $flag = false) : ?string { if($flag) { return strtoupper($this->picker); } else { return strtolower($this->picker); } }
     /** @return integer Assigned currencies' exponent length. */
     public function getExponent()    : int    { return $this->exponent; }
     /** @return bool Assigned currencies' exponent use status. */
@@ -463,7 +485,7 @@ class DE extends \tei187\Slownie\SlownieBase {
      * @param string|null $v Input value part.
      * @return string
      */
-    protected function getLargeNumbers(int $power = 0, string $v = null) : string {
+    protected function getLargeNumbers(int $power = 0, ?string $v = null) : string {
         if(intval($v) > 0) {
             $w = $this->getHundreds($v);
             $w = ((trim($w) == "eins" OR trim($w) == "ein") AND $power >= 6) ? "eine" : $w;
@@ -486,7 +508,7 @@ class DE extends \tei187\Slownie\SlownieBase {
      * @param boolean $minor Switch if minor.
      * @return string Hundreds as string or empty.
      */
-    protected function getHundreds(string $v = null, bool $minor = false) : string {
+    protected function getHundreds(?string $v = null, bool $minor = false) : string {
         $vInt = intval($v);
         if($vInt > 0) {
             $mod3 = $vInt % 100;
@@ -556,7 +578,7 @@ class DE extends \tei187\Slownie\SlownieBase {
      * @param string $v Input rest.
      * @return string Currency minor suffix or empty string if not found.
      */
-    protected function getCurrencyMinor(string $v = null) : string {
+    protected function getCurrencyMinor(?string $v = null) : string {
         if($this->currency->getPicker() != null) {
             if($v == 1) {
                 return $this->dictionary['currencies'][$this->currency->getPicker()]['minor']['s'];
@@ -662,7 +684,7 @@ class EN extends \tei187\Slownie\SlownieBase {
      * @param string|null $v Input value part.
      * @return string
      */
-    protected function getLargeNumbers(int $power = 0, string $v = null) : string {
+    protected function getLargeNumbers(int $power = 0, ?string $v = null) : string {
         if(intval($v) > 0) {
             $w = $this->getHundreds($v);
             if($v == 1) {
@@ -687,7 +709,7 @@ class EN extends \tei187\Slownie\SlownieBase {
      * @param boolean $minor Switch if minor.
      * @return string Hundreds as string or empty.
      */
-    protected function getHundreds(string $v = null, bool $minor = false) : string {
+    protected function getHundreds(?string $v = null, bool $minor = false) : string {
         if(intval($v) > 0) {
             $teens = false;
             $vp = [
@@ -756,7 +778,7 @@ class EN extends \tei187\Slownie\SlownieBase {
      * @param string $v Input rest.
      * @return string Currency minor suffix or empty string if not found.
      */
-    protected function getCurrencyMinor(string $v = null) : string {
+    protected function getCurrencyMinor(?string $v = null) : string {
         if($this->currency->getPicker() != null) {
             if($v == 1) {
                 return $this->dictionary['currencies'][$this->currency->getPicker()]['minor']['s'];
@@ -791,7 +813,7 @@ class PL extends \tei187\Slownie\SlownieBase {
      * @param string|null $v Input value part.
      * @return string
      */
-    protected function getLargeNumbers(int $power = 0, string $v = null) : string {
+    protected function getLargeNumbers(int $power = 0, ?string $v = null) : string {
         if(intval($v) > 0) {
             $w = $this->getHundreds($v);
             $vmod = $v % 10;
@@ -815,7 +837,7 @@ class PL extends \tei187\Slownie\SlownieBase {
      * @param boolean $minor Switch if minor.
      * @return string Hundreds as string or empty.
      */
-    protected function getHundreds(string $v = null, bool $minor = false) : string {
+    protected function getHundreds(?string $v = null, bool $minor = false) : string {
         if(intval($v) > 0) {
             $teens = false;
             $vp = [
@@ -885,7 +907,7 @@ class PL extends \tei187\Slownie\SlownieBase {
      * @param string $v Input last part of amount.
      * @return string Currency suffix or empty string if not found.
      */
-    protected function getCurrencyFull(string $v = null) : string {
+    protected function getCurrencyFull(?string $v = null) : string {
         if($this->currency->getPicker() != null) {
             $vmod = $v % 10; // rename?
             if($v == 1) {
@@ -907,7 +929,7 @@ class PL extends \tei187\Slownie\SlownieBase {
      * @param string $v Input rest.
      * @return string Currency minor suffix or empty string if not found.
      */
-    protected function getCurrencyMinor(string $v = null) : string {
+    protected function getCurrencyMinor(?string $v = null) : string {
         if($this->currency->getPicker() != null) {
             $vmod = $v % 10;
             if($v == 1) {
