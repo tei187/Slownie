@@ -24,7 +24,7 @@ abstract class SlownieBase {
     protected $input = 0;
 // currency-based
     /** @var object $currency Chosen currency, null by default. */
-    protected Currency $currency;
+    protected \tei187\Slownie\Currency $currency;
 // config
     /** @var string[] $formatting Settings for number formatting. */
     protected $formatting = [ 'thousands' => ",", "decimals" => "." ];
@@ -39,7 +39,7 @@ abstract class SlownieBase {
      * Class constructor.
      *
      * @param string|null $amount Amount to process. Has to be well formed float or float-formed string.
-     * @param string|\tei187\Slownie\Currency|null $currency ISO 4217 currency code or number (refer to tei187\Resources\ISO4217\{lang}\Currencies or tei187\Resources\ISO4217\NumberToCode). By default null.
+     * @param string|\tei187\Slownie\Currency|null $currency A Currency class object or string ISO 4217 currency code or number (refer to tei187\Resources\ISO4217\{lang}\Currencies or tei187\Resources\ISO4217\NumberToCode). By default null.
      * @param boolean $fractions If FALSE translates fully, if TRUE uses fractional notation for minor rest.
      * @param boolean $picker Sets flag to use or not use picker rather than full translation of currency.
      * @return void
@@ -60,7 +60,8 @@ abstract class SlownieBase {
 
     /**
      * Returns string x/y, where X is the minor rest and Y is power of 10 to the exponent length.
-     *
+     * @uses \tei187\Slownie\SlownieBase::$amountPart
+     * @uses \tei187\Slownie\SlownieBase::$currency
      * @return string
      */
     protected function relayFractionMinors() : string {
@@ -73,7 +74,11 @@ abstract class SlownieBase {
 
     /**
      * Sets full in-words transcription of the amount. Handles $this->amountFull;
-     * 
+     * @uses \tei187\Slownie\SlownieBase::$amountFull
+     * @uses \tei187\Slownie\SlownieBase::$amountPart
+     * @uses \tei187\Slownie\SlownieBase::$currency
+     * @uses \tei187\Slownie\SlownieBase::$pickerUse
+     * @uses \tei187\Slownie\SlownieBase::$fractions
      * @return string Translated from numeric.
      */
     protected function relayString() : string {
@@ -141,7 +146,8 @@ abstract class SlownieBase {
 
     /**
      * Parses input amount. Assigns values to $this->amountPart and $this->amountFull.
-     *
+     * @uses \tei187\Slownie\SlownieBase::$formatting
+     * @uses \tei187\Slownie\SlownieBase::$currency
      * @param string|null $v Input amount.
      * @return boolean Returns TRUE is value is proper, FALSE if otherwise.
      */
@@ -171,22 +177,12 @@ abstract class SlownieBase {
     /**
      * Returns amount in words.
      *
-     * @param float|string|null $v Input value. Has to be well formed float or float formed string.
+     * @param string|null $v Input value. Has to be float formed string.
      * @param string $currency ISO 4217 currency code or number.
      * @param boolean|null $fractions If FALSE translates fully, if TRUE uses fractional notation for minor rest.
      * @param boolean|null $picker Sets flag to use or not use picker rather than full translation of currency.
      * @return string Output in words.
      */
-
-     /**
-      * Undocumented function
-      *
-      * @param [type] $v
-      * @param mixed|null $currency
-      * @param boolean|null $fractions
-      * @param boolean|null $picker
-      * @return string
-      */
     public function output(?mixed $v = null, ?mixed $currency = null, ?bool $fractions = false, ?bool $picker = false) : string {
         if($v !== null)          { $this->input = $v; }
         if($currency !== null)   { 
@@ -201,7 +197,8 @@ abstract class SlownieBase {
 
     /**
      * Developer method. Verifies if all keys from tei187\Resources\ISO4217\NumberToCode exist in language pack.
-     * 
+     * @uses \tei187\Resources\ISO4217\NumberToCode tei187\Resources\ISO4217\NumberToCode 
+     * @uses \tei187\Slownie\SlownieBase::$dictionary
      * @return bool TRUE on correct, FALSE otherwise.
      */
     public function verifyCodes() : bool {
@@ -215,7 +212,7 @@ abstract class SlownieBase {
 // - setters
     /**
      * Assigns currency.
-     *
+     * @uses \tei187\Slownie\SlownieBase::$currency
      * @param string|null $currency Currency shortcode. Has to exist as index in tei187\Resources\ISO4217\{lang}\Currencies, or as cross-referenced ISO 4217 _STRING_ index of tei187\Resources\ISO4217\NumberToCode (with leading zeroes), or 'none' (default).
      * @return self
      */
@@ -231,7 +228,7 @@ abstract class SlownieBase {
 
     /**
      * Defines input string formatting.
-     * 
+     * @uses \tei187\Slownie\SlownieBase::$formatting
      * @param string $thousands Thousands separator.
      * @param string $decimals Decimal separator.
      * @return void
@@ -244,7 +241,7 @@ abstract class SlownieBase {
 
     /**
      * Sets flag for fractional notation true/false for minor rest.
-     *
+     * @uses \tei187\Slownie\SlownieBase::$fractions
      * @param boolean $v
      * @return self
      */
@@ -255,7 +252,7 @@ abstract class SlownieBase {
 
     /**
      * Sets flag to switch between translated currency name or currency picker use.
-     *
+     * @uses \tei187\Slownie\SlownieBase::$pickerUse
      * @param boolean $v
      * @return self
      */
@@ -266,7 +263,7 @@ abstract class SlownieBase {
 // - getters
     /**
      * Returns currently set currency... in uppercase. That's pretty much it...
-     *
+     * @uses \tei187\Slownie\SlownieBase::$currency
      * @return string
      */
     public function getCurrency() : string { return strtoupper($this->currency->getPicker()); }
@@ -326,15 +323,23 @@ abstract class SlownieBase {
 }
 
 /**
- * Class designed to retrieve and handle basic currency-specific information.
+ * Class designed to retrieve and handle basic currency-specific information, based on ISO4217-compliant data (code, exponent lenght, exponent use). Valid as of 12th Dec 2021.
+ * 
+ * @uses \tei187\Resources\ISO4217\NumberToCode tei187\Resources\ISO4217\NumberToCode
+ * @uses \tei187\Resources\ISO4217\Specifics tei187\Resources\ISO4217\Specifics
+ * 
+ * @link https://en.wikipedia.org/wiki/ISO_4217 ISO 4217
+ * 
+ * @author Piotr Bonk <bonk.piotr@gmail.com>
+ * @version 1.0.0
  */
 class Currency {
     /** @var string|integer|null Assigned currency picker. */
-    private ?string $picker;
+    private ?string $picker = null;
     /** @var integer|null Length of assigned currency exponent. */
-    private ?int $exponent;
+    private ?int $exponent = null;
     /** @var bool|null Flag wether exponent is used/valid/available as a coin of banknote. */
-    private ?bool $exponentUse;
+    private ?bool $exponentUse = null;
 
     /**
      * Class constructor.
@@ -346,23 +351,27 @@ class Currency {
 
     /**
      * Verifies input, including assigning attributes if verified.
+     * 
+     * @uses \tei187\Resources\ISO4217\NumberToCode
+     * @uses \tei187\Resources\ISO4217\Specifics
+     * 
      * @param string|integer|null $c ISO 4217 applicable currency number (3-characters-long numeric or string) or currency code (3-characters-long string).
-     * @return boolean
+     * @return boolean TRUE on success, FALSE on fail.
      */
     private function checkCurrency(?mixed $c = null) : bool {
-        $c = strval(preg_replace('/[^0-9A-Za-z]?/m', '', $c));
+        $c = strval(preg_replace('/[^0-9A-Za-z]?/m', '', $c)); // normalize string
         
         if(!is_null(CurrencyNumberToCode) AND !is_null($c) AND strlen($c) != 0) {
-            if(is_numeric($c)) {
-                $c = str_pad(strval($c), 3, "0", STR_PAD_LEFT);
+            if(is_numeric($c)) { // numeric code
+                $c = str_pad(strval($c), 3, "0", STR_PAD_LEFT); 
                 if(key_exists($c, CurrencyNumberToCode))
                     $this->assignSpecifics((string) CurrencyNumberToCode[$c]);
                     return true;
-            } elseif(ctype_alpha($c) and strlen($c) == 3) {
+            } elseif(ctype_alpha($c) and strlen($c) == 3) { // alphabetic code
                 if(key_exists(strtolower($c), CurrencySpecifics))
                     $this->assignSpecifics($c);
                     return true;
-            } else {
+            } else { // incompatible
                 $this->reset();
                 return false;
             }
@@ -374,6 +383,9 @@ class Currency {
 
     /**
      * Assigns specific attributes per recognized currency.
+     * 
+     * @uses \tei187\Resources\ISO4217\Specifics
+     * 
      * @param string $c ISO 4217 applicable currency number (3-characters-long numeric or string) or currency code (3-characters-long string).
      * @return void
      */
@@ -394,11 +406,12 @@ class Currency {
     }
 
     /**
-     * Public equivalent of self::checkCurrency. If parameter is proper, fills object's attributes: picker, decimal exponent and exponent's use.
+     * Public equivalent of checkCurrency method. If parameter is proper, fills object's attributes: picker, decimal exponent and exponent's use.
+     * @uses \tei187\Slownie\Currency::checkCurrency()
      * @param string $c Currency numeric code or alpha code according to ISO 4217 standard.
-     * @return boolean|Currency
+     * @return boolean|self Returns FALSE if check fails, self otherwise.
      */
-    public function set(?string $c = null) {
+    public function set(?string $c = null) : mixed {
         if(!$this->checkCurrency($c)) {
             return false;
         }
@@ -440,7 +453,10 @@ class Currency {
 
     /**
      * Retrieves attributes.
-     * @return array
+     * @return array Array with keys corresponding to values: 'picker', 'exponent', 'exponentUse'.
+     * @uses \tei187\Slownie\Currency::$picker
+     * @uses \tei187\Slownie\Currency::$exponent
+     * @uses \tei187\Slownie\Currency::$exponentUse
      */
     public function getParams() : array {
         return [
@@ -451,13 +467,20 @@ class Currency {
     }
 
     /** 
-     * @param boolean $flag Default FALSE. Returns picker in lowercase on FALSE, uppercase on TRUE.
+     * @uses \tei187\Slownie\Currency::$picker
+     * @param boolean $flag Returns picker in lowercase on FALSE, uppercase on TRUE. By default FALSE.
      * @return string Currently assigned picker. */
     public function getPicker(bool $flag = false) : ?string { if($flag) { return strtoupper($this->picker); } else { return strtolower($this->picker); } }
-    /** @return integer Assigned currencies' exponent length. */
-    public function getExponent()    : int    { return $this->exponent; }
-    /** @return bool Assigned currencies' exponent use status. */
-    public function getExponentUse() : bool   { return $this->exponentUse; }
+    /** 
+     * @return integer Assigned currencies' exponent length. 
+     * @uses \tei187\Slownie\Currency::$exponent
+    */
+    public function getExponent() : int { return $this->exponent; }
+    /** 
+     * @return bool Assigned currencies' exponent use status. 
+     * @uses \tei187\Slownie\Currency::$exponentUse
+    */
+    public function getExponentUse() : bool { return $this->exponentUse; }
 }
 
 # # # # # # # # # #
@@ -468,9 +491,16 @@ class Currency {
  * Class used to transcribe float value into words in German language.
  * 
  * @author Piotr Bonk <bonk.piotr@gmail.com>
+ * @version 1.0.0
  */
 class DE extends \tei187\Slownie\SlownieBase {
-    /** @var array[] $dictionary Dictionary for translation purposes and cross-reference tables. */
+    /** 
+     * @var array[] $dictionary Dictionary for translation purposes and cross-reference tables.
+     * @uses \tei187\Resources\ISO4217\DE\Currencies tei187\Resources\ISO4217\DE\Currencies
+     * @uses \tei187\Resources\ISO4217\NumberToCode tei187\Resources\ISO4217\NumberToCode
+     * @uses \tei187\Resources\DE\Numbers tei187\Resources\DE\Numbers
+     * @uses \tei187\Resources\DE\LargeNumbers tei187\Resources\DE\LargeNumbers
+     */
     protected $dictionary = [
         'currencies' => Resources\ISO4217\DE\Currencies, 
            'numbers' => Resources\DE\Numbers,
@@ -481,6 +511,8 @@ class DE extends \tei187\Slownie\SlownieBase {
     /**
      * Template method to get correct suffix per nth power of 10 and given value part.
      *
+     * @uses DE::$dictionary
+     * 
      * @param integer $power N-th power of 10.
      * @param string|null $v Input value part.
      * @return string
@@ -503,8 +535,8 @@ class DE extends \tei187\Slownie\SlownieBase {
 
     /**
      * Returns hundreds part in words.
-     *
-     * @param string $v Input hundreds part.
+     * @uses DE::$dictionary
+     * @param string|null $v Input hundreds part.
      * @param boolean $minor Switch if minor.
      * @return string Hundreds as string or empty.
      */
@@ -554,8 +586,7 @@ class DE extends \tei187\Slownie\SlownieBase {
 
     /**
      * Returns currency suffix.
-     *
-     * @param string $v Input last part of amount.
+     * @uses \tei187\Slownie\SlownieBase::$currency
      * @return string Currency suffix or empty string if not found.
      */
     protected function getCurrencyFull() : string {
@@ -574,8 +605,8 @@ class DE extends \tei187\Slownie\SlownieBase {
 
     /**
      * Returns currency minors' suffix.
-     *
-     * @param string $v Input rest.
+     * @uses \tei187\Slownie\SlownieBase::$currency
+     * @param string|null $v Input rest.
      * @return string Currency minor suffix or empty string if not found.
      */
     protected function getCurrencyMinor(?string $v = null) : string {
@@ -593,7 +624,8 @@ class DE extends \tei187\Slownie\SlownieBase {
 
     /**
      * Sets full in-words transcription of the amount. Handles $this->amountFull;
-     * 
+     * @uses \tei187\Slownie\SlownieBase::$amountFull
+     * @uses \tei187\Slownie\SlownieBase::$currency
      * @return string Translated from numeric.
      */
     protected function relayString() : string {
@@ -667,9 +699,16 @@ class DE extends \tei187\Slownie\SlownieBase {
  * Class used to transcribe float value into words in English language.
  * 
  * @author Piotr Bonk <bonk.piotr@gmail.com>
+ * @version 1.0.0
  */
 class EN extends \tei187\Slownie\SlownieBase {
-    /** @var array[] $dictionary Dictionary for translation purposes and cross-reference tables. */
+    /** 
+     * @var array[] $dictionary Dictionary for translation purposes and cross-reference tables. 
+     * @uses \tei187\Resources\ISO4217\EN\Currencies
+     * @uses \tei187\Resources\ISO4217\NumberToCode
+     * @uses \tei187\Resources\EN\Numbers
+     * @uses \tei187\Resources\EN\LargeNumbers
+     * */
     protected $dictionary = [
         'currencies' => Resources\ISO4217\EN\Currencies, 
            'numbers' => Resources\EN\Numbers,
@@ -705,7 +744,7 @@ class EN extends \tei187\Slownie\SlownieBase {
     /**
      * Returns hundreds part in words.
      *
-     * @param string $v Input hundreds part.
+     * @param string|null $v Input hundreds part.
      * @param boolean $minor Switch if minor.
      * @return string Hundreds as string or empty.
      */
@@ -755,7 +794,6 @@ class EN extends \tei187\Slownie\SlownieBase {
     /**
      * Returns currency suffix.
      *
-     * @param string $v Input last part of amount.
      * @return string Currency suffix or empty string if not found.
      */
     protected function getCurrencyFull() : string {
@@ -775,7 +813,7 @@ class EN extends \tei187\Slownie\SlownieBase {
     /**
      * Returns currency minors' suffix.
      *
-     * @param string $v Input rest.
+     * @param string|null $v Input rest.
      * @return string Currency minor suffix or empty string if not found.
      */
     protected function getCurrencyMinor(?string $v = null) : string {
@@ -796,9 +834,16 @@ class EN extends \tei187\Slownie\SlownieBase {
  * Class used to transcribe float value into words in Polish language.
  * 
  * @author Piotr Bonk <bonk.piotr@gmail.com>
+ * @version 1.0.0
  */
 class PL extends \tei187\Slownie\SlownieBase {
-    /** @var array $dictionary Dictionary for translation purposes and cross-reference tables. */
+    /** 
+     * @var array $dictionary Dictionary for translation purposes and cross-reference tables. 
+     * @uses \tei187\Resources\ISO4217\PL\Currencies
+     * @uses \tei187\Resources\ISO4217\NumberToCode
+     * @uses \tei187\Resources\PL\Numbers
+     * @uses \tei187\Resources\PL\LargeNumbers
+     * */
     protected $dictionary = [
         'currencies' => Resources\ISO4217\PL\Currencies, 
            'numbers' => Resources\PL\Numbers,
@@ -833,7 +878,7 @@ class PL extends \tei187\Slownie\SlownieBase {
     /**
      * Returns hundreds part in words.
      *
-     * @param string $v Input hundreds part.
+     * @param string|null $v Input hundreds part.
      * @param boolean $minor Switch if minor.
      * @return string Hundreds as string or empty.
      */
@@ -904,7 +949,7 @@ class PL extends \tei187\Slownie\SlownieBase {
     /**
      * Returns currency suffix.
      *
-     * @param string $v Input last part of amount.
+     * @param string|null $v Input last part of amount.
      * @return string Currency suffix or empty string if not found.
      */
     protected function getCurrencyFull(?string $v = null) : string {
@@ -926,7 +971,7 @@ class PL extends \tei187\Slownie\SlownieBase {
     /**
      * Returns currency minors' suffix.
      *
-     * @param string $v Input rest.
+     * @param string|null $v Input rest.
      * @return string Currency minor suffix or empty string if not found.
      */
     protected function getCurrencyMinor(?string $v = null) : string {

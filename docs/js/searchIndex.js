@@ -33,7 +33,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003Aoutput\u0028\u0029",
             "name": "output",
-            "summary": "Undocumented\u0020function",
+            "summary": "Returns\u0020amount\u0020in\u0020words.",
             "url": "classes/tei187-Slownie-SlownieBase.html#method_output"
         },                {
             "fqsen": "\\tei187\\Slownie\\SlownieBase\u003A\u003AverifyCodes\u0028\u0029",
@@ -158,7 +158,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\tei187\\Slownie\\Currency",
             "name": "Currency",
-            "summary": "Class\u0020designed\u0020to\u0020retrieve\u0020and\u0020handle\u0020basic\u0020currency\u002Dspecific\u0020information.",
+            "summary": "Class\u0020designed\u0020to\u0020retrieve\u0020and\u0020handle\u0020basic\u0020currency\u002Dspecific\u0020information,\u0020based\u0020on\u0020ISO4217\u002Dcompliant\u0020data\u0020\u0028code,\u0020exponent\u0020lenght,\u0020exponent\u0020use\u0029.\u0020Valid\u0020as\u0020of\u002012th\u0020Dec\u00202021.",
             "url": "classes/tei187-Slownie-Currency.html"
         },                {
             "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003A__construct\u0028\u0029",
@@ -178,7 +178,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003Aset\u0028\u0029",
             "name": "set",
-            "summary": "Public\u0020equivalent\u0020of\u0020self\u003A\u003AcheckCurrency.\u0020If\u0020parameter\u0020is\u0020proper,\u0020fills\u0020object\u0027s\u0020attributes\u003A\u0020picker,\u0020decimal\u0020exponent\u0020and\u0020exponent\u0027s\u0020use.",
+            "summary": "Public\u0020equivalent\u0020of\u0020checkCurrency\u0020method.\u0020If\u0020parameter\u0020is\u0020proper,\u0020fills\u0020object\u0027s\u0020attributes\u003A\u0020picker,\u0020decimal\u0020exponent\u0020and\u0020exponent\u0027s\u0020use.",
             "url": "classes/tei187-Slownie-Currency.html#method_set"
         },                {
             "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003Areset\u0028\u0029",
