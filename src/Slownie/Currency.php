@@ -28,7 +28,7 @@ class Currency {
      * Class constructor.
      * @param string|integer|null $c ISO 4217 applicable currency number (3-characters-long numeric or string) or currency code (3-characters-long string).
      */
-    function __construct(?mixed $c = null) {
+    function __construct($c = null) {
         $this->checkCurrency($c);
     }
 
@@ -41,7 +41,7 @@ class Currency {
      * @param string|integer|null $c ISO 4217 applicable currency number (3-characters-long numeric or string) or currency code (3-characters-long string).
      * @return boolean TRUE on success, FALSE on fail.
      */
-    private function checkCurrency(?mixed $c = null) : bool {
+    private function checkCurrency($c = null) : bool {
         $c = strval(preg_replace('/[^0-9A-Za-z]?/m', '', $c)); // normalize string
         
         if(!is_null(CurrencyNumberToCode) AND !is_null($c) AND strlen($c) != 0) {

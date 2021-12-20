@@ -1,4 +1,6 @@
 <?php
+namespace tei187\Slownie;
+
 use       tei187\Resources                      as Resources;
 use const tei187\Resources\ISO4217\NumberToCode as CurrencyNumberToCode;
 /**

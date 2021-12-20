@@ -1,3 +1,4 @@
+<?php
 namespace tei187\Resources\EN;
 
 /** @var array[] Transcription parts in English for numbers. */
@@ -46,7 +47,6 @@ const Numbers = [
     ],
 ];
 
-<?
 /** @var array[] Transcription parts in English for large numbers. */
 const LargeNumbers = [
      3 => [
