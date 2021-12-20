@@ -1,8 +1,8 @@
 <?php
 namespace tei187\Slownie;
 
-use       tei187\Resources                      as Resources;
-use const tei187\Resources\ISO4217\NumberToCode as CurrencyNumberToCode;
+use tei187\Resources               as Resources;
+use tei187\Resources\ISO4217\Xref  as Xref;
 /**
  * Class used to transcribe float value into words in English language.
  * 
@@ -12,16 +12,16 @@ use const tei187\Resources\ISO4217\NumberToCode as CurrencyNumberToCode;
 class EN extends \tei187\Slownie\Slownie {
     /** 
      * @var array[] $dictionary Dictionary for translation purposes and cross-reference tables. 
-     * @uses \tei187\Resources\ISO4217\EN\Currencies
-     * @uses \tei187\Resources\ISO4217\NumberToCode
-     * @uses \tei187\Resources\EN\Numbers
-     * @uses \tei187\Resources\EN\LargeNumbers
+     * @uses \tei187\Resources\ISO4217\EN::Currencies
+     * @uses \tei187\Resources\ISO4217::NumberToCode
+     * @uses \tei187\Resources\EN::Numbers
+     * @uses \tei187\Resources\EN::LargeNumbers
      * */
     protected $dictionary = [
-        'currencies' => Resources\ISO4217\EN\Currencies, 
-           'numbers' => Resources\EN\Numbers,
-              'xref' => CurrencyNumberToCode,
-            'suffix' => Resources\EN\LargeNumbers
+        'currencies' => Resources\ISO4217\EN::Currencies, 
+           'numbers' => Resources\EN::Numbers,
+              'xref' => Xref::NumberToCode,
+            'suffix' => Resources\EN::LargeNumbers
     ];
 
     /**

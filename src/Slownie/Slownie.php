@@ -1,7 +1,8 @@
 <?php
 namespace tei187\Slownie;
 
-use const tei187\Resources\ISO4217\NumberToCode as CurrencyNumberToCode;
+use tei187\Slownie\Currency       as Currency;
+use tei187\Resources\ISO4217\Xref as Xref;
 
 /**
  * Abstract class used to transcribe float value into words. Base for PL, EN, DE class extensions.
@@ -41,7 +42,7 @@ abstract class Slownie {
      */
     function __construct(?string $amount = null, ?mixed $currency = null, bool $fractionsUse = false, bool $pickerUse = false) {
         if(is_string($currency)) {
-            $this->currency = new \tei187\Slownie\Currency($currency);
+            $this->currency = new Currency($currency);
         } elseif(is_object($currency) AND get_class($currency) === new \tei187\Slownie\Currency) {
             $this->currency = $currency;
         }
@@ -190,14 +191,14 @@ abstract class Slownie {
     }
 
     /**
-     * Developer method. Verifies if all keys from tei187\Resources\ISO4217\NumberToCode exist in language pack.
-     * @uses \tei187\Resources\ISO4217\NumberToCode tei187\Resources\ISO4217\NumberToCode 
+     * Developer method. Verifies if all keys from tei187\Resources\ISO4217\Xref::NumberToCode exist in language pack.
+     * @uses \tei187\Resources\ISO4217\Xref::NumberToCode
      * @uses $dictionary
      * @return bool TRUE on correct, FALSE otherwise.
      */
     public function verifyCodes() : bool {
         $i = 0;
-        foreach(CurrencyNumberToCode as $v) {
+        foreach(Xref::NumberToCode as $v) {
             if(!key_exists($v, $this->dictionary['currencies'])) $i++;
         }
         if($i != 0) return false;
@@ -207,11 +208,11 @@ abstract class Slownie {
     /**
      * Assigns currency.
      * @uses \tei187\Slownie\Slownie::$currency
-     * @param string|null $currency Currency shortcode. Has to exist as index in tei187\Resources\ISO4217\{lang}\Currencies, or as cross-referenced ISO 4217 _STRING_ index of tei187\Resources\ISO4217\NumberToCode (with leading zeroes), or 'none' (default).
+     * @param string|null $currency Currency shortcode. Has to exist as index in tei187\Resources\ISO4217\{lang}::Currencies, or as cross-referenced ISO 4217 _STRING_ index of tei187\Resources\ISO4217\Xref::NumberToCode (with leading zeroes), or 'none' (default).
      * @return self
      */
     public function setCurrency(?string $currency = null) : self {
-        $this->currency = new \tei187\Slownie\Currency();
+        $this->currency = new Currency();
         if($this->currency->set($currency) === false) {
             $this->currency->reset();
             $this->currency->setExponent(0);

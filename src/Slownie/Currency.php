@@ -1,15 +1,13 @@
 <?
 namespace tei187\Slownie;
 
-use       tei187\Resources                      as Resources;
-use const tei187\Resources\ISO4217\Specifics    as CurrencySpecifics;
-use const tei187\Resources\ISO4217\NumberToCode as CurrencyNumberToCode;
+use tei187\Resources\ISO4217\Xref as Xref;
 
 /**
  * Class designed to retrieve and handle basic currency-specific information, based on ISO4217-compliant data (code, exponent lenght, exponent use). Valid as of 12th Dec 2021.
  * 
- * @uses \tei187\Resources\ISO4217\NumberToCode tei187\Resources\ISO4217\NumberToCode
- * @uses \tei187\Resources\ISO4217\Specifics tei187\Resources\ISO4217\Specifics
+ * @uses \tei187\Resources\ISO4217\Xref::NumberToCode
+ * @uses \tei187\Resources\ISO4217\Xref::Specifics
  * 
  * @link https://en.wikipedia.org/wiki/ISO_4217 ISO 4217
  * 
@@ -35,8 +33,8 @@ class Currency {
     /**
      * Verifies input, including assigning attributes if verified.
      * 
-     * @uses \tei187\Resources\ISO4217\NumberToCode
-     * @uses \tei187\Resources\ISO4217\Specifics
+     * @uses \tei187\Resources\ISO4217\Xref::NumberToCode
+     * @uses \tei187\Resources\ISO4217\Xref::Specifics
      * 
      * @param string|integer|null $c ISO 4217 applicable currency number (3-characters-long numeric or string) or currency code (3-characters-long string).
      * @return boolean TRUE on success, FALSE on fail.
@@ -44,14 +42,14 @@ class Currency {
     private function checkCurrency($c = null) : bool {
         $c = strval(preg_replace('/[^0-9A-Za-z]?/m', '', $c)); // normalize string
         
-        if(!is_null(CurrencyNumberToCode) AND !is_null($c) AND strlen($c) != 0) {
+        if(!is_null(Xref::NumberToCode) AND !is_null($c) AND strlen($c) != 0) {
             if(is_numeric($c)) { // numeric code
                 $c = str_pad(strval($c), 3, "0", STR_PAD_LEFT); 
-                if(key_exists($c, CurrencyNumberToCode))
-                    $this->assignSpecifics((string) CurrencyNumberToCode[$c]);
+                if(key_exists($c, Xref::NumberToCode))
+                    $this->assignSpecifics((string) Xref::NumberToCode[$c]);
                     return true;
             } elseif(ctype_alpha($c) and strlen($c) == 3) { // alphabetic code
-                if(key_exists(strtolower($c), CurrencySpecifics))
+                if(key_exists(strtolower($c), Xref::Specifics))
                     $this->assignSpecifics($c);
                     return true;
             } else { // incompatible
@@ -67,7 +65,7 @@ class Currency {
     /**
      * Assigns specific attributes per recognized currency.
      * 
-     * @uses \tei187\Resources\ISO4217\Specifics
+     * @uses \tei187\Resources\ISO4217\Xref::Specifics
      * 
      * @param string $c ISO 4217 applicable currency number (3-characters-long numeric or string) or currency code (3-characters-long string).
      * @return void
@@ -76,13 +74,13 @@ class Currency {
         $this->picker = strtolower($c);
 
         $this->exponent = 
-            isset(CurrencySpecifics[strtolower($c)]['minor']['d']) 
-            ? CurrencySpecifics[strtolower($c)]['minor']['d'] 
+            isset(Xref::Specifics[strtolower($c)]['minor']['d']) 
+            ? Xref::Specifics[strtolower($c)]['minor']['d'] 
             : 2;
 
         $this->exponentUse = 
-            isset(CurrencySpecifics[strtolower($c)]['minor']['u']) 
-            ? CurrencySpecifics[strtolower($c)]['minor']['u'] 
+            isset(Xref::Specifics[strtolower($c)]['minor']['u']) 
+            ? Xref::Specifics[strtolower($c)]['minor']['u'] 
             : true;
         
         return;

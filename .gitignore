@@ -3,3 +3,5 @@ phpDocumentor.phar
 /vendor/
 composer.phar
 /dev
+composer.lock
+tests/

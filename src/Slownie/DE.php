@@ -1,8 +1,8 @@
 <?
 namespace tei187\Slownie;
 
-use       tei187\Resources                      as Resources;
-use const tei187\Resources\ISO4217\NumberToCode as CurrencyNumberToCode;
+use tei187\Resources               as Resources;
+use tei187\Resources\ISO4217\Xref  as Xref;
 /**
  * Class used to transcribe float value into words in German language.
  * 
@@ -12,16 +12,16 @@ use const tei187\Resources\ISO4217\NumberToCode as CurrencyNumberToCode;
 class DE extends \tei187\Slownie\Slownie {
     /** 
      * @var array[] $dictionary Dictionary for translation purposes and cross-reference tables.
-     * @uses \tei187\Resources\ISO4217\DE\Currencies tei187\Resources\ISO4217\DE\Currencies
-     * @uses \tei187\Resources\ISO4217\NumberToCode tei187\Resources\ISO4217\NumberToCode
-     * @uses \tei187\Resources\DE\Numbers tei187\Resources\DE\Numbers
-     * @uses \tei187\Resources\DE\LargeNumbers tei187\Resources\DE\LargeNumbers
+     * @uses \tei187\Resources\ISO4217\DE::Currencies
+     * @uses \tei187\Resources\ISO4217::NumberToCode
+     * @uses \tei187\Resources\DE::Numbers
+     * @uses \tei187\Resources\DE::LargeNumbers
      */
     protected $dictionary = [
-        'currencies' => Resources\ISO4217\DE\Currencies, 
-           'numbers' => Resources\DE\Numbers,
-              'xref' => CurrencyNumberToCode,
-            'suffix' => Resources\DE\LargeNumbers
+        'currencies' => Resources\ISO4217\DE::Currencies, 
+           'numbers' => Resources\DE::Numbers,
+              'xref' => Xref::NumberToCode,
+            'suffix' => Resources\DE::LargeNumbers
     ];
 
     /**
