@@ -1,2 +1,5 @@
 phpDocumentor.phar
 .phpdoc/
+/vendor/
+composer.phar
+/dev

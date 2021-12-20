@@ -1,0 +1,33 @@
+{
+    "name": "tei187/slownie",
+    "type": "library",
+    "description": "Transcribing number to words (in English, German or Polish). Mainly revolving around currencies under ISO 4217 standard.",
+    "homepage": "https://github.com/tei187/Slownie",
+    "license": "MIT",
+    "keywords": [
+        "currency",
+        "iso4217",
+        "currency-to-words",
+        "numbers-to-words"
+    ],
+    "autoload": {
+        "psr-4": {
+            "tei187\\Slownie\\": "src/Slownie/",
+            "tei187\\Resources\\": "src/Resources/"
+        }
+    },
+    "authors": [
+        {
+            "name": "tei187",
+            "email": "bonk.piotr@gmail.com",
+            "role": "developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.0"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
