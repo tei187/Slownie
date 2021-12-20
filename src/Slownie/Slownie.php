@@ -40,7 +40,7 @@ abstract class Slownie {
      * @param boolean $pickerUse Sets flag to use or not use picker rather than full translation of currency.
      * @return void
      */
-    function __construct(?string $amount = null, ?mixed $currency = null, bool $fractionsUse = false, bool $pickerUse = false) {
+    function __construct(?string $amount = null, $currency = null, bool $fractionsUse = false, bool $pickerUse = false) {
         if(is_string($currency)) {
             $this->currency = new Currency($currency);
         } elseif(is_object($currency) AND get_class($currency) === new \tei187\Slownie\Currency) {
@@ -178,7 +178,7 @@ abstract class Slownie {
      * @param boolean|null $picker Sets flag to use or not use picker rather than full translation of currency.
      * @return string Output in words.
      */
-    public function output(?mixed $v = null, ?mixed $currency = null, ?bool $fractions = false, ?bool $picker = false) : string {
+    public function output($v = null, $currency = null, ?bool $fractions = false, ?bool $picker = false) : string {
         if($v !== null)          { $this->input = $v; }
         if($currency !== null)   { 
             
