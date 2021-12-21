@@ -8,7 +8,7 @@
         "currency",
         "iso4217",
         "currency-to-words",
-        "numbers-to-words"
+        "number-to-words"
     ],
     "autoload": {
         "psr-4": {
