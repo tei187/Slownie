@@ -1,12 +1,27 @@
-# Slownie
-Class used to transcribe float values into words in English, German or Polish language, useful when word transcription is necessary (amount verification, genitive case use). Supports amounts up to 999.999.999.999.999.999.999 in many currencies (current list below).
+# Słownie
+
+> */swɔvɲɛ/*
+>
+> **adverb of manner** 
+> 
+> **meaning:**
+> - (1.1) by utterance
+> - (1.2) using words to write
+> - (1.3) literal *"in words"*
+
+## Description
+
+PHP library used to translate currency values into words in English, German or Polish language, useful when word transcription is necessary (amount verification, genitive case use). Supports amounts up to 999.999.999.999.999.999.999 in ISO 4217 standard-compliant currencies (supported currencies list below).
 **(Work in progress... more of a proof of concept)**
 
 ## Installation
 
 ### Composer
 1. Download and install [Composer](https://getcomposer.org/download/).
-2. Use command: `composer require tei187/slownie`
+2. Use command: 
+  ```powershell 
+  composer require tei187/slownie 
+  ```
 
 ### Manual
 1. Download package.
