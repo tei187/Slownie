@@ -2,6 +2,19 @@
 Class used to transcribe float values into words in English, German or Polish language, useful when word transcription is necessary (amount verification, genitive case use). Supports amounts up to 999.999.999.999.999.999.999 in many currencies (current list below).
 **(Work in progress... more of a proof of concept)**
 
+## Installation
+
+### Composer
+1. Download and install [Composer](https://getcomposer.org/download/).
+2. Use command: `composer require tei187/slownie`
+
+### Manual
+1. Download package.
+2. Extract **"src"** directory and put its' contents in preferred target path.
+3. **require the `loader.php`** file in your script, like this:
+```php
+require_once( PATH_TO_EXTRACTED_SRC . "/loader.php" );
+```
 
 
 ## Examples
@@ -208,29 +221,9 @@ echo $pl->setCurrency("068")->output(); // outputs: pięć boliviano, pięćdzie
 
 
 
-## TODO
-- [x] base class:
-  - [x] rewrite `relayString` method
-- [x] Polish extension:
-  - [x] fix some lingual issues.
-- [x] English extension.
-- [x] check for exponents:
-  - [x] check rounding.
-  - [x] make as optional flag.
-- [x] option to use ISO 4217 number instead of code.
-- [x] incorporate European currencies.
-- [x] incorporate American currencies.
-- [x] incorporate Asian currencies.
-- [x] incorporate African currencies.
-- [x] incorporate Oceanian currencies.
-- [ ] are there any more currencies? somewhere?
-  - [x] ~~cryptocurrency~~ *(what for? not worth it)*
-  - [ ] minerals by troy ounce (XAG, XAU, XPD, XPT)
-
-
-
 ## Requirements
 - PHP >= 7.3
+- (optional) Composer >= 2.0
 
 
 
