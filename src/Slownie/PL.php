@@ -34,10 +34,11 @@ class PL extends \tei187\Slownie\Slownie {
     protected function getLargeNumbers(int $power = 0, ?string $v = null) : string {
         if(intval($v) > 0) {
             $w = $this->getHundreds($v);
-            $vmod = $v % 10;
+            $vmod  = $v % 10;
+            $vmodC = $v % 100;
             if($v == 1) {
                 return $w . " " . $this->dictionary['suffix'][$power]['s1'];
-            } elseif (($vmod >= 2 AND $vmod <= 4) AND ($v < 5 OR $v > 21)) {
+            } elseif (($vmod >= 2 AND $vmod <= 4) AND ($vmodC < 5 OR $vmodC > 21)) {
                 return $w . " " . $this->dictionary['suffix'][$power]['s2'];
             } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
                 return $w . " " . $this->dictionary['suffix'][$power]['s3'];
