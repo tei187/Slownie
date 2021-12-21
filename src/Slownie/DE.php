@@ -84,7 +84,7 @@ class DE extends \tei187\Slownie\Slownie {
                     $parts[] = $this->dictionary['numbers']['oxo'][$mod3];
                 } elseif($mod2 == 1) { 
                     // if single equals 1
-                    $parts[] = $this->dictionary['numbers']['ooy'][1]['f'] . "und" . $this->dictionary['numbers']['oxo'][$tens];
+                    $parts[] = $this->dictionary['numbers']['ooy'][1]['m'] . "und" . $this->dictionary['numbers']['oxo'][$tens];
                 } else { 
                     // if single other than 0 or 1, so x2...x9
                     $parts[] = $this->dictionary['numbers']['oox'][$mod2] . "und" . $this->dictionary['numbers']['oxo'][$tens];
