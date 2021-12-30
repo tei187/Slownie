@@ -114,7 +114,7 @@ class EN {
        ],
        'ang' => [
            's' => "Netherlands Antillean guilder",
-           's' => "Netherlands Antillean guilders",
+           'p' => "Netherlands Antillean guilders",
            'minor' => self::Cents
        ],
        'aoa' => [
@@ -124,7 +124,7 @@ class EN {
        ],
        'ars' => [
            's' => "Argentine peso",
-           'P' => "Argentine pesos",
+           'p' => "Argentine pesos",
            'minor' => self::Centavos
        ],
        'aud' => [
@@ -259,8 +259,8 @@ class EN {
            'minor' => self::Centavos
        ],
        'cny' => [
-           's' => "yuán",
-           'p' => "yuán",
+           's' => "Yuán",
+           'p' => "Yuán",
            'f' => false,
            'minor' => [
                's' => "jiǎo",
@@ -335,8 +335,8 @@ class EN {
            'minor' => self::Piastres
        ],
        'eur' => [
-           's' => "euro",
-           'p' => "euros",
+           's' => "Euro",
+           'p' => "Euros",
            'minor' => self::Cents
        ],
        'ern' => [

@@ -114,7 +114,7 @@ class DE {
         ],
         'ang' => [
             's' => "niederländischer Antillen-Gulden",
-            's' => "niederländische Antillen-Gulden",
+            'p' => "niederländische Antillen-Gulden",
             'minor' => self::Cents
         ],
         'aoa' => [
@@ -124,7 +124,7 @@ class DE {
         ],
         'ars' => [
             's' => "argentinischer Peso",
-            'P' => "argentinische Pesos",
+            'p' => "argentinische Pesos",
             'minor' => self::Centavos
         ],
         'aud' => [
