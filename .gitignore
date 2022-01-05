@@ -5,3 +5,5 @@ composer.phar
 /dev
 composer.lock
 tests/
+/node_modules/
+package-lock.json

@@ -154,11 +154,19 @@ abstract class Slownie {
                 function($v) { return strrev($v); }, 
                 array_reverse(str_split(strrev($exp[0]), 3))
             );
+
+            // fix if length of lesser part is blank
+            if(count($exp) == 2) {
+                $exp[1] = str_pad(trim($exp[1]), $this->currency->getExponent(), "0", STR_PAD_RIGHT);
+            }
+            
             $this->amountPart = 
                 count($exp) == 2 
-                    ? round(
-                        $exp[1] / (10 ** strlen($exp[1])), 
-                        $this->currency->getExponent()) * (10 ** $this->currency->getExponent() )
+                    ? str_pad(
+                        round(
+                            $exp[1] / (10 ** strlen($exp[1])), 
+                            $this->currency->getExponent()) * (10 ** $this->currency->getExponent() ),
+                      $this->currency->getExponent(), "0", STR_PAD_LEFT)
                     : 0;
             $this->amountFull = array_map( fn($val): string => intval($val), $final);
         } else {
