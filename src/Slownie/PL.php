@@ -98,8 +98,9 @@ class PL extends \tei187\Slownie\Slownie {
                     if($switch) {
                         if($break['single'] == intval(implode("", $this->amountFull))) {
                             $parts[] = $this->dictionary['numbers']['f-oox'][$break['single']];
-                        } elseif($break['single'] > 1) {
-                            $parts[] = $this->dictionary['numbers']['f-oox'][$break['single']];
+                        } elseif($break['single'] >= 1 AND $break['single'] <= 9 AND ($break['single'] == intval($break['tens']) . "" . $break['single'])) {
+                            // "single" between 1 and 9 and "tens"+"single" equaling 'single'
+                                $parts[] = $this->dictionary['numbers']['f-oox'][$break['single']];
                         } else {
                             $parts[] = $this->dictionary['numbers']['oox'][$break['single']];
                         }
