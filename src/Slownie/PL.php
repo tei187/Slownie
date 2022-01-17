@@ -33,17 +33,16 @@ class PL extends \tei187\Slownie\Slownie {
      */
     protected function getLargeNumbers(int $power = 0, ?string $v = null) : string {
         if(intval($v) > 0) {
-            $w = $this->getHundreds($v);
-            $vmod  = $v % 10;
-            $vmodC = $v % 100;
+                $w = $this->getHundreds($v);
+             $vmod = $v % 10;  // modulo for tens (singles)
+            $vmodC = $v % 100; // modulo for hundreds (tens)
+
             if($v == 1) {
                 return $w . " " . $this->dictionary['suffix'][$power]['s1'];
             } elseif (($vmod >= 2 AND $vmod <= 4) AND ($vmodC < 5 OR $vmodC > 21)) {
                 return $w . " " . $this->dictionary['suffix'][$power]['s2'];
             } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
                 return $w . " " . $this->dictionary['suffix'][$power]['s3'];
-            } elseif($v == 0) {
-                return "";
             }
         }
         return "";
@@ -58,18 +57,19 @@ class PL extends \tei187\Slownie\Slownie {
      */
     protected function getHundreds(?string $v = null, bool $minor = false) : string {
         if(intval($v) > 0) {
-            $teens = false;
+            $teens = false; // flag
             $break = [
                 'hundreds' => floor($v / 100),
-                'tens'     => floor(($v % 100) / 10),
-                'single'   => $v % 10,
-            ];
-                
-            $parts = [];
+                    'tens' => floor(($v % 100) / 10),
+                  'single' => $v % 10,
+            ]; // power counts
+            $parts = []; // holds parts of string
+
+            // hundreds
             if($break['hundreds'] > 0) {
-                // hundreds
                 $parts[] = $this->dictionary['numbers']['xoo'][$break['hundreds'] * 100];
             }
+            // rest
             if($break['tens'] > 0) {
                 // tens
                 if($break['tens'] == 1) {
@@ -79,6 +79,7 @@ class PL extends \tei187\Slownie\Slownie {
                         $key = $break['tens'].$break['single'];
                         $parts[] = $this->dictionary['numbers']['oxo'][$key];
                     } else {
+                        // actual tens
                         $parts[] = $this->dictionary['numbers']['oxo'][$break['tens'] * 10];
                     }
                 } elseif($break['tens'] >= 2) {
@@ -136,8 +137,6 @@ class PL extends \tei187\Slownie\Slownie {
                 return $this->dictionary['currencies'][$this->currency->getPicker()]['s2'];
             } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
                 return $this->dictionary['currencies'][$this->currency->getPicker()]['s3'];
-            } elseif($v == 0) {
-                return "";
             }
         }
         return "";
@@ -158,8 +157,6 @@ class PL extends \tei187\Slownie\Slownie {
                 return $this->dictionary['currencies'][$this->currency->getPicker()]['minor']['s2'];
             } elseif (($v >= 5 OR $v <= 22) OR ($v > 20 AND ($vmod >= 5 OR $vmod <= 1))) {
                 return $this->dictionary['currencies'][$this->currency->getPicker()]['minor']['s3'];
-            } elseif($v == 0) {
-                return "";
             }
         }
         return "";

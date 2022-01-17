@@ -43,18 +43,19 @@ class Currency {
         $c = strval(preg_replace('/[^0-9A-Za-z]?/m', '', $c)); // normalize string
         
         if(!is_null(Xref::NumberToCode) AND !is_null($c) AND strlen($c) != 0) {
-            if(is_numeric($c)) { // numeric code
+            if(is_numeric($c)) { 
+                // numeric code
                 $c = str_pad(strval($c), 3, "0", STR_PAD_LEFT); 
-                if(key_exists($c, Xref::NumberToCode))
+                if(key_exists($c, Xref::NumberToCode)) {
                     $this->assignSpecifics((string) Xref::NumberToCode[$c]);
                     return true;
-            } elseif(ctype_alpha($c) and strlen($c) == 3) { // alphabetic code
-                if(key_exists(strtolower($c), Xref::Specifics))
+                }
+            } elseif(ctype_alpha($c) and strlen($c) == 3) { 
+                // alphabetic code
+                if(key_exists(strtolower($c), Xref::Specifics)) {
                     $this->assignSpecifics($c);
                     return true;
-            } else { // incompatible
-                $this->reset();
-                return false;
+                }
             }
         }
         // reset object, because input currency is not correct
@@ -75,13 +76,13 @@ class Currency {
 
         $this->exponent = 
             isset(Xref::Specifics[strtolower($c)]['minor']['d']) 
-            ? Xref::Specifics[strtolower($c)]['minor']['d'] 
-            : 2;
+                ? Xref::Specifics[strtolower($c)]['minor']['d'] 
+                : 2;
 
         $this->exponentUse = 
             isset(Xref::Specifics[strtolower($c)]['minor']['u']) 
-            ? Xref::Specifics[strtolower($c)]['minor']['u'] 
-            : true;
+                ? Xref::Specifics[strtolower($c)]['minor']['u'] 
+                : true;
         
         return;
     }
@@ -104,8 +105,8 @@ class Currency {
      * @return void
      */
     public function reset() : self {
-        $this->picker      = null;
-        $this->exponent    = null;
+             $this->picker = null;
+           $this->exponent = null;
         $this->exponentUse = null;
         return $this;
     }
@@ -141,8 +142,8 @@ class Currency {
      */
     public function getParams() : array {
         return [
-            'picker' =>      $this->picker,
-            'exponent' =>    $this->exponent,
+                 'picker' => $this->picker,
+               'exponent' => $this->exponent,
             'exponentUse' => $this->exponentUse
         ];
     }

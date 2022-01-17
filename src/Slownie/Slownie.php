@@ -188,9 +188,7 @@ abstract class Slownie {
      */
     public function output($v = null, $currency = null, ?bool $fractions = false, ?bool $picker = false) : string {
         if($v !== null)          { $this->input = $v; }
-        if($currency !== null)   { 
-            
-        }
+        if($currency !== null)   { /* */ }
         if($picker !== null)     { $this->setPickerUse($picker); }
         if($fractions !== null)  { $this->setFractions($fractions); }
 
@@ -237,8 +235,12 @@ abstract class Slownie {
      * @return void
      */
     public function setFormatting(string $thousands = ".", string $decimals = ",") : void {
-        $this->formatting['thousands'] = $thousands != null ? $thousands : $this->formatting['thousands'];
-        $this->formatting['decimals']  = $decimals != null  ? $decimals  : $this->formatting['decimals'];
+        $this->formatting['thousands'] = $thousands != null 
+            ? $thousands 
+            : $this->formatting['thousands'];
+        $this->formatting['decimals']  = $decimals != null 
+            ? $decimals 
+            : $this->formatting['decimals'];
         return;
     }
 

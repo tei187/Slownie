@@ -42,8 +42,6 @@ class DE extends \tei187\Slownie\Slownie {
                 return $w . " " . $this->dictionary['suffix'][$power]['s'];
             } elseif($v > 1) {
                 return $w . " " . $this->dictionary['suffix'][$power]['p'];
-            } elseif($v == 0) {
-                return "";
             }
         }
         return "";
@@ -113,8 +111,6 @@ class DE extends \tei187\Slownie\Slownie {
                 return $this->dictionary['currencies'][$this->currency->getPicker()]['s'];
             } elseif ($imploded >= 2) {
                 return $this->dictionary['currencies'][$this->currency->getPicker()]['p'];
-            } elseif($imploded == 0) {
-                return "";
             }
         }
         return "";
@@ -133,8 +129,6 @@ class DE extends \tei187\Slownie\Slownie {
                 return $this->dictionary['currencies'][$this->currency->getPicker()]['minor']['s'];
             } elseif ($v >= 2) {
                 return $this->dictionary['currencies'][$this->currency->getPicker()]['minor']['p'];
-            } elseif($v == 0) {
-                return "";
             }
         }
         return "";
@@ -193,6 +187,7 @@ class DE extends \tei187\Slownie\Slownie {
         }
         
         // parse pow0 pow3
+        // not sure if this is correct - merging words
         if(isset($full[0])) {
             $full[0] = str_replace(" ", "", $full[0]);
         }

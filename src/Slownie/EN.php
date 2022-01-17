@@ -61,8 +61,8 @@ class EN extends \tei187\Slownie\Slownie {
             $teens = false;
             $break = [
                 'hundreds' => floor($v / 100),
-                'tens'     => floor(($v % 100) / 10),
-                'single'   => $v % 10,
+                    'tens' => floor(($v % 100) / 10),
+                  'single' => $v % 10,
             ];
                 
             $parts = [];
@@ -108,11 +108,9 @@ class EN extends \tei187\Slownie\Slownie {
         if($this->currency->getPicker() != null) {
             $imploded = intval(implode("", $this->amountFull));
             if($imploded == 1) {
-                return $this->dictionary['currencies'][$this->currency->getPicker()]['s'];
+                return $this->dictionary['currencies'][$this->currency->getPicker()]['s']; // single
             } elseif ($imploded >= 2) {
-                return $this->dictionary['currencies'][$this->currency->getPicker()]['p'];
-            } elseif($imploded == 0) {
-                return "";
+                return $this->dictionary['currencies'][$this->currency->getPicker()]['p']; // plural
             }
         }
         return "";
@@ -127,11 +125,9 @@ class EN extends \tei187\Slownie\Slownie {
     protected function getCurrencyMinor(?string $v = null) : string {
         if($this->currency->getPicker() != null) {
             if($v == 1) {
-                return $this->dictionary['currencies'][$this->currency->getPicker()]['minor']['s'];
+                return $this->dictionary['currencies'][$this->currency->getPicker()]['minor']['s']; // single
             } elseif ($v >= 2) {
-                return $this->dictionary['currencies'][$this->currency->getPicker()]['minor']['p'];
-            } elseif($v == 0) {
-                return "";
+                return $this->dictionary['currencies'][$this->currency->getPicker()]['minor']['p']; // plural
             }
         }
         return "";
