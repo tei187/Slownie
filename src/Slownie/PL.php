@@ -88,7 +88,7 @@ class PL extends \tei187\Slownie\Slownie {
             }
 
             if($teens === false AND $break['single'] > 0) {
-                if($this->currency->getPicker() !== null) {
+                if(!is_null($this->currency->getPicker()) && strlen(trim($this->currency->getPicker())) > 0) {
                     // check for 'gender'
                     if($minor) {
                         $switch = $this->dictionary['currencies'][$this->currency->getPicker()]['minor']['f'];

@@ -501,6 +501,11 @@ Search.appendIndex(
             "summary": "Returns\u0020thousands\u0020in\u0020words.",
             "url": "classes/tei187-Slownie-Slownie.html#method_getThousands"
         },                {
+            "fqsen": "\\tei187\\Slownie\\Slownie\u003A\u003AtranslateTo\u0028\u0029",
+            "name": "translateTo",
+            "summary": "Translates\u0020object\u0020from\u0020one\u0020language\u0020to\u0020another.",
+            "url": "classes/tei187-Slownie-Slownie.html#method_translateTo"
+        },                {
             "fqsen": "\\tei187\\Slownie\\Slownie\u003A\u003AgetCurrencyMinor\u0028\u0029",
             "name": "getCurrencyMinor",
             "summary": "",

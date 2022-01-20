@@ -112,7 +112,7 @@
 <body>
 <?php
 
-    require_once("../src/Slownie.php");
+    require_once("../src/loader.php");
 
     // [ amount, currency, fractional notation ]
     $pool = [

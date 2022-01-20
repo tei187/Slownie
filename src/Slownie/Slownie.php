@@ -321,6 +321,24 @@ abstract class Slownie {
      */
     protected function getThousands(?string $v = null) : string { return $this->getLargeNumbers(3, $v); }
 
+    /**
+     * Translates object from one language to another.
+     * @param string $lang Language to translate to. Must be a valid classname in \tei187\Slownie namespace, not equal to "Slownie" or "Currency".
+     * @return bool|object
+     */
+    public function translateTo(string $lang) {
+        if(class_exists(__NAMESPACE__ . "\\" . strtoupper($lang)) && !in_array($lang, ["Slownie", "Currency"])) {
+            $class = "\\tei187\Slownie\\".$lang;
+            return new $class(
+                $this->input, 
+                $this->currency->getPicker(), 
+                $this->fractions, 
+                $this->pickerUse
+            );
+        }
+        return false;
+    }
+
     abstract protected function getCurrencyMinor(?string $v = null) : string;
     abstract protected function getCurrencyFull() : string;
     abstract protected function getHundreds(?string $v = null) : string;

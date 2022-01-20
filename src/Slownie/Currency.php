@@ -93,7 +93,7 @@ class Currency {
      * @param string $c Currency numeric code or alpha code according to ISO 4217 standard.
      * @return boolean|self Returns FALSE if check fails, self otherwise.
      */
-    public function set(?string $c = null) : mixed {
+    public function set(?string $c = null) {
         if(!$this->checkCurrency($c)) {
             return false;
         }
