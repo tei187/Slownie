@@ -1,3 +1,5 @@
+![](https://repository-images.githubusercontent.com/413709223/e5273124-8a01-463c-9277-076334ed5323)
+
 # Słownie
 
 > */swɔvɲɛ/*
