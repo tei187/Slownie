@@ -466,6 +466,11 @@ Search.appendIndex(
             "summary": "Sets\u0020flag\u0020to\u0020switch\u0020between\u0020translated\u0020currency\u0020name\u0020or\u0020currency\u0020picker\u0020use.",
             "url": "classes/tei187-Slownie-Slownie.html#method_setPickerUse"
         },                {
+            "fqsen": "\\tei187\\Slownie\\Slownie\u003A\u003AsetValue\u0028\u0029",
+            "name": "setValue",
+            "summary": "Sets\u0020value\u0020to\u0020interpret\u0020and\u0020translate.",
+            "url": "classes/tei187-Slownie-Slownie.html#method_setValue"
+        },                {
             "fqsen": "\\tei187\\Slownie\\Slownie\u003A\u003AgetCurrency\u0028\u0029",
             "name": "getCurrency",
             "summary": "Returns\u0020currently\u0020set\u0020currency...\u0020in\u0020uppercase.\u0020That\u0027s\u0020pretty\u0020much\u0020it.",
