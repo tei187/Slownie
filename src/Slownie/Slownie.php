@@ -265,6 +265,18 @@ abstract class Slownie {
         $this->pickerUse = $v;
         return $this;
     }
+
+    /**
+     * Sets value to interpret and translate.
+     *
+     * @param string|null $v
+     * @return self
+     */
+    public function setValue(string $v = null) : self {
+        $this->input = $v;
+        $this->parse($this->input);
+        return $this;
+    }
 // - getters
     /**
      * Returns currently set currency... in uppercase. That's pretty much it...
