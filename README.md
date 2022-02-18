@@ -246,6 +246,11 @@ echo $pl->setCurrency("068")->output(); // outputs: pięć boliviano, pięćdzie
 - (optional) Composer >= 2.0
 
 
+## Links
+- (Documentation)[https://tei187.github.io/Slownie/]
+- (Wiki)[https://github.com/tei187/Slownie/wiki]
+- (Slownie @ Packagist)[https://packagist.org/packages/tei187/slownie]
+
 
 ## Author
 - [tei187](mailto:bonk.piotr@gmail.com)
