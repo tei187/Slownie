@@ -14,7 +14,10 @@
 ## Description
 
 PHP library used to translate currency values into words in English, German or Polish language, useful when word transcription is necessary (amount verification, genitive case use). Supports amounts up to 999.999.999.999.999.999.999 in ISO 4217 standard-compliant currencies (supported currencies list below).
+
 **(Work in progress... more of a proof of concept)**
+
+[DEMO APP](https://xowergs.wirt16.bhlink.pl/slownie/)
 
 ## Installation
 
