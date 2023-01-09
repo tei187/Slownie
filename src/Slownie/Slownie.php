@@ -186,13 +186,13 @@ abstract class Slownie {
      * @param boolean|null $picker Sets flag to use or not use picker rather than full translation of currency.
      * @return string Output in words.
      */
-    public function output($v = null, $currency = null, ?bool $fractions = false, ?bool $picker = false) : string {
+    public function output($v = null, $currency = null, ?bool $fractions = null, ?bool $picker = null) : string {
         if($v !== null)          { $this->input = $v; }
-        if($currency !== null)   { /* */ }
+        if($currency !== null)   { $this->setCurrency($currency); }
         if($picker !== null)     { $this->setPickerUse($picker); }
         if($fractions !== null)  { $this->setFractions($fractions); }
 
-        if($this->needsParsing)  { $this->parse($this->input); }
+        if($this->needsParsing === true)  { $this->parse($this->input); }
         return $this->relayString();
     }
 
