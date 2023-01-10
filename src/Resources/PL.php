@@ -1,9 +1,12 @@
-<?
+<?php
 namespace tei187\Resources;
 
+/**
+ * Class with transcription literals for Polish language.
+ */
 class PL {
     /** @var array[] Transcription parts in Polish for numbers. */
-    const Numbers = [
+    const NUMBERS = [
         'oox' => [
             1 => "jeden",
             2 => "dwa",
@@ -16,23 +19,23 @@ class PL {
             9 => "dziewięć",
         ],
         'oxo' => [
-            10 => "dziesięć", 
-            11 => "jedenaście", 
-            12 => "dwanaście", 
-            13 => "trzynaście", 
-            14 => "czternaście", 
-            15 => "piętnaście", 
-            16 => "szesnaście", 
-            17 => "siedemnaście", 
-            18 => "osiemnaście", 
-            19 => "dziewiętnaście", 
+            10 => "dziesięć",
+            11 => "jedenaście",
+            12 => "dwanaście",
+            13 => "trzynaście",
+            14 => "czternaście",
+            15 => "piętnaście",
+            16 => "szesnaście",
+            17 => "siedemnaście",
+            18 => "osiemnaście",
+            19 => "dziewiętnaście",
             20 => "dwadzieścia",
             30 => "trzydzieści",
-            40 => "czterdzieści", 
-            50 => "pięćdziesiąt", 
-            60 => "sześćdziesiąt", 
-            70 => "siedemdziesiąt", 
-            80 => "osiemdziesiąt", 
+            40 => "czterdzieści",
+            50 => "pięćdziesiąt",
+            60 => "sześćdziesiąt",
+            70 => "siedemdziesiąt",
+            80 => "osiemdziesiąt",
             90 => "dziewięćdziesiąt",
         ],
         'xoo' => [
@@ -58,9 +61,9 @@ class PL {
             9 => "dziewięć",
         ],
     ];
-    
+   
     /** @var array[] Transcription parts in Polish for large numbers. */
-    const LargeNumbers = [
+    const LARGE_NUMBERS = [
         3 => [
             "s1" => "tysiąc",
             "s2" => "tysiące",

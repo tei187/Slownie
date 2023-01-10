@@ -1,9 +1,12 @@
 <?php
 namespace tei187\Resources;
 
+/**
+ * Class with transcription literals for English language.
+ */
 class EN {
     /** @var array[] Transcription parts in English for numbers. */
-    const Numbers = [
+    const NUMBERS = [
         'oox' => [
             1 => "one",
             2 => "two",
@@ -16,23 +19,23 @@ class EN {
             9 => "nine",
         ],
         'oxo' => [
-            10 => "ten", 
-            11 => "eleven", 
-            12 => "twelve", 
-            13 => "thirteen", 
-            14 => "fourteen", 
-            15 => "fifteen", 
-            16 => "sixteen", 
-            17 => "seventeen", 
-            18 => "eighteen", 
-            19 => "nineteen", 
+            10 => "ten",
+            11 => "eleven",
+            12 => "twelve",
+            13 => "thirteen",
+            14 => "fourteen",
+            15 => "fifteen",
+            16 => "sixteen",
+            17 => "seventeen",
+            18 => "eighteen",
+            19 => "nineteen",
             20 => "twenty",
             30 => "thirty",
-            40 => "forty", 
-            50 => "fifty", 
-            60 => "sixty", 
-            70 => "seventy", 
-            80 => "eighty", 
+            40 => "forty",
+            50 => "fifty",
+            60 => "sixty",
+            70 => "seventy",
+            80 => "eighty",
             90 => "ninety",
         ],
         'xoo' => [
@@ -47,9 +50,9 @@ class EN {
             900 => "nine hundred",
         ],
     ];
-    
+   
     /** @var array[] Transcription parts in English for large numbers. */
-    const LargeNumbers = [
+    const LARGE_NUMBERS = [
          3 => [
              's' => "thousand",
              'p' => "thousands",

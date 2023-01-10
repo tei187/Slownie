@@ -1,8 +1,14 @@
-<?
+<?php
 namespace tei187\Resources\ISO4217;
 
+/**
+ * Cross-reference tables used in package.
+ */
 class Xref{
-    const Specifics = [
+    /**
+     * @var array[] Array holding currency-specific traits, which are not following default/majority.
+     */
+    const SPECIFICS = [
         'aed' => [ ],
         'afn' => [ ],
         'all' => [ ],
@@ -165,7 +171,7 @@ class Xref{
     /**
      * @var string[] Cross-reference table between ISO 4217 Numbers and currency pickers.
      */
-    const NumberToCode = [
+    const NUMBER_TO_CODE = [
         '008' => "all",
         '012' => 'dzd',
         '032' => "ars",

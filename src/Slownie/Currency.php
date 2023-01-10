@@ -1,16 +1,17 @@
-<?
+<?php
 namespace tei187\Slownie;
 
 use tei187\Resources\ISO4217\Xref as Xref;
 
 /**
- * Class designed to retrieve and handle basic currency-specific information, based on ISO4217-compliant data (code, exponent lenght, exponent use). Valid as of 12th Dec 2021.
- * 
- * @uses \tei187\Resources\ISO4217\Xref::NumberToCode
- * @uses \tei187\Resources\ISO4217\Xref::Specifics
- * 
+ * Class designed to retrieve and handle basic currency-specific information, based on ISO4217-compliant data
+ * (code, exponent lenght, exponent use). Valid as of 12th Dec 2021.
+ *
+ * @uses \tei187\Resources\ISO4217\Xref::NUMBER_TO_CODE
+ * @uses \tei187\Resources\ISO4217\Xref::SPECIFICS
+ *
  * @link https://en.wikipedia.org/wiki/ISO_4217 ISO 4217
- * 
+ *
  * @author Piotr Bonk <bonk.piotr@gmail.com>
  * @version 1.0.0
  */
@@ -24,35 +25,37 @@ class Currency {
 
     /**
      * Class constructor.
-     * @param string|integer|null $c ISO 4217 applicable currency number (3-characters-long numeric or string) or currency code (3-characters-long string).
+     * @param string|integer|null $c ISO 4217 applicable currency number (3-characters-long numeric or string)
+     * or currency code (3-characters-long string).
      */
-    function __construct($c = null) {
+    public function __construct($c = null) {
         $this->checkCurrency($c);
     }
 
     /**
      * Verifies input, including assigning attributes if verified.
-     * 
-     * @uses \tei187\Resources\ISO4217\Xref::NumberToCode
-     * @uses \tei187\Resources\ISO4217\Xref::Specifics
-     * 
-     * @param string|integer|null $c ISO 4217 applicable currency number (3-characters-long numeric or string) or currency code (3-characters-long string).
+     *
+     * @uses \tei187\Resources\ISO4217\Xref::NUMBER_TO_CODE
+     * @uses \tei187\Resources\ISO4217\Xref::SPECIFICS
+     *
+     * @param string|integer|null $c ISO 4217 applicable currency number (3-characters-long numeric or string)
+     * or currency code (3-characters-long string).
      * @return boolean TRUE on success, FALSE on fail.
      */
     private function checkCurrency($c = null) : bool {
         $c = strval(preg_replace('/[^0-9A-Za-z]?/m', '', $c)); // normalize string
-        
-        if(!is_null(Xref::NumberToCode) AND !is_null($c) AND strlen($c) != 0) {
-            if(is_numeric($c)) { 
+
+        if(!is_null(Xref::NUMBER_TO_CODE) && !is_null($c) && strlen($c) != 0) {
+            if(is_numeric($c)) {
                 // numeric code
-                $c = str_pad(strval($c), 3, "0", STR_PAD_LEFT); 
-                if(key_exists($c, Xref::NumberToCode)) {
-                    $this->assignSpecifics((string) Xref::NumberToCode[$c]);
+                $c = str_pad(strval($c), 3, "0", STR_PAD_LEFT);
+                if(key_exists($c, Xref::NUMBER_TO_CODE)) {
+                    $this->assignSpecifics((string) Xref::NUMBER_TO_CODE[$c]);
                     return true;
                 }
-            } elseif(ctype_alpha($c) and strlen($c) == 3) { 
+            } elseif(ctype_alpha($c) && strlen($c) == 3) {
                 // alphabetic code
-                if(key_exists(strtolower($c), Xref::Specifics)) {
+                if(key_exists(strtolower($c), Xref::SPECIFICS)) {
                     $this->assignSpecifics($c);
                     return true;
                 }
@@ -65,30 +68,32 @@ class Currency {
 
     /**
      * Assigns specific attributes per recognized currency.
-     * 
-     * @uses \tei187\Resources\ISO4217\Xref::Specifics
-     * 
-     * @param string $c ISO 4217 applicable currency number (3-characters-long numeric or string) or currency code (3-characters-long string).
+     *
+     * @uses \tei187\Resources\ISO4217\Xref::SPECIFICS
+     *
+     * @param string $c ISO 4217 applicable currency number (3-characters-long numeric or string)
+     * or currency code (3-characters-long string).
      * @return void
      */
     private function assignSpecifics(string $c) : void {
         $this->picker = strtolower($c);
 
-        $this->exponent = 
-            isset(Xref::Specifics[strtolower($c)]['minor']['d']) 
-                ? Xref::Specifics[strtolower($c)]['minor']['d'] 
+        $this->exponent =
+            isset(Xref::SPECIFICS[strtolower($c)]['minor']['d'])
+                ? Xref::SPECIFICS[strtolower($c)]['minor']['d']
                 : 2;
 
-        $this->exponentUse = 
-            isset(Xref::Specifics[strtolower($c)]['minor']['u']) 
-                ? Xref::Specifics[strtolower($c)]['minor']['u'] 
+        $this->exponentUse =
+            isset(Xref::SPECIFICS[strtolower($c)]['minor']['u'])
+                ? Xref::SPECIFICS[strtolower($c)]['minor']['u']
                 : true;
-        
-        return;
     }
 
     /**
-     * Public equivalent of checkCurrency method. If parameter is proper, fills object's attributes: picker, decimal exponent and exponent's use.
+     * Public equivalent of checkCurrency method. If parameter is proper, fills object's attributes:
+     * - picker,
+     * - decimal exponent,
+     * - exponent's use.
      * @uses \tei187\Slownie\Currency::checkCurrency()
      * @param string $c Currency numeric code or alpha code according to ISO 4217 standard.
      * @return boolean|self Returns FALSE if check fails, self otherwise.
@@ -148,20 +153,24 @@ class Currency {
         ];
     }
 
-    /** 
+    /**
      * @uses \tei187\Slownie\Currency::$picker
      * @param boolean $flag Returns picker in lowercase on FALSE, uppercase on TRUE. By default FALSE.
      * @return string Currently assigned picker. */
-    public function getPicker(bool $flag = false) : ?string { if($flag) { return strtoupper($this->picker); } else { return strtolower($this->picker); } }
-    /** 
-     * @return integer Assigned currencies' exponent length. 
+    public function getPicker(bool $flag = false) : ?string {
+        return
+            $flag
+                ? strtoupper($this->picker)
+                : strtolower($this->picker);
+    }
+    /**
+     * @return integer Assigned currencies' exponent length.
      * @uses \tei187\Slownie\Currency::$exponent
     */
     public function getExponent() : int { return $this->exponent; }
-    /** 
-     * @return bool Assigned currencies' exponent use status. 
+    /**
+     * @return bool Assigned currencies' exponent use status.
      * @uses \tei187\Slownie\Currency::$exponentUse
     */
     public function getExponentUse() : bool { return $this->exponentUse; }
 }
-?>

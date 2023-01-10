@@ -5,23 +5,23 @@ use tei187\Resources               as Resources;
 use tei187\Resources\ISO4217\Xref  as Xref;
 /**
  * Class used to transcribe float value into words in English language.
- * 
+ *
  * @author Piotr Bonk <bonk.piotr@gmail.com>
  * @version 1.0.0
  */
 class EN extends \tei187\Slownie\Slownie {
-    /** 
-     * @var array[] $dictionary Dictionary for translation purposes and cross-reference tables. 
-     * @uses \tei187\Resources\ISO4217\EN::Currencies
-     * @uses \tei187\Resources\ISO4217::NumberToCode
-     * @uses \tei187\Resources\EN::Numbers
-     * @uses \tei187\Resources\EN::LargeNumbers
+    /**
+     * @var array[] $dictionary Dictionary for translation purposes and cross-reference tables.
+     * @uses \tei187\Resources\ISO4217\EN::CURRENCIES
+     * @uses \tei187\Resources\ISO4217::NUMBER_TO_CODE
+     * @uses \tei187\Resources\EN::NUMBERS
+     * @uses \tei187\Resources\EN::LARGE_NUMBERS
      * */
     protected $dictionary = [
-        'currencies' => Resources\ISO4217\EN::Currencies, 
-           'numbers' => Resources\EN::Numbers,
-              'xref' => Xref::NumberToCode,
-            'suffix' => Resources\EN::LargeNumbers
+        'currencies' => Resources\ISO4217\EN::CURRENCIES,
+           'numbers' => Resources\EN::NUMBERS,
+              'xref' => Xref::NUMBER_TO_CODE,
+            'suffix' => Resources\EN::LARGE_NUMBERS
     ];
 
     /**
@@ -37,11 +37,9 @@ class EN extends \tei187\Slownie\Slownie {
             if($v == 1) {
                 return $w . " " . $this->dictionary['suffix'][$power]['s'];
             } elseif ($v > 1) {
-                if($this->currency == null) {
-                    return $w . " " . $this->dictionary['suffix'][$power]['p'];
-                } else {
-                    return $w . " " . $this->dictionary['suffix'][$power]['s'];
-                }
+                return $this->currency == null
+                    ? $w . " " . $this->dictionary['suffix'][$power]['p']
+                    : $w . " " . $this->dictionary['suffix'][$power]['s'];
             } elseif($v == 0) {
                 return "";
             }
@@ -64,7 +62,7 @@ class EN extends \tei187\Slownie\Slownie {
                     'tens' => floor(($v % 100) / 10),
                   'single' => $v % 10,
             ];
-                
+               
             $parts = [];
             if($break['hundreds'] > 0) {
                 // hundreds
@@ -86,10 +84,10 @@ class EN extends \tei187\Slownie\Slownie {
                 }
             }
 
-            if($teens === false AND $break['single'] > 0) {
+            if($teens === false && $break['single'] > 0) {
                 $parts[] = $this->dictionary['numbers']['oox'][$break['single']];
             }
-    
+   
             if(count($parts) > 1) {
                 return implode(" ", $parts);
             } elseif (count($parts) == 1) {

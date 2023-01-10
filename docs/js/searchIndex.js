@@ -3,242 +3,257 @@ Search.appendIndex(
                 {
             "fqsen": "\\tei187\\Resources\\DE",
             "name": "DE",
-            "summary": "",
+            "summary": "Class\u0020with\u0020transcription\u0020literals\u0020for\u0020German\u0020language.",
             "url": "classes/tei187-Resources-DE.html"
         },                {
-            "fqsen": "\\tei187\\Resources\\DE\u003A\u003ANumbers",
-            "name": "Numbers",
+            "fqsen": "\\tei187\\Resources\\DE\u003A\u003ANUMBERS",
+            "name": "NUMBERS",
             "summary": "",
-            "url": "classes/tei187-Resources-DE.html#constant_Numbers"
+            "url": "classes/tei187-Resources-DE.html#constant_NUMBERS"
         },                {
-            "fqsen": "\\tei187\\Resources\\DE\u003A\u003ALargeNumbers",
-            "name": "LargeNumbers",
+            "fqsen": "\\tei187\\Resources\\DE\u003A\u003ALARGE_NUMBERS",
+            "name": "LARGE_NUMBERS",
             "summary": "",
-            "url": "classes/tei187-Resources-DE.html#constant_LargeNumbers"
+            "url": "classes/tei187-Resources-DE.html#constant_LARGE_NUMBERS"
         },                {
             "fqsen": "\\tei187\\Resources\\EN",
             "name": "EN",
-            "summary": "",
+            "summary": "Class\u0020with\u0020transcription\u0020literals\u0020for\u0020English\u0020language.",
             "url": "classes/tei187-Resources-EN.html"
         },                {
-            "fqsen": "\\tei187\\Resources\\EN\u003A\u003ANumbers",
-            "name": "Numbers",
+            "fqsen": "\\tei187\\Resources\\EN\u003A\u003ANUMBERS",
+            "name": "NUMBERS",
             "summary": "",
-            "url": "classes/tei187-Resources-EN.html#constant_Numbers"
+            "url": "classes/tei187-Resources-EN.html#constant_NUMBERS"
         },                {
-            "fqsen": "\\tei187\\Resources\\EN\u003A\u003ALargeNumbers",
-            "name": "LargeNumbers",
+            "fqsen": "\\tei187\\Resources\\EN\u003A\u003ALARGE_NUMBERS",
+            "name": "LARGE_NUMBERS",
             "summary": "",
-            "url": "classes/tei187-Resources-EN.html#constant_LargeNumbers"
+            "url": "classes/tei187-Resources-EN.html#constant_LARGE_NUMBERS"
         },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\DE",
             "name": "DE",
-            "summary": "",
+            "summary": "Currency\u002Dspecific\u0020literals\u0020for\u0020German\u0020language.",
             "url": "classes/tei187-Resources-ISO4217-DE.html"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003ACents",
-            "name": "Cents",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003ACENTS",
+            "name": "CENTS",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_Cents"
+            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_CENTS"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003ACentimos",
-            "name": "Centimos",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003ACENTIMOS",
+            "name": "CENTIMOS",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_Centimos"
+            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_CENTIMOS"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003ACentesimos",
-            "name": "Centesimos",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003ACENTESIMOS",
+            "name": "CENTESIMOS",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_Centesimos"
+            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_CENTESIMOS"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003ACentimes",
-            "name": "Centimes",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003ACENTIMES",
+            "name": "CENTIMES",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_Centimes"
+            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_CENTIMES"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003ACentavos",
-            "name": "Centavos",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003ACENTAVOS",
+            "name": "CENTAVOS",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_Centavos"
+            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_CENTAVOS"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003AFils",
-            "name": "Fils",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003AFILS",
+            "name": "FILS",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_Fils"
+            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_FILS"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003APence",
-            "name": "Pence",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003APENCE",
+            "name": "PENCE",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_Pence"
+            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_PENCE"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003APiastres",
-            "name": "Piastres",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003APIASTRES",
+            "name": "PIASTRES",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_Piastres"
+            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_PIASTRES"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003APaisa",
-            "name": "Paisa",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003APAISA",
+            "name": "PAISA",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_Paisa"
+            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_PAISA"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003ASen",
-            "name": "Sen",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003ASEN",
+            "name": "SEN",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_Sen"
+            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_SEN"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003ATyiyn",
-            "name": "Tyiyn",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003ATYIYN",
+            "name": "TYIYN",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_Tyiyn"
+            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_TYIYN"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003ACurrencies",
-            "name": "Currencies",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\DE\u003A\u003ACURRENCIES",
+            "name": "CURRENCIES",
             "summary": "Supported\u0020currencies\u0020by\u0020ISO\u00204217.\u0020\u0028DE\u0029",
-            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_Currencies"
+            "url": "classes/tei187-Resources-ISO4217-DE.html#constant_CURRENCIES"
         },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\EN",
             "name": "EN",
-            "summary": "",
+            "summary": "Currency\u002Dspecific\u0020literals\u0020for\u0020English\u0020language.",
             "url": "classes/tei187-Resources-ISO4217-EN.html"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003ACents",
-            "name": "Cents",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003ACENTS",
+            "name": "CENTS",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_Cents"
+            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_CENTS"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003ACentimos",
-            "name": "Centimos",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003ACENTIMOS",
+            "name": "CENTIMOS",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_Centimos"
+            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_CENTIMOS"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003ACentesimos",
-            "name": "Centesimos",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003ACENTESIMOS",
+            "name": "CENTESIMOS",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_Centesimos"
+            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_CENTESIMOS"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003ACentimes",
-            "name": "Centimes",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003ACENTIMES",
+            "name": "CENTIMES",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_Centimes"
+            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_CENTIMES"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003ACentavos",
-            "name": "Centavos",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003ACENTAVOS",
+            "name": "CENTAVOS",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_Centavos"
+            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_CENTAVOS"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003AFils",
-            "name": "Fils",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003AFILS",
+            "name": "FILS",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_Fils"
+            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_FILS"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003APence",
-            "name": "Pence",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003APENCE",
+            "name": "PENCE",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_Pence"
+            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_PENCE"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003APiastres",
-            "name": "Piastres",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003APIASTRES",
+            "name": "PIASTRES",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_Piastres"
+            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_PIASTRES"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003APaisa",
-            "name": "Paisa",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003APAISA",
+            "name": "PAISA",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_Paisa"
+            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_PAISA"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003ASen",
-            "name": "Sen",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003ASEN",
+            "name": "SEN",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_Sen"
+            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_SEN"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003ATyiyn",
-            "name": "Tyiyn",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003ATYIYN",
+            "name": "TYIYN",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_Tyiyn"
+            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_TYIYN"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003ACurrencies",
-            "name": "Currencies",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\EN\u003A\u003ACURRENCIES",
+            "name": "CURRENCIES",
             "summary": "Supported\u0020currencies\u0020by\u0020ISO\u00204217.\u0020\u0028EN\u0029",
-            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_Currencies"
+            "url": "classes/tei187-Resources-ISO4217-EN.html#constant_CURRENCIES"
         },                {
             "fqsen": "\\tei187\\Resources\\ISO4217\\PL",
             "name": "PL",
-            "summary": "",
+            "summary": "Currency\u002Dspecific\u0020literals\u0020for\u0020Polish\u0020language.",
             "url": "classes/tei187-Resources-ISO4217-PL.html"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003ACents",
-            "name": "Cents",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003ACENTS",
+            "name": "CENTS",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_Cents"
+            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_CENTS"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003ACentavo",
-            "name": "Centavo",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003ACENTAVO",
+            "name": "CENTAVO",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_Centavo"
+            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_CENTAVO"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003ACentesimo",
-            "name": "Centesimo",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003ACENTESIMO",
+            "name": "CENTESIMO",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_Centesimo"
+            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_CENTESIMO"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003ACentims",
-            "name": "Centims",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003ACENTIMS",
+            "name": "CENTIMS",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_Centims"
+            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_CENTIMS"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003AFils",
-            "name": "Fils",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003AFILS",
+            "name": "FILS",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_Fils"
+            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_FILS"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003APiastres",
-            "name": "Piastres",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003APIASTRES",
+            "name": "PIASTRES",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_Piastres"
+            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_PIASTRES"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003ASen",
-            "name": "Sen",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003ASEN",
+            "name": "SEN",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_Sen"
+            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_SEN"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003APais",
-            "name": "Pais",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003APAIS",
+            "name": "PAIS",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_Pais"
+            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_PAIS"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003ATiyin",
-            "name": "Tiyin",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003ATYIYN",
+            "name": "TYIYN",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_Tiyin"
+            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_TYIYN"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003APens",
-            "name": "Pens",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003APENCE",
+            "name": "PENCE",
             "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_Pens"
+            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_PENCE"
         },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003ACurrencies",
-            "name": "Currencies",
+            "fqsen": "\\tei187\\Resources\\ISO4217\\PL\u003A\u003ACURRENCIES",
+            "name": "CURRENCIES",
             "summary": "Supported\u0020currencies\u0020by\u0020ISO\u00204217.\u0020\u0028PL\u0029",
-            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_Currencies"
+            "url": "classes/tei187-Resources-ISO4217-PL.html#constant_CURRENCIES"
+        },                {
+            "fqsen": "\\tei187\\Resources\\ISO4217\\Xref",
+            "name": "Xref",
+            "summary": "Cross\u002Dreference\u0020tables\u0020used\u0020in\u0020package.",
+            "url": "classes/tei187-Resources-ISO4217-Xref.html"
+        },                {
+            "fqsen": "\\tei187\\Resources\\ISO4217\\Xref\u003A\u003ASPECIFICS",
+            "name": "SPECIFICS",
+            "summary": "",
+            "url": "classes/tei187-Resources-ISO4217-Xref.html#constant_SPECIFICS"
+        },                {
+            "fqsen": "\\tei187\\Resources\\ISO4217\\Xref\u003A\u003ANUMBER_TO_CODE",
+            "name": "NUMBER_TO_CODE",
+            "summary": "",
+            "url": "classes/tei187-Resources-ISO4217-Xref.html#constant_NUMBER_TO_CODE"
         },                {
             "fqsen": "\\tei187\\Resources\\PL",
             "name": "PL",
-            "summary": "",
+            "summary": "Class\u0020with\u0020transcription\u0020literals\u0020for\u0020Polish\u0020language.",
             "url": "classes/tei187-Resources-PL.html"
         },                {
-            "fqsen": "\\tei187\\Resources\\PL\u003A\u003ANumbers",
-            "name": "Numbers",
+            "fqsen": "\\tei187\\Resources\\PL\u003A\u003ANUMBERS",
+            "name": "NUMBERS",
             "summary": "",
-            "url": "classes/tei187-Resources-PL.html#constant_Numbers"
+            "url": "classes/tei187-Resources-PL.html#constant_NUMBERS"
         },                {
-            "fqsen": "\\tei187\\Resources\\PL\u003A\u003ALargeNumbers",
-            "name": "LargeNumbers",
+            "fqsen": "\\tei187\\Resources\\PL\u003A\u003ALARGE_NUMBERS",
+            "name": "LARGE_NUMBERS",
             "summary": "",
-            "url": "classes/tei187-Resources-PL.html#constant_LargeNumbers"
+            "url": "classes/tei187-Resources-PL.html#constant_LARGE_NUMBERS"
         },                {
             "fqsen": "\\tei187\\Slownie\\Currency",
             "name": "Currency",
-            "summary": "Class\u0020designed\u0020to\u0020retrieve\u0020and\u0020handle\u0020basic\u0020currency\u002Dspecific\u0020information,\u0020based\u0020on\u0020ISO4217\u002Dcompliant\u0020data\u0020\u0028code,\u0020exponent\u0020lenght,\u0020exponent\u0020use\u0029.\u0020Valid\u0020as\u0020of\u002012th\u0020Dec\u00202021.",
+            "summary": "Class\u0020designed\u0020to\u0020retrieve\u0020and\u0020handle\u0020basic\u0020currency\u002Dspecific\u0020information,\u0020based\u0020on\u0020ISO4217\u002Dcompliant\u0020data\n\u0028code,\u0020exponent\u0020lenght,\u0020exponent\u0020use\u0029.\u0020Valid\u0020as\u0020of\u002012th\u0020Dec\u00202021.",
             "url": "classes/tei187-Slownie-Currency.html"
         },                {
             "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003A__construct\u0028\u0029",
@@ -258,7 +273,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003Aset\u0028\u0029",
             "name": "set",
-            "summary": "Public\u0020equivalent\u0020of\u0020checkCurrency\u0020method.\u0020If\u0020parameter\u0020is\u0020proper,\u0020fills\u0020object\u0027s\u0020attributes\u003A\u0020picker,\u0020decimal\u0020exponent\u0020and\u0020exponent\u0027s\u0020use.",
+            "summary": "Public\u0020equivalent\u0020of\u0020checkCurrency\u0020method.\u0020If\u0020parameter\u0020is\u0020proper,\u0020fills\u0020object\u0027s\u0020attributes\u003A\n\u002D\u0020picker,\n\u002D\u0020decimal\u0020exponent,\n\u002D\u0020exponent\u0027s\u0020use.",
             "url": "classes/tei187-Slownie-Currency.html#method_set"
         },                {
             "fqsen": "\\tei187\\Slownie\\Currency\u003A\u003Areset\u0028\u0029",
@@ -443,7 +458,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\tei187\\Slownie\\Slownie\u003A\u003AverifyCodes\u0028\u0029",
             "name": "verifyCodes",
-            "summary": "Developer\u0020method.\u0020Verifies\u0020if\u0020all\u0020keys\u0020from\u0020tei187\\Resources\\ISO4217\\Xref\u003A\u003ANumberToCode\u0020exist\u0020in\u0020language\u0020pack.",
+            "summary": "Developer\u0020method.\u0020Verifies\u0020if\u0020all\u0020keys\u0020from\u0020tei187\\Resources\\ISO4217\\Xref\u003A\u003ANUMBER_TO_CODE\u0020exist\u0020in\u0020language\u0020pack.",
             "url": "classes/tei187-Slownie-Slownie.html#method_verifyCodes"
         },                {
             "fqsen": "\\tei187\\Slownie\\Slownie\u003A\u003AsetCurrency\u0028\u0029",
@@ -570,21 +585,6 @@ Search.appendIndex(
             "name": "needsParsing",
             "summary": "",
             "url": "classes/tei187-Slownie-Slownie.html#property_needsParsing"
-        },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\Xref",
-            "name": "Xref",
-            "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-Xref.html"
-        },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\Xref\u003A\u003ASpecifics",
-            "name": "Specifics",
-            "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-Xref.html#constant_Specifics"
-        },                {
-            "fqsen": "\\tei187\\Resources\\ISO4217\\Xref\u003A\u003ANumberToCode",
-            "name": "NumberToCode",
-            "summary": "",
-            "url": "classes/tei187-Resources-ISO4217-Xref.html#constant_NumberToCode"
         },                {
             "fqsen": "\\",
             "name": "\\",

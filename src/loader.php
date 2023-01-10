@@ -11,4 +11,3 @@
     require_once( __DIR__ . "/Resources/PL.php" );
     require_once( __DIR__ . "/Resources/ISO4217/PL.php" );
     require_once( __DIR__ . "/Resources/ISO4217/Xref.php" );
-?>

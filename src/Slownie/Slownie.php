@@ -26,7 +26,8 @@ abstract class Slownie {
     protected $formatting = [ 'thousands' => ",", "decimals" => "." ];
     /** @var bool $pickerUse Flag to switch between translated currency name or currency picker. */
     protected $pickerUse = false;
-    /** @var boolean $fractions Translate fully (with minors) or partially (with fractional notation). FALSE by default. */
+    /** @var boolean $fractions Translate fully (with minors) or partially (with fractional notation).
+     * FALSE by default. */
     protected $fractions = false;
     /** @var bool $needsParsing Flag to accertain if amount needs reparsing due to changes. */
     protected $needsParsing = true;
@@ -35,18 +36,25 @@ abstract class Slownie {
      * Class constructor.
      * @uses \tei187\Slownie\Currency
      * @param string|null $amount Amount to process. Has to be well formed float or float-formed string.
-     * @param string|\tei187\Slownie\Currency|null $currency A Currency class object or string ISO 4217 currency code or number (refer to tei187\Resources\ISO4217\{lang}\Currencies or tei187\Resources\ISO4217\NumberToCode). By default null.
+     * @param string|\tei187\Slownie\Currency|null $currency A Currency class object or string ISO 4217 currency code
+     * or number (refer to tei187\Resources\ISO4217\{lang}\Currencies or tei187\Resources\ISO4217\NUMBER_TO_CODE).
+     * By default null.
      * @param boolean $fractionsUse If FALSE translates fully, if TRUE uses fractional notation for minor rest.
      * @param boolean $pickerUse Sets flag to use or not use picker rather than full translation of currency.
      * @return void
      */
-    function __construct(?string $amount = null, $currency = null, bool $fractionsUse = false, bool $pickerUse = false) {
+    public function __construct(
+        ?string $amount = null,
+        $currency = null,
+        bool $fractionsUse = false,
+        bool $pickerUse = false
+    ) {
         if(is_string($currency)) {
             $this->currency = new Currency($currency);
-        } elseif(is_object($currency) AND get_class($currency) === new \tei187\Slownie\Currency) {
+        } elseif(is_object($currency) && get_class($currency) === new \tei187\Slownie\Currency) {
             $this->currency = $currency;
         }
-        
+       
         $this->setPickerUse($pickerUse);
         $this->input = $amount;
         $this->setFractions($fractionsUse);
@@ -61,8 +69,8 @@ abstract class Slownie {
      */
     protected function relayFractionMinors() : string {
         return str_pad(
-            $this->amountPart, 
-            $this->currency->getExponent(), 
+            $this->amountPart,
+            $this->currency->getExponent(),
             "0", STR_PAD_RIGHT
         ) . "/" . (10 ** $this->currency->getExponent());
     }
@@ -79,7 +87,7 @@ abstract class Slownie {
     protected function relayString() : string {
         $c = count($this->amountFull);
         $full = []; // will keep translated parts' strings
-        $arrayByPower10 = []; // will be same as $this->amountFull, but have keys corresponding to N power of ten of the range they represent
+        $arrayByPower10 = []; // will be same as $this->amountFull, but have keys corresponding to N powerof ten of the range they represent
 
         // revert and assign keys corresponding to power of ten
         foreach(array_reverse($this->amountFull) as $k => $v) { $arrayByPower10[$k * 3] = $v; }
@@ -87,7 +95,7 @@ abstract class Slownie {
 
         // deal with translation of full parts
         foreach($arrayByPower10 as $k => $v) { $full[] = $this->translateNumber($k, $v); }
-        if($c > 0 and intval(implode("", $this->amountFull)) > 0) {
+        if($c > 0 && intval(implode("", $this->amountFull)) > 0) {
             if($this->pickerUse) {
                 $full[] = $this->getCurrency();
             } else {
@@ -99,18 +107,24 @@ abstract class Slownie {
 
         // deal with translation of rest
         $rest = [];
-        if($this->amountPart > 0 AND $this->currency->getExponentUse() === true) {
+        if($this->amountPart > 0 && $this->currency->getExponentUse() === true) {
             if($this->fractions) {
                 $rest[] = $this->relayFractionMinors();
             } else {
-                $rest[] = $this->getHundreds(str_pad($this->amountPart, $this->currency->getExponent(), 0, STR_PAD_RIGHT), true);
-                $rest[] = $this->getCurrencyMinor(str_pad($this->amountPart, $this->currency->getExponent(), 0, STR_PAD_RIGHT), true);
+                $rest[] = $this->getHundreds(
+                    str_pad($this->amountPart, $this->currency->getExponent(), 0, STR_PAD_RIGHT),
+                    true
+                );
+                $rest[] = $this->getCurrencyMinor(
+                    str_pad($this->amountPart, $this->currency->getExponent(), 0, STR_PAD_RIGHT),
+                    true
+                );
             }
         }
 
         // implode full and rest translations into one and return
         $whole = [ implode(" ", $full), implode(" ", $rest) ];
-        
+       
         if($this->fractions) {
             return implode(" ", array_filter($whole));
         } else {
@@ -148,10 +162,10 @@ abstract class Slownie {
      */
     protected function parse(?string $v = null) : bool {
         $v = str_replace($this->formatting['thousands'], "", $v);
-        if(strlen(trim($v)) !== 0 or !is_null($v)) {
+        if(strlen(trim($v)) !== 0 || !is_null($v)) {
             $exp = explode($this->formatting['decimals'], $v);
             $final = array_map(
-                function($v) { return strrev($v); }, 
+                function($v) { return strrev($v); },
                 array_reverse(str_split(strrev($exp[0]), 3))
             );
 
@@ -159,12 +173,12 @@ abstract class Slownie {
             if(count($exp) == 2) {
                 $exp[1] = str_pad(trim($exp[1]), $this->currency->getExponent(), "0", STR_PAD_RIGHT);
             }
-            
-            $this->amountPart = 
-                count($exp) == 2 
+           
+            $this->amountPart =
+                count($exp) == 2
                     ? str_pad(
                         round(
-                            $exp[1] / (10 ** strlen($exp[1])), 
+                            $exp[1] / (10 ** strlen($exp[1])),
                             $this->currency->getExponent()) * (10 ** $this->currency->getExponent() ),
                       $this->currency->getExponent(), "0", STR_PAD_LEFT)
                     : 0;
@@ -197,14 +211,14 @@ abstract class Slownie {
     }
 
     /**
-     * Developer method. Verifies if all keys from tei187\Resources\ISO4217\Xref::NumberToCode exist in language pack.
-     * @uses \tei187\Resources\ISO4217\Xref::NumberToCode
+     * Developer method. Verifies if all keys from tei187\Resources\ISO4217\Xref::NUMBER_TO_CODE exist in language pack.
+     * @uses \tei187\Resources\ISO4217\Xref::NUMBER_TO_CODE
      * @uses $dictionary
      * @return bool TRUE on correct, FALSE otherwise.
      */
     public function verifyCodes() : bool {
         $i = 0;
-        foreach(Xref::NumberToCode as $v) {
+        foreach(Xref::NUMBER_TO_CODE as $v) {
             if(!key_exists($v, $this->dictionary['currencies'])) $i++;
         }
         if($i != 0) return false;
@@ -214,7 +228,9 @@ abstract class Slownie {
     /**
      * Assigns currency.
      * @uses \tei187\Slownie\Slownie::$currency
-     * @param string|null $currency Currency shortcode. Has to exist as index in tei187\Resources\ISO4217\{lang}::Currencies, or as cross-referenced ISO 4217 _STRING_ index of tei187\Resources\ISO4217\Xref::NumberToCode (with leading zeroes), or 'none' (default).
+     * @param string|null $currency Currency shortcode. Has to exist as index in
+     * tei187\Resources\ISO4217\{lang}::CURRENCIES, or as cross-referenced ISO 4217 _STRING_
+     * index of tei187\Resources\ISO4217\Xref::NUMBER_TO_CODE (with leading zeroes), or 'none' (default).
      * @return self
      */
     public function setCurrency(?string $currency = null) : self {
@@ -232,16 +248,16 @@ abstract class Slownie {
      * @uses \tei187\Slownie\Slownie::$formatting
      * @param string $thousands Thousands separator.
      * @param string $decimals Decimal separator.
-     * @return void
+     * @return self
      */
-    public function setFormatting(string $thousands = ".", string $decimals = ",") : void {
-        $this->formatting['thousands'] = $thousands != null 
-            ? $thousands 
+    public function setFormatting(string $thousands = ".", string $decimals = ",") : self {
+        $this->formatting['thousands'] = $thousands != null
+            ? $thousands
             : $this->formatting['thousands'];
-        $this->formatting['decimals']  = $decimals != null 
-            ? $decimals 
+        $this->formatting['decimals']  = $decimals != null
+            ? $decimals
             : $this->formatting['decimals'];
-        return;
+        return $this;
     }
 
     /**
@@ -335,16 +351,17 @@ abstract class Slownie {
 
     /**
      * Translates object from one language to another.
-     * @param string $lang Language to translate to. Must be a valid classname in \tei187\Slownie namespace, not equal to "Slownie" or "Currency".
+     * @param string $lang Language to translate to. Must be a valid classname in \tei187\Slownie
+     * namespace, not equal to "Slownie" or "Currency".
      * @return bool|object
      */
     public function translateTo(string $lang) {
         if(class_exists(__NAMESPACE__ . "\\" . strtoupper($lang)) && !in_array($lang, ["Slownie", "Currency"])) {
             $class = "\\tei187\Slownie\\".$lang;
             return new $class(
-                $this->input, 
-                $this->currency->getPicker(), 
-                $this->fractions, 
+                $this->input,
+                $this->currency->getPicker(),
+                $this->fractions,
                 $this->pickerUse
             );
         }

@@ -1,73 +1,76 @@
-<?
+<?php
 namespace tei187\Resources\ISO4217;
 
+/**
+ * Currency-specific literals for German language.
+ */
 class DE {
     /** @var array[] Regular extension - cents. (DE) */
-    const Cents = [
+    const CENTS = [
         's' => "Cent",
         'p' => "Cent",
     ];
-    
+   
     /** @var array[] Regular extension - centimos. (DE) */
-    const Centimos = [
+    const CENTIMOS = [
         's' => "Cêntimo",
         'p' => "Cêntimos",
     ];
-    
+   
     /** @var array[] Regular extension - centesimos. (DE) */
-    const Centesimos = [
+    const CENTESIMOS = [
         's' => "Centésimo",
         'p' => "Centésimos",
     ];
-    
+   
     /** @var array[] Regular extension - centimes. (DE) */
-    const Centimes = [
+    const CENTIMES = [
         's' => "Centime",
         'p' => "Centimes",
     ];
-    
+   
     /** @var array[] Regular extension - centavos. (DE) */
-    const Centavos = [
+    const CENTAVOS = [
         's' => "Centavo",
         'p' => "Centavos",
     ];
-    
+   
     /** @var array[] Regular extension - fils. (DE) */
-    const Fils = [
+    const FILS = [
         's' => "Fils",
         'p' => "Fils",
     ];
-    
+   
     /** @var array[] Regular extension - pence. (DE) */
-    const Pence = [
+    const PENCE = [
         's' => "Penny",
         'p' => "Pence",
     ];
-    
+   
     /** @var array[] Regular extension - piastres. (DE) */
-    const Piastres = [
+    const PIASTRES = [
         's' => "Piaster",
         'p' => "Piaster",
     ];
-    
+   
     /** @var array[] Regular extension - paisa. (DE) */
-    const Paisa = [
+    const PAISA = [
         's' => "Paisa",
         'p' => "Paisa",
     ];
-    
+   
     /** @var array[] Regular extension - sen. (DE) */
-    const Sen = [
+    const SEN = [
         's' => "Sen",
         'p' => "Sen",
     ];
-    
+   
     /** @var array[] Regular extension - tyiyn. (DE) */
-    const Tyiyn = [
+    const TYIYN = [
         's' => "Tyiyn",
         'p' => "Tyiyn",
     ];
-    
+   
      /**
       * Supported currencies by ISO 4217. (DE)
       *
@@ -78,7 +81,7 @@ class DE {
       *
       * @var array[]
       */
-    const Currencies = [
+    const CURRENCIES = [
         'aed' => [
             's' => "VAE-Dirham",
             'p' => "VAE-Dirham",
@@ -115,27 +118,27 @@ class DE {
         'ang' => [
             's' => "niederländischer Antillen-Gulden",
             'p' => "niederländische Antillen-Gulden",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'aoa' => [
             's' => "angolanischer Kwanza",
             'p' => "angolanische Kwanza",
-            'minor' => self::Centimos
+            'minor' => self::CENTIMOS
         ],
         'ars' => [
             's' => "argentinischer Peso",
             'p' => "argentinische Pesos",
-            'minor' => self::Centavos
+            'minor' => self::CENTAVOS
         ],
         'aud' => [
             's' => "australischer Dollar",
             'p' => "australische Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'awg' => [
             's' => "Aruba-Florin",
             'p' => "Aruba-Florin",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'azm' => [
             's' => "aserbaidschanischer Manat",
@@ -157,7 +160,7 @@ class DE {
         'bbd' => [
             's' => "barbadischer Dollar",
             'p' => "barbadische Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'bdt' => [
             's' => "bangladeschischer Taka",
@@ -179,37 +182,37 @@ class DE {
         'bhd' => [
             's' => "Bahraini-Dinar",
             'p' => "Bahraini-Dinaren",
-            'minor' => self::Fils
+            'minor' => self::FILS
         ],
         'bif' => [
             's' => "burundischer Franc",
             'p' => "burundische Francs",
-            'minor' => self::Centimes
+            'minor' => self::CENTIMES
         ],
         'bmd' => [
             's' => "Bermuda-Dollar",
             'p' => "Bermuda-Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'bnd' => [
             's' => "Brunei-Dollar",
             'p' => "Brunei-Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'bob' => [
             's' => "bolivianischer Boliviano",
             'p' => "bolivianische Boliviano",
-            'minor' => self::Centavos
+            'minor' => self::CENTAVOS
         ],
         'brl' => [
             's' => "brasilianischer Real",
             'p' => "brasilianische Reales",
-            'minor' => self::Centavos
+            'minor' => self::CENTAVOS
         ],
         'bsd' => [
             's' => "Bahama-Dollar",
             'p' => "Bahama-Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'btn' => [
             's' => "bhutanischer Ngultrum",
@@ -239,17 +242,17 @@ class DE {
         'bzd' => [
             's' => "Belize-Dollar",
             'p' => "Belize-Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'cad' => [
             's' => "kanadischer Dollar",
             'p' => "kanadische Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'cdf' => [
             's' => "Kongo-Franc",
             'p' => "Kongo-Francs",
-            'minor' => self::Centimes
+            'minor' => self::CENTIMES
         ],
         'chf' => [
             's' => "Schweizerfranken",
@@ -262,7 +265,7 @@ class DE {
         'clp' => [
             's' => "chilenischer Peso",
             'p' => "chilenische Pesos",
-            'minor' => self::Centavos
+            'minor' => self::CENTAVOS
         ],
         'cny' => [
             's' => "Renminbi Yuan",
@@ -281,27 +284,27 @@ class DE {
         'cop' => [
             's' => "kolumbianischer Peso",
             'p' => "kolumbianische Pesos",
-            'minor' => self::Centavos
+            'minor' => self::CENTAVOS
         ],
         'crc' => [
             's' => "Costa-Rica-Colón",
             'p' => "Costa-Rica-Colón",
-            'minor' => self::Centimos
+            'minor' => self::CENTIMOS
         ],
         'cuc' => [
             's' => "kubanischer konvertierbarer Peso",
             'p' => "kubanische konvertierbare Pesos",
-            'minor' => self::Centavos
+            'minor' => self::CENTAVOS
         ],
         'cup' => [
             's' => "kubanischer Peso",
             'p' => "kubanische Pesos",
-            'minor' => self::Centavos
+            'minor' => self::CENTAVOS
         ],
         'cve' => [
             's' => "Kap-Verde-Escudo",
             'p' => "Kap-Verde-Escudo",
-            'minor' => self::Centavos
+            'minor' => self::CENTAVOS
         ],
         'czk' => [
             's' => "tschechische Krone",
@@ -315,7 +318,7 @@ class DE {
         'djf' => [
             's' => "Dschibuti-Franc",
             'p' => "Dschibuti-Francs",
-            'minor' => self::Centimes
+            'minor' => self::CENTIMES
         ],
         'dkk' => [
             's' => "dänische Krone",
@@ -329,27 +332,27 @@ class DE {
         'dop' => [
             's' => "dominikanischer Peso",
             'p' => "dominikanische Pesos",
-            'minor' => self::Centavos
+            'minor' => self::CENTAVOS
         ],
         'dzd' => [
             's' => "algerischer Dinar",
             'p' => "algerische Dinare",
-            'minor' => self::Centimes
+            'minor' => self::CENTIMES
         ],
         'egp' => [
             's' => "ägyptisches Pfund",
             'p' => "ägyptische Pfunde",
-            'minor' => self::Piastres
+            'minor' => self::PIASTRES
         ],
         'eur' => [
             's' => "Euro",
             'p' => "Euro",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'ern' => [
             's' => "eritreischer Nakfa",
             'p' => "eritreische Nakfa",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'etb' => [
             's' => "äthiopischer Birr",
@@ -362,17 +365,17 @@ class DE {
         'fjd' => [
             's' => "Fidschi-Dollar",
             'p' => "Fidschi-Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'fkp' => [
             's' => "Falkland-Pfund",
             'p' => "Falkland-Pfunde",
-            'minor' => self::Pence
+            'minor' => self::PENCE
         ],
         'gbp' => [
             's' => "Pfund Sterling",
             'p' => "Pfunde Sterling",
-            'minor' => self::Pence
+            'minor' => self::PENCE
         ],
         'gel' => [
             's' => "georgischer Lari",
@@ -394,7 +397,7 @@ class DE {
         'gip' => [
             's' => "gibraltarisches Pfund",
             'p' => "gibraltarische Pfunde",
-            'minor' => self::Pence
+            'minor' => self::PENCE
         ],
         'gmd' => [
             's' => "gambischer Dalasi",
@@ -407,28 +410,28 @@ class DE {
         'gnf' => [
             's' => "Franc Guinéen",
             'p' => "Franc Guinéen",
-            'minor' => self::Centimes
+            'minor' => self::CENTIMES
         ],
         'gtq' => [
             's' => "guatemaltekischer Quetzal",
             'p' => "guatemaltekische Quetzal",
-            'minor' => self::Centavos
+            'minor' => self::CENTAVOS
         ],
         'gyd' => [
             's' => "Guyana-Dollar",
             'p' => "Guyana-Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'hnl' => [
             's' => "honduranische Lempira",
             'p' => "honduranische Lempira",
             'f' => true,
-            'minor' => self::Centavos
+            'minor' => self::CENTAVOS
         ],
         'hkd' => [
             's' => "Hongkong-Dollar",
             'p' => "Hongkong-Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'hrk' => [
             's' => "kroatische Kuna",
@@ -443,7 +446,7 @@ class DE {
             's' => "haitianischer Gourde",
             'p' => "haitianische Gourde",
             'f' => true,
-            'minor' => self::Centimes
+            'minor' => self::CENTIMES
         ],
         'huf' => [
             's' => "ungarischer Forint",
@@ -457,7 +460,7 @@ class DE {
             's' => "indonesische Rupiah",
             'p' => "indonesische Rupiah",
             'f' => true,
-            'minor' => self::Sen
+            'minor' => self::SEN
         ],
         'ils' => [
             's' => "israelischer neuer Schekel",
@@ -471,12 +474,12 @@ class DE {
             's' => "indische Rupie",
             'p' => "indische Rupien",
             'f' => true,
-            'minor' => self::Paisa
+            'minor' => self::PAISA
         ],
         'iqd' => [
             's' => "irakischer Dinar",
             'p' => "irakische Dinare",
-            'minor' => self::Fils
+            'minor' => self::FILS
         ],
         'irr' => [
             's' => "iranischer Rial",
@@ -499,12 +502,12 @@ class DE {
         'jmd' => [
             's' => "Jamaika-Dollar",
             'p' => "Jamaika-Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'jod' => [
             's' => "jordanischer Dinar",
             'p' => "jordanische Dinare",
-            'minor' => self::Piastres
+            'minor' => self::PIASTRES
         ],
         'jpy' => [
             's' => "japanischer Yen",
@@ -518,22 +521,22 @@ class DE {
         'kes' => [
             's' => "Kenia-Schilling",
             'p' => "Kenia-Schilling",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'kgs' => [
             's' => "kirgistanischer Som",
             'p' => "kirgistanische Som",
-            'minor' => self::Tyiyn
+            'minor' => self::TYIYN
         ],
         'khr' => [
             's' => "kambodschanischer Riel",
             'p' => "kambodschanische Riel",
-            'minor' => self::Sen
+            'minor' => self::SEN
         ],
         'kmf' => [
             's' => "Komoren-Franc",
             'p' => "Komoren-Francs",
-            'minor' => self::Centimes
+            'minor' => self::CENTIMES
         ],
         'kpw' => [
             's' => "nordkoreanischer Won",
@@ -555,12 +558,12 @@ class DE {
         'kwd' => [
             's' => "Kuwait-Dinar",
             'p' => "Kuwait-Dinare",
-            'minor' => self::Fils
+            'minor' => self::FILS
         ],
         'kyd' => [
             's' => "Kaiman-Dollar",
             'p' => "Kaiman-Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'kzt' => [
             's' => "kasachischer Tenge",
@@ -581,18 +584,18 @@ class DE {
         'lbp' => [
             's' => "libanesisches Pfund",
             'p' => "libanesische Pfunde",
-            'minor' => self::Piastres
+            'minor' => self::PIASTRES
         ],
         'lkr' => [
             's' => "Sri-Lanka-Rupie",
             'p' => "Sri-Lanka-Rupien",
             'f' => true,
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'lrd' => [
             's' => "liberianischer Dollar",
             'p' => "liberianische Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'lsl' => [
             's' => "lesothischer Loti",
@@ -613,7 +616,7 @@ class DE {
         'mad' => [
             's' => "marokkanischer Dirham",
             'p' => "marokkanische Dirham",
-            'minor' => self::Centimes
+            'minor' => self::CENTIMES
         ],
         'mdl' => [
             's' => "moldauischer Leu",
@@ -678,7 +681,7 @@ class DE {
             's' => "Mauritius-Rupie",
             'p' => "Mauritius-Rupien",
             'f' => true,
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'mvr' => [
             's' => "maledivische Rufiyaa",
@@ -692,12 +695,12 @@ class DE {
         'mxn' => [
             's' => "mexikanischer Peso",
             'p' => "mexikanische Pesos",
-            'minor' => self::Centavos
+            'minor' => self::CENTAVOS
         ],
         'myr' => [
             's' => "malaysischer Ringgit",
             'p' => "malaysische Ringgit",
-            'minor' => self::Sen
+            'minor' => self::SEN
         ],
         'mwk' => [
             's' => "Malawi-Kwacha",
@@ -710,17 +713,17 @@ class DE {
         'mzn' => [
             's' => "mosambikanisches Metical",
             'p' => "mosambikanische Meticais",
-            'minor' => self::Centavos
+            'minor' => self::CENTAVOS
         ],
         'nad' => [
             's' => "Namibia-Dollar",
             'p' => "Namibia-Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'nio' => [
             's' => "nicaraguanischer Córdoba",
             'p' => "nicaraguanischer Córdoba",
-            'minor' => self::Centavos
+            'minor' => self::CENTAVOS
         ],
         'ngn' => [
             's' => "nigerianischer Naira",
@@ -735,7 +738,7 @@ class DE {
             's' => "nepalesische Rupie",
             'p' => "nepalesische Rupien",
             'f' => true,
-            'minor' => self::Paisa,
+            'minor' => self::PAISA,
         ],
         'nok' => [
             's' => "norwegische Krone",
@@ -749,7 +752,7 @@ class DE {
         'nzd' => [
             's' => "Neuseeland-Dollar",
             'p' => "Neuseeland-Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'omr' => [
             's' => "omanischer Rial",
@@ -764,12 +767,12 @@ class DE {
         'pab' => [
             's' => "panamaischer Balboa",
             'p' => "panamaische Balboa",
-            'minor' => self::Centesimos
+            'minor' => self::CENTESIMOS
         ],
         'pen' => [
             's' => "peruanischer Sol",
             'p' => "peruanische Sol",
-            'minor' => self::Centimos
+            'minor' => self::CENTIMOS
         ],
         'pgk' => [
             's' => "Papua-Kina",
@@ -782,13 +785,13 @@ class DE {
         'php' => [
             's' => "philippinischer Peso",
             'p' => "philippinische Pesos",
-            'minor' => self::Centavos
+            'minor' => self::CENTAVOS
         ],
         'pkr' => [
             's' => "pakistanische Rupie",
             'p' => "pakistanische Rupien",
             'f' => true,
-            'minor' => self::Paisa
+            'minor' => self::PAISA
         ],
         'pln' => [
             's' => "polnischer Zloty",
@@ -801,7 +804,7 @@ class DE {
         'pyg' => [
             's' => "paraguayischer Guaraní",
             'p' => "paraguayische Guaraní",
-            'minor' => self::Centimes
+            'minor' => self::CENTIMES
         ],
         'qar' => [
             's' => "Katar-Riyal",
@@ -839,7 +842,7 @@ class DE {
         'rwf' => [
             's' => "Ruanda-Franc",
             'p' => "Ruanda-Francs",
-            'minor' => self::Centimes
+            'minor' => self::CENTIMES
         ],
         'sar' => [
             's' => "Saudi-Riyal",
@@ -852,18 +855,18 @@ class DE {
         'sbd' => [
             's' => "Salomonen-Dollar",
             'p' => "Salomonen-Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'scr' => [
             's' => "Seychellen-Rupie",
             'p' => "Seychellen-Rupien",
             'f' => true,
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'sdg' => [
             's' => "sudanesisches Pfund",
             'p' => "sudanesische Pfunde",
-            'minor' => self::Piastres
+            'minor' => self::PIASTRES
         ],
         'sek' => [
             's' => "swedische Krone",
@@ -877,53 +880,53 @@ class DE {
         'sgd' => [
             's' => "Singapur-Dollar",
             'p' => "Singapur-Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'shp' => [
             's' => "St.-Helena-Pfund",
             'p' => "St.-Helena-Pfunde",
-            'minor' => self::Pence
+            'minor' => self::PENCE
         ],
         'sll' => [
             's' => "sierra-leonischer Leone",
             'p' => "sierra-leonische Leones",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'sos' => [
             's' => "Somalia-Schilling",
             'p' => "Somalia-Schilling",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'srd' => [
             's' => "Suriname-Dollar",
             'p' => "Suriname-Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'ssp' => [
             's' => "südsudanesisches Pfund",
             'p' => "südsudanesische Pfunde",
-            'minor' => self::Piastres
+            'minor' => self::PIASTRES
         ],
         'stn' => [
             's' => "são-toméischer Dobra",
             'p' => "são-toméische Dobra",
-            'minor' => self::Centimos
+            'minor' => self::CENTIMOS
         ],
         'svc' => [
             's' => "El-Salvador-Colón",
             'p' => "El-Salvador-Colones",
-            'minor' => self::Centavos
+            'minor' => self::CENTAVOS
         ],
         'syp' => [
             's' => "syrische Lira",
             'p' => "syrische Lira",
             'f' => true,
-            'minor' => self::Piastres
+            'minor' => self::PIASTRES
         ],
         'szl' => [
             's' => "Swasi-Lilangeni",
             'p' => "Swasi-Emalangeni",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'thb' => [
             's' => "thailändischer Baht",
@@ -979,17 +982,17 @@ class DE {
         'ttd' => [
             's' => "Trinidad-und-Tobago-Dollar",
             'p' => "Trinidad-und-Tobago-Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'twd' => [
             's' => "neuer Taiwan-Dollar",
             'p' => "neue Taiwan-Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'tzs' => [
             's' => "Tansania-Schilling",
             'p' => "Tansania-Schilling",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'uah' => [
             's' => "ukrainische Hryvnia",
@@ -1003,27 +1006,27 @@ class DE {
         'ugx' => [
             's' => "Uganda-Schilling",
             'p' => "Uganda-Schilling",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'usd' => [
             's' => "US-Dollar",
             'p' => "US-Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'uyu' => [
             's' => "uruguayischer Peso",
             'p' => "uruguayische Pesos",
-            'minor' => self::Centesimos
+            'minor' => self::CENTESIMOS
         ],
         'uzs' => [
             's' => "usbekischer Soʻm",
             'p' => "usbekische Soʻm",
-            'minor' => self::Tyiyn
+            'minor' => self::TYIYN
         ],
         'ves' => [
             's' => "venezolanischer Bolívar Soberano",
             'p' => "venezolanische Bolívar Soberano",
-            'minor' => self::Centimos
+            'minor' => self::CENTIMOS
         ],
         'vnd' => [
             's' => "vietnamesischer Đồng",
@@ -1054,32 +1057,32 @@ class DE {
         'xaf' => [
             's' => "zentralafrikanischer CFA-Franc",
             'p' => "zentralafrikanische CFA-Francs",
-            'minor' => self::Centimes
+            'minor' => self::CENTIMES
         ],
         'xcd' => [
             's' => "ostkaribischer Dollar",
             'p' => "ostkaribische Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'xof' => [
             's' => "westafrikanischer CFA-Franc",
             'p' => "westafrikanische CFA-Francs",
-            'minor' => self::Centimes
+            'minor' => self::CENTIMES
         ],
         'xpf' => [
             's' => "CFP-Franc",
             'p' => "CFP-Francs",
-            'minor' => self::Centimes
+            'minor' => self::CENTIMES
         ],
         'yer' => [
             's' => "Jemen-Rial",
             'p' => "Jemen-Rial",
-            'minor' => self::Fils
+            'minor' => self::FILS
         ],
         'zar' => [
             's' => "südafrikanischer Rand",
             'p' => "südafrikanische Rand",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
         'zmw' => [
             's' => "sambischer Kwacha",
@@ -1092,7 +1095,7 @@ class DE {
         'zwl' => [
             's' => "Simbabwe-Dollar",
             'p' => "Simbabwe-Dollar",
-            'minor' => self::Cents
+            'minor' => self::CENTS
         ],
     ];
 }

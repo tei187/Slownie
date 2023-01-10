@@ -1,9 +1,12 @@
-<?
+<?php
 namespace tei187\Resources;
 
+/**
+ * Class with transcription literals for German language.
+ */
 class DE {
     /** @var array[] Transcription parts in German for numbers. */
-    const Numbers = [
+    const NUMBERS = [
         'oox' => [
             1 => "eins",
             2 => "zwei",
@@ -16,23 +19,23 @@ class DE {
             9 => "neun",
         ],
         'oxo' => [
-            10 => "zehn", 
-            11 => "elf", 
-            12 => "zwölf", 
-            13 => "dreizehn", 
-            14 => "vierzehn", 
-            15 => "fünfzehn", 
-            16 => "sechzehn", 
-            17 => "siebzehn", 
-            18 => "achtzehn", 
-            19 => "neunzehn", 
+            10 => "zehn",
+            11 => "elf",
+            12 => "zwölf",
+            13 => "dreizehn",
+            14 => "vierzehn",
+            15 => "fünfzehn",
+            16 => "sechzehn",
+            17 => "siebzehn",
+            18 => "achtzehn",
+            19 => "neunzehn",
             20 => "zwanzig",
             30 => "dreißig",
-            40 => "vierzig", 
-            50 => "fünfzig", 
-            60 => "sechzig", 
-            70 => "siebzig", 
-            80 => "achtzig", 
+            40 => "vierzig",
+            50 => "fünfzig",
+            60 => "sechzig",
+            70 => "siebzig",
+            80 => "achtzig",
             90 => "neunzig",
         ],
         'xoo' => [
@@ -48,14 +51,14 @@ class DE {
         ],
         'ooy' => [ // for 10^x (x>=6)
             1 => [
-                'm' => 'ein', 
+                'm' => 'ein',
                 'f' => 'eine'
             ]
         ]
     ];
-    
+   
     /** @var array[] Transcription parts in German for large numbers. */
-    const LargeNumbers = [
+    const LARGE_NUMBERS = [
          3 => [
              's' => "tausend",
              'p' => "tausend", // not really correct, but for simplicity sake
