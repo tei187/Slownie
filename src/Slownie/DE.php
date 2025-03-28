@@ -167,15 +167,15 @@ class DE extends \tei187\Slownie\Slownie {
         }
         if($c > 0 && intval(implode("", $this->amountFull)) > 0) {
             $this->pickerUse
-                ? $full['currency'] = $this->getCurrency()
-                : $full['currency'] = $this->getCurrencyFull($this->amountFull[$c-1]);
+                ? $full[] = $this->getCurrency()
+                : $full[] = $this->getCurrencyFull($this->amountFull[$c-1]);
         } else {
             $full = [];
         }
 
         // deal with translation of rest
         $rest = [];
-        if($this->amountPart > 0) {
+        if($this->amountPart > 0 && $this->currency->getExponentUse() === true) {
             if($this->fractions) {
                 $rest[] = $this->relayFractionMinors();
             } else {
